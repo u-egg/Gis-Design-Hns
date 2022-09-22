@@ -832,17 +832,26 @@ function mapsetting(){ // 좌표이동
     }
 }
 
-function areaChange(value){
+function senterChange(value){
 
-    var center = value
-
+    var center = value;
+    
     if(center == "facility"){
-        $("#area_facility").css('display','block');
-        $("#area_station").css('display','none');
+        $(".area_facility").css('display','block');
+        $(".area_station").css('display','none');
     }
     else{
-        $("#area_facility").css('display','none');
-        $("#area_station").css('display','block');
+        $(".area_facility").css('display','none');
+        $(".area_station").css('display','block');
     }
 }
+
+function areaChange(value){
+
+    var area = value;
+    
+    alert(area);
+    
+}
+
 
