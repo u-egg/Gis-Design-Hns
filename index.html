@@ -1117,7 +1117,7 @@
 									</select>
 								</div>
 								<div class="discharge_btn"
-									onclick="document.getElementById('yousok_layer5').style.display = 'block'; layerInfo();">조회
+									onclick="document.getElementById('yousok_layer5').style.display = 'block'; layerInfo(); mapsetting();">조회
 								</div>
 							</div>
 
@@ -1243,8 +1243,11 @@
 		var marker_arrow = new Array();
 		var map;
 
+		var base = 1;
+
 		function mapChange(type) {
 			if (type == "base") {
+				base = 0;
 				map.removeLayer(hybridLayer1);
 				map.removeLayer(hybridLayer2);
 
@@ -1253,6 +1256,7 @@
 				document.getElementById("normal_map").style.color = "#31c0f7";
 				document.getElementById("sky_map").style.color = "#fff";
 			} else {
+				base = 1;
 				map.removeLayer(baseLayer);
 
 				map.addLayer(hybridLayer1);
@@ -1266,6 +1270,7 @@
 		var baseLayer = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png');
 		var hybridLayer1 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Satellite/201612/{z}/{x}/{y}.jpeg');
 		var hybridLayer2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
+
 		$(document).ready(function () {
 
 			map = L.map('map').setView([36.5, 126], 7);
