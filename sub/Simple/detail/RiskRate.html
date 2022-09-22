@@ -1,0 +1,2731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"/>
+<!--<script language="JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script language="JavaScript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<link rel="stylesheet" href="./view.css">
+<link rel="stylesheet" href="./admin.css">
+
+
+
+<style>
+html, body, a {font-family:'맑은 고딕'; margin:0; padding:0;font-size:12px;}
+ html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+
+@page {
+  size: A4;
+  margin: 5mm 11mm 11mm 5mm;
+  printBackground : 'true';
+  webkit-print-color-adjust:exact; 
+
+}
+
+@media print {
+ 
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  
+}
+.height100 {height:100px;}
+h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, blockquote, form, fieldset, legend, div,body { -webkit-print-color-adjust:exact; }
+.span_check{border:1px solid #b9b9b9; width:10px; height:10px; display:inline-block; margin-bottom:-2px;}
+
+
+.leaflet-bottom{display:none !important;}
+.leaflet-top{display:none !important;}
+</style>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<link rel="stylesheet" href="../../../css/leaflet.css" />
+
+<link rel="stylesheet" href="../../../css/jquery-ui.min.css" />
+<link rel="stylesheet" href="../../../css/icheck-bootstrap.min.css" />
+
+<script src="../../../js/pro4j.js"></script>
+<script src="../../../js/jquery-2.1.0.min.js"></script>
+<script src="../../../js/jquery-ui.min.js"></script>
+<script src="../../../js/leaflet.js"></script>
+<!--
+<script src="../../.../js/jszip.js"></script>
+<script src="../../../js/jszip-utils.js"></script>
+<script src="../../../js/jszip-utils-ie.js"></script>
+-->
+<script src="../../../js/semantic.min.js"></script>
+<script src="../../../js/dbf.js"></script>
+<script src="../../../js/preview.js" charset="utf-8"></script>
+
+
+<script src="../../../js/geotiff.js"></script>
+<script src="../../../js/plotty.js"></script>
+
+<script src="../../../js/leaflet-geotiff.js"></script>
+<script src="../../../js/leaflet-geotiff-plotty.js"></script>
+<script src="../../../js/leaflet-geotiff-vector-arrows.js"></script>
+<script src='../../../js/proj4js-combined.js'></script>
+
+<script src="../../../js/jspdf/html2canvas.js"></script>
+<script src="../../../js/jspdf/jspdf.min.js"></script>
+<script src="../../../js/jspdf/bluebird.min.js"></script>
+<style>
+/*
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+html, body{height:100% !important; word-break: keep-all; margin:0; padding:0; background:#fff; font-family:'Nanum Gothic' !important;}
+.cont h2 {
+    margin-bottom: 20px;
+
+    color: #555;
+    letter-spacing: -0.5px;
+    background: url(/images/web/common/bullet_square.gif) no-repeat left center;
+}
+
+.leftBox, .leftBox td, .leftBox th{ text-align: left !important; padding:5px 10px 5px 10px !important;}
+.rightBox, .rightBox td, .rightBox th{ text-align: right !important; }
+.centerBox, .centerBox td, .centerBox th{ text-align: center !important; }
+
+.border0 { border:0 !important;}
+
+img{ width: 100%; }
+
+</style>
+<script>
+try{
+	//javascript:CefCustomObject.showDevTools2();
+}catch(e){
+	//alert(e);
+}
+
+
+
+
+
+
+function mapChange(type) {
+	if(type == "base"){
+		map.removeLayer(hybridLayer1);
+		map.removeLayer(hybridLayer2);
+
+		map.addLayer(baseLayer);
+
+		document.getElementById("normal_map").style.color = "#31c0f7";
+		document.getElementById("sky_map").style.color = "#fff";
+	} else {
+		map.removeLayer(baseLayer);
+		
+		map.addLayer(hybridLayer1);
+		map.addLayer(hybridLayer2);
+
+		document.getElementById("normal_map").style.color = "#fff";
+		document.getElementById("sky_map").style.color = "#31c0f7";
+	}
+}
+
+var baseLayer = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png');
+var hybridLayer1 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Satellite/201612/{z}/{x}/{y}.jpeg');
+var hybridLayer2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
+var map;
+$(document).ready(function() {
+	map = L.map('map', {
+		//crs: L.CRS.EPSG4326
+	});
+
+
+
+
+
+
+    map.setView([36.00917828607655, 128], 7);
+
+	map.addLayer(hybridLayer1);
+	map.addLayer(hybridLayer2);
+	map.options.maxZoom = 18;
+	map.options.minZoom = 6;
+
+});
+
+function addImagePng(imgPath, minX, minY, maxX, maxY){
+	var imageUrl =  imgPath, imageBounds = [ [parseFloat(minY),parseFloat(minX)],[parseFloat(maxY),parseFloat(maxX)]];
+	var imgOverlay = L.imageOverlay(imageUrl, imageBounds);
+	imgOverlay.setStyle({
+      opacity: 1
+    });
+	imgOverlay.addTo(map);
+
+
+
+	var yAverage = (minY + maxY) / 2;
+	var xAverage = (minX + maxX) / 2;
+
+
+	// map.setView([35.6148827518,129.382387124], 20);
+	 map.setView([yAverage,xAverage], 11);
+
+}
+</script>
+</head>
+<body style="background:#fff; padding:30px;">
+
+<div class="cont_box_new" style="margin-top:20px; ">
+	<div class="cont">
+		<div class="udwting_cont" style="height:100%;">
+			<div class="box">
+				<div id="Survey_IW">
+					<div id="udwting_cont2">
+                    	<div id="IW_1" style="display: block;">
+
+
+<!--- 여기에 html 코드 입력하세요 끝 -------------------------------------------------------------->
+
+
+<h1 style=" webkit-print-color-adjust:exact; ">저수지별 리스크지수 상세보기</h1>
+
+<h2>1. 저수지 제원 현황</h2>
+
+<table class="cont_box1_1 centerBox" summary="" title="" width="100%" border="1" style="line-height:15px;">
+  <caption></caption>
+    <colgroup>
+      <col width="12%">
+      <col width="35%">
+      <col width="">
+    </colgroup>
+  <tbody>
+    <tr>
+      <th>시설명</th>
+      <td id="riskData1_1"></td>
+	  <td rowspan="10" style="padding:0 !important;">
+		<style>
+		#map {position:relative !important;}
+		</style>
+		<div id="map" style="width:100%; height:500px;"></div>
+	  </td>
+    </tr>
+    <tr>
+      <th>대표주소</th>
+      <td id="riskData1_2"></td>
+    </tr>
+    <tr>
+      <th>총저수량<br>(천㎥)</th>
+      <td id="riskData1_3" class="num"></td>
+    </tr>
+    <tr>
+      <th>유효저수량<br>(천㎥)</th>
+      <td id="riskData1_4" class="num"></td>
+    </tr>
+    <tr>
+      <th>제체높이<br>(m)</th>
+      <td id="riskData1_5" class="num"></td>
+    </tr>
+    <tr>
+      <th>댐마루높이<br>(EL.m)</th>
+      <td id="riskData1_6" class="num"></td>
+    </tr>
+    <tr>
+      <th>제체길이<br>(m)</th>
+      <td id="riskData1_7" class="num"></td>
+    </tr>
+    <tr>
+      <th>관리자</th>
+      <td id="riskData1_8"></td>
+    </tr>
+    <tr>
+      <th>자동수위관측<br>시스템</th>
+      <td id="riskData1_9"></td>
+    </tr>
+	  <tr>
+      <th>안전등급</th>
+      <td id="riskData1_10"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div style="height:50px;"></div>
+
+
+<h2>2. 저수지 제당 붕괴확률 분석 (Likelihood Analysis)</h2>
+<h3>2.1 호우∙지진으로 인한 연평균 붕괴확률</h3>
+<table class="cont_box1_1 centerBox" summary="" title="" width="100%" border="1" style="line-height:15px;">
+  <caption></caption>
+  <colgroup>
+    <col width="15%">
+    <col width="15%">
+    <col width="20%">
+    <col width="">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>평가</th><th>붕괴확률</th><th>연간발생확률</th><th>비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="span_check"  id="riskData2_1_1"></span>
+	</td><td>매우낮음</td><td>1/100,000 이하</td><td style="text-align: left !important;">벼락 맞을 연간확률 약 1/100,000</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData2_1_2"></td><td>낮음</td><td>1/10,000 이하</td><td style="text-align: left !important;">자동차 연간교통사고율 약 1/10,000 (2019년 기준)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData2_1_3"></td><td>보통</td><td>1/1,000 이하</td><td style="text-align: left !important;">국내저수지 제당붕괴 연평균확률2/10,000</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData2_1_4"></td><td>높음</td><td>1/100 이하</td><td style="text-align: left !important;">대한민국 연간암발병률약 4/1,000 (평생 암 걸릴 확률 36.2%, 82세 기대수명)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData2_1_5"></td><td>매우높음</td><td>1/100 초과</td><td style="text-align: left !important;">16층이상아파트단지의 연간화재사고발생률 약 6/100 (2013-2017통계)</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<style>
+  .backslash {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="lightgray" /></svg>');
+  }
+</style>
+<div class="customDivBorder">
+
+<div class="underTitle3">호우에 의한 연평균 붕괴확률 : <span id="riskData_title_2_1_1"></span></div>
+  <!--
+  - 월류위험등급 : <span  id="riskData2_2_1">Ⅲ (저수량 대비 보통 유역면적을 갖는 저수지)</span><br>
+  - 구조안전등급 : <span  id="riskData2_2_2">B (보조부재에 경미한 결함이 있는 상태)</span>
+	-->
+  - 월류에 의한 붕괴확률 : <span  id="riskData_title_2_1_2"></span><br>
+  - 내부침식에 의한 붕괴확률 : <span  id="riskData_title_2_1_3"></span>
+<style>
+  caption{
+    visibility: visible !important; height: 100% !important; width: 100% !important; font-size: 15px !important;  line-height: 30px !important; text-indent: 0px !important;
+  }
+</style>
+  <div style="height:30px;"></div>
+
+ 
+
+<div class="underTitle3">지진에 의한 연평균 붕괴확률 : <span id="riskData_title_2_1_4"></span></div>
+  - 내진설계등급 : <span id="riskData2_3_1">특등급</span><br>
+  - 설계지진의 평균 재현주기 : <span id="riskData2_3_2" class="num">2400년</span><br>
+  - 지진구역설정 : <span id="riskData2_3_3">지진구역 Ⅰ</span><br>
+  - 평수위에서의 설계지진 발생시 붕괴확률 : <span id="riskData2_3_4">25%</span><br>
+  - 연간붕괴확률 : <span  id="riskData2_3_5">25% / 2400년 = 0.000104 / 연</span><br><br>
+
+  <span class="underTitle3">호우·지진에 의한 붕괴확률 : <span id="riskData_title_2_1_5">0.0002/연 + 0.000104/연 = 0.000304/연</span></span>
+
+</div>
+
+
+
+<div style="height:30px;"></div>
+
+<h3>2.2 현 기상 현황 기준 붕괴확률 분석</h3>
+<h4 style="margin-bottom:10px;">2.2.1 현재 시각 강수량 (기상청 관측 지점 기준)</h4>
+	<div class="customDivBorder">
+		<div id="chart1"></div>
+	</div>
+
+<div style="height:30px;"></div>
+
+<h4 style="margin-bottom:10px;">2.2.2 현재 강수량 기준 붕괴확률</h4>
+	<div class="customDivBorder">
+		<div id="chart2"></div>
+	</div>
+
+
+
+
+
+<p style="page-break-before: always;"></p><!-- 인쇄시 페이지 넘김-->
+<div class="height100"></div>
+<!--<h2>3. 저수지 제당 붕괴시 홍수범람예상도 작성</h2>
+
+<div class="customDivBorder">
+  <img src="">
+</div>
+
+<div style="height:10px;"></div>
+
+<div class="customDivBorder">음영지역: 제당 붕괴시 범람예상지역<br>
+  음영지역 내 포인트: 범람예상지역 내에 위치한 건축물대장 상의 건물
+</div>
+
+
+<div style="height:100px;"></div>
+-->
+
+<h2>3. 저수지 제당 붕괴 시 인명 피해규모 분석 (Consequence Analysis)</h2>
+
+<table class="cont_box1_1 centerBox" summary="" title="" width="100%" border="1" style="line-height:15px;">
+  <caption></caption>
+  <colgroup>
+    <col width="15%">
+    <col width="15%">
+    <col width="20%">
+    <col width="">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>평가</th><th>피해규모</th><th>인명</th><th>비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="span_check"  id="riskData4_0_1"></td><td>경미</td><td>사망자 1명 이하</td><td style="text-align: left !important;"></td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData4_0_2"></td><td>소형</td><td>사망자 10명 이하</td><td style="text-align: left !important;">장현저수지붕괴사고(2002년, 2명死)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData4_0_3"></td><td>중형</td><td>사망자 100명 이하</td><td style="text-align: left !important;">효기저수지붕괴사고(1961년: 57명死)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData4_0_4"></td><td>대형</td><td>사망자 1,000명 이하</td><td style="text-align: left !important;">세월호침몰사고(2014년: 299명死)<br>루사(Rusa) 태풍(2002년: 246명死)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData4_0_5"></td><td>초대형</td><td>사망자 1,000명 초과</td><td style="text-align: left !important;">제3693호 태풍(1936년: 1,232명死)<br>제2353호 태풍(1923년: 1,157명死)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="underTitle2">피해규모 평가에 사용된 백데이터</div>
+
+<table class="cont_box1_1" summary="" title="" width="100%" border="1" style="line-height:15px; margin-bottom: 0px;">
+  <caption></caption>
+  <colgroup>
+    <col width="20%">
+    <col width="10%">
+    <col width="10%">
+    <col width=""> <!--열 4개 맞음-->
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="centerBox">구분</th><th class="centerBox" colspan="2">현황</th><th class="centerBox">영향 설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="centerBox" rowspan="2">인명 노출도</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span  id="riskData4_1_1" class="num"></span>명</td><td rowspan="2" style="text-align: left !important;">범람예상지역 내에 위치한 건축물대장 상의 건물 내 세대수에 평균세대원수를 곱하여 추정</td>
+    </tr>
+    <tr>
+      <td class="rightBox" style="border-top: 0px;">침수부</td><td style="border-left: 0px; border-top: 0px;"><span  id="riskData4_1_2" class="num"></span>명</td>
+    </tr>
+    <tr>
+      <td class="centerBox" rowspan="2">사전 대피율</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span  id="riskData4_2_1"></span>%</td><td rowspan="2" style="text-align: left !important;">평균 사전 대피율 <span id="viewSystemVal"></span>에 집계구 단위의 취약성지수를 반영하여 추정</td>
+    </tr>
+    <tr>
+      <td class="rightBox" style="border-top: 0px;">침수부</td><td style="border-left: 0px; border-top: 0px;"><span  id="riskData4_2_2"></span>%</td>
+    </tr>
+    <tr>
+      <td class="centerBox" rowspan="2">대피 후 잔류자</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span  id="riskData4_3_1" class="num"></span>명</td><td rowspan="2" style="text-align: left !important;">사전 대피하지 못한 거주자 수</td>
+    </tr>
+    <tr>
+      <td style="border-top: 0px;" class="rightBox">침수부</td><td style="border-left: 0px; border-top: 0px;"><span id="riskData4_3_2" class="num"></span>명</td>
+    </tr>
+    <tr>
+      <td class="centerBox" rowspan="2">사망자</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span id="riskData4_4_1" class="num"></span>명</td><td rowspan="2" style="text-align: left !important;">붕괴부 잔류자 사망률 75%, 침수부 잔류자 사망률 1%를 반영하여 추정</td>
+    </tr>
+    <tr>
+      <td class="rightBox" style="border-top: 0px;">침수부</td><td style="border-left: 0px; border-top: 0px;"><span id="riskData4_4_2" class="num"></span>명</td>
+    </tr>
+    <tr>
+      <td class="centerBox">전체 사망자</td><td class="centerBox" colspan="2"><span id="riskData4_5" class="num"></span>명</td><td style="text-align: left !important;"></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="height:50px;"></div>
+
+
+<h2>4.저수지 제당 붕괴 시 사유재산 피해규모 분석 (Consequence Analysis)</h2>
+
+<table class="cont_box1_1 centerBox" summary="" title="" width="100%" border="1" style="line-height:15px;">
+  <caption></caption>
+  <colgroup>
+    <col width="15%">
+    <col width="15%">
+    <col width="20%">
+    <col width="">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>평가</th><th>피해규모</th><th>사유재산</th><th>비고</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="span_check"  id="riskData5_0_1"></td><td>경미</td><td>재조달가액기준<br>50억원 이하</td><td style="text-align: left !important;">모원저수지붕괴사고(2018년: 17억원)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData5_0_2"></td><td>소형</td><td>재조달가액기준<br>500억원 이하</td><td style="text-align: left !important;">청주홍수(2017년: 315억원)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData5_0_3"></td><td>중형</td><td>재조달가액기준<br>5,000억원 이하</td><td style="text-align: left !important;">연천댐붕괴(1996•1999년: 1,130억원)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData5_0_4"></td><td>대형</td><td>재조달가액기준<br>50,000억원 이하</td><td style="text-align: left !important;">매미(Maemi) 태풍(2003년: 42,225억원)</td>
+    </tr>
+    <tr>
+      <td><span class="span_check"  id="riskData5_0_5"></td><td>초대형</td><td>재조달가액기준<br>50,000억원 이하</td><td style="text-align: left !important;">루사(Rusa) 태풍(2002년: 51,479억원)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="underTitle2">피해규모 평가에 사용된 백데이터</div>
+
+<table class="cont_box1_1" summary="" title="" width="100%" border="1" style="line-height:15px; margin-bottom: 0px;">
+  <caption></caption>
+  <colgroup>
+    <col width="20%">
+    <col width="10%">
+    <col width="10%">
+    <col width=""> <!--열 4개 맞음-->
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="centerBox">구분</th><th colspan="2" class="centerBox">현황</th><th class="centerBox">영향 설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" class="centerBox">건물 노출도</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span id="riskData5_1_1" class="num"></span>채</td><td rowspan="2" style="text-align: left !important;">범람예상지역 내에 위치한 건축물대장 상의 건물</td>
+    </tr>
+    <tr>
+      <td style="border-top: 0px;" class="rightBox">침수부</td><td style="border-left: 0px; border-top: 0px;"><span id="riskData5_1_2" class="num"></span>채</td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="centerBox">사유재산 피해</td><td class="rightBox">붕괴부</td><td style="border-left: 0px;"><span id="riskData5_2_1" class="num"></span>억원</td><td rowspan="2" style="text-align: left !important;">풍수해 직접간접 피해를 고려한 피해 산정 및 예측 기술개발(행정안전부 2019) 연구 결과를 이용하여 침수심에 따른 피해 추정</td>
+    </tr>
+    <tr>
+      <td style="border-top: 0px;" class="rightBox">침수부</td><td style="border-left: 0px; border-top: 0px;"><span id="riskData5_2_2" class="num"></span>억원</td>
+    </tr>
+    <tr>
+      <td class="centerBox">전체 피해</td><td colspan="2" class="centerBox"><span id="riskData5_3" class="num"></span>억원</td><td style="text-align: left !important;"></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<p style="page-break-before: always;"></p><!-- 인쇄시 페이지 넘김-->
+<div class="height100"></div>
+
+<h2>5. 연평균 리스크지수 기준 리스크 심사(Risk Evaluation)</h2>
+
+
+	<style>
+				.guideLine{width:500px;}
+				.guideLine td{ width:100px; height:50px; border:1px solid #000 !important;}
+				.y{background:#ffff00; padding:0 !important;}
+				.r{background:#ff0000; padding:0 !important;}
+				.g{background:#00b050; padding:0 !important;}
+				.o{background:#ffc000; padding:0 !important;}
+				.b{background:#0070c0; padding:0 !important;}
+
+				.guideLineTxt{font-size:12px; height:1.5cm; border:0;}
+			
+				.texto-vertical-2 {
+				
+					 transform: rotate(270deg);
+					
+				}
+				.skyColor{color:#42c6e9; font-weight:bold;}
+
+				
+				</style>
+
+
+
+
+
+<table class="cont_box1_1" summary="" title="" width="100%" border="1" style="line-height:15px;">
+  <caption></caption>
+  <colgroup>
+    <col width="150">
+    <col width="">
+   
+ 
+  </colgroup>
+<tr>
+	<th style=" text-align:center;">
+		분류
+	</th>
+	<th style=" text-align:center;">
+		결과
+	</th>
+</tr>
+<tr>
+	<th rowspan=2  style="vertical-align:middle !important; text-align:center;">
+		인명 리스크지수
+	</th>
+	<td>
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding=0 cellspacing=0 border=0 width=100% style=" border:0; margin-left:0;  ">
+						<tr>
+							<td valign=middle  style="text-align:left; width:1.1cm; border:0 !important;">
+								<div class="texto-vertical-2 sub_sub_title" style="position:absolute; left:5cm;    " >
+									붕괴확률 (/year)
+								</div>
+								
+							</td>
+							<td valign=top style=" border:0 !important;">
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style="text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-right:5px; border:0 !important;">
+									
+										<div>
+											1.E-01
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(매우높음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-02
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(높음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-03
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(보통)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-04
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(낮음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-05
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(매우낮음)
+										</div>
+										<div style="padding-top:0.27cm;" >
+											1.E-06
+										</div>
+
+									</td>
+								</tr>																				
+								</table>
+							</td>
+							<td style="border:0 !important;">
+								<div id="riskCircle1"  style=" position:absolute;  margin-left:0; margin-top:0;  z-index:9999; ">
+									<div style=" width:0.2cm; height:0.2cm;  background:#00e4ff; border:2px solid #000; border-radius:10px; float:left;  "></div> 
+									<!--<div style="margin-top:-8px; border:2px solid #000; margin-left:5px; padding:5px;  float:left; color:#000; background:#fff; font-size:13px;  ">PMF4</div> -->
+								</div>
+								<table cellpadding=0 cellspacing=0 border=1 width=100% class="guideLine"  style=" z-index:0; ">
+									<tr>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr >
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									
+														
+								</table>
+
+							
+									
+
+							</td>
+						</tr>
+						<tr>
+							
+							<td colspan=3 style="border:0 !important;">
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style="text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-left:3.2cm; border:0 !important;">
+										<div style="margin-top:-45px;">
+											<div style="float:left;">
+												0.1
+											</div>
+
+											<div style="float:left;  padding-left:0.6cm;" class="skyColor">
+												(경미)
+											</div>
+
+											<div style="float:left; padding-left:0.8cm;">
+												1
+											</div>
+
+											<div style="float:left;padding-left:0.8cm;" class="skyColor">
+												(소형)
+											</div>
+
+											<div style="float:left;padding-left:0.8cm;">
+												10
+											</div>
+
+											<div style="float:left;padding-left:0.8cm;" class="skyColor">
+												(중형)
+											</div>
+
+											<div style="float:left;padding-left:0.5cm;">
+												100
+											</div>
+
+											<div style="float:left;padding-left:0.7cm;" class="skyColor">
+												(대형)
+											</div>
+
+											<div style="float:left;padding-left:0.4cm;">
+												1,000
+											</div>
+
+											<div style="float:left;padding-left:0.45cm;" class="skyColor">
+												(초대형)
+											</div>
+											<div style="float:left;padding-left:0.35cm;">
+												
+											</div>
+										</div>
+									</td>
+								</tr>	
+							
+								</table>
+
+								
+										<div style="text-align:center; margin-top:-1cm; font-weight:bold;" class="sub_sub_title">
+											피해규모(사망자 수)
+										</div>
+								
+							</td>
+						</tr>
+						</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+	</td>
+</tr>
+  <tr>
+     <td>
+		  <table cellpadding=0 cellspacing=0 border=0 width=100%>
+		   <colgroup>
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+		  </colgroup>
+		  <tr>
+			<td style="" class="rightBox border0">붕괴확률(/연) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_left_1"></span></td>
+			<td style="" class="rightBox border0">인명피해(명) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_left_2"></span></td>
+		  </tr>
+		  <tr>
+			<td style="" class="rightBox border0">연간인명피해(명/연) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_left_3"></span></td>
+			<td style="" class="rightBox border0">리스크 판정 : </td><td class="border0"  style=" border-left: 0px;"><span  id="riskData6_left_4"></span></td>
+		  </tr>
+		
+		  </table>
+	  </td>
+    </tr>
+<tr>
+	<th rowspan=2 style="vertical-align:middle !important; text-align:center;">
+		재산 리스크지수
+	</th>
+	<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table cellpadding=0 cellspacing=0 border=0 width=100% style=" border:0; margin-left:0;  ">
+						<tr>
+							<td valign=middle  style="text-align:left; width:1.1cm; border:0 !important;">
+								<div class="texto-vertical-2 sub_sub_title" style="position:absolute; left:5cm; " >
+									붕괴확률 (/year)
+								</div>
+								
+							</td>
+							<td valign=top style=" border:0 !important;">
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style="text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-right:5px; border:0 !important;">
+									
+										<div>
+											1.E-01
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(매우높음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-02
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(높음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-03
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(보통)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-04
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(낮음)
+										</div>
+
+										<div style="padding-top:0.27cm;">
+											1.E-05
+										</div>
+
+										<div style="padding-top:0.27cm;" class="skyColor">
+											(매우낮음)
+										</div>
+										<div style="padding-top:0.27cm;" >
+											1.E-06
+										</div>
+
+									</td>
+								</tr>																				
+								</table>
+							</td>
+							<td style="border:0 !important;">
+								<div id="riskCircle2"  style=" position:absolute;  margin-left:0; margin-top:0;  z-index:9999; ">
+									<div style=" width:0.2cm; height:0.2cm;  background:#00e4ff; border:2px solid #000; border-radius:10px; float:left;  "></div> 
+									<!--<div style="margin-top:-8px; border:2px solid #000; margin-left:5px; padding:5px;  float:left; color:#000; background:#fff; font-size:13px;  ">PMF4</div> -->
+								</div>
+								<table cellpadding=0 cellspacing=0 border=1 width=100% class="guideLine"  style=" z-index:0; ">
+									<tr>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr >
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="y">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									
+														
+								</table>
+
+							
+									
+
+							</td>
+						</tr>
+						<tr>
+							
+							<td colspan=3 style="border:0 !important;">
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style="text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-left:3.4cm; border:0 !important;">
+										<div style="margin-top:-45px;">
+											<div style="float:left;">
+												0
+											</div>
+
+											<div style="float:left;  padding-left:0.8cm;" class="skyColor">
+												(경미)
+											</div>
+
+											<div style="float:left; padding-left:0.65cm;">
+												50
+											</div>
+
+											<div style="float:left;padding-left:0.7cm;" class="skyColor">
+												(소형)
+											</div>
+
+											<div style="float:left;padding-left:0.7cm;">
+												500
+											</div>
+
+											<div style="float:left;padding-left:0.6cm;" class="skyColor">
+												(중형)
+											</div>
+
+											<div style="float:left;padding-left:0.5cm;">
+												5,000
+											</div>
+
+											<div style="float:left;padding-left:0.6cm;" class="skyColor">
+												(대형)
+											</div>
+
+											<div style="float:left;padding-left:0.35cm;">
+												50,000
+											</div>
+
+											<div style="float:left;padding-left:0.40cm;" class="skyColor">
+												(초대형)
+											</div>
+											<div style="float:left;padding-left:0.35cm;">
+												
+											</div>
+										</div>
+									</td>
+								</tr>	
+							
+								</table>
+
+								
+										<div style="text-align:center; margin-top:-1cm;  font-weight:bold;" class="sub_sub_title">
+											피해규모(재산피해, 억원, 재조달가액 기준)
+										</div>
+								
+							</td>
+						</tr>
+						</table>
+
+
+
+
+
+
+
+	</td>
+</tr>
+<tr>
+	<td>
+		  <table cellpadding=0 cellspacing=0 border=0 width=100%>
+		   <colgroup>
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+			<col width="25%">
+		  </colgroup>
+		  <tr>
+			<td style="" class="rightBox border0">붕괴확률(/연) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_right_1"></span></td>
+			<td style="" class="rightBox border0">재산피해(/억원) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_right_2" class="num"></span></td>
+		  </tr>
+		  <tr>
+			<td style="" class="rightBox border0">연간재산피해(억원/연) : </td><td class="border0" style=" border-left: 0px;"><span  id="riskData6_right_3" class="num"></span></td>
+			<td style="" class="rightBox border0">리스크 판정 : </td><td class="border0"  style=" border-left: 0px;"><span  id="riskData6_right_4"></span></td>
+		  </tr>
+		
+		  </table>
+	</td>
+</tr>
+</table>
+
+<div class="customDivBorder">적합: 현행 안전관리 유지<br>
+  조건부 적합: 3D 시뮬레이션을 통한 손실평가 시행 후 재심사<br>
+  부적합: 재해위험저수지 지정 및 관리
+</div>
+
+
+<p style="page-break-before: always;"></p><!-- 인쇄시 페이지 넘김-->
+<div class="height100"></div>
+
+<h2>6. 저감대책 옵션 제안</h2>
+
+
+<style>
+.content1{font-size:12px; font-weight:bold; color:#5b79b9;  margin-bottom:5px; word-break:keep-all;}   /* 제목 2번, 사용방법 아래 div 참고 */
+</style>
+
+<!--
+<h3>6.1 타이틀 1</h3>
+-->
+<table class="cont_box1_1" summary="" title="" width="100%" border="1" style="line-height:15px; margin-bottom: 0px;">
+  <caption></caption>
+  <colgroup>
+    <col width="10%">
+    <col width="30%">
+    <col width="30%">
+    <col width="30%">
+ 
+  </colgroup>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="centerBox">옵션</th><th  class="centerBox">보수보강을 통한<br>내부침식 붕괴확률 저감</th><th class="centerBox">자동수위관측시스템 설치를 통한<br>사전대피율 제고</th><th  class="centerBox">준설공사를 통한<br>월류확률 경감</th>
+    </tr>
+    <tr>
+      <th rowspan="6" class="centerBox">현행</th>
+		<td class="leftBox " >
+			<div class="content1">· 안전등급</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_left1"></span> 등급
+		</td>
+		
+		<td class="leftBox">
+			<div class="content1">· 수위관측시스템</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_center1"></span>
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 저수지 퇴사량</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_right1"></span> 만㎥<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(추정치, 실제와 다를 수 있음)
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴확률</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_left2"></span> /연
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 사전대피율</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_center2"></span>%
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴확률</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_right2"></span> /연
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_left3"></span> 명
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_center3"></span> 명
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_right3"></span> 명
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_left4"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 호우시 붕괴확률</div>
+			&nbsp;&nbsp;┗ <span id="f_type1_center4"></span> /연
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_right4"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴로 인한 연간인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_left5"></span> 백만원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 호우붕괴로 인한 연간인명피해 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_center5"></span> 백만원
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴로 인한 연간인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_right5"></span> 백만원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴로 인한 연간건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_left6"></span> 백만원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴로 인한 연간건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type1_right6"></span> 백만원
+		</td>
+    </tr>
+
+
+
+
+
+
+
+
+
+	<tr>
+      <th rowspan="6" class="centerBox">개선 효과</th>
+		<td class="leftBox " >
+			<div class="content1">· 안전등급</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_left1"></span> 등급
+		</td>
+		
+		<td class="leftBox">
+			<div class="content1">· 수위관측시스템</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_center1"></span>
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 저수지 준설량</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_right1"></span> 만㎥<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(추정치, 실제와 다를 수 있음)
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴확률</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_left2"></span> /연
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 사전대피율</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_center2"></span>
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴확률</div>
+			&nbsp;&nbsp;┗ <span id="f_type2_right2"></span> /연
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_left3"></span> 명
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_center3"></span> 명
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_right3"></span> 명
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_left4"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 호우시 붕괴확률</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_center4"></span> /연
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 붕괴시 건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_right4"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴로 인한 연간인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_left5"></span> 백만원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 호우붕괴로 인한 연간인명피해 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_center5"></span> 백만원
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴로 인한 연간인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_right5"></span> 백만원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 내부침식붕괴로 인한 연간건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_left6"></span> 백만원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 월류붕괴로 인한 연간건물피해복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type2_right6"></span> 백만원
+		</td>
+    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	<tr>
+      <th rowspan="4" class="centerBox">비용(C)</th>
+		<td class="leftBox " >
+			<div class="content1">· 설계비용</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_left1"></span> 억원
+		</td>
+		
+		<td class="leftBox">
+			<div class="content1">· 설치비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_center1"></span> 억원
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 준설비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_right1"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 보수보강공사비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_left2"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+				<div class="content1">· 연간유지관리비 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_center2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 연간유지관리비</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_right2"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 연간유지관리비 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_left3"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 50년간 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_center3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 50년간 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_right3"></span> 억원
+		</td>
+    </tr>
+		<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 50년간 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type3_left4"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			
+		</td>
+    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<tr>
+      <th rowspan="3" class="centerBox">편익</th>
+		<td class="leftBox " >
+			<div class="content1">· 50년간 인명피해경감 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_left1"></span> 억원
+		</td>
+		
+		<td class="leftBox">
+			<div class="content1">· 50년간 건물피해경감 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_center1"></span> 억원
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 50년간 인명피해경감 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_right1"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 50년간 건물피해복구 경감 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_left2"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+			
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 50년간 건물피해복구 경감</div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_right2"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 50년간 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_left3"></span> 억원
+		</td>
+		
+		<td style="border-top: 0px;" class="leftBox">
+		
+		</td>
+		<td style="border-top: 0px;" class="leftBox">
+			<div class="content1">· 50년간 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="f_type4_right3"></span> 억원
+		</td>
+    </tr>
+
+
+
+
+
+
+
+
+
+	<tr>
+      <th rowspan="1" class="centerBox">B/C</th>
+		<td class="centerBox " >
+			<span class="num" id="f_type5_left1"></span>
+		</td>
+		
+		<td class="centerBox">
+			<span class="num" id="f_type5_center1"></span>
+		</td>
+		<td class="centerBox">
+			<span class="num" id="f_type5_right1"></span>
+		</td>
+    </tr>
+
+
+	
+  </tbody>
+</table>
+
+<div style="height:30px;"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<h3>6.2 타이틀 2</h3>
+-->
+
+<table class="cont_box1_1" summary="" title="" width="100%" border="1" style="line-height:15px; margin-bottom: 0px;">
+  <caption></caption>
+  <colgroup>
+    <col width="10%">
+    <col width="22.5%">
+    <col width="22.5%">
+    <col width="22.5%">
+	<col width="22.5%">
+ 
+  </colgroup>
+  <thead>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="centerBox">옵션</th><th  class="centerBox">침수 범위 내<br>건물 철거</th><th class="centerBox">침수 범위 내<br>취약구조 건물 철거</th><th  class="centerBox">침수 범위 내<br>노후 건물 철거</th><th  class="centerBox">침수 범위 내<br>취약구조 및 노후 건물 철거</th>
+    </tr>
+    <tr>
+      <th rowspan="3" class="centerBox">현행</th>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type1_1_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type2_1_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type3_1_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type4_1_1"></span> 명
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type1_1_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type2_1_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type3_1_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type4_1_2"></span> 억원
+		</td>
+
+		
+		
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_1_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_1_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_1_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_1_3"></span> 억원
+		</td>
+		
+	
+    </tr>
+
+	
+
+
+
+
+
+
+
+
+
+	 <tr>
+      <th rowspan="3" class="centerBox">개선 효과</th>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type1_2_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type2_2_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type3_2_1"></span> 명
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 붕괴시 인명피해</div>
+			&nbsp;&nbsp;┗ <span id="type4_2_1"></span> 명
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type1_2_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type2_2_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type3_2_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 인명피해 가치</div>
+			&nbsp;&nbsp;┗ <span id="type4_2_2"></span> 억원
+		</td>
+
+		
+		
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_2_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_2_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_2_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 붕괴시 건물피해 복구액</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_2_3"></span> 억원
+		</td>
+		
+	
+    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	<tr>
+      <th rowspan="4" class="centerBox">비용(C)</th>
+		<td class="leftBox " >
+			<div class="content1">· 철거비용</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_3_1"></span> 억원
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 철거비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_3_1"></span> 억원
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 철거비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_3_1"></span> 억원
+		</td>
+		<td class="leftBox">
+			<div class="content1">· 철거비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_3_1"></span> 억원
+		</td>
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 처리비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_3_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 처리비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_3_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 처리비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_3_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 처리비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_3_2"></span> 억원
+		</td>
+
+		
+	
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 운반비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_3_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 운반비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_3_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 운반비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_3_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 폐기물 운반비용 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_3_3"></span> 억원
+		</td>
+
+    </tr>
+		<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_3_4"></span> 억원
+		</td>
+			<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_3_4"></span> 억원
+		</td>
+			<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_3_4"></span> 억원
+		</td>
+			<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 비용 총계 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_3_4"></span> 억원
+		</td>
+
+		
+    </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<tr>
+      <th rowspan="3" class="centerBox">편익</th>
+		<td class="leftBox " >
+			<div class="content1">· 인명피해경감 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_4_1"></span> 억원
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 인명피해경감 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_4_1"></span> 억원
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 인명피해경감 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_4_1"></span> 억원
+		</td>
+		<td class="leftBox " >
+			<div class="content1">· 인명피해경감 가치</div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_4_1"></span> 억원
+		</td>
+		
+		
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 건물피해복구 경감 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_4_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 건물피해복구 경감 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_4_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 건물피해복구 경감 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_4_2"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 건물피해복구 경감 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_4_2"></span> 억원
+		</td>
+	
+    </tr>
+
+	<tr>    
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type1_4_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type2_4_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type3_4_3"></span> 억원
+		</td>
+		<td style="border-top: 0px;" class="leftBox " >
+			<div class="content1">· 편익 총계 가치 </div>
+			&nbsp;&nbsp;┗ <span class="num" id="type4_4_3"></span> 억원
+		</td>
+		
+		
+    </tr>
+
+
+
+
+
+
+
+
+
+	<tr>
+      <th rowspan="1" class="centerBox">B/C</th>
+		<td class="centerBox " >
+			<span class="num" id="type1_5_1"></span>
+		</td>
+		
+		<td class="centerBox">
+			<span class="num" id="type2_5_1"></span>
+		</td>
+		<td class="centerBox">
+			<span class="num" id="type3_5_1"></span>
+		</td>
+		<td class="centerBox">
+			<span class="num" id="type4_5_1"></span>
+		</td>
+    </tr>
+
+
+	
+  </tbody>
+</table>
+
+
+<div style="height:100px;"></div>
+
+<style>
+
+.underTitle1{font-size:18px; font-weight:bold; color:#1f497d;  margin-bottom:20px; word-break:keep-all;}	/* 제목 1번, 사용방법 아래 div 참고 */
+.underTitle2{font-size:14px; font-weight:bold; color:#5b79b9;  margin-bottom:10px; word-break:keep-all;}   /* 제목 2번, 사용방법 아래 div 참고 */
+.underTitle3{font-size:13px; font-weight:bold; color:#5b79b9;  margin-bottom:10px; word-break:keep-all;}   /* 제목 2번, 사용방법 아래 div 참고 */
+.customDivBorder{border:1px solid #dedede; padding:10px; line-height:20px;} /* 네모박스 안에 내용 넣고 싶을 때 div 태그 사용하여 만듦 // 사용방법 아래 div 참고*/
+
+.paddingTable {border:0 !important; display:table-cell; height:100%;}
+.paddingTable tr{border:0 !important;}
+.paddingTable td{ border:1px solid #ff0000;padding:0 !important;}
+
+.paddingTable td{  height:1px;}
+.paddingTable td > div{ border:1px solid #ff0000; padding:10px; height:100%;vertical-align:middle;}
+
+.paddingTable tr > td > div:nth-child(1){
+	margin-right:10px;
+	text-align:center;height:100%;
+	display:inline-block;
+}
+.divMarginZeroTextLeft{
+	margin-right:0px !important;
+	text-align:left !important;height:100%;
+}
+.divMarginZeroTextCenter{
+	margin-right:0px !important;
+	text-align:center !important;height:100%;
+}
+</style>
+
+
+<style>
+.padding_table{margin-bottom:40px; color: #888;}
+.padding_table_a{height:100%; border:1px solid #ff0000; float:left; margin-right:20px; text-align:center; padding:10px; word-break:break-all;word-wrap:break-word;}
+.padding_table_a_1{height:100%; border:1px solid #ff0000; float:left; word-break:break-all;word-wrap:break-word;  padding:10px;}
+
+.padding_table_b{ border:1px solid #ff0000; color:#888;  margin-right:20px; float:left; padding:10px; text-align:center;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--- 여기에 html 코드 입력하세요 끝 -------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			  </div><!-- //box -->
+			</div><!-- //udwting_cont -->
+		</div><!-- //cont -->
+	</div>
+</div>
+
+
+
+ 
+
+
+<script>
+
+//javascript:reservoirlocation.showDevTools();
+
+
+//function r_info(riskData1, riskData2, riskData3, riskData4, riskData5, riskData6_0, riskData6, riskData7_1, riskData7_2, riskData7_3, riskData7_4, riskData7_5, riskData7_6, riskData7_7, riskData7_8, riskData7_9, riskData7_10, //riskData_title_2_1){
+var chartTime = [];
+var chart1Data = [];
+var chart2Data = [];
+function r_info(riskData1, riskData2, riskData3, riskData4, riskData5, riskData6_0, riskData6, riskData_title_2_1, f_type1_left, f_type2_left, f_type3_left, f_type4_left, f_type5_left, f_type1_center, f_type2_center, f_type3_center, f_type4_center, f_type5_center, f_type1_right, f_type2_right, f_type3_right, f_type4_right, f_type5_right, api_result, type_1, type_2_1, type_2_2, type_2_3, type_3_1, type_3_2, type_3_3, type_3_4, type_4_1, type_4_2, type_4_3, type_5_1){
+
+
+	
+
+	//setApi(code);
+
+
+
+
+
+
+
+
+
+
+
+
+
+	var riskData1split = riskData1.split('**'); // 1. 저수지 제원 현황
+	for(var i = 0; i < riskData1split.length; i++){
+		if(i > 1 && i < 7){  // 총저수량 부터 ~ 제체길이 까지 소수점 첫째자리까지만 표출
+			var round = parseFloat(riskData1split[i]).toFixed(1);  // 소수점이 0이면 정수만 표출
+			var splitDot = String(round).split(".");
+
+			var roundVal = "";
+			if(splitDot[1] == "0"){
+				roundVal = splitDot[0];
+			}else{
+				roundVal = round;
+			}
+
+			document.getElementById("riskData1_" + (i+1)).innerHTML = roundVal; //저수지정보
+		}else{
+			document.getElementById("riskData1_" + (i+1)).innerHTML = riskData1split[i]; //저수지정보
+		}
+		
+	}
+
+
+	var riskData2split = riskData2.split('**'); //2. 저수지 제당 붕괴확률 분석
+
+	document.getElementById("riskData1_10").innerHTML = riskData2split[4]; //안전등급
+
+
+
+	//document.getElementById("riskData2_1_" + riskData2split[0]).checked = true; //체크박스
+	document.getElementById("riskData2_1_" + riskData2split[0]).style.background = "#5f5f5f"; //체크박스
+	
+	/*
+	document.getElementById("riskData2_2_1").innerHTML = riskData2split[1]; // 호우에 의한 붕괴확률 , 월류위험등급
+	document.getElementById("riskData2_2_2").innerHTML = riskData2split[4]; // 호우에 의한 붕괴확률 , 구조안전등급
+	*/
+	
+	//var aaa = "riskData2_" + riskData2split[2] + "_" + riskData2split[5];
+	//document.getElementById("riskData2_" + riskData2split[2] + "_" + riskData2split[5]).style.background = "yellow"; // 호우에 의한 붕괴확률, 테이블
+	
+	/*
+	var aaa = "riskData2_" + riskData2split[2] + "_" + riskData2split[5];
+	document.getElementById("riskData2_" + riskData2split[2] + "_" + riskData2split[5]).checked = true; // 호우에 의한 붕괴확률, 테이블
+	*/
+
+	document.getElementById("riskData2_3_1").innerHTML = riskData2split[7];
+	document.getElementById("riskData2_3_2").innerHTML = riskData2split[8].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "년";
+	if(riskData2split[9] == "1"){
+		document.getElementById("riskData2_3_3").innerHTML = "지진구역 Ⅰ";
+	}else{
+		document.getElementById("riskData2_3_3").innerHTML = "지진구역 Ⅱ";
+	}
+	
+	document.getElementById("riskData2_3_4").innerHTML = riskData2split[13] +"%";
+	document.getElementById("riskData2_3_5").innerHTML = riskData2split[13] +"%" + " / " + riskData2split[8].toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "년 = " + riskData2split[11] + " /연";
+
+
+	//document.getElementById("riskData2_3_6").innerHTML = riskData2split[6] +"(연) + " + riskData2split[11] + "(연) = " + riskData2split[12] + "(연)";
+
+
+
+
+
+
+	var riskData_title_2_1_split = riskData_title_2_1.split("**");
+
+	for(var i = 0; i < riskData_title_2_1_split.length; i++){
+
+		document.getElementById("riskData_title_2_1_" + (i + 1)).innerHTML = riskData_title_2_1_split[i] + " /연";
+
+	}
+
+
+
+
+
+
+
+
+
+	var riskData4split = riskData4.split('**'); //4. 저수지 제당 붕괴 시 인명 피해규모 분석
+
+	//document.getElementById("riskData4_0_" + riskData4split[0]).checked = true;
+	document.getElementById("riskData4_0_" + riskData4split[0]).style.background = "#5f5f5f";
+
+	document.getElementById("riskData4_1_1").innerHTML = Math.round(parseFloat(riskData4split[1]));
+	document.getElementById("riskData4_1_2").innerHTML =  Math.round(parseFloat(riskData4split[2]));
+	document.getElementById("riskData4_2_1").innerHTML = parseFloat(riskData4split[3]).toFixed(2) * 100;
+	document.getElementById("riskData4_2_2").innerHTML = parseFloat(riskData4split[4]).toFixed(2) * 100;
+
+	document.getElementById("riskData4_3_1").innerHTML = Math.round(parseFloat(riskData4split[5]));
+	document.getElementById("riskData4_3_2").innerHTML =  Math.round(parseFloat(riskData4split[6]));
+	document.getElementById("riskData4_4_1").innerHTML = Math.round(parseFloat(riskData4split[7]));
+	document.getElementById("riskData4_4_2").innerHTML =  Math.round(parseFloat(riskData4split[8]));
+	document.getElementById("riskData4_5").innerHTML =  Math.round(parseFloat(riskData4split[9]));
+
+
+	var riskData5split = riskData5.split('**'); //5. 저수지 제당 붕괴 시 사유재산 피해규모 분석
+	//document.getElementById("riskData5_0_" + riskData5split[0]).checked = true;
+	document.getElementById("riskData5_0_" + riskData5split[0]).style.background = "#5f5f5f";
+
+	document.getElementById("riskData5_1_1").innerHTML = Math.round(parseFloat(riskData5split[1]));
+	document.getElementById("riskData5_1_2").innerHTML =  Math.round(parseFloat(riskData5split[2]));
+	document.getElementById("riskData5_2_1").innerHTML = Math.round(parseFloat(riskData5split[3]));
+	document.getElementById("riskData5_2_2").innerHTML = Math.round(parseFloat(riskData5split[4]));
+
+	document.getElementById("riskData5_3").innerHTML = Math.round(parseFloat(riskData5split[5]));
+
+	var riskData6split = riskData6.split('**'); //6. 저수지
+	document.getElementById("riskData6_left_1").innerHTML =  riskData6split[0];
+	document.getElementById("riskData6_left_2").innerHTML =  Math.round(parseFloat(riskData6split[1]));
+	document.getElementById("riskData6_left_3").innerHTML =  riskData6split[2]; //Math.round(parseFloat(riskData6split[2]));
+	document.getElementById("riskData6_left_4").innerHTML =  riskData6split[3];
+
+	document.getElementById("riskData6_right_1").innerHTML =  riskData6split[4];
+	document.getElementById("riskData6_right_2").innerHTML =  Math.round(parseFloat(riskData6split[5]));
+	document.getElementById("riskData6_right_3").innerHTML =  riskData6split[6];//Math.round(parseFloat(riskData6split[6]));
+	document.getElementById("riskData6_right_4").innerHTML =  riskData6split[7];
+	//document.getElementById("riskData6_right_4").innerHTML =  "부적합";
+
+
+	
+
+	
+
+
+
+
+
+
+//f_type1_left, f_type2_left, f_type3_left, f_type4_left, f_type5_left, f_type1_center, f_type2_center, f_type3_center, f_type4_center, f_type5_center, f_type1_right, f_type2_right, f_type3_right, f_type4_right, f_type5_right
+
+	var arr_f_type1_left = f_type1_left.split("**");
+	
+	var safety = arr_f_type1_left[0]; //안전등급
+
+	for(var i = 0; i < arr_f_type1_left.length; i++){
+		
+		document.getElementById("f_type1_left" + (i + 1)).innerHTML = arr_f_type1_left[i];
+		
+	}
+
+	if(safety != "A"){ //안전등급이 A가 아니면
+
+		var arr_f_type2_left = f_type2_left.split("**");
+		var arr_f_type3_left = f_type3_left.split("**");
+		var arr_f_type4_left = f_type4_left.split("**");
+		var arr_f_type5_left = f_type5_left;
+
+
+		for(var i = 0; i < arr_f_type2_left.length; i++){
+			document.getElementById("f_type2_left" + (i + 1)).innerHTML = arr_f_type2_left[i];
+		}
+		for(var i = 0; i < arr_f_type3_left.length; i++){
+			document.getElementById("f_type3_left" + (i + 1)).innerHTML = arr_f_type3_left[i];
+		}
+		for(var i = 0; i < arr_f_type4_left.length; i++){
+			document.getElementById("f_type4_left" + (i + 1)).innerHTML = arr_f_type4_left[i];
+		}
+		
+		document.getElementById("f_type5_left1").innerHTML = arr_f_type5_left;
+
+	}
+
+
+
+
+
+	
+	var arr_f_type1_center = f_type1_center.split("**");
+	var viewSystem = arr_f_type1_center[0]; //수위관측시스템
+
+
+	if(viewSystem.trim() == "설치"){
+		document.getElementById("viewSystemVal").innerHTML = "98%";
+	}else{
+		document.getElementById("viewSystemVal").innerHTML = "90%";
+	}
+
+
+
+
+
+
+
+
+
+	for(var i = 0; i < arr_f_type1_center.length; i++){
+		document.getElementById("f_type1_center" + (i + 1)).innerHTML = arr_f_type1_center[i];
+	}
+
+
+
+
+
+	if(viewSystem.trim() != "설치"){ //수위관측시스템 설치가 아니면
+
+		var arr_f_type2_center = f_type2_center.split("**");
+		var arr_f_type3_center = f_type3_center.split("**");
+		var arr_f_type4_center = f_type4_center;
+		var arr_f_type5_center = f_type5_center;
+
+		for(var i = 0; i < arr_f_type2_center.length; i++){
+			document.getElementById("f_type2_center" + (i + 1)).innerHTML = arr_f_type2_center[i];
+		}
+		for(var i = 0; i < arr_f_type3_center.length; i++){
+			document.getElementById("f_type3_center" + (i + 1)).innerHTML = arr_f_type3_center[i];
+		}
+		
+		document.getElementById("f_type4_center1").innerHTML = arr_f_type4_center;
+		document.getElementById("f_type5_center1").innerHTML = arr_f_type5_center;
+
+	}
+
+
+
+	var arr_f_type1_right = f_type1_right.split("**");
+	var arr_f_type2_right = f_type2_right.split("**");
+	var arr_f_type3_right = f_type3_right.split("**");
+	var arr_f_type4_right = f_type4_right.split("**");
+	var arr_f_type5_right = f_type5_right;
+
+
+	for(var i = 0; i < arr_f_type1_right.length; i++){
+		document.getElementById("f_type1_right" + (i + 1)).innerHTML = arr_f_type1_right[i];
+	}
+	for(var i = 0; i < arr_f_type2_right.length; i++){
+		document.getElementById("f_type2_right" + (i + 1)).innerHTML = arr_f_type2_right[i];
+	}
+	for(var i = 0; i < arr_f_type3_right.length; i++){
+		document.getElementById("f_type3_right" + (i + 1)).innerHTML = arr_f_type3_right[i];
+	}
+	for(var i = 0; i < arr_f_type4_right.length; i++){
+		document.getElementById("f_type4_right" + (i + 1)).innerHTML = arr_f_type4_right[i];
+	}
+	document.getElementById("f_type5_right1").innerHTML = arr_f_type5_right;
+
+
+
+
+
+	var api_split = api_result.split("//");
+	chartTime = api_split[0].split("**");
+	chart1Data = api_split[1].split("**");
+	chart2Data = api_split[2].split("**");
+
+
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart);
+
+	google.charts.load('current', {'packages':['corechart']});
+	google.charts.setOnLoadCallback(drawChart2);
+//	result_list.push([time_list, wdAvrg, wsAvrg, wdMax, wsMax]);
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+//type_1, type_2_1, type_2_2, type_2_3, type_3_1, type_3_2, type_3_3, type_3_4, type_4_1, type_4_2, type_4_3, type_5_1
+	var type_1_split = type_1.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_1_1").innerHTML = type_1_split[0];
+		document.getElementById("type" + i + "_1_2").innerHTML = type_1_split[1];
+		document.getElementById("type" + i + "_1_3").innerHTML = type_1_split[2];
+	}
+	var type_2_1_split = type_2_1.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_2_1").innerHTML = type_2_1_split[i - 1];
+	}
+	var type_2_2_split = type_2_2.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_2_2").innerHTML = type_2_2_split[i - 1];
+	}
+	var type_2_3_split = type_2_3.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_2_3").innerHTML = type_2_3_split[i - 1];
+	}
+	var type_3_1_split = type_3_1.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_3_1").innerHTML = type_3_1_split[i - 1];
+	}
+	var type_3_2_split = type_3_2.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_3_2").innerHTML = type_3_2_split[i - 1];
+	}
+	var type_3_3_split = type_3_3.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_3_3").innerHTML = type_3_3_split[i - 1];
+	}
+
+	var type_3_4_split = type_3_4.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_3_4").innerHTML = type_3_4_split[i - 1];
+	}
+
+	var type_4_1_split = type_4_1.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_4_1").innerHTML = type_4_1_split[i - 1];
+	}
+
+	var type_4_2_split = type_4_2.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_4_2").innerHTML = type_4_2_split[i - 1];
+	}
+	
+	var type_4_3_split = type_4_3.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_4_3").innerHTML = type_4_3_split[i - 1];
+	}
+
+	var type_5_1_split = type_5_1.split("**");
+	for(var i = 1; i < 5; i++){
+		document.getElementById("type" + i + "_5_1").innerHTML = type_5_1_split[i - 1];
+	}
+
+
+
+
+
+
+
+	var riskData6_0split = riskData6_0.split('**');
+
+	RiskGuideLine(1, parseFloat(riskData6split[1]), parseFloat(riskData6split[0])); // 인명손실 매트릭스
+	RiskGuideLine(2, parseFloat(riskData6split[5]),parseFloat(riskData6split[4])); // 건물손실 매트릭스
+
+
+
+
+	$(document).ready(function(){ //숫자 콤마찍기 
+		$(".num").text(function(){
+			var arr = $(this).text().split('.');
+			var txtVal = "";
+			if(arr.length == 2){
+				arr[0] = arr[0].split(/(?=(?:\d{3})+(?:\.|$))/g).join(',')
+				txtVal = arr[0] + "." + arr[1];
+			}else{
+				txtVal = $(this).text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(',');
+			}
+			
+		//	$(this).text($(this).text().split(/(?=(?:\d{3})+(?:\.|$))/g).join(','));
+			$(this).text(txtVal);
+
+
+		});
+	});
+
+
+}
+
+     
+		
+var chartData = null;
+function drawChart() {
+
+
+
+var data = new google.visualization.DataTable();
+
+	data.addColumn('string', '날짜/시간');
+	//data.addColumn('number', '평균 풍향');
+	data.addColumn('number', '24HR 누적강우량(mm)');
+	data.addColumn({type: 'string', role: 'annotation'});
+	//data.addColumn('number', '최대 풍향');
+
+
+	if(chart1Data.length > 0){
+
+		for(var k = 0; k < chart1Data.length - 1; k++){
+			//var dt = result_list[0][0][k].split(" ");
+			data.addRow([chartTime[k], parseFloat(chart1Data[k]),  chart1Data[k] + " mm"]);
+		}
+		
+		
+			
+	}
+
+	var bar_options = {
+						   'width':$("#search_box").width() - 310,
+						   'height':330,  chartArea: {left: 70, width: '90%', top:30, height:'45%'},
+							hAxis: { slantedText: true, slantedTextAngle: '90', textStyle:{color:'#000' , fontSize:14,bold:true, fontName:'맑은 고딕'}},
+							legend: { position: "none", textStyle: {color: '#000', fontSize:14 ,bold : true , fontName :'맑은 고딕'} },
+					
+							vAxis: { title: '24HR 누적강우량(mm)', viewWindow: {min: 0, max: 350}, ticks: [0,50,100,150,200,250,300,350], titleTextStyle: {color: '#000', fontSize:14, italic:false,bold:false, 
+									 fontName:'맑은 고딕'},textStyle:{color:'#000' , fontSize:14,bold:true, fontName:'맑은 고딕'}},
+							pointsVisible: true,
+							 annotations: {style: 'line',
+											textStyle: {fontName: '맑은 고딕', fontSize: 14 }, }};
+							
+
+	var bar_chart = new google.visualization.ComboChart(document.getElementById('chart1'));
+	bar_chart.draw(data, bar_options);
+
+
+}
+
+
+
+
+
+
+function drawChart2() {
+
+	
+
+
+	var data = new google.visualization.DataTable();
+
+	data.addColumn('string', '날짜/시간');
+	//data.addColumn('number', '평균 풍향');
+	data.addColumn('number', '붕괴확률(%)');
+	data.addColumn({type: 'string', role: 'annotation'});
+	//data.addColumn('number', '최대 풍향');
+
+
+	if(chart1Data.length > 0){
+
+		for(var k = 0; k < chart1Data.length - 1; k++){
+			//var dt = result_list[0][0][k].split(" ");
+			data.addRow([chartTime[k], parseFloat(chart2Data[k]), chart2Data[k] + " %"]);
+		}
+		
+		
+			
+	}
+
+/*	var bar_options = {
+						   'width':$("#search_box").width() - 310,
+						   'height':350,  chartArea: {left: 50, width: '90%', top:60, height:'45%'},
+							hAxis: { slantedText: true, slantedTextAngle: '90'},
+							legend: { position: "top", textStyle: {color: '#000', fontSize:14 ,bold : true , fontName :'맑은 고딕'} },vAxis: {
+		title: '',
+		minValue: 0,
+		maxValue: 100
+	  }  };
+
+	  */
+
+	 	var bar_options = {
+						   'width':$("#search_box").width() - 310,
+						   'height':330,  chartArea: {left: 70, width: '90%', top:30, height:'45%'},
+							hAxis: { slantedText: true, slantedTextAngle: '90', textStyle:{color:'#000' , fontSize:14,bold:true, fontName:'맑은 고딕'}},
+							legend: { position: "none", textStyle: {color: '#000', fontSize:14 ,bold : true , fontName :'맑은 고딕'} },
+					
+							/*vAxis: {0: {logScale: true, scaleType:"mirrorLog"}, { title: '붕괴확률(로그스케일)', viewWindow: {min: 0, max: 100}, ticks: [0, 10,100], titleTextStyle: {color: '#000', fontSize:14, italic:false,bold:false,  fontName:'맑은 고딕'},textStyle:{color:'#000' , fontSize:14,bold:true, fontName:'맑은 고딕'}},*/
+							 'vAxes': {0: {logScale: true, scaleType:"mirrorLog", title: '붕괴확률(%)', viewWindow: {min: 0, max: 100}, ticks: [0.0001, 0.0010, 0.01, 0.1 ,1.0 , 10.0, 100], titleTextStyle: {color: '#000', fontSize:14, italic:false,bold:false,  fontName:'맑은 고딕'},textStyle:{color:'#000' , fontSize:14,bold:true, fontName:'맑은 고딕'}}},
+							pointsVisible: true,
+							 annotations: {style: 'line',
+											textStyle: {fontName: '맑은 고딕', fontSize: 14 }}};
+
+	var bar_chart = new google.visualization.ComboChart(document.getElementById('chart2'));
+
+	
+	var formatter = new google.visualization.NumberFormat({decimalSymbol: '.', pattern:'#.####'}); // 소수점변환
+	formatter.format(data, 1);
+	
+	
+	bar_chart.draw(data, bar_options);
+
+
+}
+
+
+
+	/*
+  $("#search_box").resize(function(){
+		drawChart();
+  });
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function RiskGuideLine(type, valX, valY){
+
+	if(type == 1){
+
+	
+		if(valX == 0){
+			valX = 0;
+		}
+		else if(valX > 0 && valX <= 1 ){
+			valX = valX * 10 * 10;		
+		}else if(valX > 1 && valX <= 10 ){
+			valX = (valX * 1 * 10) + 100;		
+		}else if(valX > 10 && valX <= 100 ){
+			valX = (valX / 10 * 10) + 200;		
+		}else if(valX > 100 && valX <= 1000 ){
+			valX = (valX / 100 * 10) + 300;		
+		}else if(valX > 1000 && valX <= 10000 ){
+			valX = (valX / 1000 * 10) + 400;		
+		}else{
+			valX = 500;
+		}
+
+	}else{
+		if(valX == 0){
+			valX = 0;
+		}
+		else if(valX > 0 && valX <= 50 ){
+			valX = valX * 2;		
+		}else if(valX > 1 && valX <= 500 ){
+			valX = (valX / 10 * 2) + 100;		
+		}else if(valX > 10 && valX <= 5000 ){
+			valX = (valX / 100 * 2) + 200;		
+		}else if(valX > 100 && valX <= 50000 ){
+			valX = (valX / 1000 * 2) + 300;		
+		}else if(valX > 1000 && valX <= 500000 ){
+			valX = (valX / 10000 * 2) + 400;		
+		}else{
+			valX = 500;
+		}
+
+	}
+
+	valX = valX - 6;
+
+	
+	if(valY <= 0.000001 ){
+		valY = 250;
+	}else if(valY > 0 && valY <= 0.00001){
+		valY = 250 - valY * 1000000 * 5 - 1;	
+	}else if(valY > 0.00001 && valY <= 0.0001){
+		valY = 200 - valY * 100000 * 5 - 2;	
+	}else if(valY > 0.0001 && valY <= 0.001){
+		valY = 150 - valY * 10000 * 5 - 3;	
+	}else if(valY > 0.001 && valY <= 0.01){
+		valY = 100 - valY * 1000 * 5 - 4;	
+	}else if(valY > 0.01 && valY <= 0.1){
+		valY = 50 - valY * 100 * 5 - 5;	
+	}else{
+		valY = 0 - 5;
+	}
+	
+	valY = valY;
+	
+
+	document.getElementById("riskCircle" + type).style.marginLeft = valX + "px";
+	document.getElementById("riskCircle" + type).style.marginTop = valY + "px";
+	
+	
+
+}
+
+var myCircle1 = null;
+var myCircle2 = null;
+var circleData = "";
+function drawReservoir(dt){
+
+	try{
+		circleData = dt;
+	
+		
+
+		//dt = "1,경주시,상황수방,경상북도 경주시 석장동 971,35.8647390183,129.178567981,C,24,136,91,8.4,0.062/2,경주시,하황수방,경상북도 경주시 석장동 978,35.8613207674,129.180635074,C,5,71,69.8,5.6,0.0539/3,경주시,약수,경상북도 경주시 석장동 산105,35.8587898451,129.181074883,C,5,50,85.2,7.5,0.0907/";
+		myCircle = new Array();
+		circleGroup = L.layerGroup();
+		
+		var arrLine = new Array();
+
+		var strFL_InnerHTML = "";
+
+
+
+		
+
+		var reservoirSpilt2 = dt.split("**");	
+		myCircle1 = L.circleMarker([reservoirSpilt2[0],reservoirSpilt2[1]], {radius: "7", name:"",color:"#fff",fillColor:"red",fillOpacity:1, weight: 1, zIndex:9999});
+
+			//circleGroup.addLayer(myCircle[i]);
+		
+		myCircle1.addTo(map);
+
+
+		map.setView([reservoirSpilt2[0],reservoirSpilt2[1]], 18);
+
+
+	
+	}catch(e){
+		//alert(e.message);
+	}
+}
+
+
+
+/*
+
+function setApi(code){
+
+
+	var date1 = new Date();
+	date1.setDate(date1.getDate() - 1);
+
+	var year = date1.getFullYear(); // 년도
+	var month = date1.getMonth() + 1;  // 월
+	month = month < 10 ? '0' + month.toString() : month.toString();
+
+	var day = date1.getDate();  // 날짜
+	day = day < 10 ? '0' + day.toString() : day.toString();
+
+
+	
+	var yesterday1 = String(year) + String(month) + String(day);
+
+
+
+	var date2 = new Date();
+	date2.setDate(date2.getDate() - 2);
+
+	
+	var year2 = date2.getFullYear(); // 년도
+	var month2 = date2.getMonth() + 1;  // 월
+	month2 = month2 < 10 ? '0' + month2.toString() : month2.toString();
+
+	var day2 = date2.getDate();  // 날짜
+	day2 = day2 < 10 ? '0' + day2.toString() : day2.toString();
+
+
+	var yesterday2 = String(year2) + String(month2) + String(day2);
+
+
+
+	$.ajax({
+		type:"GET",
+		url:"http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList?serviceKey=ejHTvFIc13zRbUpX5uxMYLr3TulwNl1isAIyfnNq8oX0Vu6Fz%2FizI15ji6IOePiMaiiliWsGCcyizOTMnWU5cA%3D%3D&pageNo=1&numOfRows=24&dataType=XML&dataCd=ASOS&dateCd=HR&startDt=" + yesterday2 + "&startHh=00&endDt=" + yesterday1 + "&endHh=23&stnIds=" + code,
+		success: function(data) {
+		  alert(data);
+		}
+	});
+
+}
+
+*/
+
+
+function pdfprint(){
+
+
+
+
+	html2canvas(document.body).then(canvas => {
+  // base64 url 로 변환
+  var imgData = canvas.toDataURL('image/jpeg');
+
+  var imgWidth = 210; // 이미지 가로 길이(mm) A4 기준
+  var pageHeight = imgWidth * 1.414; // 출력 페이지 세로 길이 계산 A4 기준
+  var imgHeight = canvas.height * imgWidth / canvas.width;
+  var heightLeft = imgHeight;
+  var margin = 0;
+
+  var doc = new jsPDF('p', 'mm', 'a4');
+  var position = 0;
+
+  // 첫 페이지 출력
+
+
+  doc.addImage(imgData, 'jpeg', margin, position, imgWidth, imgHeight);
+  heightLeft -= pageHeight;
+
+  // 한 페이지 이상일 경우 루프 돌면서 출력
+  while (heightLeft >= 20) {
+    position = heightLeft - imgHeight;
+    doc.addPage();
+    doc.addImage(imgData, 'jpeg', margin, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+  }
+
+  // 파일 저장
+  doc.save('테스트.pdf');
+});
+
+
+	
+
+}
+function pageprint(){
+ //setTimeout(function() { // Code here
+		$(".height100").css("height","50px");
+		window.print();
+		$(".height100").css("height","100px");
+//	 }, 1000);
+}
+
+</script>
+
+
+
+
+</body>
+</html>

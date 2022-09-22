@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title></title>
+
+<link rel="stylesheet" href="../../css/jquery-ui.min.css" />
+
+<script src="../../js/jquery-2.1.0.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+
+
+<!--<link rel="stylesheet" href="../../css/custom.css" />
+<script src="../../js/custom.js"></script>-->
+<script>
+
+//javascript:CefCustomObject.showDevTools();
+
+function reload(){
+	location.reload(true);
+}
+</script>
+<style>
+html, body{padding:0; margin:0; background:#111111; color:#fff; width:100%; height:100%; font-family:'Malgun Gothic';}
+
+#css_table {font-size:14px; text-align:center; }
+#css_table th{ color:#42c6e9; background:#000; padding:20px 0px 20px 0px; }
+#css_table td{  padding:20px 0px 20px 0px; }
+.red {color:#f1517d; cursor:pointer;}
+#css_table tr:nth-child(2n) {
+    background-color: #2f2f2f;
+  }
+#css_table tr:nth-child(2n+1) {
+    background-color: #000;
+  }
+</style>
+</head>
+<body style="overflow-y:scroll;">
+
+<div id="container" style="padding:1px;">
+	
+
+	
+<style>
+tr.title {
+
+    margin: -30px 0px 0px -1px;
+
+    width:100%;
+
+    display: table;
+
+
+
+   
+}
+.box {
+
+   
+
+    height: 150px;
+
+    overflow-y: scroll;
+
+}
+
+</style>
+
+	<div id="css_table" style="width:100%;">
+		<table cellpadding=0 cellspacing=0 border=0 width=100% id="reservoirTable">
+	
+		</table>
+
+	</div>
+
+
+
+</div>
+
+
+<input type="hidden" id="MH_Type_value" value=""/>
+<script>
+function MH_Table(txt, type){
+	var txtLine = txt.split('**');
+
+
+	var htmlTxt = "";
+
+	
+	
+	//저수지 인덱스
+	
+
+	if(type == "인명손실"){
+		var idx = 18;
+
+		htmlTxt = "<tr><th width='5%'>연번</th><th  width='14%'>저수지명</th><th  width='10%'>안전등급</th><th  width='10%'>붕괴확률등급</th><th  width='10%'>피해확률등급</th><th  width='20%'>연간평균손실(명)</th><th  width='10%'>우선순위</th><th  width='14%'>적합여부</th><th  width='14%'>상세보기</th></tr>";
+	}else{
+		var idx = 17;
+
+		htmlTxt = "<tr><th width='5%'>연번</th><th  width='14%'>저수지명</th><th  width='10%'>안전등급</th><th  width='10%'>붕괴확률등급</th><th  width='10%'>피해확률등급</th><th  width='20%'>연간평균손실(백만원)</th><th  width='10%'>우선순위</th><th  width='14%'>적합여부</th><th  width='14%'>상세보기</th></tr>";
+	}
+
+	
+	for(var i = 0; i < txtLine.length-1; i++){
+		var txtData = txtLine[i].split('&&');
+
+		var resorvior_name = "";
+		if(type == "인명손실"){
+			resorvior_name = txtData[18];
+		}else{
+			resorvior_name = txtData[17];
+		}
+
+		var pan = txtData[35].substring(1, txtData[35].length);
+
+		var bung = "";
+		
+		if(txtData[33] == "1"){ //확률등급
+			bung = "매우낮음";
+		}else if(txtData[33] == "2"){
+			bung = "낮음";
+		}else if(txtData[33] == "3"){
+			bung = "보통";
+		}else if(txtData[33] == "4"){
+			bung = "높음";
+		}else{
+			bung = "매우높음";
+		}
+
+		var bung2 = "";
+
+		if(txtData[34] == "1"){ //피해등급
+			bung2 = "경미";
+		}else if(txtData[34] == "2"){
+			bung2 = "소형";
+		}else if(txtData[34] == "3"){
+			bung2 = "중형";
+		}else if(txtData[34] == "4"){
+			bung2 = "대형";
+		}else{
+			bung2 = "초대형";
+		}
+
+		htmlTxt += "<tr><td>" + (i+1) + "</td><td>" + resorvior_name + "</td><td>" + txtData[20] + "</td><td>" + bung + "</td><td>" + bung2 + "</td><td>" + parseFloat( txtData[30]).toFixed(6) + "</td><td>" + txtData[36] + 
+		"</td><td>" + pan + "</td><td class='red' onclick=\"viewForm('" + txtData[0] + "');\">보기</td></tr>";
+	}
+
+	document.getElementById("reservoirTable").innerHTML = htmlTxt;
+
+//
+}
+function viewForm(idx){
+	
+	javascript:CefCustomObject.newForm("detailReservoir", idx);
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layerInfo</title>
+    <!--css-->
+    <link href="./css/hnsstyle.css" rel="stylesheet">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/c86cffdf64.js" crossorigin="anonymous"></script>
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        td {
+            text-align: center;
+            font-size: 14px;
+            height: 30px;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid #d9d9d9;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        html {
+            overflow-y: scroll;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body style="background-color: #fff;">
+    <div class="window_title">
+        HNS 방류 실태 조사 결과
+    </div>
+    <div class="window_body">
+        <table>
+            <!--분류-->
+            <tr>
+                <td colspan="2" style="background-color: #d9d9d9;">분류</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">대상지역</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    부산연안</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">시설구분</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    해양산업시설</td>
+            </tr>
+            <!--해양산업시설현황-->
+            <tr>
+                <td colspan="2" style="background-color: #d9d9d9;">해양산업시설현황</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">해양시설</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    21</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">해양산업시설</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    19</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">해당해양시설</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    13</td>
+            </tr>
+            <!--시료채취-->
+            <tr>
+                <td colspan="2" style="background-color: #d9d9d9; width:780px;">시료채취</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">배출수</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    5</td>
+            </tr>
+            <tr>
+                <td style="width: 200px;">주변해역</td>
+                <td
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    10</td>
+            </tr>
+            <!--조사내용-->
+            <tr>
+                <td colspan="2" style="background-color: #d9d9d9; width:780px;">조사내용</td>
+            </tr>
+            <tr>
+                <td colspan="2"
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    기초환경조사 (주변해역)</td>
+            </tr>
+            <tr>
+                <td colspan="2"
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    수질오염물질 (방류구 및 주변해역)</td>
+            </tr>            <tr>
+                <td colspan="2"
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    미량금속 (방류구 및 주변해역</td>
+            </tr>            <tr>
+                <td colspan="2"
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    휘발성 유기화합물 (방류구 및 주변해역)</td>
+            </tr>            <tr>
+                <td colspan="2"
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    기초환경조사 (주변해역)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="window_tabbox">
+
+        <div onclick="tab_btn('1')" id="tab1" class="tab tab_on">기초환경자료</div>
+        <div onclick="tab_btn('2')" id="tab2" class="tab tab_off">수질오염물질</div>
+        <div onclick="tab_btn('3')" id="tab3" class="tab tab_off">휘발성유기화합물</div>
+        <div onclick="tab_btn('4')" id="tab4" class="tab tab_off">미량금속</div>
+        <div onclick="tab_btn('5')" id="tab5" class="tab tab_off" style="border-right: none;">기타물질</div>
+
+    </div>
+    <div class="detail_box">
+        <!--tab_1 기초환경자료-->
+        <div class="tab_1">
+            <div class="tab_table">
+                <h2 style="margin-bottom: 10px;">부산 주변해역 기초환경자료</h2>
+                <table style="margin-bottom: 10px;">
+                    <!--분류-->
+                    <tr style="width: 780px;">
+                        <td style="width: 100px;"></td>
+                        <td style="width: calc(680px / 10);">
+                            St.1
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.2
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.3
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.4
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.5
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.6
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.7
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.8
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.9
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.10
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>수온</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>염분</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>pH</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td>DO</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>107,800</td>
+                    </tr>
+
+                    <tr>
+                        <td>DO(%)</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="window_flex">
+                <div>기초환경자료 차트</div>
+                <div>기초환경자료 차트</div>
+                <div>기초환경자료 차트</div>
+                <div>기초환경자료 차트</div>
+            </div>
+
+        </div>
+
+        <!--tab_2 수질오염물질-->
+        <div class="tab_2">
+            <div class="tab_table">
+                <h2 style="margin-bottom: 10px;">수질오염물질</h2>
+                <table style="margin-bottom: 10px;">
+                    <!--분류-->
+                    <tr style="width: 780px;">
+                        <td style="width: 100px;"></td>
+                        <td style="width: calc(680px / 10);">
+                            St.1
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.2
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.3
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.4
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.5
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.6
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.7
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.8
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.9
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.10
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>수온</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="window_flex">
+                <div>수질오염물질 차트</div>
+                <div>수질오염물질 차트</div>
+                <div>수질오염물질 차트</div>
+                <div>수질오염물질 차트</div>
+            </div>
+
+        </div>
+
+        <!--tab_3 휘발성유기화합물-->
+        <div class="tab_3">
+            <div class="tab_table">
+                <h2 style="margin-bottom: 10px;">휘발성 유기화합물</h2>
+                <table style="margin-bottom: 10px;">
+                    <!--분류-->
+                    <tr style="width: 780px;">
+                        <td style="width: 100px;"></td>
+                        <td style="width: calc(680px / 10);">
+                            St.1
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.2
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.3
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.4
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.5
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.6
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.7
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.8
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.9
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.10
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>수온</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="window_flex">
+                <div>휘발성유기화합물 차트</div>
+                <div>휘발성유기화합물 차트</div>
+                <div>휘발성유기화합물 차트</div>
+                <div>휘발성유기화합물 차트</div>
+            </div>
+
+        </div>
+
+        <!--tab_4 미량금속-->
+        <div class="tab_4">
+            <div class="tab_table">
+                <h2 style="margin-bottom: 10px;">미량금속</h2>
+                <table style="margin-bottom: 10px;">
+                    <!--분류-->
+                    <tr style="width: 780px;">
+                        <td style="width: 100px;"></td>
+                        <td style="width: calc(680px / 10);">
+                            St.1
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.2
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.3
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.4
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.5
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.6
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.7
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.8
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.9
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.10
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>수온</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="window_flex">
+                <div>미량금속 차트</div>
+                <div>미량금속 차트</div>
+                <div>미량금속 차트</div>
+                <div>미량금속 차트</div>
+            </div>
+
+        </div>
+
+        <!--tab_5 기타물질-->
+        <div class="tab_5">
+            <div class="tab_table">
+                <h2 style="margin-bottom: 10px;">기타물질</h2>
+                <table style="margin-bottom: 10px;">
+                    <!--분류-->
+                    <tr style="width: 780px;">
+                        <td style="width: 100px;"></td>
+                        <td style="width: calc(680px / 10);">
+                            St.1
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.2
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.3
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.4
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.5
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.6
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.7
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.8
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.9
+                        </td>
+                        <td style="width: calc(680px / 10);">
+                            St.10
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>수온</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="window_flex">
+                <div>기타물질 차트</div>
+                <div>기타물질 차트</div>
+                <div>기타물질 차트</div>
+                <div>기타물질 차트</div>
+            </div>
+
+        </div>
+        <div class="window_btn">
+            <button onclick="windowClose()">닫기</button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function windowClose() {
+        window.close();
+    }
+
+    //tab 이벤트
+    function tab_btn(num) {
+        $(".tab").attr("class", 'tab tab_off');
+        $("#tab" + num).attr("class", 'tab tab_on');
+
+        if (num == '1') {
+            $(".tab_1").css("display", "block");
+            $(".tab_2").css("display", "none");
+            $(".tab_3").css("display", "none");
+            $(".tab_4").css("display", "none");
+            $(".tab_5").css("display", "none");
+        }
+        else if (num == '2') {
+            $(".tab_1").css("display", "none");
+            $(".tab_2").css("display", "block");
+            $(".tab_3").css("display", "none");
+            $(".tab_4").css("display", "none");
+            $(".tab_5").css("display", "none");
+        }
+        else if (num == '3') {
+            $(".tab_1").css("display", "none");
+            $(".tab_2").css("display", "none");
+            $(".tab_3").css("display", "block");
+            $(".tab_4").css("display", "none");
+            $(".tab_5").css("display", "none");
+        }
+        else if (num == '4') {
+            $(".tab_1").css("display", "none");
+            $(".tab_2").css("display", "none");
+            $(".tab_3").css("display", "none");
+            $(".tab_4").css("display", "block");
+            $(".tab_5").css("display", "none");
+        }
+        else if (num == '5') {
+            $(".tab_1").css("display", "none");
+            $(".tab_2").css("display", "none");
+            $(".tab_3").css("display", "none");
+            $(".tab_4").css("display", "none");
+            $(".tab_5").css("display", "block");
+        }
+    }
+
+
+</script>
+
+</html>

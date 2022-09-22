@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>HNS index</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="Gipong">
+	<meta name="keywords" content="shapefile,dbf,geojson,preview">
+
+	<link rel="stylesheet" href="./css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="./css/icheck-bootstrap.min.css" />
+
+	<link rel="stylesheet" href="./css/hnsstyle.css" />
+	<link rel="stylesheet" href="./css/demo.css" />
+	<link rel="stylesheet" href="./css/leaflet_new.css" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+	<script src="./js/pro4j.js"></script>
+	<script src="./js/jquery-2.1.0.min.js"></script>
+	<script src="./js/jquery-ui.min.js"></script>
+
+	<script src="./js/leaflet_new.js"></script>
+	<script src="./js/jszip.js"></script>
+	<script src="./js/jszip-utils.js"></script>
+	<script src="./js/jszip-utils-ie.js"></script>
+	<script src="./js/semantic.min.js"></script>
+	<script src="./js/dbf.js"></script>
+	<script src="./js/preview.js" charset="utf-8"></script>
+
+
+	<script src="./js/geotiff.js"></script>
+	<script src="./js/plotty.js"></script>
+
+	<script src="./js/leaflet-geotiff.js"></script>
+	<script src="./js/leaflet-geotiff-plotty.js"></script>
+	<script src="./js/leaflet-geotiff-vector-arrows.js"></script>
+	<script src="./js/leaflet-triangle-marker.js"></script>
+	<script src='./js/proj4js-combined.js'></script>
+
+	<script src="https://kit.fontawesome.com/c86cffdf64.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> <!-- 경고창 스크립트 -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+		integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+		integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<style>
+	/*css/hnsstyle.css 로 이동하여 수정*/
+</style>
+
+<body>
+
+	<!-- <script>
+		function setMenu(num) {
+			for (var i = 1; i <= 3; i++) {
+				document.getElementById("frame" + i).style.display = "none";
+				$("#menu" + i).removeClass('fas_active');
+			}
+
+			document.getElementById("frame" + num).style.display = "block";
+			$("#menu" + num).addClass('fas_active')
+		}
+	</script> -->
+
+	<!--상단 헤더-->
+	<div class="fas_content">
+		<img src="./assets/큐버로고.png">
+		<!-- <div class="nav">
+			<ul>
+				<li onclick="menu_btn_1()" id="top_menu_1" class="top_menu_on">
+					유속 조회
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_2()" id="top_menu_2" class="top_menu_off">
+					수온 조회
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_3()" id="top_menu_3" class="top_menu_off">
+					수심 조회
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_4()" id="top_menu_4" class="top_menu_off">
+					수위 조회
+					<div class="nav_bar"></div>
+				</li>
+
+				<li onclick="menu_btn_5()" id="top_menu_5" class="top_menu_off">
+					유출범위 조회
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_6()" id="top_menu_6" class="top_menu_off">
+					HNS 확산 영상
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_7()" id="top_menu_7" class="top_menu_off">
+					취약성
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_8()" id="top_menu_8" class="top_menu_off">
+					연안환경 영향평가
+					<div class="nav_bar"></div>
+				</li>
+
+				<li onclick="menu_btn_9()" id="top_menu_9" class="top_menu_off">
+					사회·경제 영향평가
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_10()" id="top_menu_10" class="top_menu_off">
+					DATABASE
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_11()" id="top_menu_11" class="top_menu_off">
+					초기화
+					<div class="nav_bar"></div>
+				</li>
+				<li onclick="menu_btn_12()" id="top_menu_12" class="top_menu_off">
+					염도 조회
+					<div class="nav_bar"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div> -->
+	</div>
+
+	<!--메인 박스-->
+	<section>
+		<div class="side_nav">
+			<ul>
+				<li id="menu_btn_1" onclick="menu_btn('1')" class="menu_on">
+					<i class="fa-solid fa-arrow-up-right-dots" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					유속 조회
+				</li>
+				<li id="menu_btn_2" onclick="menu_btn('2')" class="menu_off">
+					<i class="fa-solid fa-temperature-high" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					수온 조회
+				</li>
+				<li id="menu_btn_3" onclick="menu_btn(3)" class="menu_off">
+					<i class="fa-brands fa-buffer" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					취약성
+				</li>
+				<li id="menu_btn_4" onclick="menu_btn(4)" class="menu_off">
+					<i class="fa-solid fa-database" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					DATABASE
+				</li>
+				<li id="menu_btn_5" onclick="menu_btn(5)" class="menu_off">
+					<i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-top: 2rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					HNS
+					실태 조사<br>
+					결과 조회
+				</li>
+				<!-- 마지막 메뉴 밑선 -->
+
+				<li></li>
+
+
+				<!-- <li id="menu_btn_3" onclick="menu_btn_3()" class="menu_off">
+					<i class="fa-solid fa-arrow-down-short-wide" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					수심 조회
+				</li>
+				<li id="menu_btn_4" onclick="menu_btn_4()" class="menu_off">
+					<i class="fa-solid fa-arrow-up-short-wide" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					수위 조회
+				</li>
+
+				<li id="menu_btn_5" onclick="menu_btn_5()" class="menu_off">
+					<i class="fa-brands fa-blackberry" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					염도 조회
+				</li>
+				<li id="menu_btn_6" onclick="menu_btn_6()" class="menu_off">
+					<i class="fa-brands fa-hornbill" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					유출범위 조회
+				</li>
+				<li id="menu_btn_7" onclick="menu_btn_7()" class="menu_off">
+					<i class="fa-solid fa-photo-film" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					HNS 확산 영상
+				</li> -->
+
+
+				<!-- <li id="menu_btn_9" onclick="menu_btn_9()" class="menu_off">
+					<i class="fa-brands fa-buffer" style="font-size: 2rem; margin-top: 2rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					연안환경<br>영향평가
+				</li>
+				<li id="menu_btn_10" onclick="menu_btn_10()" class="menu_off">
+					<i class="fa-brands fa-buffer" style="font-size: 2rem; margin-top: 2rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					사회·경제<br>영향평가
+				</li> -->
+				<!-- <li id="menu_btn_12" onclick="menu_btn_12()" class="menu_off">
+					<i class="fa fa-refresh" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<br>
+					<div style="height: 5px;"></div>
+					초기화
+				</li> -->
+			</ul>
+		</div>
+		<div id="left_slide">
+			<div class="left_slide_body">
+				<!--menu_part_1 유속조회-->
+				<div class="part_1">
+					<!--top-->
+					<div class="side_body_top">
+						<h2>유속 조회</h2>
+					</div>
+
+					<!--body-->
+					<div class="side_body_main">
+
+						<!--accodian_nav-->
+						<div>
+
+							<!--main_que-1-->
+							<div class="que" style="margin-top: 20px;">
+								<span>조회 범위 선택</span>
+							</div>
+
+							<div class="anw">
+
+								<div>
+									<span>
+										시작시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										종료시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+								</div>
+
+								<div class="setTimebtn"
+									onclick="document.getElementById('yousok_layer').style.display = 'block'; ">조회
+								</div>
+							</div>
+
+							<!--main_que-2-->
+
+							<div class="que2">
+								<span>레이어</span>
+							</div>
+							<div class="anw_yousok">
+								<div class="layer_select">
+									<span>레이어 선택</span>
+									<div>
+										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+
+											<div id="yousok_layer" style="display:none;">
+												<div class="icheck-greensea">
+													<input type="radio" id="yousok_clear" value="clear"
+														name="yousok_chkbox" />
+													<label for="yousok_clear">
+														<span class="label_table">레이어 제거</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="yousok_rdo0" value="L1"
+														name="yousok_chkbox" />
+													<label for="yousok_rdo0">
+														<span class="label_table">광역 레이어</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="yousok_rdo1" value="L2"
+														name="yousok_chkbox" />
+													<label for="yousok_rdo1">
+														<span class="label_table">중간역 레이어</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="yousok_rdo2" value="L3"
+														name="yousok_chkbox" />
+													<label for="yousok_rdo2">
+														<span class="label_table">상세역 레이어</span>
+													</label>
+												</div>
+											</div>
+										</div>
+
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer('tif')">레이어 보기</div>
+									</div>
+								</div>
+							</div>
+
+							<!--main_que-3-->
+
+							<div class="que3">
+								<span>범례</span>
+							</div>
+							<div class="anw3">
+								<div>
+									<div style="margin-top:2rem; margin-bottom: 2rem;">
+										<div style="margin-bottom:2rem;">
+											<span
+												style="text-align:center; width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#006100; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#7aab00; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#e7e70a; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+
+										<div>
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#ff9900; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#bb3c99; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#ff2200; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--현재 줌 레벨-->
+							<div class="nowZoomLevel">
+								<div>현재 줌 레벨 : <span id="thisZoomLevel" style="font-weight:600;">7</span></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+				<!--menu_part_2 수온조회-->
+				<div class="part_2">
+					<!--top-->
+					<div class="side_body_top">
+						<h2>수온 조회</h2>
+					</div>
+
+					<!--body-->
+					<div class="side_body_main">
+
+						<div>
+							<!--part2_main_que-1-->
+							<div class="que" style="margin-top: 20px;">
+								<span>조회 범위 선택</span>
+							</div>
+
+							<div class="anw">
+								<div>
+									<span>
+										시작시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<div class="clear"></div>
+								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										종료시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<div class="clear"></div>
+								</div>
+								<div class="setTimebtn"
+									onclick="document.getElementById('yousok_layer2').style.display = 'block'; ">조회
+								</div>
+							</div>
+
+							<!--part2_main_que-2-->
+
+							<div class="que2">
+								<span>레이어</span>
+							</div>
+							<div class="anw2">
+
+								<div style="padding:0; margin-bottom:1rem;">
+									<table cellpadding=0 cellspacing=0 border=0 width=100%>
+										<tr>
+											<td style="width:5rem;">
+												투명도
+											</td>
+											<td>
+												<input type="range" id="lineLange" style="background:none; width:21rem;"
+													value="10" min="1" max="10" onchange="opacity_redraw(this.value);">
+											</td>
+										</tr>
+									</table>
+								</div>
+
+								<div class="layer_select">
+
+									<span>레이어 선택</span>
+									<div>
+
+										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+
+											<div id="yousok_layer2" style="display:none;">
+												<div class="icheck-greensea">
+													<input type="radio" id="suon_clear" value="clear" name="rdoSuon" />
+													<label for="suon_clear">
+														<span class="label_table">레이어 제거</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="suon_rdo0" value="L1" name="rdoSuon" />
+													<label for="suon_rdo0">
+														<span class="label_table">광역 레이어</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="suon_rdo1" value="L2" name="rdoSuon" />
+													<label for="suon_rdo1">
+														<span class="label_table">중간역 레이어</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="suon_rdo2" value="L3" name="rdoSuon" />
+													<label for="suon_rdo2">
+														<span class="label_table">상세역 레이어</span>
+													</label>
+												</div>
+											</div>
+										</div>
+
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer2('tif')">레이어 보기</div>
+									</div>
+								</div>
+							</div>
+
+
+							<!--part2_main_que-3-->
+
+							<div class="que3">
+								<span>범례</span>
+							</div>
+							<div class="anw3">
+								<div>
+									<div style="margin-top:2rem; margin-bottom: 2rem;">
+										<div style="margin-bottom:2rem;">
+											<span
+												style="text-align:center; width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#006100; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#7aab00; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#e7e70a; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+
+										<div>
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#ff9900; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#bb3c99; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#ff2200; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--현재 줌 레벨-->
+							<div class="nowZoomLevel">
+								<div>현재 줌 레벨 : <span id="thisZoomLevel1" style="font-weight:600;">7</span></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--menu_part_3 취약성-->
+				<div class="part_3">
+					<!--top-->
+					<div class="side_body_top">
+						<h2>취약성</h2>
+					</div>
+
+					<!--body-->
+					<div class="side_body_main">
+
+						<div>
+							<!--part3_main_que-1-->
+							<div class="que" style="margin-top: 20px;">
+								<span>조회 범위 선택</span>
+							</div>
+
+							<div class="anw">
+								<div>
+									<span>
+										시작시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<div class="clear"></div>
+								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										종료시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<div class="clear"></div>
+								</div>
+								<div class="setTimebtn"
+									onclick="document.getElementById('yousok_layer3').style.display = 'block'; ">조회
+								</div>
+							</div>
+
+							<!--part3_main_que-2-->
+
+							<div class="que2">
+								<span>레이어</span>
+							</div>
+							<div class="anw_vulner">
+
+								<div style="padding:0; margin-bottom:1rem;">
+									<table cellpadding=0 cellspacing=0 width=100%>
+										<tr>
+											<td style="width:5rem;">
+												투명도
+											</td>
+											<td>
+												<input type="range" id="lineLange" style="background:none; width:21rem;"
+													value="10" min="1" max="10" onchange="opacity_redraw2(this.value);">
+											</td>
+										</tr>
+									</table>
+								</div>
+
+
+								<div class="layer_select">
+									<span>레이어 선택</span>
+									<div>
+										<div
+											style="height:24rem; overflow-y:scroll; overflow-x:hidden; border:1px solid #eaeaea;">
+											<div id="yousok_layer3" style="display:none; position: relative;">
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('0');">
+													<span class="cateTitle">레이어 제거</span>
+													<img id="sub_img_on0" src="./assets/sub_open.png">
+													<img id="sub_img_off0" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate0">
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo_clear"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="rdo_clear">
+															<span class="label_table">레이어 제거</span>
+														</label>
+													</div>
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('1');">
+													<span class="cateTitle">SURF</span>
+													<img id="sub_img_on1" src="./assets/sub_open.png">
+													<img id="sub_img_off1" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate1">
+
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo0"
+															style="float:left; margin-right:5px;" value="01"
+															name="vulner" />
+														<label for="rdo0">
+															<span class="label_table">SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo1"
+															style="float:left; margin-right:5px;" value="02"
+															name="vulner" />
+
+														<label for="rdo1">
+															<span class="label_table">SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo2"
+															style="float:left; margin-right:5px;" value="03"
+															name="vulner" />
+
+														<label for="rdo2">
+															<span class="label_table">AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo3"
+															style="float:left; margin-right:5px;" value="04"
+															name="vulner" />
+
+														<label for="rdo3">
+															<span class="label_table">WINTER</span>
+														</label>
+													</div>
+												</div>
+
+												<div style="cursor:pointer;  position: relative;"
+													onclick="cateAnimate('2');">
+													<span class="cateTitle">COLUMN</span>
+													<img id="sub_img_on2" src="./assets/sub_open.png">
+													<img id="sub_img_off2" src="./assets/sub_close.png">
+												</div>
+
+												<div style="  display:none;" id="cate2">
+
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo4"
+															style="float:left; margin-right:5px;" value="05"
+															name="vulner" />
+
+														<label for="rdo4">
+															<span class="label_table">SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo5"
+															style="float:left; margin-right:5px;" value="06"
+															name="vulner" />
+
+														<label for="rdo5">
+															<span class="label_table">SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo6"
+															style="float:left; margin-right:5px;" value="07"
+															name="vulner" />
+
+														<label for="rdo6">
+															<span class="label_table">AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo7"
+															style="float:left; margin-right:5px;" value="08"
+															name="vulner" />
+
+														<label for="rdo7">
+															<span class="label_table">WINTER</span>
+														</label>
+													</div>
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('3');"><span class="cateTitle">SEABED</span>
+													<img id="sub_img_on3" src="./assets/sub_open.png">
+													<img id="sub_img_off3" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none;" id="cate3">
+
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo8"
+															style="float:left; margin-right:5px;" value="09"
+															name="vulner" />
+
+														<label for="rdo8">
+															<span class="label_table">SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo9"
+															style="float:left; margin-right:5px;" value="10"
+															name="vulner" />
+
+														<label for="rdo9">
+															<span class="label_table">SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo10"
+															style="float:left; margin-right:5px;" value="11"
+															name="vulner" />
+
+														<label for="rdo10">
+															<span class="label_table">AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo11"
+															style="float:left; margin-right:5px;" value="12"
+															name="vulner" />
+
+														<label for="rdo11">
+															<span class="label_table">WINTER</span>
+														</label>
+													</div>
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('4');"><span class="cateTitle">AIR</span>
+													<img id="sub_img_on4" src="./assets/sub_open.png">
+													<img id="sub_img_off4" src="./assets/sub_close.png">
+												</div>
+
+
+												<div style=" display:none;" id="cate4">
+
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo12"
+															style="float:left; margin-right:5px;" value="13"
+															name="vulner" />
+
+														<label for="rdo12">
+															<span class="label_table">SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo13"
+															style="float:left; margin-right:5px;" value="14"
+															name="vulner" />
+
+														<label for="rdo13">
+															<span class="label_table">SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo14"
+															style="float:left; margin-right:5px;" value="15"
+															name="vulner" />
+
+														<label for="rdo14">
+															<span class="label_table">AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo15"
+															style="float:left; margin-right:5px;" value="16"
+															name="vulner" />
+
+														<label for="rdo15">
+															<span class="label_table">WINTER</span>
+														</label>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer3('tif')">레이어 보기</div>
+									</div>
+								</div>
+							</div>
+
+							<!--part3_main_que-3-->
+
+							<div class="que3">
+								<span>범례</span>
+							</div>
+							<div class="anw3">
+								<div>
+									<div style="margin-top:2rem; margin-bottom: 2rem;">
+										<div style="margin-bottom:2rem;">
+											<span
+												style="text-align:center; width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#006100; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#7aab00; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#e7e70a; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+
+										<div>
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#ff9900; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#bb3c99; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#ff2200; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--현재 줌 레벨-->
+							<div class="nowZoomLevel">
+								<div>현재 줌 레벨 : <span id="thisZoomLevel2" style="font-weight:600;">7</span></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--menu_part_4 DATABASE-->
+				<div class="part_4">
+
+					<!--top-->
+					<div class="side_body_top">
+						<h2>DATABASE</h2>
+					</div>
+
+					<!--body-->
+					<div class="side_body_main">
+
+						<div>
+							<!--part4_main_que-1-->
+							<div class="que" style="margin-top: 20px;">
+								<span>조회 범위 선택</span>
+							</div>
+
+							<div class="anw">
+								<div>
+									<span>
+										시작시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<div class="clear"></div>
+								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										종료시간
+									</span><br>
+									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<div class="clear"></div>
+								</div>
+								<div class="setTimebtn"
+									onclick="document.getElementById('yousok_layer4').style.display = 'block'; ">조회
+								</div>
+							</div>
+
+							<!--part4_main_que-2-->
+
+							<div class="que2">
+								<span>레이어</span>
+							</div>
+							<div class="anw_db">
+								<div class="layer_select">
+									<span>레이어 선택</span>
+									<div>
+										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+
+											<div id="yousok_layer4" style="display:none;">
+												<div class="icheck-greensea">
+													<input type="radio" id="DB_clear" value="clear"
+														name="rdoDatabase" />
+													<label for="DB_clear">
+														<span class="label_table">레이어제거</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="DB_rdo0" value="04_조업밀집구역_가을"
+														name="rdoDatabase" />
+													<label for="DB_rdo0">
+														<span class="label_table">조업밀집구역(가을)</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="DB_rdo1" value="10_양식장"
+														name="rdoDatabase" />
+													<label for="DB_rdo1">
+														<span class="label_table">양식장</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="DB_rdo2" value="21_마리나항위치"
+														name="rdoDatabase" />
+													<label for="DB_rdo2">
+														<span class="label_table">마리나항 위치</span>
+													</label>
+												</div>
+											</div>
+										</div>
+
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewDatabaseLayer('tif')">레이어 보기</div>
+									</div>
+								</div>
+							</div>
+
+							<!--part4_main_que-3-->
+
+							<div class="que3">
+								<span>범례</span>
+							</div>
+							<div class="anw3">
+								<div>
+									<div style="margin-top:2rem; margin-bottom: 2rem;">
+										<div style="margin-bottom:2rem;">
+											<span
+												style="text-align:center; width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#006100; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#7aab00; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#e7e70a; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+
+										<div>
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#ff9900; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
+												<div
+													style="width:100; height:5px; background:#bb3c99; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+
+											<span
+												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
+												<div
+													style="width:100; height:5px; background:#ff2200; margin-bottom:5px;">
+												</div>
+												<div>0.00 - 0.00</div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--현재 줌 레벨-->
+							<div class="nowZoomLevel">
+								<div>현재 줌 레벨 : <span id="thisZoomLevel3" style="font-weight:600;">7</span></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--menu_part_5 HNS 실태 조사 결과 조회-->
+				<div class="part_5">
+
+					<!--top-->
+					<div class="side_body_top">
+						<h2>HNS 방류 실태 조사 정보 조회</h2>
+					</div>
+
+					<!--body-->
+					<div class="side_body_main">
+
+						<div>
+							<!--part5_main_que-1-->
+							<div class="que" style="margin-top: 20px;">
+								<span>조회 범위 선택</span>
+							</div>
+
+							<div class="anw">
+								<div class="Hns_search">
+									<span>
+										시설구분
+									</span><br>
+									<select class="discharge_option">
+										<option value="facility">해양산업시설</option>
+										<option value="station">발전소</option>
+									</select>
+								</div>
+								<div style="margin-top:10px;">
+									<span>
+										지역
+									</span><br>
+									<select class="discharge_option">
+										<option value="busan">부산</option>
+										<option value="yeosu">여수</option>
+										<option value="ulsan">울산</option>
+										<option value="incheon">인천</option>
+										<option value="pyeongtaek">평택</option>
+										<option value="gori">고리</option>
+										<option value="donghae">동해</option>
+										<option value="boryeong">보령</option>
+										<option value="samcheonpo">삼천포</option>
+										<option value="yeonggwang ">영광</option>
+									</select>
+								</div>
+								<div class="discharge_btn"
+									onclick="document.getElementById('yousok_layer5').style.display = 'block'; layerInfo();">조회
+								</div>
+							</div>
+
+							<div class="que2">
+								<span>레이어</span>
+							</div>
+							<div class="anw_discharge">
+								<div class="layer_select">
+									<span>레이어 선택</span>
+									<div>
+										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+
+											<div id="yousok_layer5" style="display:none;">
+												<div class="icheck-greensea">
+													<input type="radio" id="discharge_clear" value="clear"
+														name="discharge_rdo" />
+													<label for="discharge_clear">
+														<span class="label_table">레이어 제거</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="discharge_rdo0" value=""
+														name="discharge_rdo" />
+													<label for="discharge_rdo0">
+														<span class="label_table">해양산업시설</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="discharge_rdo1" value=""
+														name="discharge_rdo" />
+													<label for="discharge_rdo1">
+														<span class="label_table">발전소</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="discharge_rdo2" value=""
+														name="discharge_rdo" />
+													<label for="discharge_rdo2">
+														<span class="label_table">전체</span>
+													</label>
+												</div>
+											</div>
+										</div>
+
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer('tif')">레이어 보기</div>
+									</div>
+								</div>
+							</div>
+
+
+
+							<!--현재 줌 레벨-->
+							<div class="nowZoomLevel">
+								<div>현재 줌 레벨 : <span id="thisZoomLevel4" style="font-weight:600;">7</span></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+			</div>
+			<div class="slide_btn">
+				<img src="./assets/lnb_close.png" onclick="content_silde();"
+					style="cursor: pointer; width: 24px; height: 120px;">
+			</div>
+		</div>
+		<a class="side_nav_open" onclick="content_silde();"></a>
+
+		<!--지도-->
+		<div id="mapbox">
+			<div id="wrap" class="wrap">
+				<div id="map"></div>
+				<div id="attr">
+					<div class="tableDisplay">
+						<table id="attribute" class="ui small celled unstackable table">
+							<thead id="attrHead">
+								<tr class="center aligned">
+									<th>Attribute</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody class="tbodyContent" id="tbodyData">
+							</tbody>
+						</table>
+					</div>
+					<div class="ui red icon button" id="cancelAttr">닫기</div>
+				</div>
+			</div>
+			<div style="z-index:9999; position:absolute; right:12px; top:15px;">
+				<table cellpadding="0" cellspacing="0"
+					style="border: 0px solid #eaeaea; border-radius:5px; padding: 5px; background-color: rgba(0, 0, 0, 0.7); margin-top: 0px; margin-bottom: 5px;">
+					<tbody>
+						<tr>
+							<td class="mapmenu"
+								style="color:#fff; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0; "
+								id="normal_map" onclick="javascript:mapChange('base');">일반</td>
+						</tr>
+						<tr>
+							<td class="mapmenu"
+								style="color: #31c0f7; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0;"
+								id="sky_map" onclick="javascript:mapChange('hybrid');">위성</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</section>
+
+	<script>
+		var layerclear = "";
+	</script>
+
+	<script type="text/javascript" src="./js/hnsevent.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		// javascript:CefCustomObject.showDevTools();
+
+		var marker_arrow = new Array();
+		var map;
+
+		function mapChange(type) {
+			if (type == "base") {
+				map.removeLayer(hybridLayer1);
+				map.removeLayer(hybridLayer2);
+
+				map.addLayer(baseLayer);
+
+				document.getElementById("normal_map").style.color = "#31c0f7";
+				document.getElementById("sky_map").style.color = "#fff";
+			} else {
+				map.removeLayer(baseLayer);
+
+				map.addLayer(hybridLayer1);
+				map.addLayer(hybridLayer2);
+
+				document.getElementById("normal_map").style.color = "#fff";
+				document.getElementById("sky_map").style.color = "#31c0f7";
+			}
+		}
+
+		var baseLayer = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png');
+		var hybridLayer1 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Satellite/201612/{z}/{x}/{y}.jpeg');
+		var hybridLayer2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
+		$(document).ready(function () {
+
+			map = L.map('map').setView([36.5, 126], 7);
+			//map = L.map('map').setView([34.76105018295595, 127.80174711434886], 12);
+			map.addLayer(hybridLayer1);
+			map.addLayer(hybridLayer2);
+			map.options.maxZoom = 18;
+			map.options.minZoom = 6;
+
+			var arr1 = new Array('충청남도', '충청북도', '경기도', '강원도');
+			var arr2 = new Array('100', '200', '300', '50');
+
+
+			function initVector() {
+				vector = L.geoJson([], {
+					style: function (feature) {
+						return feature.properties.style;
+					},
+					onEachFeature: function (feature, layer) {
+
+						layer.on({
+							click: function (e) {
+
+								/*if(arr1[0] == e.target.feature.properties.SIG_KOR_NM) {
+									alert(arr2[0]);
+								}*/
+
+								vector.eachLayer(function (l) {
+									/*if(e.target.feature.properties.SIG_KOR_NM != "충청남도"){
+										vector.resetStyle(l);
+									}*/
+									vector.resetStyle(l);
+								});
+
+								$('.tbodyContent').remove();
+								var tbody = '<tbody class="tbodyContent">';
+								for (var key in e.target.feature.properties) {
+									tbody +=
+										('<tr class="center aligned"><td>' + key + '</td><td>' + e.target.feature.properties[key] + '</td></tr>');
+								}
+								$('#attribute').append(tbody + '</tbody>');
+
+								$('#attr').fadeIn(300);
+								//map.panTo(e.latlng);
+								//alert(e.target.feature.properties.SIG_KOR_NM);
+
+								if ('setStyle' in e.target) e.target.setStyle({
+									fillColor: '#FF0000',
+									fillOpacity: 0.6
+								});
+							}
+						});
+					}
+				}).addTo(map);
+			}
+
+			function loadShpZip() {
+				var epsg = ($('#epsg').val() == '') ? 4326 : $('#epsg').val(),
+					encoding = ($('#encoding').val() == '') ? 'UTF-8' : $('#encoding').val();
+				if (file.name.split('.')[1] == 'zip') {
+					if (file) $('.dimmer').addClass('active');
+					loadshp({
+						url: file,
+						encoding: encoding,
+						EPSG: epsg
+					}, function (data) {
+						var URL = window.URL || window.webkitURL || window.mozURL || window.msURL,
+							url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
+
+						$('.shp-modal').toggleClass('effect');
+						$('.overlay').toggleClass('effect');
+						$('#wrap').toggleClass('blur');
+
+						vector.addData(data);
+						map.fitBounds([
+							[data.bbox[1], data.bbox[0]], [data.bbox[3], data.bbox[2]]
+						]);
+						$('.dimmer').removeClass('active');
+						$('#preview').addClass('disabled');
+						$('#epsg').val('');
+						$('#encoding').val('');
+						$('#info').addClass('picInfo');
+						$('#option').slideUp(500);
+					});
+				} else {
+					alert("ZIP 포맷으로 사용해주십시오.")
+					return;
+				}
+			}
+
+			initVector();
+
+			$("#file").change(function (evt) {
+				file = evt.target.files[0];
+				var fileSize = Math.round(file.size);
+				console.log(fileSize);
+				//if(file.size > 600000) {
+				//    alert("600KB 이햐의 데이터를 이용하여 주십시오.")
+				//    return;
+				//}else{
+				$('#dataInfo').text(' ').append(file.name + ' , ' + file.size + ' kb');
+				$('#option').slideDown(500);
+				$('#preview').removeClass('disabled');
+				// }
+			});
+
+			$('#preview').click(function () {
+				loadShpZip();
+			});
+
+			$('#addZipfile').click(function () {
+				$('.shp-modal').toggleClass('effect');
+				$('.overlay').toggleClass('effect');
+				$('#wrap').toggleClass('blur');
+			});
+			$('#cancel').click(function () {
+				$('.shp-modal').toggleClass('effect');
+				$('.overlay').toggleClass('effect');
+				$('#wrap').toggleClass('blur');
+			});
+			$('#removeLayer').click(function () {
+				$('#attr').fadeOut(300);
+				window.location.reload();
+			});
+
+			$("#attr").draggable({ containment: $(this).parent().parent(), scroll: false, cursor: "move" });
+
+			$('#cancelAttr').click(function () { $('#attr').slideUp(300); });
+
+
+			$("#attrLine").draggable({ containment: $(this).parent().parent(), scroll: false, cursor: "move" });
+			$('#cancelAttrLine').click(function () { $('#attrLine').slideUp(300); });
+
+			//컨트롤 위치 변경
+			$(".leaflet-control-attribution").css("display", "none");
+			$(".leaflet-control-container").css("position", "absolute");
+			$(".leaflet-control-container").css("right", "60px");
+			$(".leaflet-control-container").css("top", "80px");
+			//컨트롤 위치 변경 끝
+
+			classSetTime();//setTime selectBox에 0시~23시 옵션 추가
+
+			//document.getElementById("loading").style.display = "none";
+
+
+			map.on("zoomstart", function (e) {
+
+				map.removeLayer(layerGroup); // 레이어 표기된 화살표 및 그림 지우기
+
+			});
+
+			map.on("zoomend", function (e) {
+				if (layerclear != 'clear') {
+					drawArrow(setLon, setLat, set_wind_direction);
+				}
+				document.getElementById("thisZoomLevel").innerHTML = map.getZoom();
+				document.getElementById("thisZoomLevel1").innerHTML = map.getZoom();
+				document.getElementById("thisZoomLevel2").innerHTML = map.getZoom();
+				document.getElementById("thisZoomLevel3").innerHTML = map.getZoom();
+				document.getElementById("thisZoomLevel4").innerHTML = map.getZoom();
+			});
+
+			map.on("movestart", function (e) {
+				map.removeLayer(layerGroup);
+			});
+			map.on("moveend", function (e) {
+				if (layerclear != 'clear') {
+					drawArrow(setLon, setLat, set_wind_direction);
+				}
+			});
+		});
+
+
+
+	</script>
+
+</body>
+
+</html>

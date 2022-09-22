@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>shp loading</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Gipong">
+<meta name="keywords" content="shapefile,dbf,geojson,preview">
+ 
+<link rel="stylesheet" href="../../css/leaflet.css" />
+<link rel="stylesheet" href="../../css/semantic.min.css" />
+<link rel="stylesheet" href="../../css/demo.css" />
+<link rel="stylesheet" href="../../css/jquery-ui.min.css" />
+ 
+<script src="../../js/pro4j.js"></script>
+<script src="../../js/jquery-2.1.0.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+<script src="../../js/leaflet.js"></script>
+<script src="../../js/jszip.js"></script>
+<script src="../../js/jszip-utils.js"></script>
+<script src="../../js/jszip-utils-ie.js"></script>
+<script src="../../js/semantic.min.js"></script>
+<script src="../../js/dbf.js"></script>
+<script src="../../js/preview.js" charset="utf-8"></script>
+
+
+<script src="../../js/geotiff.js"></script>
+<script src="../../js/plotty.js"></script>
+
+<script src="../../js/leaflet-geotiff.js"></script>
+<script src="../../js/leaflet-geotiff-plotty.js"></script>
+<script src="../../js/leaflet-geotiff-vector-arrows.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-bootstrap@3.0.1/icheck-bootstrap.min.css" />
+</head>
+
+
+<style>
+body {
+            margin: 0;
+            padding: 0;
+            font: 12pt "Tahoma";
+			 background:#000; color:#fff;
+        }
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        .page {
+            width: 21cm;
+            min-height: 29.7cm;
+          
+            background:#000;
+           
+        }
+        .subpage {
+            padding: 0cm;
+			padding-bottom:1cm;
+            
+        }
+        @page {
+            size: A4 landscape;
+            margin: 0;
+            /*size: landscape;*/
+        }
+        @media print {
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
+
+</style>
+<script type="text/javascript" charset="utf-8">
+javascript:CefCustomObject.showDevTools2();
+
+var map;
+var map2;
+//javascript:reservoirlocation.showDevTools();
+function mapChange(mapNum, type) {
+
+	if(mapNum == "1"){
+		if(type == "base"){
+			map.removeLayer(hybridLayer1);
+			map.removeLayer(hybridLayer2);
+
+			map.addLayer(baseLayer);
+
+			document.getElementById("normal_map").style.color = "#31c0f7";
+			document.getElementById("sky_map").style.color = "#fff";
+		} else {
+			map.removeLayer(baseLayer);
+			
+			map.addLayer(hybridLayer1);
+			map.addLayer(hybridLayer2);
+
+			document.getElementById("normal_map").style.color = "#fff";
+			document.getElementById("sky_map").style.color = "#31c0f7";
+		}
+	}else{
+		if(type == "base"){
+			map2.removeLayer(hybridLayer1_2);
+			map2.removeLayer(hybridLayer2_2);
+
+			map2.addLayer(baseLayer_2);
+
+			document.getElementById("normal_map2").style.color = "#31c0f7";
+			document.getElementById("sky_map2").style.color = "#fff";
+		} else {
+			map2.removeLayer(baseLayer_2);
+			
+			map2.addLayer(hybridLayer1_2);
+			map2.addLayer(hybridLayer2_2);
+
+			document.getElementById("normal_map2").style.color = "#fff";
+			document.getElementById("sky_map2").style.color = "#31c0f7";
+		}
+	}
+	
+}
+
+var baseLayer = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png');
+var hybridLayer1 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Satellite/201612/{z}/{x}/{y}.jpeg');
+var hybridLayer2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
+
+var baseLayer_2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Base/201802/{z}/{x}/{y}.png');
+var hybridLayer1_2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Satellite/201612/{z}/{x}/{y}.jpeg');
+var hybridLayer2_2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
+$(document).ready(function() {
+ 
+    map = L.map('map').setView([36.00917828607655, 128], 7);
+	map.addLayer(hybridLayer1);
+	map.addLayer(hybridLayer2);
+	map.options.maxZoom = 18;
+	map.options.minZoom = 6;
+
+	map2 = L.map('map2').setView([36.00917828607655, 128], 7);
+	map2.addLayer(hybridLayer1_2);
+	map2.addLayer(hybridLayer2_2);
+	map2.options.maxZoom = 18;
+	map2.options.minZoom = 6;
+
+	
+
+
+	//컨트롤 위치 변경
+	$(".leaflet-control-attribution").css("display","none");
+	$(".leaflet-control-container").css("position","absolute");
+	$(".leaflet-control-container").css("right","55px");
+	$(".leaflet-control-container").css("top","60px");
+	//컨트롤 위치 변경 끝
+});
+
+
+
+</script>
+    
+<body>
+<style>
+.css_table {font-size:12px; text-align:center;  }
+.css_table th{ color:#42c6e9;  padding:5px; height:0.8cm; width:140px; background:#2f2f2f;  border-bottom:1px solid #5d5d5d;}
+.css_table td{ padding:5px; height:0.8cm; border-bottom:1px solid #5d5d5d; background:#000;}
+
+
+.css_table2 {font-size:12px; text-align:center;  }
+.css_table2 th{ color:#42c6e9;  padding:5px; height:0.8cm; width:140px; border-bottom:1px solid #5d5d5d;}
+.css_table2 td{ padding:5px; height:0.8cm; border-bottom:1px solid #5d5d5d;}
+.css_table2 tr:nth-child(2n) {
+    background-color: #2f2f2f;
+  }
+.css_table2 tr:nth-child(2n+1) {
+    background-color: #000;
+  }
+
+.tt {font-size:14px; font-weight:bold; padding-bottom:10px;}
+
+.sub_tb{border-top:1px solid #5d5d5d;  border-bottom:1px solid #5d5d5d;}
+
+.th_border{border-right:1px solid #5d5d5d}
+.sub_sub_title{color:#ffa200; font-weight:bold; font-size:13px;}
+</style>
+ <div class="book">
+    <div class="page">
+        <div class="subpage" id="content">
+				<div class="tt">1. 저수지 제원</div>
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2 ">
+				<tr>
+					<td style="width:50%; border:0;">
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb ">
+						<tr>
+							<th>
+								저수지 ID
+							</th>
+							<td id="a1">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								저수지 명칭
+							</th>
+							<td id="a2">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								저수지 주소
+							</th>
+							<td id="a3">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								총저수량(천톤)
+							</th>
+							<td id="a4">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유효저수량(천톤)
+							</th>
+							<td id="a5">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								안전등급
+							</th>
+							<td id="a6">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								제체높이(m)
+							</th>
+							<td id="a7">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								제체해발고도(m)
+							</th>
+							<td id="a8">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유출방위각(*)
+							</th>
+							<td id="a9">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유출경사도
+							</th>
+							<td id="a10">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								반경 20km내 계측규모<br>5.0이상 발생회수
+							</th>
+							<td id="a11">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유역면적(ha)
+							</th>
+							<td id="a12">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유역면적/<br>유효저수량
+							</th>
+							<td id="a13">
+								-
+							</td>
+						</tr>
+						<tr>
+							<th>
+								유역면적/<Br>유효저수량 범주
+							</th>
+							<td id="a14">
+								-
+							</td>
+						</tr>
+						</table>
+
+					</td>
+					<td style="width:50%; height:10cm;  border:0;">
+						<div id="map" style="width:100%; height:100%; position:static !important;"></div>
+					</td>
+				</tr>
+				</table>
+				
+				<div class="tt" style="padding-top:1cm;">2. 복합재난 붕괴 시나리오 및 발생가능성</div>
+		 
+			
+				<div style=" padding:5px; text-align:center;">
+					<div class="tt" >[ 발생가능성(붕괴확률) 평가 ] </div>
+					<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2 " style="margin-bottom:20px; border-top:1px solid #5d5d5d;" >
+						<tr style="background:#2f2f2f;">
+							<th rowspan=2 style="border-right:1px solid #5d5d5d;">
+								저수지 ID
+							</th>
+							<th rowspan=2 style="border-right:1px solid #5d5d5d;">
+								저수지명
+							</th>
+							<th rowspan=2 style="border-right:1px solid #5d5d5d;">
+								시나리오명
+							</th>
+							<th colspan=2 style="border-right:1px solid #5d5d5d;">
+								복합재난조건
+							</th>
+							<th colspan=2 style="border-right:1px solid #5d5d5d;">
+								저감조치(AS-IF)
+							</th>
+							<th rowspan=2 style="border-right:0px !important;">
+								발생가능성(연)
+							</th>
+						</tr>
+						
+						<tr style="background:#2f2f2f;">
+							<th style="border-right:1px solid #5d5d5d;">
+								사전지진
+							</th>
+							<th style="border-right:1px solid #5d5d5d;">
+								기왕초과강우
+							</th>
+							<th style="border-right:1px solid #5d5d5d;">
+								사전대피
+							</th>
+							<th style="">
+								안전등급조정
+							</th>
+						</tr>
+						<tr>
+							<td id="b16">
+								-
+							</td>
+							<td id="b17">
+								-
+							</td>
+							<td id="b18">
+								-
+							</td>
+							<td id="b19">
+								-
+							</td>
+							<td id="b20">
+								-
+							</td>
+							<td id="b21">
+								-
+							</td>
+							<td id="b22">
+								-
+							</td>
+							<td id="b15">
+								-
+							</td>
+						</tr>
+						</table>
+					
+					
+					<div class="tt" >[ 복합재난 시나리오 조건에 따른 효력 ]</div>
+					<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table" style="border-top:1px solid #5d5d5d; margin-bottom:20px;">
+							<tr>
+								<th  style="background:#2f2f2f; width:50%;">
+									조건
+								</th>
+								<th colspan=3 style="background:#2f2f2f;">
+									효력
+								</th>								
+							</tr>
+							<tr>
+								<th rowspan=7 >
+									반경 20km 내 규모 5.0 이상의 지진
+								</th>
+								<td rowspan=2 style="border-right:1px solid #5d5d5d; color:#42c6e9; font-weight:bold;">
+									안전등급
+								</td>
+								<td colspan=2 style="color:#42c6e9; font-weight:bold;">
+									붕괴확률 증가율
+								</td>
+							</tr>
+							<tr>
+								<td style="border-right:1px solid #5d5d5d; color:#42c6e9; font-weight:bold;">
+									있음
+								</td>
+								<td style="color:#42c6e9; font-weight:bold;">
+									없음
+								</td>
+							</tr>
+							<tr>
+								<td>
+									A
+								</td>
+								<td>
+									1.66
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									B
+								</td>
+								<td>
+									1.04
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									C
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									D
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									E
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<th rowspan=7 >
+									기왕최대강우를 초과하는 강우 상황 발생<br>(기후변화)
+								</th>
+								<td rowspan=2 style="border-right:1px solid #5d5d5d; color:#42c6e9; font-weight:bold;">
+									안전등급
+								</td>
+								<td colspan=2 style="color:#42c6e9; font-weight:bold;">
+									붕괴확률 증가율
+								</td>
+							</tr>
+							<tr>
+								<td style="border-right:1px solid #5d5d5d; color:#42c6e9; font-weight:bold;">
+									있음
+								</td>
+								<td style="color:#42c6e9; font-weight:bold;">
+									없음
+								</td>
+							</tr>
+							<tr>
+								<td>
+									A
+								</td>
+								<td>
+									1.66
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									B
+								</td>
+								<td>
+									1.04
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									C
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									D
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<td>
+									E
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									1
+								</td>
+							</tr>
+							<tr>
+								<th rowspan=2 >
+									사전 대피
+								</th>
+								<th style="background:#000;">
+									구분
+								</td>
+								<th  style="background:#000;">
+									성공
+								</td>
+								<th  style="background:#000;">
+									실패
+								</td>
+							</tr>
+							<tr>
+								<td>
+									평균 대피율
+								</td>
+								<td>
+									90%
+								</td>
+								<td>
+									50%
+								</td>
+							</tr>
+							
+
+					</table>
+				</div>
+
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" >
+				<tr>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 호우시 안전등급별 연간붕괴확률 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" >
+						<tr>
+							<th>
+								등급
+							</th>
+							<th>
+								설명
+							</th>
+							<th>
+								붕괴확률
+							</th>
+						</tr>
+						<tr>
+							<td>
+								A
+							</td>
+							<td>
+								우수
+							</td>
+							<td>
+								3.E-06
+							</td>
+						</tr>
+						<tr>
+							<td>
+								B
+							</td>
+							<td>
+								양호
+							</td>
+							<td>
+								5.E-05
+							</td>
+						</tr>
+						<tr>
+							<td>
+								C
+							</td>
+							<td>
+								보통
+							</td>
+							<td>
+								1.E-04
+							</td>
+						</tr>
+						<tr>
+							<td>
+								D
+							</td>
+							<td>
+								미흡
+							</td>
+							<td>
+								2.E-04
+							</td>
+						</tr>
+						<tr>
+							<td>
+								E
+							</td>
+							<td>
+								불량
+							</td>
+							<td>
+								6.E-04
+							</td>
+						</tr>
+						
+						</table>
+
+					</td>
+					<td  style="width:50%;border:0 !important; ">
+						<div class="tt" > [ 호우시 안전등급별 붕괴확률 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb">
+						<tr>
+							<th>
+								범주
+							</th>
+							<th>
+								유역/저수량 붕괴확률증감
+							</th>
+						</tr>
+						<tr>
+							<td>
+								Ⅰ
+							</td>
+							<td>
+								0.4
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Ⅱ
+							</td>
+							<td>
+
+								0.7
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Ⅲ
+							</td>
+							<td>
+								1
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Ⅳ
+							</td>
+							<td>
+								1.3
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Ⅴ
+							</td>
+							<td>
+								1.6
+							</td>
+						</tr>
+						
+						</table>
+					</td>
+				</tr>
+				</table>
+		
+	 
+	 
+		
+			 
+				<div style="z-index:9999; position:absolute; left:19.65cm; top:1.2cm;">
+					<table cellpadding="0" cellspacing="0" style="border: 0px solid #eaeaea; border-radius:5px; padding: 5px; background-color: rgba(0, 0, 0, 0.7); margin-top: 0px; margin-bottom: 5px;">
+						<tbody><tr>
+							<td class="mapmenu" style="color:#fff; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0; " id="normal_map" onclick="javascript:mapChange('1','base');">일반</td>
+						</tr>
+						<tr>
+							<td class="mapmenu" style="color: #31c0f7; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0;" id="sky_map" onclick="javascript:mapChange('1','hybrid');">위성</td>
+						</tr>		
+					</tbody>
+					</table>
+
+				</div>
+
+	
+			
+			</div>
+
+			<div style='page-break-before:always'></div>
+
+				
+			<div class="subpage" id="content">
+				<div class="tt">3. 복합재난 발생결과 분석</div>
+				<div class="tt" style="text-align:center;" >[ 붕괴부 및 침수부 위험지도 ]</div>
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table">
+				<tr>
+					<td style="width:100%; height:10cm; border:0; ">
+						<div id="map2" style="width:100%; height:100%; position:static !important;"></div>
+					</td>
+				</tr>
+				</table>
+
+				
+				<div style="z-index:9999; position:absolute; left:19.65cm; top:42.3cm;">
+					<table cellpadding="0" cellspacing="0" style="border: 0px solid #eaeaea; border-radius:5px; padding: 5px; background-color: rgba(0, 0, 0, 0.7); margin-top: 0px; margin-bottom: 5px;">
+						<tbody><tr>
+							<td class="mapmenu" style="color:#fff; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0; " id="normal_map2" onclick="javascript:mapChange('2','base');">일반</td>
+						</tr>
+						<tr>
+							<td class="mapmenu" style="color: #31c0f7; text-align: center; font-size: 11px; padding: 5px; cursor: pointer; font-weight: 0;" id="sky_map2" onclick="javascript:mapChange('2','hybrid');">위성</td>
+						</tr>		
+					</tbody>
+					</table>
+
+				</div>
+				
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 붕괴부 노출도 분석(건축물대 대장 기준) ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;">
+							<tr>
+								<td colspan=2 class="sub_sub_title">
+									[ 주거인구 ]
+								</td>
+								
+							</tr>
+							
+							
+							<tr>
+								<th>
+									세대수
+								</th>
+								<td id="c1">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									가구수
+								</th>
+								<td id="c2">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									노출인구(전체)
+								</th>
+								<td id="c3">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									일층 세대&가구수
+								</th>
+								<td id="c4">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									노출인구(1층)
+								</th>
+								<td id="c5">
+									-
+								</td>
+							</tr>						
+						</table>
+
+
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style="margin-top:10px; border-top:0;">
+						
+							<tr>
+								<td colspan=2 class="sub_sub_title">
+									[ 라이프라인, 필수시설, 위험물 ]
+								</td>
+							</tr>
+							<tr>
+								<th>
+									건축물(개소)
+								</th>
+								<td id="c6">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									도로(km)
+								</th>
+								<td id="c7">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									철도(km)
+								</th>
+								<td id="c8">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									학교(개소)
+								</th>
+								<td id="c9">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									경찰서(개소)
+								</th>
+								<td id="c10">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									소방서(개소)
+								</th>
+								<td id="c11">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									위험물취급업체(개소)
+								</th>
+								<td id="c12">
+									-
+								</td>
+							</tr>
+						
+						
+						</table>
+
+					</td>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 침수부 노출도 분석(건축물대 대장 기준) ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;">
+							<tr>
+								<td colspan=2 class="sub_sub_title">
+									[ 주거인구 ]
+								</td>
+								
+							</tr>
+							
+							
+							<tr>
+								<th>
+									세대수
+								</th>
+								<td id="d1">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									가구수
+								</th>
+								<td id="d2">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									노출인구(전체)
+								</th>
+								<td id="d3">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									일층 세대&가구수
+								</th>
+								<td id="d4">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									노출인구(1층)
+								</th>
+								<td id="d5">
+									-
+								</td>
+							</tr>						
+						</table>
+
+
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style="margin-top:10px; border-top:0;">
+						
+							<tr>
+								<td colspan=2 class="sub_sub_title">
+									[ 라이프라인, 필수시설, 위험물 ]
+								</td>
+							</tr>
+							<tr>
+								<th>
+									건축물(개소)
+								</th>
+								<td id="d6">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									도로(km)
+								</th>
+								<td id="d7">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									철도(km)
+								</th>
+								<td id="d8">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									학교(개소)
+								</th>
+								<td id="d9">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									경찰서(개소)
+								</th>
+								<td id="d10">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									소방서(개소)
+								</th>
+								<td id="d11">
+									-
+								</td>
+							</tr>
+							<tr>
+								<th>
+									위험물취급업체(개소)
+								</th>
+								<td id="d12">
+									-
+								</td>
+							</tr>
+						
+						
+						</table>
+
+					</td>
+				</tr>
+				</table>
+
+
+
+			
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<div style='page-break-before:always'></div>
+
+				
+			<div class="subpage" id="content">
+		
+			
+				
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 인명취약도 분석 ]
+						<div style="text-align:left; ">
+	
+</div>
+
+</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;" id="e1">
+							
+							
+							
+							<tr>
+								<th style="width:8%;">
+									구역
+								</th>
+								<th  style="width:10%;">
+									집계구코드
+								</th>
+								<th style="width:30%;">
+									대표주소
+								</th>
+								<th  style="width:8%;">
+									노출인구
+								</th>
+								<th  style="width:10%;">
+									취약성범주
+								</th>
+								<th  style="width:14%;">
+									사전대피여부
+								</th>
+								<th  style="width:10%;">
+									대피율
+								</th>
+								<th  style="width:10%;">
+									잔류인구
+								</th>
+							</tr>
+							
+						</table>
+
+
+					
+					
+
+					</td>
+				</tr>
+				</table>
+	
+			
+			</div>
+
+
+
+		
+			<div class="subpage" id="content">
+		
+			
+				
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 인명 취약성 범주 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;">
+							
+							
+							
+							<tr>
+								<th>
+									범주
+								</th>
+								<th>
+									취약성지수(I) 구간
+								</th>
+								<th>
+									설명
+								</th>
+								<th>
+									대피율증감
+								</th>
+
+								
+							</tr>
+							<tr>
+								
+								<td>
+									Ⅰ
+								</td>
+								<td>
+									I ≤ 0.04
+								</td>
+								<td>
+									우수
+								</td>
+								<td>
+									1.1
+								</td>
+							
+							
+							</tr>
+							<tr>
+								
+								<td>
+									Ⅱ
+								</td>
+								<td>
+									I ≤ 0.16
+								</td>
+								<td>
+									양호
+								</td>
+								<td>
+									1.05
+								</td>
+								
+							
+							</tr>
+							<tr>
+								<td>
+									Ⅲ
+								</td>
+								<td>
+									I ≤ 0.36
+								</td>
+								<td>
+									보통
+								</td>
+								<td>
+									1
+								</td>
+								
+							</tr>
+							<tr>
+								<td>
+									Ⅳ
+								</td>
+								<td>
+									I ≤ 0.64
+								</td>
+								<td>
+									취약
+								</td>
+								<td>
+									0.95
+								</td>
+								
+							</tr>
+							<tr>
+								<td>
+									Ⅴ
+								</td>
+								<td>
+									I ＞ 0.64
+								</td>
+								<td>
+									매우취약
+								</td>
+								<td>
+									0.9
+								</td>
+								
+							</tr>
+												
+						</table>
+
+
+					
+					
+
+					</td>
+				</tr>
+				</table>
+			
+			</div>
+
+
+
+
+			<div style='page-break-before:always'></div>
+
+				
+			<div class="subpage" id="content">
+		
+			
+				
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="width:50%;border:0 !important; ">
+						<div class="tt" >[ 잠재적 인명 손실 분석 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;" id="e2">
+							
+							
+							
+							<tr>
+								<th>
+									구역
+								</th>
+								<th>
+									집계구코드
+								</th>
+								<th>
+									잔류인구
+								</th>
+								<th>
+									사망률
+								</th>
+								<th>
+									잠재적 사망자
+								</th>
+								
+							</tr>
+						
+										
+						</table>
+
+
+					
+					
+
+					</td>
+				</tr>
+				</table>
+			
+			</div>
+
+
+
+
+
+
+				<div style='page-break-before:always'></div>
+
+				
+			<div class="subpage" id="content">
+		
+			
+				<div class="tt">4. 리스크지수 심의</div>
+				
+				<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="border:0 !important; ">
+						<div class="tt" >[ 저수지 복합재난 리스크지수 : 인명 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0; letter-spacing:-1px;" id="f">
+							
+							
+							
+							<tr>
+								<!--<th>
+									저수지ID
+								</th>-->
+								<th>
+									저수지명
+								</th>
+								<th>
+									시나리오명
+								</th>
+								<th>
+									연간발생확률
+								</th>
+								<th>
+									인명손실
+								</th>								
+								<th>
+									연간인명손실
+								</th>
+								<th>
+									가능성등급
+								</th>
+								<th>
+									결과등급
+								</th>
+								<th>
+									개인리스크
+								</th>
+								<th>
+									사회리스크
+								</th>
+								<th>
+									시급성
+								</th>
+								
+							</tr>
+							
+							
+						
+												
+						</table>
+
+
+					
+					
+
+					</td>
+				</tr>
+				</table>
+				
+				<style>
+				.guideLine{width:600px;}
+				.guideLine td{ width:120px; height:120px; border:2px solid #000;}
+				.y{background:#ffff00;}
+				.r{background:#ff0000;}
+				.g{background:#00b050;}
+				.o{background:#ffc000;}
+				.b{background:#0070c0;}
+
+				.guideLineTxt{font-size:12px; height:1.5cm;}
+				.texto-vertical-2 {
+				
+					 transform: rotate(270deg);
+					
+				}
+				.skyColor{color:#42c6e9; font-weight:bold;}
+
+				.slash {
+					background: url('http://cdn.zetawiki.com/png/slash.png');
+					background-size: 100% 100%;
+					text-align: left;
+				}
+				</style>
+
+				<div class="tt" style="width:100%; text-align:center; margin-top:1cm;" >[ 리스크지수 가이드라인 ]</div>
+				<div style=" margin:5px;  height:17cm;">
+						<table cellpadding=0 cellspacing=0 border=0 width=100%  style=" border-top:0; margin-left:0;  ">
+						<tr>
+							<td valign=middle  style="text-align:left; width:1.1cm;">
+								<div class="texto-vertical-2 sub_sub_title" style="position:absolute; left:-0.5cm;  " >
+									발생가능성 (연간)
+								</div>
+								
+							</td>
+							<td valign=top>
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style=" border-top:0;text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-right:10px;">
+									
+										<div>
+											1.0E-02
+										</div>
+
+										<div style="padding-top:1.2cm;" class="skyColor">
+											매우높음
+										</div>
+
+										<div style="padding-top:1cm;">
+											1.0E-03
+										</div>
+
+										<div style="padding-top:1.3cm;" class="skyColor">
+											높음
+										</div>
+
+										<div style="padding-top:1.1cm;">
+											1.0E-04
+										</div>
+
+										<div style="padding-top:1.3cm;" class="skyColor">
+											보통
+										</div>
+
+										<div style="padding-top:1.1cm;">
+											1.0E-05
+										</div>
+
+										<div style="padding-top:1.2cm;" class="skyColor">
+											낮음
+										</div>
+
+										<div style="padding-top:1.2cm;">
+											1.0E-06
+										</div>
+
+										<div style="padding-top:1.2cm;" class="skyColor">
+											희박
+										</div>
+										<div style="padding-top:1cm;" >
+											1.0E-07
+										</div>
+
+									</td>
+								</tr>																				
+								</table>
+							</td>
+							<td>
+								<div id="riskCircle"  style=" position:absolute;  margin-left:0; margin-top:0;  z-index:9999; ">
+									<div style=" width:0.4cm; height:0.4cm;  background:#00e4ff; border:2px solid #000; border-radius:10px; float:left;  "></div> 
+									<!--<div style="margin-top:-8px; border:2px solid #000; margin-left:5px; padding:5px;  float:left; color:#000; background:#fff; font-size:13px;  ">PMF4</div> -->
+								</div>
+								<table cellpadding=0 cellspacing=0 border=1 width=100% class="guideLine"  style=" border-top:0; z-index:0; ">
+									<tr>
+										<td class="y">
+											<div style=" position:absolute; width:4.4cm; left:2.35cm;  border-bottom: 3px dashed red; -webkit-transform: translateY(0px) translateX(0px) rotate(45deg); "></div> 
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr style="border-bottom:3px dashed red;">
+										<td class="y">
+											
+										</td>
+										<td class="y">
+											<div style=" position:absolute; width:4.4cm; left:5.45cm;  border-bottom: 3px dashed red; -webkit-transform: translateY(0px) translateX(0px) rotate(45deg); "></div> 
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+										<td class="r">
+											
+										</td>
+									</tr>
+									<tr >
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											<div style=" position:absolute; width:4.4cm; left:8.64cm;  border-bottom: 3px dashed red; -webkit-transform: translateY(0px) translateX(0px) rotate(45deg); "></div> 
+										</td>
+										<td class="o">
+											
+										</td>
+										<td class="o">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											<div style=" position:absolute; width:4.4cm; left:11.80cm;  border-bottom: 3px dashed red; -webkit-transform: translateY(0px) translateX(0px) rotate(45deg); "></div> 
+										</td>
+										<td class="o">
+											
+										</td>
+									</tr>
+									<tr>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="g">
+											
+										</td>
+										<td class="b" style="border-top:3px dashed red; border-left:3px dashed red;">
+											
+										</td>
+									</tr>
+									
+														
+								</table>
+
+							
+									
+
+							</td>
+						</tr>
+						<tr>
+							
+							<td colspan=3>
+								<table cellpadding=0 cellspacing=0 border=0 width=100%  class="guideLineTxt" style=" border-top:0;text-align:right;  ">
+								<tr>
+									<td valign=top style="padding-left:2.6cm;">
+									
+										<div style="float:left;">
+											0.1
+										</div>
+
+										<div style="float:left;  padding-left:1cm;" class="skyColor">
+											심도1
+										</div>
+
+										<div style="float:left; padding-left:1cm;">
+											1
+										</div>
+
+										<div style="float:left;padding-left:1.1cm;" class="skyColor">
+											심도2
+										</div>
+
+										<div style="float:left;padding-left:0.9cm;">
+											10
+										</div>
+
+										<div style="float:left;padding-left:1cm;" class="skyColor">
+											심도3
+										</div>
+
+										<div style="float:left;padding-left:0.95cm;">
+											100
+										</div>
+
+										<div style="float:left;padding-left:0.9cm;" class="skyColor">
+											심도4
+										</div>
+
+										<div style="float:left;padding-left:0.8cm;">
+											1000
+										</div>
+
+										<div style="float:left;padding-left:0.9cm;" class="skyColor">
+											심도5
+										</div>
+										<div style="float:left;padding-left:0.7cm;">
+											10000
+										</div>
+
+									</td>
+								</tr>	
+							
+								</table>
+
+								
+										<div style="text-align:center; margin-top:-0.5cm;" class="sub_sub_title">
+											발생결과(연간 사망자)
+										</div>
+								
+							</td>
+						</tr>
+						</table>
+
+					</div>
+
+
+					<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="">
+				<tr>
+					<td style="width:65%;border:0 !important; ">
+						<div class="tt" >[ 인명 취약성 범주 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;">
+							<tr>
+								<th style="width:2cm;" >
+									저감조치 시급성
+								</th>
+								<th>
+									설명
+								</th>
+							</tr>	
+							<tr>
+								<td class="r" style="font-weight:bold;">
+									매우 시급
+								</td>
+								<td>
+									개인리스크와 사회리스크 모두를 수용하기 어려운 구간
+								</td>
+							</tr>
+							<tr>
+								<td class="o" style="color:#000; font-weight:bold;" >
+									높은 시급
+								</td>
+								<td>
+									개인리스크는 허용할 수 있으나 사회리스크를 수용하기 어려운 구간
+								</td>
+							</tr>
+							<tr>
+								<td class="y" style="color:#000; font-weight:bold;">
+									보통 시급
+								</td>
+								<td>
+									사회리스크는 허용할 수 있으나 개인리스크를 수용하기 어려운 구간
+								</td>
+							</tr>
+							<tr>
+								<td class="b" style="font-weight:bold;">
+									낮은 시급
+								</td>
+								<td>
+									모든 이해관계지 합의(사회적 합의)가 필요한 구간
+								</td>
+							</tr>
+							<tr>
+								<td class="g" style="font-weight:bold;">
+									ALARP
+								</td>
+								<td>
+									개인리스크와 사회리스크 모두 안전 구간
+								</td>
+							</tr>
+						</table>
+
+
+					
+					
+
+					</td>
+					<td style="width:65%;border:0 !important; ">
+						<div class="tt" >[ 대표적 사회리스크 포용 한계 ]</div>
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="sub_tb" style=" border-top:0;">
+							<tr>
+								<th>
+									발생결과
+								</th>
+								<th>
+									연간발생확률
+								</th>
+								<th>
+									연간인명손실
+								</th>
+							</tr>	
+							<tr>
+								<td>
+									0.1
+								</td>
+								<td>
+									0.01
+								</td>
+								<td>
+									0.001
+								</td>
+							</tr>
+							<tr>
+								<td>
+									1
+								</td>
+								<td>
+									0.001
+								</td>
+								<td>
+									0.001
+								</td>
+							</tr>
+							<tr>
+								<td>
+									10
+								</td>
+								<td>
+									0.0001
+								</td>
+								<td>
+									0.001
+								</td>
+							</tr>
+							<tr>
+								<td>
+									100
+								</td>
+								<td>
+									0.00001
+								</td>
+								<td>
+									0.001
+								</td>
+							</tr>
+							<tr>
+								<td>
+									1000
+								</td>
+								<td>
+									0.000001
+								</td>
+								<td>
+									0.001
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				
+				</table>
+					
+
+					<div class="tt" style="text-align:center; margin-top:1cm;" >[ 개인리스크 포용 한계 ]</div>
+					<div style=" padding:5px;">
+						<table cellpadding=0 cellspacing=0 border=0 width=100% class="css_table2" style="border-top:1px solid #5d5d5d;">
+								<tr>
+									<th style="background:#2f2f2f; width:65%;">
+										사고모드별 연간사고율
+									</th>
+									<td>
+										0.0001
+									</td>
+								</tr>	
+						</table>
+					</div>
+
+			
+			</div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+<script>
+function r_info(aaa){
+
+	alert(aaa);
+
+	
+}
+function reload(){
+	location.reload(true);
+}
+var myCircle1 = null;
+var myCircle2 = null;
+var circleData = "";
+function drawReservoir(dt){
+
+	try{
+		circleData = dt;
+	
+		
+
+		//dt = "1,경주시,상황수방,경상북도 경주시 석장동 971,35.8647390183,129.178567981,C,24,136,91,8.4,0.062/2,경주시,하황수방,경상북도 경주시 석장동 978,35.8613207674,129.180635074,C,5,71,69.8,5.6,0.0539/3,경주시,약수,경상북도 경주시 석장동 산105,35.8587898451,129.181074883,C,5,50,85.2,7.5,0.0907/";
+		myCircle = new Array();
+		circleGroup = L.layerGroup();
+		
+		var arrLine = new Array();
+
+		var strFL_InnerHTML = "";
+
+
+
+		
+
+		var reservoirSpilt2 = dt.split("**");	
+			myCircle1 = L.circleMarker([reservoirSpilt2[4],reservoirSpilt2[5]], {radius: "7", name:"",color:"#fff",fillColor:"red",fillOpacity:1, weight: 1, zIndex:9999});
+			myCircle2 = L.circleMarker([reservoirSpilt2[4],reservoirSpilt2[5]], {radius: "7", name:"",color:"#fff",fillColor:"red",fillOpacity:1, weight: 1, zIndex:9999});
+			//circleGroup.addLayer(myCircle[i]);
+		
+		myCircle1.addTo(map);
+		myCircle2.addTo(map2);
+
+		map.setView([reservoirSpilt2[4],reservoirSpilt2[5]], 18);
+
+
+	
+	}catch(e){
+		//alert(e.message);
+	}
+}
+
+var arrRoad = new Array();
+var addRoadColor = new Array();
+var addRoadBorderColor = new Array();
+addRoadColor[1] = "#334398";
+addRoadColor[0] = "#e7543f";
+addRoadColor[3] = "#334398";
+addRoadColor[2] = "#e7543f";
+
+addRoadBorderColor[0] = "#fff";
+addRoadBorderColor[1] = "#fff";
+addRoadBorderColor[2] = "#fff";
+addRoadBorderColor[3] = "#fff";
+
+var mapX1, mapX2, mapY1, mapY2, shpX1, shpX2, shpY1, shpY2, mapXRange, mapYRange, shpYRange, shpYRange;
+function csharpSHPread2(shpByteString, dbfByteString, prjTxt, shpBufferSize, dbfBufferSize, layerType, idx){
+		
+	
+		var shpByteSplit = shpByteString.split(',');
+		shpByteSplit.pop();
+		var shpByteArray = new Array();
+		var shpArrayByffer = new ArrayBuffer(shpBufferSize);
+		var shpInt8arr = new Int8Array(shpArrayByffer);
+		shpInt8arr.set(shpByteSplit);
+
+
+		var dbfByteSplit = dbfByteString.split(',');
+		dbfByteSplit.pop();
+		var dbfByteArray = new Array();
+		var dbfArrayByffer = new ArrayBuffer(dbfBufferSize);
+		var dbfInt8arr = new Int8Array(dbfArrayByffer);
+		dbfInt8arr.set(dbfByteSplit);
+		
+		
+
+
+		 loadSharpshp({
+                url: "",
+                encoding: "UTF-8",
+                EPSG: "4326",
+				shpBuffer: shpArrayByffer,
+				dbfBuffer: dbfArrayByffer,
+				prjText: prjTxt,
+				num : idx
+			
+            }, function(data) {
+                var URL = window.URL || window.webkitURL || window.mozURL || window.msURL,
+                url = URL.createObjectURL(new Blob([JSON.stringify(data)], {type: "application/json"}));
+			
+
+			//	data.features[0].geometry.name = layerType;
+				
+				arrRoad[data.idx] = settingVector();
+			
+				arrRoad[data.idx].addData(data);
+
+				var xAverage = (data.bbox[1] + data.bbox[3]) / 2;
+				var yAverage = (data.bbox[0] + data.bbox[2]) / 2;
+				
+				
+
+
+				if(idx == 0 || idx == 1){
+					arrRoad[data.idx].addTo(map);
+
+					arrRoad[data.idx].eachLayer(function(e){
+					arrRoad[data.idx]._layers[e._leaflet_id].name = "addRoad"; 
+					arrRoad[data.idx]._layers[e._leaflet_id].setStyle({ fillColor: addRoadColor[data.idx], fillOpacity: 0.3, color :addRoadBorderColor[data.idx], weight:1});
+					arrRoad[data.idx]._layers[e._leaflet_id].fillColor = addRoadColor[data.idx];
+				});
+				}else{
+					arrRoad[data.idx].addTo(map2);
+					var zoomLevel = 16;
+					if(idx == 2){
+						
+
+
+						
+						mapX1 = map2.getBounds()._northEast.lat;
+						mapX2 = map2.getBounds()._southWest.lat;
+
+						mapY1 = map2.getBounds()._northEast.lng;
+						mapY2 = map2.getBounds()._southWest.lng;
+
+						mapXRange = mapX1 - mapX2;
+						mapXRange = Math.abs(mapXRange);
+
+						mapYRange = mapY1 - mapY2;
+						mapYRange = Math.abs(mapYRange);
+
+
+						shpX1 = data.bbox[1];
+						shpX2 = data.bbox[3];
+
+						shpY1 = data.bbox[0];
+						shpY2 = data.bbox[2];
+
+						shpXRange = shpX1 - shpX2;
+						shpXRange = Math.abs(shpXRange);
+
+						shpYRange = shpY1 - mapY2;
+						shpYRange = Math.abs(shpYRange);
+
+						
+						//while (mapXRange > shpXRange && mapYRange > shpYRange) {
+						/*map2.on('zoomend', function() {
+							mapX1 = map2.getBounds()._northEast.lat;
+							mapX2 = map2.getBounds()._southWest.lat;
+
+							mapY1 = map2.getBounds()._northEast.lng;
+							mapY2 = map2.getBounds()._southWest.lng;
+
+							mapXRange = mapX1 - mapX2;
+							mapXRange = Math.abs(mapXRange);
+
+							mapYRange = mapY1 - mapY2;
+							mapYRange = Math.abs(mapYRange);
+
+							if (mapXRange < shpXRange && mapYRange < shpYRange) {
+									
+									//zoomLevel--;
+									//map2.setView([xAverage,yAverage], zoomLevel);
+									map2.zoomOut();
+
+									
+								
+							}
+						});*/
+						map2.setView([xAverage,yAverage], zoomLevel);
+						//map2.zoomOut();
+
+
+						//if(mapXRange < shpXRange && mapYRange < mapYRange){
+						//	map2.setView([xAverage,yAverage], zoomLevel - 1);
+						//}
+
+						
+					}
+					
+					arrRoad[data.idx].eachLayer(function(e){
+					arrRoad[data.idx]._layers[e._leaflet_id].name = "addRoad"; 
+					arrRoad[data.idx]._layers[e._leaflet_id].setStyle({ fillColor: addRoadColor[data.idx], fillOpacity:0.1, color :addRoadBorderColor[data.idx], weight:1});
+					arrRoad[data.idx]._layers[e._leaflet_id].fillColor = addRoadColor[data.idx];
+				});
+				}
+
+				
+			
+			
+				
+				
+				myCircle1.bringToFront();
+				myCircle2.bringToFront();
+
+				javascripr:CefCustomObject.addShapeDetail(idx.toString());
+             
+         });
+
+
+		
+
+}
+function settingVector () {
+       var vectorLayer = L.geoJson([], {
+            style: function (feature) {
+               // return feature.properties.style;
+            },
+            onEachFeature: function (feature, layer) {
+ 
+                layer.on({click: function(e) {
+                    /*vectorLayer.eachLayer(function(l) {						
+						vectorLayer.resetStyle(l);
+                    });
+ 
+                    $('.tbodyContent').remove();
+                    var tbody = '<tbody class="tbodyContent">';
+                    for (var key in e.target.feature.properties) {
+                        tbody +=
+                            ('<tr class="center aligned"><td>'+ key + '</td><td>' + e.target.feature.properties[key] + '</td></tr>');
+                    }
+
+                    $('#attribute').append(tbody + '</tbody>');
+                    $('#attr').fadeIn(300);
+                    map.panTo(e.latlng);
+					//alert(e.target.feature.properties.SIG_KOR_NM);
+ 
+                    if('setStyle' in e.target) e.target.setStyle({
+                        fillColor: '#FF0000',
+                        fillOpacity: 0.6
+                    });
+					*/
+
+					$('.tbodyContent').remove();
+                    var tbody = '<tbody class="tbodyContent">';
+                    for (var key in e.target.feature.properties) {
+                        tbody +=
+                            ('<tr class="center aligned"><td>'+ key + '</td><td>' + e.target.feature.properties[key] + '</td></tr>');
+                    }
+
+                    //$('#attribute').append(tbody + '</tbody>');
+					//document.getElementById("tbodyData").innerHTML = tbody + '</tbody>';
+						$('#attribute').append(tbody + '</tbody>')
+                    $('#attr').fadeIn(300);
+                   // map.panTo(e.latlng);
+                }});
+
+				/*
+				layer.on({mouseover: function(e) {
+                    if('setStyle' in e.target) e.target.setStyle({
+                        fillColor: '#FF0000',
+                        fillOpacity: 1
+                    });
+                }});
+
+				layer.on({mouseout: function(e) {
+                    if('setStyle' in e.target) e.target.setStyle({
+                        fillColor: e.target.fillColor,
+                        fillOpacity: 1
+                    });
+                }});
+				*/
+            }
+        });
+		
+		return vectorLayer;
+		
+}
+
+
+function RiskGuideLine(valX, valY){
+
+	document.getElementById("riskCircle").style.marginLeft = "-18px";
+	if(valX > 0.1 && valX <= 1 ){
+		valX = valX * 10 * 12;		
+	}else if(valX > 1 && valX <= 10 ){
+		valX = (valX * 1 * 12) + 120 - 3;		
+	}else if(valX > 10 && valX <= 100 ){
+		valX = (valX / 10 * 12) + 240 - 3;		
+	}else if(valX > 100 && valX <= 1000 ){
+		valX = (valX / 100 * 12) + 360 - 3;		
+	}else if(valX > 1000 && valX <= 10000 ){
+		valX = (valX / 1000 * 12) + 480 - 4;		
+	}else{
+		valX = 0;
+	}
+
+
+	if(valY > 0.0000001 && valY <= 0.000001 ){
+		valY = (valY * 10000000 * 12) - 600;		
+	}else if(valY > 0.000001 && valY <= 0.00001 ){
+		valY = (valY * 1000000 * 12) - 480;		
+	}else if(valY > 0.00001 && valY <= 0.0001 ){
+		valY = (valY * 100000 * 12) - 360;		
+	}else if(valY > 0.0001 && valY <= 0.001 ){
+		valY = (valY * 10000* 12) - 240;		
+	}else if(valY > 0.001 && valY <= 0.01 ){
+		valY = valY * 1000 * 12 - 120;		
+	}else{
+		valY = 600;
+	}
+
+	valX = valX - 6;	
+	valY = Math.abs(valY) - 7;
+
+	valX = Math.round(valX);
+	valY = Math.round(valY);
+
+
+
+	document.getElementById("riskCircle").style.marginLeft = valX + "px";
+	document.getElementById("riskCircle").style.marginTop = valY + "px";
+
+}
+function mapAAA(){
+	map.eachLayer(function(e){
+		if(map._layers[e._leaflet_id].name == "arrRoad"){
+			map._layers[e._leaflet_id].setStyle({  fillOpacity: 0.1});
+		}
+	});
+}
+</script>
+	<input type="button" value="침" onclick="reload();" style="background:#000;">		
+</body>
+</html>
