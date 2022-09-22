@@ -1094,7 +1094,7 @@
 									<span>
 										시설구분
 									</span><br>
-									<select class="discharge_option">
+									<select class="discharge_option" onchange="areaChange(this.value)">
 										<option value="facility">해양산업시설</option>
 										<option value="station">발전소</option>
 									</select>
@@ -1104,16 +1104,18 @@
 										지역
 									</span><br>
 									<select class="discharge_option">
-										<option value="busan">부산</option>
-										<option value="yeosu">여수</option>
-										<option value="ulsan">울산</option>
-										<option value="incheon">인천</option>
-										<option value="pyeongtaek">평택</option>
-										<option value="gori">고리</option>
-										<option value="donghae">동해</option>
-										<option value="boryeong">보령</option>
-										<option value="samcheonpo">삼천포</option>
-										<option value="yeonggwang ">영광</option>
+										<option id="area_facility" value="busan">부산</option>
+										<option id="area_facility" value="yeosu">여수</option>
+										<option id="area_facility" value="ulsan">울산</option>
+										<option id="area_facility" value="incheon">인천</option>
+										<option id="area_facility" value="pyeongtaek">평택</option>
+
+										<option id="area_station" value="gori">고리</option>
+										<option id="area_station" value="donghae">동해</option>
+										<option id="area_station" value="boryeong">보령</option>
+										<option id="area_station" value="samcheonpo">삼천포</option>
+										<option id="area_station" value="yeonggwang ">영광</option>
+									
 									</select>
 								</div>
 								<div class="discharge_btn"
@@ -1414,7 +1416,6 @@
 			classSetTime();//setTime selectBox에 0시~23시 옵션 추가
 
 			//document.getElementById("loading").style.display = "none";
-
 
 			map.on("zoomstart", function (e) {
 

@@ -830,6 +830,14 @@ input[id="b"] {
     display: none;
 }
 
+#area_facility {
+    display: block;
+}
+
+#area_station {
+    display: none;
+}
+
 /* @media only screen and (max-width:1920px) {
 
     html {

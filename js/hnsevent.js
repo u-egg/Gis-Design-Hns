@@ -90,8 +90,6 @@ $.datepicker.setDefaults({
     });
 });
 
-classSetTime();
-
 function classSetTime() {
 
 var objTime = $('.setTime');
@@ -812,7 +810,7 @@ function layerInfo(){
 }
 
 function mapsetting(){ // 좌표이동
-    
+
     if (base == 1) { // 위성지도
         // map.removeLayer(hybridLayer1);
         // map.removeLayer(hybridLayer2);
@@ -831,6 +829,20 @@ function mapsetting(){ // 좌표이동
         map.setView([35.0686, 128.994], 11);
 
         map.addLayer(baseLayer);
+    }
+}
+
+function areaChange(value){
+
+    var center = value
+
+    if(center == "facility"){
+        $("#area_facility").css('display','block');
+        $("#area_station").css('display','none');
+    }
+    else{
+        $("#area_facility").css('display','none');
+        $("#area_station").css('display','block');
     }
 }
 
