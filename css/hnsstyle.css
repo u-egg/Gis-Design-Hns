@@ -830,11 +830,11 @@ input[id="b"] {
     display: none;
 }
 
-#area_facility {
+.area_facility {
     display: block;
 }
 
-#area_station {
+.area_station {
     display: none;
 }
 

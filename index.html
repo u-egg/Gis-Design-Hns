@@ -30,6 +30,8 @@
 	<script src="./js/dbf.js"></script>
 	<script src="./js/preview.js" charset="utf-8"></script>
 
+	<!--엑셀읽기-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
 
 	<script src="./js/geotiff.js"></script>
 	<script src="./js/plotty.js"></script>
@@ -1076,7 +1078,7 @@
 				<div class="part_5">
 
 					<!--top-->
-					<div class="side_body_top">
+					<div class="side_body_top" onclick="    javascripr: CefCustomObject.func('selta', 'l');">
 						<h2>HNS 방류 실태 조사 정보 조회</h2>
 					</div>
 
@@ -1094,7 +1096,7 @@
 									<span>
 										시설구분
 									</span><br>
-									<select class="discharge_option" onchange="areaChange(this.value)">
+									<select class="discharge_option" onchange="senterChange(this.value)">
 										<option value="facility">해양산업시설</option>
 										<option value="station">발전소</option>
 									</select>
@@ -1103,18 +1105,18 @@
 									<span>
 										지역
 									</span><br>
-									<select class="discharge_option">
-										<option id="area_facility" value="busan">부산</option>
-										<option id="area_facility" value="yeosu">여수</option>
-										<option id="area_facility" value="ulsan">울산</option>
-										<option id="area_facility" value="incheon">인천</option>
-										<option id="area_facility" value="pyeongtaek">평택</option>
+									<select class="discharge_option" onchange="areaChange(this.value)">
+										<option class="area_facility" value="busan">부산</option>
+										<option class="area_facility" value="yeosu">여수</option>
+										<option class="area_facility" value="ulsan">울산</option>
+										<option class="area_facility" value="incheon">인천</option>
+										<option class="area_facility" value="pyeongtaek">평택</option>
 
-										<option id="area_station" value="gori">고리</option>
-										<option id="area_station" value="donghae">동해</option>
-										<option id="area_station" value="boryeong">보령</option>
-										<option id="area_station" value="samcheonpo">삼천포</option>
-										<option id="area_station" value="yeonggwang ">영광</option>
+										<option class="area_station" value="gori">고리</option>
+										<option class="area_station" value="donghae">동해</option>
+										<option class="area_station" value="boryeong">보령</option>
+										<option class="area_station" value="samcheonpo">삼천포</option>
+										<option class="area_station" value="yeonggwang ">영광</option>
 									
 									</select>
 								</div>
@@ -1240,7 +1242,6 @@
 
 	<script type="text/javascript" charset="utf-8">
 
-		// javascript:CefCustomObject.showDevTools();
 
 		var marker_arrow = new Array();
 		var map;
@@ -1443,11 +1444,36 @@
 				}
 			});
 		});
-
-
-
 	</script>
 
+	<script>
+		function readExcel() {
+    let input = event.target;
+    let reader = new FileReader();
+    reader.onload = function () {
+        let data = reader.result;
+        let workBook = XLSX.read(data, { type: 'binary' });
+        workBook.SheetNames.forEach(function (sheetName) {
+            console.log('SheetName: ' + sheetName);
+            let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
+            console.log(JSON.stringify(rows));
+        })
+    };
+    reader.readAsBinaryString(input.files[0]);
+}
+
+
+
+function pppp(val){
+	//var sss = array(val);
+	var aaa = val;
+	alert(val);
+}
+	</script>
+
+	<script>
+		javascript:CefCustomObject.showDevTools();
+	</script>
 </body>
 
 </html>
