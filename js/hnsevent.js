@@ -811,11 +811,12 @@ function layerInfo(){
     window.open( "./layerinfo.html", "Child", "width=815, height=1000px, top=160, left=480");
 }
 
-function mapsetting(){
+function mapsetting(){ // 좌표이동
+    
     if (base == 1) { // 위성지도
-        map.removeLayer(hybridLayer1);
-        map.removeLayer(hybridLayer2);
-        map.removeLayer(baseLayer);
+        // map.removeLayer(hybridLayer1);
+        // map.removeLayer(hybridLayer2);
+        // map.removeLayer(baseLayer);
 
         map.setView([35.0686, 128.994], 11);
 
@@ -823,9 +824,9 @@ function mapsetting(){
         map.addLayer(hybridLayer2);
 
     } else { // 일반지도
-        map.removeLayer(baseLayer);
-        map.removeLayer(hybridLayer1);
-        map.removeLayer(hybridLayer2);
+        // map.removeLayer(baseLayer);
+        // map.removeLayer(hybridLayer1);
+        // map.removeLayer(hybridLayer2);
 
         map.setView([35.0686, 128.994], 11);
 
