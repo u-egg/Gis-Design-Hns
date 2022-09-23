@@ -725,7 +725,7 @@ input[id="b"] {
 
 .window_btn {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 .window_btn button {
@@ -737,7 +737,6 @@ input[id="b"] {
     margin-left: 10px;
     cursor: pointer;
     position: relative;
-    margin-bottom: 20px;
 }
 
 .window_title {
@@ -784,6 +783,7 @@ input[id="b"] {
     color: #666;
 }
 
+
 .detail_box{
     width: 780px;
     margin-left: 10px;
@@ -793,11 +793,12 @@ input[id="b"] {
 .window_flex{
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+    margin-top: 50px;
 }
 
 .window_flex div{
     width: calc(100% / 2);
-    border: 1px solid #000;
     font-size: 14px;
     height: 250px;
     line-height: 250px;
@@ -809,6 +810,7 @@ input[id="b"] {
     height: 100%;
     margin-top: 10px;
 }
+
 
 .tab_1{
     display: block;
@@ -830,13 +832,6 @@ input[id="b"] {
     display: none;
 }
 
-.area_facility {
-    display: block;
-}
-
-.area_station {
-    display: none;
-}
 
 /* @media only screen and (max-width:1920px) {
 

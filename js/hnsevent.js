@@ -805,16 +805,53 @@ function settingVector () {
 }
 
 //part_5 HNS 방류 실태 조사
+
+var areaName = "";
+var stName = "";
+
+var busan = ["59","18","11","6","10"];
+var yeosu = ["71","43","25","17","10"];
+var ulsan = ["50","35","12","14","10"];
+
 function layerInfo(){
     window.open( "./layerinfo.html", "Child", "width=815, height=1000px, top=160, left=480");
 }
 
+var area = "";
+
+function senterChange(value){
+
+    var center = value;
+
+    var aa = "<option id='op_title'class='area_facility'value='busan'>부산</option><option class='area_facility'value='yeosu'>여수</option><option class='area_facility'value='ulsan'>울산</option><option class='area_facility'value='incheon'>인천</option><option class='area_facility'value='pyeongtaek'>평택</option>"
+    var bb = "<option id='op_title'class='area_station'value='gori'>고리</option><option class='area_station'value='donghae'>동해</option><option class='area_station'value='boryeong'>보령</option><option class='area_station'value='samcheonpo'>삼천포</option><option class='area_station'value='yeonggwang '>영광</option>"
+    
+    if(center == "facility"){
+        area = "busan";
+        document.querySelector("#area_option").innerHTML = aa;
+    }
+    else{
+        area = "gori";
+        document.querySelector("#area_option").innerHTML = bb;
+    }
+}
+
+function areaChange(value){
+    area = value;
+}
+
 function mapsetting(){ // 좌표이동
 
+    if(area == ""){
+        area = "busan";
+    }
+
+    nameMattiong();
+
+    //C# 호출
+    // javascripr: CefCustomObject.func('siltae', area);
+
     if (base == 1) { // 위성지도
-        // map.removeLayer(hybridLayer1);
-        // map.removeLayer(hybridLayer2);
-        // map.removeLayer(baseLayer);
 
         map.setView([35.0686, 128.994], 11);
 
@@ -822,36 +859,32 @@ function mapsetting(){ // 좌표이동
         map.addLayer(hybridLayer2);
 
     } else { // 일반지도
-        // map.removeLayer(baseLayer);
-        // map.removeLayer(hybridLayer1);
-        // map.removeLayer(hybridLayer2);
 
         map.setView([35.0686, 128.994], 11);
 
         map.addLayer(baseLayer);
     }
+
+    layerInfo();
 }
 
-function senterChange(value){
+var test = "";
 
-    var center = value;
+function nameMattiong(){
     
-    if(center == "facility"){
-        $(".area_facility").css('display','block');
-        $(".area_station").css('display','none');
+    if(area == "busan"){
+        areaName = "부산연안";
+        stName = "해양산업시설";
     }
-    else{
-        $(".area_facility").css('display','none');
-        $(".area_station").css('display','block');
+    else if(area == "yeosu"){
+        areaName = "여수연안";
+        stName = "해양산업시설";
     }
+    else if(area == "ulsan"){
+        areaName = "울산연안";
+        stName = "해양산업시설";
+    }
+
+    window.localStorage.setItem('areaname',areaName);
+    window.localStorage.setItem('stname',stName);
 }
-
-function areaChange(value){
-
-    var area = value;
-    
-    alert(area);
-    
-}
-
-

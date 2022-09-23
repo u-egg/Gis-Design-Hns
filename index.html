@@ -30,6 +30,9 @@
 	<script src="./js/dbf.js"></script>
 	<script src="./js/preview.js" charset="utf-8"></script>
 
+	<!--googleChart-->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 	<!--엑셀읽기-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
 
@@ -1078,7 +1081,7 @@
 				<div class="part_5">
 
 					<!--top-->
-					<div class="side_body_top" onclick="    javascripr: CefCustomObject.func('selta', 'l');">
+					<div class="side_body_top" onclick="pppp()">
 						<h2>HNS 방류 실태 조사 정보 조회</h2>
 					</div>
 
@@ -1101,27 +1104,21 @@
 										<option value="station">발전소</option>
 									</select>
 								</div>
-								<div style="margin-top:10px;">
+								<div style="margin-top:10px;" id="test">
 									<span>
 										지역
 									</span><br>
-									<select class="discharge_option" onchange="areaChange(this.value)">
-										<option class="area_facility" value="busan">부산</option>
+									<select id="area_option" class="discharge_option" onchange="areaChange(this.value)">
+										<option id ="op_title" class="area_facility" value="busan">부산</option>
 										<option class="area_facility" value="yeosu">여수</option>
 										<option class="area_facility" value="ulsan">울산</option>
 										<option class="area_facility" value="incheon">인천</option>
 										<option class="area_facility" value="pyeongtaek">평택</option>
-
-										<option class="area_station" value="gori">고리</option>
-										<option class="area_station" value="donghae">동해</option>
-										<option class="area_station" value="boryeong">보령</option>
-										<option class="area_station" value="samcheonpo">삼천포</option>
-										<option class="area_station" value="yeonggwang ">영광</option>
-									
 									</select>
 								</div>
 								<div class="discharge_btn"
-									onclick="document.getElementById('yousok_layer5').style.display = 'block'; layerInfo(); mapsetting();">조회
+									onclick="document.getElementById('yousok_layer5').style.display = 'block'; mapsetting();">
+									조회
 								</div>
 							</div>
 
@@ -1190,6 +1187,7 @@
 				<img src="./assets/lnb_close.png" onclick="content_silde();"
 					style="cursor: pointer; width: 24px; height: 120px;">
 			</div>
+			<img src="" alt="">
 		</div>
 		<a class="side_nav_open" onclick="content_silde();"></a>
 
@@ -1239,6 +1237,7 @@
 	</script>
 
 	<script type="text/javascript" src="./js/hnsevent.js"></script>
+	<script type="text/javascript" src="./js/info.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
 
@@ -1462,18 +1461,19 @@
     reader.readAsBinaryString(input.files[0]);
 }
 
+	// c# 통신 예제
 
+	// function siltaeInfo(val){
+	// 	//var sss = array(val);
+	// 	var aaa = val;
+	// 	alert(val);
+	// }
 
-function pppp(val){
-	//var sss = array(val);
-	var aaa = val;
-	alert(val);
-}
 	</script>
 
-	<script>
+	<!-- <script>
 		javascript:CefCustomObject.showDevTools();
-	</script>
+	</script> -->
 </body>
 
 </html>
