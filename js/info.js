@@ -1452,7 +1452,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < st_etc_q1.length; i++){
     data.addRows([
-    ['No.'+ (i + 1), st_etc_q1[i]]
+    ['St.'+ (i + 1), st_etc_q1[i]]
     ]);
 }
 
@@ -1481,7 +1481,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < st_etc_q2.length; i++){
     data.addRows([
-    ['No.'+ (i + 1), st_etc_q2[i]]
+    ['St.'+ (i + 1), st_etc_q2[i]]
     ]);
 }
 
@@ -1510,7 +1510,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < st_etc_q3.length; i++){
     data.addRows([
-    ['No.'+ (i + 1), st_etc_q3[i]]
+    ['St.'+ (i + 1), st_etc_q3[i]]
     ]);
 }
 

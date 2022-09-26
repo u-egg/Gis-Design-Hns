@@ -821,9 +821,25 @@ input[id="b"] {
     padding-right: 10px;
     position: relative;
     bottom: 5px;
-    left: -9px;
-    
+    left: -4px;
 }
+
+.window_flex_etc{
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 50px;
+}
+
+.window_flex_etc div{
+    font-size: 14px;
+    height: 250px;
+    line-height: 250px;
+    text-align: center;
+    padding-right: 10px;
+    position: relative;
+    bottom: 5px;
+}
+
 
 .tab_table{
     width: 780px;
