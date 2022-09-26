@@ -547,9 +547,6 @@ function viewDatabaseLayer(type){
 
     var layerclear = $('input[name=rdoDatabase]:checked').val();
 
-
-
-
     setImgType = type;
     
     var chk = document.getElementsByName("rdoDatabase");
@@ -867,8 +864,6 @@ function mapsetting(){ // 좌표이동
 
     layerInfo();
 }
-
-var test = "";
 
 function nameMattiong(){
 
