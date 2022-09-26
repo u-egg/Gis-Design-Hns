@@ -805,6 +805,24 @@ input[id="b"] {
     text-align: center;
 }
 
+.window_flex_water{
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 50px;
+}
+
+.window_flex_water div{
+    font-size: 14px;
+    height: 250px;
+    line-height: 250px;
+    text-align: center;
+    padding-right: 10px;
+    position: relative;
+    bottom: 5px;
+    left: -5px;
+    
+}
+
 .tab_table{
     width: 780px;
     height: 100%;
