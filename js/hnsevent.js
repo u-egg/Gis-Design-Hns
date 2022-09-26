@@ -809,9 +809,9 @@ function settingVector () {
 var areaName = "";
 var stName = "";
 
-var busan = ["59","18","11","6","10"];
-var yeosu = ["71","43","25","17","10"];
-var ulsan = ["50","35","12","14","10"];
+// var busan = ["59","18","11","6","10"];
+// var yeosu = ["71","43","25","17","10"];
+// var ulsan = ["50","35","12","14","10"];
 
 function layerInfo(){
     window.open( "./layerinfo.html", "Child", "width=815, height=1000px, top=160, left=480");
@@ -871,17 +871,17 @@ function mapsetting(){ // 좌표이동
 var test = "";
 
 function nameMattiong(){
-    
+
     if(area == "busan"){
-        areaName = "부산연안";
+        areaName = "부산 연안";
         stName = "해양산업시설";
     }
     else if(area == "yeosu"){
-        areaName = "여수연안";
+        areaName = "여수 연안";
         stName = "해양산업시설";
     }
     else if(area == "ulsan"){
-        areaName = "울산연안";
+        areaName = "울산 연안";
         stName = "해양산업시설";
     }
 
