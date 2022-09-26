@@ -831,7 +831,7 @@ input[id="b"] {
 
 
 .tab_1{
-    display: block;
+    display: none;
 }
 
 .tab_2{
@@ -843,7 +843,7 @@ input[id="b"] {
 }
 
 .tab_4{
-    display: none;
+    display: block;
 }
 
 .tab_5{

@@ -461,6 +461,458 @@ var data = google.visualization.arrayToDataTable([
   chart.draw(data, options);
 }
 
+/*
+* 미량금속 차트
+*/
+// 차트 1 (Cd)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart1);
+
+function miDrawChart1() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q1.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q1[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cd -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_1"));
+
+  chart.draw(data, options);
+}
+
+// 차트 2 (As)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart2);
+
+function miDrawChart2() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q2.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q2[i]]
+    ]);
+}
+
+  var options = {
+    title: "- As -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_2"));
+
+  chart.draw(data, options);
+}
+
+// 차트 3 (Pb)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart3);
+
+function miDrawChart3() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q3.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q3[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Pb -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_3"));
+
+  chart.draw(data, options);
+}
+
+// 차트 4 (Cu)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart4);
+
+function miDrawChart4() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q4.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q4[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cu -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_4"));
+
+  chart.draw(data, options);
+}
+
+// 차트 5 (Cr)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart5);
+
+function miDrawChart5() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q5.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q5[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cr -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_5"));
+
+  chart.draw(data, options);
+}
+
+// 차트 6 (Zn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart6);
+
+function miDrawChart6() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q6.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q6[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Zn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_6"));
+
+  chart.draw(data, options);
+}
+
+// 차트 7 (Ni)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart7);
+
+function miDrawChart7() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q7.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q7[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ni -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_7"));
+
+  chart.draw(data, options);
+}
+
+// 차트 8 (Mn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart8);
+
+function miDrawChart8() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q8.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q8[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Mn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_8"));
+
+  chart.draw(data, options);
+}
+
+// 차트 9 (V)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart9);
+
+function miDrawChart9() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q9.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q9[i]]
+    ]);
+}
+
+  var options = {
+    title: "- V -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_9"));
+
+  chart.draw(data, options);
+}
+
+// 차트 10 (Se)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart10);
+
+function miDrawChart10() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q10.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q10[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Se -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_10"));
+
+  chart.draw(data, options);
+}
+
+// 차트 11 (Ba)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart11);
+
+function miDrawChart11() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q11.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q11[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ba -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_11"));
+
+  chart.draw(data, options);
+}
+
+// 차트 12 (Sn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart12);
+
+function miDrawChart12() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q12.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q12[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Sn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_12"));
+
+  chart.draw(data, options);
+}
+
+// 차트 13 (Ag)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart13);
+
+function miDrawChart13() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q13.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q13[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ag -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_13"));
+
+  chart.draw(data, options);
+}
+
+// 차트 14 (B)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart14);
+
+function miDrawChart14() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q14.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q14[i]]
+    ]);
+}
+
+  var options = {
+    title: "- B -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_14"));
+
+  chart.draw(data, options);
+}
+
+// 차트 15 (Hg)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(miDrawChart15);
+
+function miDrawChart15() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < mi_q15.length; i++){
+    data.addRows([
+    ['No'+ (i + 1), mi_q15[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Hg -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_15"));
+
+  chart.draw(data, options);
+}
 
 function windowClose() {
     window.close();
