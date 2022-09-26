@@ -477,7 +477,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q1.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q1[i]]
+    ['No.'+ (i + 1), mi_q1[i]]
     ]);
 }
 
@@ -507,7 +507,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q2.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q2[i]]
+    ['No.'+ (i + 1), mi_q2[i]]
     ]);
 }
 
@@ -537,7 +537,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q3.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q3[i]]
+    ['No.'+ (i + 1), mi_q3[i]]
     ]);
 }
 
@@ -567,7 +567,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q4.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q4[i]]
+    ['No.'+ (i + 1), mi_q4[i]]
     ]);
 }
 
@@ -597,7 +597,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q5.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q5[i]]
+    ['No.'+ (i + 1), mi_q5[i]]
     ]);
 }
 
@@ -627,7 +627,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q6.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q6[i]]
+    ['No.'+ (i + 1), mi_q6[i]]
     ]);
 }
 
@@ -657,7 +657,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q7.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q7[i]]
+    ['No.'+ (i + 1), mi_q7[i]]
     ]);
 }
 
@@ -687,7 +687,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q8.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q8[i]]
+    ['No.'+ (i + 1), mi_q8[i]]
     ]);
 }
 
@@ -717,7 +717,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q9.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q9[i]]
+    ['No.'+ (i + 1), mi_q9[i]]
     ]);
 }
 
@@ -747,7 +747,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q10.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q10[i]]
+    ['No.'+ (i + 1), mi_q10[i]]
     ]);
 }
 
@@ -777,7 +777,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q11.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q11[i]]
+    ['No.'+ (i + 1), mi_q11[i]]
     ]);
 }
 
@@ -807,7 +807,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q12.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q12[i]]
+    ['No.'+ (i + 1), mi_q12[i]]
     ]);
 }
 
@@ -837,7 +837,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q13.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q13[i]]
+    ['No.'+ (i + 1), mi_q13[i]]
     ]);
 }
 
@@ -867,7 +867,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q14.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q14[i]]
+    ['No.'+ (i + 1), mi_q14[i]]
     ]);
 }
 
@@ -897,7 +897,7 @@ var data = new google.visualization.DataTable();
 
     for(var i = 0; i < mi_q15.length; i++){
     data.addRows([
-    ['No'+ (i + 1), mi_q15[i]]
+    ['No.'+ (i + 1), mi_q15[i]]
     ]);
 }
 
@@ -910,6 +910,461 @@ var data = new google.visualization.DataTable();
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_15"));
+
+  chart.draw(data, options);
+}
+
+function windowClose() {
+    window.close();
+}
+    // 주변해역
+
+// 차트 1 (Cd)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart1);
+
+function st_miDrawChart1() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q1.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q1[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cd -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_1"));
+
+  chart.draw(data, options);
+}
+
+// 차트 2 (As)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart2);
+
+function st_miDrawChart2() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q2.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q2[i]]
+    ]);
+}
+
+  var options = {
+    title: "- As -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_2"));
+
+  chart.draw(data, options);
+}
+
+// 차트 3 (Pb)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart3);
+
+function st_miDrawChart3() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q3.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q3[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Pb -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_3"));
+
+  chart.draw(data, options);
+}
+
+// 차트 4 (Cu)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart4);
+
+function st_miDrawChart4() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q4.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q4[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cu -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_4"));
+
+  chart.draw(data, options);
+}
+
+// 차트 5 (Cr)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart5);
+
+function st_miDrawChart5() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q5.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q5[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Cr -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_5"));
+
+  chart.draw(data, options);
+}
+
+// 차트 6 (Zn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart6);
+
+function st_miDrawChart6() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q6.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q6[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Zn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_6"));
+
+  chart.draw(data, options);
+}
+
+// 차트 7 (Ni)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart7);
+
+function st_miDrawChart7() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q7.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q7[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ni -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_7"));
+
+  chart.draw(data, options);
+}
+
+// 차트 8 (Mn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart8);
+
+function st_miDrawChart8() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q8.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q8[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Mn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_8"));
+
+  chart.draw(data, options);
+}
+
+// 차트 9 (V)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart9);
+
+function st_miDrawChart9() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q9.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q9[i]]
+    ]);
+}
+
+  var options = {
+    title: "- V -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_9"));
+
+  chart.draw(data, options);
+}
+
+// 차트 10 (Se)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart10);
+
+function st_miDrawChart10() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q10.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q10[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Se -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_10"));
+
+  chart.draw(data, options);
+}
+
+// 차트 11 (Ba)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart11);
+
+function st_miDrawChart11() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q11.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q11[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ba -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_11"));
+
+  chart.draw(data, options);
+}
+
+// 차트 12 (Sn)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart12);
+
+function st_miDrawChart12() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q12.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q12[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Sn -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_12"));
+
+  chart.draw(data, options);
+}
+
+// 차트 13 (Ag)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart13);
+
+function st_miDrawChart13() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q13.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q13[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Ag -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_13"));
+
+  chart.draw(data, options);
+}
+
+// 차트 14 (B)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart14);
+
+function st_miDrawChart14() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q14.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q14[i]]
+    ]);
+}
+
+  var options = {
+    title: "- B -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_14"));
+
+  chart.draw(data, options);
+}
+
+// 차트 15 (Hg)
+google.charts.load("current", {packages:['corechart']});
+google.charts.setOnLoadCallback(st_miDrawChart15);
+
+function st_miDrawChart15() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_mi_q15.length; i++){
+    data.addRows([
+    ['St.'+ (i + 1), st_mi_q15[i]]
+    ]);
+}
+
+  var options = {
+    title: "- Hg -",
+    width: 380,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_mi_chart_15"));
 
   chart.draw(data, options);
 }
