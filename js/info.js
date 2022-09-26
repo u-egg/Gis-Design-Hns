@@ -191,7 +191,18 @@ $( document ).ready(function() {
         $('#st_mi_q15_' + i).text(st_mi_q15[i]);
     }
 
-    
+    //기타물질
+    for(var i = 0; i < etc_q1.length; i++){
+        $('#etc_q1_' + i).text(etc_q1[i]);
+        $('#etc_q2_' + i).text(etc_q2[i]);
+        $('#etc_q3_' + i).text(etc_q3[i]);
+    }
+
+    for(var i = 0; i < st_etc_q1.length; i++){
+        $('#st_etc_q1_' + i).text(st_etc_q1[i]);
+        $('#st_etc_q2_' + i).text(st_etc_q2[i]);
+        $('#st_etc_q3_' + i).text(st_etc_q3[i]);
+    }
 });
 
 // 차트 1 (수온)
@@ -321,7 +332,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 1 (q1)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart_water);
 
 function drawChart_water() {
 
@@ -352,7 +362,6 @@ var data = google.visualization.arrayToDataTable([
 
 // 차트 2 (q2)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart_water2);
 
 function drawChart_water2() {
 
@@ -391,7 +400,6 @@ var data = google.visualization.arrayToDataTable([
 
 // 차트 1 (hwi_q1)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart_hwi);
 
 function drawChart_hwi() {
 
@@ -425,7 +433,6 @@ var data = google.visualization.arrayToDataTable([
 
 // 차트 2 (hwi_q2)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(drawChart_hwi2);
 
 function drawChart_hwi2() {
 
@@ -466,7 +473,6 @@ var data = google.visualization.arrayToDataTable([
 */
 // 차트 1 (Cd)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart1);
 
 function miDrawChart1() {
 
@@ -487,6 +493,7 @@ var data = new google.visualization.DataTable();
     height: 250,
     bar: {groupWidth: "95%"},
     legend: { position: "none" },
+
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById("mi_chart_1"));
@@ -496,7 +503,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 2 (As)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart2);
 
 function miDrawChart2() {
 
@@ -526,7 +532,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 3 (Pb)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart3);
 
 function miDrawChart3() {
 
@@ -556,7 +561,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 4 (Cu)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart4);
 
 function miDrawChart4() {
 
@@ -586,7 +590,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 5 (Cr)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart5);
 
 function miDrawChart5() {
 
@@ -616,7 +619,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 6 (Zn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart6);
 
 function miDrawChart6() {
 
@@ -646,7 +648,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 7 (Ni)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart7);
 
 function miDrawChart7() {
 
@@ -676,7 +677,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 8 (Mn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart8);
 
 function miDrawChart8() {
 
@@ -706,7 +706,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 9 (V)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart9);
 
 function miDrawChart9() {
 
@@ -736,7 +735,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 10 (Se)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart10);
 
 function miDrawChart10() {
 
@@ -766,7 +764,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 11 (Ba)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart11);
 
 function miDrawChart11() {
 
@@ -796,7 +793,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 12 (Sn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart12);
 
 function miDrawChart12() {
 
@@ -826,7 +822,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 13 (Ag)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart13);
 
 function miDrawChart13() {
 
@@ -856,7 +851,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 14 (B)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart14);
 
 function miDrawChart14() {
 
@@ -886,7 +880,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 15 (Hg)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(miDrawChart15);
 
 function miDrawChart15() {
 
@@ -921,7 +914,6 @@ function windowClose() {
 
 // 차트 1 (Cd)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart1);
 
 function st_miDrawChart1() {
 
@@ -951,7 +943,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 2 (As)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart2);
 
 function st_miDrawChart2() {
 
@@ -981,7 +972,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 3 (Pb)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart3);
 
 function st_miDrawChart3() {
 
@@ -1011,7 +1001,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 4 (Cu)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart4);
 
 function st_miDrawChart4() {
 
@@ -1041,7 +1030,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 5 (Cr)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart5);
 
 function st_miDrawChart5() {
 
@@ -1071,7 +1059,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 6 (Zn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart6);
 
 function st_miDrawChart6() {
 
@@ -1101,7 +1088,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 7 (Ni)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart7);
 
 function st_miDrawChart7() {
 
@@ -1131,7 +1117,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 8 (Mn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart8);
 
 function st_miDrawChart8() {
 
@@ -1161,7 +1146,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 9 (V)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart9);
 
 function st_miDrawChart9() {
 
@@ -1191,7 +1175,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 10 (Se)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart10);
 
 function st_miDrawChart10() {
 
@@ -1221,7 +1204,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 11 (Ba)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart11);
 
 function st_miDrawChart11() {
 
@@ -1251,7 +1233,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 12 (Sn)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart12);
 
 function st_miDrawChart12() {
 
@@ -1281,7 +1262,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 13 (Ag)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart13);
 
 function st_miDrawChart13() {
 
@@ -1311,7 +1291,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 14 (B)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart14);
 
 function st_miDrawChart14() {
 
@@ -1341,7 +1320,6 @@ var data = new google.visualization.DataTable();
 
 // 차트 15 (Hg)
 google.charts.load("current", {packages:['corechart']});
-google.charts.setOnLoadCallback(st_miDrawChart15);
 
 function st_miDrawChart15() {
 
@@ -1369,6 +1347,187 @@ var data = new google.visualization.DataTable();
   chart.draw(data, options);
 }
 
+
+/*
+* 기타물질 차트
+*/
+
+// 차트 1 (TOC)
+google.charts.load("current", {packages:['corechart']});
+
+function etcDrawChart1() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < etc_q1.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), etc_q1[i]]
+    ]);
+}
+
+  var options = {
+    title: "- TOC -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("etc_chart1"));
+
+  chart.draw(data, options);
+}
+
+// 차트 2 (CN)
+google.charts.load("current", {packages:['corechart']});
+
+function etcDrawChart2() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < etc_q2.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), etc_q2[i]]
+    ]);
+}
+
+  var options = {
+    title: "- CN -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("etc_chart2"));
+
+  chart.draw(data, options);
+}
+
+// 차트 3 (페놀)
+google.charts.load("current", {packages:['corechart']});
+
+function etcDrawChart3() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < etc_q3.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), etc_q3[i]]
+    ]);
+}
+
+  var options = {
+    title: "- 페놀 -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("etc_chart3"));
+
+  chart.draw(data, options);
+}
+
+    //주변해역
+// 차트 1 (TOC)
+google.charts.load("current", {packages:['corechart']});
+
+function st_etcDrawChart1() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_etc_q1.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), st_etc_q1[i]]
+    ]);
+}
+
+  var options = {
+    title: "- TOC -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_etc_chart1"));
+
+  chart.draw(data, options);
+}
+
+// 차트 2 (CN)
+google.charts.load("current", {packages:['corechart']});
+
+function st_etcDrawChart2() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_etc_q2.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), st_etc_q2[i]]
+    ]);
+}
+
+  var options = {
+    title: "- CN -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_etc_chart2"));
+
+  chart.draw(data, options);
+}
+
+// 차트 3 (페놀)
+google.charts.load("current", {packages:['corechart']});
+
+function st_etcDrawChart3() {
+
+var data = new google.visualization.DataTable();
+
+    data.addColumn('string', 'No');
+    data.addColumn('number', 'value');
+
+    for(var i = 0; i < st_etc_q3.length; i++){
+    data.addRows([
+    ['No.'+ (i + 1), st_etc_q3[i]]
+    ]);
+}
+
+  var options = {
+    title: "- 페놀 -",
+    width: 780,
+    height: 250,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById("st_etc_chart3"));
+
+  chart.draw(data, options);
+}
+
+
 function windowClose() {
     window.close();
 }
@@ -1391,6 +1550,8 @@ function tab_btn(num) {
         $(".tab_3").css("display", "none");
         $(".tab_4").css("display", "none");
         $(".tab_5").css("display", "none");
+        google.charts.setOnLoadCallback(drawChart_water);
+        google.charts.setOnLoadCallback(drawChart_water2);
     }
     else if (num == '3') {
         $(".tab_1").css("display", "none");
@@ -1398,6 +1559,8 @@ function tab_btn(num) {
         $(".tab_3").css("display", "block");
         $(".tab_4").css("display", "none");
         $(".tab_5").css("display", "none");
+        google.charts.setOnLoadCallback(drawChart_hwi);
+        google.charts.setOnLoadCallback(drawChart_hwi2);
     }
     else if (num == '4') {
         $(".tab_1").css("display", "none");
@@ -1405,6 +1568,38 @@ function tab_btn(num) {
         $(".tab_3").css("display", "none");
         $(".tab_4").css("display", "block");
         $(".tab_5").css("display", "none");
+
+        google.charts.setOnLoadCallback(miDrawChart1);
+        google.charts.setOnLoadCallback(miDrawChart2);
+        google.charts.setOnLoadCallback(miDrawChart3);
+        google.charts.setOnLoadCallback(miDrawChart4);
+        google.charts.setOnLoadCallback(miDrawChart5);
+        google.charts.setOnLoadCallback(miDrawChart6);
+        google.charts.setOnLoadCallback(miDrawChart7);
+        google.charts.setOnLoadCallback(miDrawChart8);
+        google.charts.setOnLoadCallback(miDrawChart9);
+        google.charts.setOnLoadCallback(miDrawChart10);
+        google.charts.setOnLoadCallback(miDrawChart11);
+        google.charts.setOnLoadCallback(miDrawChart12);
+        google.charts.setOnLoadCallback(miDrawChart13);
+        google.charts.setOnLoadCallback(miDrawChart14);
+        google.charts.setOnLoadCallback(miDrawChart15);
+        google.charts.setOnLoadCallback(st_miDrawChart1);
+        google.charts.setOnLoadCallback(st_miDrawChart2);
+        google.charts.setOnLoadCallback(st_miDrawChart3);
+        google.charts.setOnLoadCallback(st_miDrawChart4);
+        google.charts.setOnLoadCallback(st_miDrawChart5);
+        google.charts.setOnLoadCallback(st_miDrawChart6);
+        google.charts.setOnLoadCallback(st_miDrawChart7);
+        google.charts.setOnLoadCallback(st_miDrawChart8);
+        google.charts.setOnLoadCallback(st_miDrawChart9);
+        google.charts.setOnLoadCallback(st_miDrawChart10);
+        google.charts.setOnLoadCallback(st_miDrawChart11);
+        google.charts.setOnLoadCallback(st_miDrawChart12);
+        google.charts.setOnLoadCallback(st_miDrawChart13);
+        google.charts.setOnLoadCallback(st_miDrawChart14);
+        google.charts.setOnLoadCallback(st_miDrawChart15);
+
     }
     else if (num == '5') {
         $(".tab_1").css("display", "none");
@@ -1412,6 +1607,13 @@ function tab_btn(num) {
         $(".tab_3").css("display", "none");
         $(".tab_4").css("display", "none");
         $(".tab_5").css("display", "block");
+
+        google.charts.setOnLoadCallback(etcDrawChart1);
+        google.charts.setOnLoadCallback(etcDrawChart2);
+        google.charts.setOnLoadCallback(etcDrawChart3);
+        google.charts.setOnLoadCallback(st_etcDrawChart1);
+        google.charts.setOnLoadCallback(st_etcDrawChart2);
+        google.charts.setOnLoadCallback(st_etcDrawChart3);
     }
 }
 
@@ -1606,6 +1808,15 @@ function valueMatting(area_Name){
         st_mi_q13 =[0.025,0.017,0.017,0.022,0.019,0.020,0.018,0.019,0.017,0.017];
         st_mi_q14 =[5490.970,5638.870,5862.250,6016.310,6031.710,5781.370,5893.830,5700.490,5644.260,5745.170]
         st_mi_q15 =[0.078,0.021,0.119,0.209,0.117,0.245,0.469,0.052,0.257,0.035];
+
+        //기타물질
+        etc_q1 = [2.880,0,3.330,0,3.730,2.220];
+        etc_q2 = [0.001,0,0.001,0.,0,0];
+        etc_q3 = [0.001,0,0.001,0,0.001,0.001];
+
+        st_etc_q1 = [1.210,1.230,1.230,1.230,1.240,1.180,1.180,1.190,1.190,1.200];
+        st_etc_q2 = [0,0,0,0,0,0,0,0,0,0];
+        st_etc_q3 = [0,0,0,0,0,0,0,0,0,0];
 
     }
     else if(area_Name =='여수 연안'){

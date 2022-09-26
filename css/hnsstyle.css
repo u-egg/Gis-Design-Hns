@@ -802,9 +802,9 @@ input[id="b"] {
     font-size: 14px;
     height: 250px;
     line-height: 250px;
-    text-align: center;
+    left: 3px;
     position: relative;
-    left: 2px;
+
 }
 
 .window_flex_water{
@@ -821,7 +821,7 @@ input[id="b"] {
     padding-right: 10px;
     position: relative;
     bottom: 5px;
-    left: -5px;
+    left: -9px;
     
 }
 
@@ -833,7 +833,7 @@ input[id="b"] {
 
 
 .tab_1{
-    display: none;
+    display: block;
 }
 
 .tab_2{
@@ -849,7 +849,7 @@ input[id="b"] {
 }
 
 .tab_5{
-    display: block;
+    display: none;
 }
 
 
