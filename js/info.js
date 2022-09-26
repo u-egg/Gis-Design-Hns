@@ -10,6 +10,10 @@ $( document ).ready(function() {
 
     valueMatting(area_Name);
 
+    for(var j = 0; j < td.length; j++){
+        $('#td' + j).text(td[j]);
+    }
+
     //기초환경자료
     for(var i = 0; i < suon.length; i++){
         $('#suon' + i).text(suon[i]);
@@ -147,9 +151,46 @@ $( document ).ready(function() {
         $('#st_hwi_q44_' + i).text(st_hwi_q44[i]);
         $('#st_hwi_q45_' + i).text(st_hwi_q45[i]);
     }
-    for(var j = 0; j < td.length; j++){
-        $('#td' + j).text(td[j]);
+
+    // 미량금속
+    for(var i = 0; i < mi_q1.length; i++){
+        $('#mi_q1_' + i).text(mi_q1[i]);
+        $('#mi_q2_' + i).text(mi_q2[i]);
+        $('#mi_q3_' + i).text(mi_q3[i]);
+        $('#mi_q4_' + i).text(mi_q4[i]);
+        $('#mi_q5_' + i).text(mi_q5[i]);
+        $('#mi_q6_' + i).text(mi_q6[i]);
+        $('#mi_q7_' + i).text(mi_q7[i]);
+        $('#mi_q8_' + i).text(mi_q8[i]);
+
+        $('#mi_q9_' + i).text(mi_q9[i]);
+        $('#mi_q10_' + i).text(mi_q10[i]);
+        $('#mi_q11_' + i).text(mi_q11[i]);
+        $('#mi_q12_' + i).text(mi_q12[i]);
+        $('#mi_q13_' + i).text(mi_q13[i]);
+        $('#mi_q14_' + i).text(mi_q14[i]);
+        $('#mi_q15_' + i).text(mi_q15[i]);
     }
+
+    for(var i = 0; i < st_mi_q1.length; i++){
+        $('#st_mi_q1_' + i).text(st_mi_q1[i]);
+        $('#st_mi_q2_' + i).text(st_mi_q2[i]);
+        $('#st_mi_q3_' + i).text(st_mi_q3[i]);
+        $('#st_mi_q4_' + i).text(st_mi_q4[i]);
+        $('#st_mi_q5_' + i).text(st_mi_q5[i]);
+        $('#st_mi_q6_' + i).text(st_mi_q6[i]);
+        $('#st_mi_q7_' + i).text(st_mi_q7[i]);
+        $('#st_mi_q8_' + i).text(st_mi_q8[i]);
+
+        $('#st_mi_q9_' + i).text(st_mi_q9[i]);
+        $('#st_mi_q10_' + i).text(st_mi_q10[i]);
+        $('#st_mi_q11_' + i).text(st_mi_q11[i]);
+        $('#st_mi_q12_' + i).text(st_mi_q12[i]);
+        $('#st_mi_q13_' + i).text(st_mi_q13[i]);
+        $('#st_mi_q14_' + i).text(st_mi_q14[i]);
+        $('#st_mi_q15_' + i).text(st_mi_q15[i]);
+    }
+
     
 });
 
