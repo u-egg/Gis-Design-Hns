@@ -133,9 +133,7 @@ section {
     margin-top: 60px;
 }
 
-.part_1 {
-    display: block;
-}
+
 
 .side_body_top {
     background-color: #fff;
@@ -603,11 +601,21 @@ li {
 }
 
 .part_5 {
-    display: block;
+    display: none;
 }
 
 .part_1{
-    display: none;
+    display: block;
+}
+
+.datepicker{
+    position: relative;
+    z-index: 9999;
+}
+
+#ui-datepicker-div{
+    width: 190px;
+    font-size: 12px;
 }
 
 #mapbox {

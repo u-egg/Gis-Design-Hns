@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="./css/icheck-bootstrap.min.css" />
 
 	<link rel="stylesheet" href="./css/hnsstyle.css" />
-	<link rel="stylesheet" href="./css/demo.css" />
 	<link rel="stylesheet" href="./css/leaflet_new.css" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,11 +29,19 @@
 	<script src="./js/dbf.js"></script>
 	<script src="./js/preview.js" charset="utf-8"></script>
 
+
 	<!--googleChart-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+	<!-- openlayers -->
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+	<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+
+	<script src="resources/js/plugin/datepicker/bootstrap-datepicker.ko.min.js"></script>
+	
 	<!--엑셀읽기-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script> -->
 
 	<script src="./js/geotiff.js"></script>
 	<script src="./js/plotty.js"></script>
@@ -65,6 +72,27 @@
 </style>
 
 <body>
+
+	<script>
+		$.datepicker.setDefaults({
+		 dateFormat: 'yy-mm-dd',
+		 prevText: '이전 달',
+		 nextText: '다음 달',
+		 monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		 monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		 dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		 dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		 dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		 showMonthAfterYear: true,
+		 yearSuffix: '년'
+	   });
+	   
+	   $(function () {
+		 $('.datepicker').datepicker({
+	   
+		 });
+	   });
+	</script>
 
 	<!-- <script>
 		function setMenu(num) {
@@ -416,16 +444,16 @@
 									<span>
 										시작시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<input class="datepicker setTimeDateInput" id="suonDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="suonTime1"></select>
 									<div class="clear"></div>
 								</div>
 								<div style="margin-top: 10px;">
 									<span>
 										종료시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<input class="datepicker setTimeDateInput" id="suonDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="suonTime2"></select>
 									<div class="clear"></div>
 								</div>
 								<div class="setTimebtn"
@@ -588,16 +616,16 @@
 									<span>
 										시작시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<input class="datepicker setTimeDateInput" id="vulnerDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="vulnerTime1"></select>
 									<div class="clear"></div>
 								</div>
 								<div style="margin-top: 10px;">
 									<span>
 										종료시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<input class="datepicker setTimeDateInput" id="vulnerDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="vulnerTime2"></select>
 									<div class="clear"></div>
 								</div>
 								<div class="setTimebtn"
@@ -940,16 +968,16 @@
 									<span>
 										시작시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate1" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime1"></select>
+									<input class="datepicker setTimeDateInput" id="dbDate1" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="dbTime1"></select>
 									<div class="clear"></div>
 								</div>
 								<div style="margin-top: 10px;">
 									<span>
 										종료시간
 									</span><br>
-									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
+									<input class="datepicker setTimeDateInput" id="dbDate2" value="2022-04-01">
+									<select class="setTime setTimeDataSelect" id="dbTime2"></select>
 									<div class="clear"></div>
 								</div>
 								<div class="setTimebtn"
@@ -1109,7 +1137,7 @@
 										지역
 									</span><br>
 									<select id="area_option" class="discharge_option" onchange="areaChange(this.value)">
-										<option id ="op_title" class="area_facility" value="busan">부산</option>
+										<option id="op_title" class="area_facility" value="busan">부산</option>
 										<option class="area_facility" value="yeosu">여수</option>
 										<option class="area_facility" value="ulsan">울산</option>
 										<option class="area_facility" value="incheon">인천</option>
@@ -1163,7 +1191,7 @@
 											</div>
 										</div>
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="">레이어 보기</div>
+											onclick="addMarker()">레이어 보기</div>
 										<!-- <div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
 											onclick="viewYousokLayer('tif')">레이어 보기</div> -->
 									</div>
@@ -1195,7 +1223,9 @@
 		<!--지도-->
 		<div id="mapbox">
 			<div id="wrap" class="wrap">
+
 				<div id="map"></div>
+				
 				<div id="attr">
 					<div class="tableDisplay">
 						<table id="attribute" class="ui small celled unstackable table">
@@ -1229,6 +1259,9 @@
 					</tbody>
 				</table>
 			</div>
+			<div id="popup">
+				<div id="popup-content"></div>
+			</div>
 		</div>
 
 	</section>
@@ -1241,7 +1274,6 @@
 	<script type="text/javascript" src="./js/info.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
-
 
 		var marker_arrow = new Array();
 		var map;
@@ -1285,7 +1317,6 @@
 
 			var arr1 = new Array('충청남도', '충청북도', '경기도', '강원도');
 			var arr2 = new Array('100', '200', '300', '50');
-
 
 			function initVector() {
 				vector = L.geoJson([], {
@@ -1447,20 +1478,20 @@
 	</script>
 
 	<script>
-		function readExcel() {
-    let input = event.target;
-    let reader = new FileReader();
-    reader.onload = function () {
-        let data = reader.result;
-        let workBook = XLSX.read(data, { type: 'binary' });
-        workBook.SheetNames.forEach(function (sheetName) {
-            console.log('SheetName: ' + sheetName);
-            let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
-            console.log(JSON.stringify(rows));
-        })
-    };
-    reader.readAsBinaryString(input.files[0]);
-}
+		// function readExcel() {
+		// 	let input = event.target;
+		// 	let reader = new FileReader();
+		// 	reader.onload = function () {
+		// 		let data = reader.result;
+		// 		let workBook = XLSX.read(data, { type: 'binary' });
+		// 		workBook.SheetNames.forEach(function (sheetName) {
+		// 			console.log('SheetName: ' + sheetName);
+		// 			let rows = XLSX.utils.sheet_to_json(workBook.Sheets[sheetName]);
+		// 			console.log(JSON.stringify(rows));
+		// 		})
+		// 	};
+		// 	reader.readAsBinaryString(input.files[0]);
+		// }
 
 	// c# 통신 예제
 
@@ -1469,12 +1500,15 @@
 	// 	var aaa = val;
 	// 	alert(val);
 	// }
-
+		   // 팝업 옵션 설정
+	
 	</script>
 
 	<!-- <script>
 		javascript:CefCustomObject.showDevTools();
 	</script> -->
+
 </body>
+
 
 </html>
