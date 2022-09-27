@@ -899,13 +899,12 @@ input[id="b"] {
   order: 1;
   position: relative; left: -50%;
   background-color: #fff;
-  border-radius: 5px;
-  border-width: 2px;
+  color: #000;
+  border-radius: 30px;
   border-style: solid;
-  border-color: #ff0000;
   padding: 3px;
-  white-space: nowrap;
   height: 30px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 /*Add this arrow*/
 .map-label-arrow {
@@ -926,12 +925,12 @@ input[id="b"] {
     border-color: #e05c5c;
     height: 100%;
     min-height: 30px;
-  }
+}
 
-  .map-label.border > .map-label-arrow {
-    border-top-color: #e05c5c;
-  }
-  
+.map-label.border > .map-label-arrow {
+border-top-color: #e05c5c;
+}
+
 
 .map-label.redborder > .map-label-content {
   border-color: #0277bd;
