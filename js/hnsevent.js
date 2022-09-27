@@ -241,7 +241,9 @@ function drawArrow(sbLon, sbLat, sb_wind_direction){
     layerGroup.clearLayers();
 
     var marker_cnt = 0;
+
     marker_arrow = new Array();
+
     for(var i = 0; i < splitLon.length; i++){
         //if(i == 301){
 
@@ -826,20 +828,58 @@ function mapsetting(){ // 좌표이동
 
     if (base == 1) { // 위성지도
 
-        map.setView([35.0686, 128.994], 11);
+        map.setView([35.0686, 128.994], 15);
 
-        addMaker();
         map.addLayer(hybridLayer1);
         map.addLayer(hybridLayer2);
 
     } else { // 일반지도
 
-        map.setView([35.0686, 128.994], 11);
+        map.setView([35.0686, 128.994], 15);
 
         map.addLayer(baseLayer);
     }
 
+    addMaker();
     layerInfo();
+}
+
+var dischargelayerType = "";
+
+
+function viewDischargeLayer(type) {
+
+layerclear = $('input[name=discharge_rdo]:checked').val();
+
+if(layerclear == 'clear'){
+    map.removeLayer(layerGroup);
+    return;
+}
+
+setImgType = type;
+
+dischargelayerType = ""
+var chk = document.getElementsByName("discharge_rdo");
+var chked = false;
+for (var i = 0; i < chk.length; i++) {
+    if (chk[i].checked == true) {
+        chked = true;
+        break;
+    }
+}
+
+if (chked == false) {
+    Swal.fire({
+        icon: 'error',
+        title: '경고',
+        text: '레이어를 선택해 주세요.'
+    })
+} else {
+
+    dischargelayerType = $('input[name=discharge_rdo]:checked').val();
+    
+    // javascripr: CefCustomObject.func('yousok', layerType);
+}
 }
 
 function nameMattiong(){
@@ -860,3 +900,4 @@ function nameMattiong(){
     window.localStorage.setItem('areaname',areaName);
     window.localStorage.setItem('stname',stName);
 }
+
