@@ -39,7 +39,7 @@
 	<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
 
 	<script src="resources/js/plugin/datepicker/bootstrap-datepicker.ko.min.js"></script>
-	
+
 	<!--엑셀읽기-->
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script> -->
 
@@ -75,23 +75,23 @@
 
 	<script>
 		$.datepicker.setDefaults({
-		 dateFormat: 'yy-mm-dd',
-		 prevText: '이전 달',
-		 nextText: '다음 달',
-		 monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		 monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		 dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-		 dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-		 dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		 showMonthAfterYear: true,
-		 yearSuffix: '년'
-	   });
-	   
-	   $(function () {
-		 $('.datepicker').datepicker({
-	   
-		 });
-	   });
+			dateFormat: 'yy-mm-dd',
+			prevText: '이전 달',
+			nextText: '다음 달',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			showMonthAfterYear: true,
+			yearSuffix: '년'
+		});
+
+		$(function () {
+			$('.datepicker').datepicker({
+
+			});
+		});
 	</script>
 
 	<!-- <script>
@@ -1144,13 +1144,17 @@
 										<option class="area_facility" value="pyeongtaek">평택</option>
 									</select>
 								</div>
-								<div class="discharge_btn"
+								<!-- <div class="discharge_btn"
 									onclick="document.getElementById('yousok_layer5').style.display = 'block'; mapsetting();">
-									조회
-								</div>
+								조회
+								</div> -->
+								<div class="discharge_btn"
+								onclick="mapsetting();">
+							조회
+							</div>
 							</div>
 
-							<div class="que2">
+							<!-- <div class="que2">
 								<span>레이어</span>
 							</div>
 							<div class="anw_discharge">
@@ -1190,15 +1194,12 @@
 												</div>
 											</div>
 										</div>
+
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="addMarker()">레이어 보기</div>
-										<!-- <div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer('tif')">레이어 보기</div> -->
+											onclick="viewDischargeLayer('tif')">레이어 보기</div>
 									</div>
 								</div>
-							</div>
-
-
+							</div> -->
 
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
@@ -1225,7 +1226,7 @@
 			<div id="wrap" class="wrap">
 
 				<div id="map"></div>
-				
+
 				<div id="attr">
 					<div class="tableDisplay">
 						<table id="attribute" class="ui small celled unstackable table">
@@ -1258,9 +1259,6 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
-			<div id="popup">
-				<div id="popup-content"></div>
 			</div>
 		</div>
 
@@ -1478,6 +1476,42 @@
 	</script>
 
 	<script>
+
+		//	leflet 마커찍기
+		// var buffers = [];
+
+		// function addRowTable(code, coords){
+		// var tr = document.createElement("tr");
+		// var td = document.createElement("td");
+		// };
+
+		// function addMarker(code,lat,lng){
+		// var p = L.marker([lat,lng]);
+		// p.title = code;
+		// p.alt = code;
+		// p.bindPopup(code);
+		// p.addTo(map);
+		// addRowTable(code, [lat,lng]);
+		// var c = L.circle([lat,lng], {
+		// 	color: 'red',
+		// 	fillColor: '#f03',
+		// 	fillOpacity: 0.5,
+		// 	radius: 0
+		// }).addTo(map);
+		// buffers.push(c);
+		// }
+
+		// $(document).ready(function (){
+		// var points = [["M02KM262",35.0686,128.993983333333],
+		// 				["M10KM052",34.818,127.6724],
+		// 				["83KM081",46.76489,-71.32664],
+		// 				["83KM082",46.76672,-71.32919]];
+		// for (var i=0; i < points.length; i++){
+		// 	addMarker(points[i][0],points[i][1],points[i][2]);
+		// }
+		// });
+
+
 		// function readExcel() {
 		// 	let input = event.target;
 		// 	let reader = new FileReader();
@@ -1501,7 +1535,7 @@
 	// 	alert(val);
 	// }
 		   // 팝업 옵션 설정
-	
+
 	</script>
 
 	<!-- <script>

@@ -828,14 +828,14 @@ function mapsetting(){ // 좌표이동
 
     if (base == 1) { // 위성지도
 
-        map.setView([35.0686, 128.994], 15);
+        map.setView([35.0568, 129.003], 14);
 
         map.addLayer(hybridLayer1);
         map.addLayer(hybridLayer2);
 
     } else { // 일반지도
 
-        map.setView([35.0686, 128.994], 15);
+        map.setView([35.0568, 129.003], 14);
 
         map.addLayer(baseLayer);
     }
@@ -881,6 +881,60 @@ if (chked == false) {
     // javascripr: CefCustomObject.func('yousok', layerType);
 }
 }
+
+
+function addMaker() {
+
+    var marker = L.marker([35.0686, 128.994],{color:'blue'}).addTo(map);
+    var marker1 = L.marker([35.08313, 128.9964]).addTo(map);
+    var marker2 = L.marker([35.06733, 128.9927]).addTo(map);
+    var marker3 = L.marker([35.08437, 128.9932]).addTo(map);
+
+    addst();
+
+    marker.bindPopup("부산탱크터미널㈜-1<br>부산탱크터미널㈜-2");
+    marker1.bindPopup("한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2");
+    marker2.bindPopup("㈜모든");
+    marker3.bindPopup("삼한산업㈜ 제1탱크터미널");
+
+}
+
+
+function addst(){
+    data = [
+        // {state: 'border',content: '부산탱크터미널㈜-1<br>부산탱크터미널㈜-2', lat: 35.0686, lon: 128.994},
+        // {state: 'border',content: '한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2', lat: 35.08313, lon: 128.9964},
+        // {state: 'border',content: '㈜모든', lat: 35.06733, lon: 128.9927},
+        // {state: 'border',content: '삼한산업㈜ 제1탱크터미널', lat: 35.08437, lon: 128.9932},
+
+        {state: 'redborder', content: 'St.1', lat: 35.0543, lon: 128.9753},
+        {state: 'redborder', content: 'St.2', lat: 35.05535, lon: 128.9858},
+        {state: 'redborder', content: 'St.3', lat: 35.0488, lon: 128.9852},
+        {state: 'redborder', content: 'St.4', lat: 35.08318, lon: 129.0029},
+        {state: 'redborder', content: 'St.5', lat: 35.07633, lon: 129.0016},
+        {state: 'redborder', content: 'St.6', lat: 35.07168, lon: 128.9979},
+        {state: 'redborder', content: 'St.7', lat: 35.06458, lon: 128.9995},
+        {state: 'redborder', content: 'St.8', lat: 35.0568, lon: 129.003},
+        {state: 'redborder', content: 'St.9', lat: 35.04195, lon: 128.9931},
+        {state: 'redborder', content: 'St.10', lat: 35.03748, lon: 129.0062},
+      ];
+      
+      data.forEach(function(row){
+        var pos = new L.LatLng(row.lat,row.lon);
+        var icontext = row.content;
+        var instanceclass = row.state || '';
+      
+         var icon = L.divIcon({
+           iconSize:null,
+           html:'<div class="map-label '+instanceclass+'"><div class="map-label-content">'+icontext+'</div><div class="map-label-arrow"></div></div>'
+         });
+      
+        L.marker(pos).addTo(map); //reference marker (for checking position)
+        L.marker(pos,{icon: icon}).addTo(map);
+    });
+      
+}
+
 
 function nameMattiong(){
 
