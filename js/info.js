@@ -361,7 +361,7 @@ var data = google.visualization.arrayToDataTable([
   var options = {
       width: '100%',
       height: '100%',
-      chartArea: {left: 60, width: '80%', top:60},
+      chartArea: {left: 60, width: '70%', top:60},
       bar: { groupWidth: '40%' },
       title: '배출수'
     };
@@ -395,7 +395,7 @@ var data = google.visualization.arrayToDataTable([
   var options = {
     width: '100%',
     height: '100%',
-    chartArea: {left: 60, width: '80%', top:60,},
+    chartArea: {left: 60, width: '70%', top:60,},
     bar: { groupWidth: '40%' },
       title: '주변해역'
     };
@@ -463,7 +463,7 @@ var data = google.visualization.arrayToDataTable([
   var options = {
     width: '100%',
     height: '100%',
-    chartArea: {left: 60, width: '85%', top:60,},
+    chartArea: {left: 60, width: '75%', top:60,},
     bar: { groupWidth: '40%' },
     title: '배출수'
     };
@@ -536,7 +536,7 @@ var data = google.visualization.arrayToDataTable([
   var options = {
     width: '100%',
     height: '100%',
-    chartArea: {left: 60, width: '85%', top:60,},
+    chartArea: {left: 60, width: '75%', top:60,},
     bar: { groupWidth: '40%' },
       title: '주변해역'
     };
