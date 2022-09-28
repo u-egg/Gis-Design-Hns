@@ -227,7 +227,7 @@ var options = {
   title: "- 수온 -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left:30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -261,7 +261,7 @@ var options = {
   title: "- 염분 -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -292,7 +292,7 @@ var options = {
   title: "- pH -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -323,7 +323,7 @@ var options = {
   title: "- Do -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -569,7 +569,7 @@ var options = {
   title: "- Cd -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 
@@ -600,7 +600,7 @@ var options = {
   title: "- As -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -630,7 +630,7 @@ var options = {
   title: "- Pb -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -660,7 +660,7 @@ var options = {
   title: "- Cu -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -690,7 +690,7 @@ var options = {
   title: "- Cr -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -720,7 +720,7 @@ var options = {
   title: "- Zn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -750,7 +750,7 @@ var options = {
   title: "- Ni -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -780,7 +780,7 @@ var options = {
   title: "- Mn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -810,7 +810,7 @@ var options = {
   title: "- V -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -840,7 +840,7 @@ var options = {
   title: "- Se -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -870,7 +870,7 @@ var options = {
   title: "- Ba -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -900,7 +900,7 @@ var options = {
   title: "- Sn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -930,7 +930,7 @@ var options = {
   title: "- Ag -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -960,7 +960,7 @@ var options = {
   title: "- B -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -990,7 +990,7 @@ var options = {
   title: "- Hg -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
@@ -1025,7 +1025,7 @@ var options = {
   title: "- Cd -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1055,7 +1055,7 @@ var options = {
   title: "- As -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1085,7 +1085,7 @@ var options = {
   title: "- Pb -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1115,7 +1115,7 @@ var options = {
   title: "- Cu -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1145,7 +1145,7 @@ var options = {
   title: "- Cr -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1175,7 +1175,7 @@ var options = {
   title: "- Zn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1205,7 +1205,7 @@ var options = {
   title: "- Ni -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1235,7 +1235,7 @@ var options = {
   title: "- Mn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1265,7 +1265,7 @@ var options = {
   title: "- V -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1295,7 +1295,7 @@ var options = {
   title: "- Se -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1325,7 +1325,7 @@ var options = {
   title: "- Ba -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1355,7 +1355,7 @@ var options = {
   title: "- Sn -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1385,7 +1385,7 @@ var options = {
   title: "- Ag -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1415,7 +1415,7 @@ var options = {
   title: "- B -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1445,7 +1445,7 @@ var options = {
   title: "- Hg -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '80%', top:60},
+  chartArea: {left: 30, width: '80%', top:60},
   bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
@@ -1481,7 +1481,7 @@ var options = {
   title: "- TOC -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
@@ -1511,7 +1511,7 @@ var options = {
   title: "- CN -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
@@ -1541,7 +1541,7 @@ var options = {
   title: "- 페놀 -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
@@ -1572,7 +1572,7 @@ var options = {
   title: "- TOC -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
@@ -1602,7 +1602,7 @@ var options = {
   title: "- CN -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
@@ -1632,7 +1632,7 @@ var options = {
   title: "- 페놀 -",
   width: '100%',
   height: '100%',
-  chartArea: {left: 60, width: '100%', top:60},
+  chartArea: {left: 30, width: '100%', top:60},
   bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };

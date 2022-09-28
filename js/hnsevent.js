@@ -789,7 +789,7 @@ var stName = "";
 // var ulsan = ["50","35","12","14","10"];
 
 function layerInfo(){
-    window.open( "./layerinfo.html", "Child", "width=1670, height=1100, top=160, left=480");
+    window.open( "./layerinfo.html", "Child", "width=820, height=1100, top=160, left=1480");
 }
 
 var area = "";
@@ -852,13 +852,16 @@ function viewDischargeLayer(type) {
 layerclear = $('input[name=discharge_rdo]:checked').val();
 
 if(layerclear == 'clear'){
-    map.removeLayer(layerGroup);
-    return;
+    removeMarker();
+}
+else{
+    addMaker();
 }
 
 setImgType = type;
 
 dischargelayerType = ""
+
 var chk = document.getElementsByName("discharge_rdo");
 var chked = false;
 for (var i = 0; i < chk.length; i++) {
@@ -903,25 +906,41 @@ var blueMarker = new LeafIcon2({
     iconUrl: './img/bluemarker.png',
 })
 
-function addMaker() {
+// 마커 제거용 전역변수
 
-    var marker = L.marker([35.0686, 128.994],{icon: redMarker}).addTo(map);
-    var marker1 = L.marker([35.08313, 128.9964],{icon: redMarker}).addTo(map);
-    var marker2 = L.marker([35.06733, 128.9927],{icon: redMarker}).addTo(map);
-    var marker3 = L.marker([35.08437, 128.9932],{icon: redMarker}).addTo(map);
+var marker = "";
+var marker1 = "";
+var marker2 = "";
+var marker3 = "";
 
-    var st_marker1 = L.marker([35.0543, 128.9753],{icon: blueMarker}).addTo(map);
-    var st_marker2 = L.marker([35.05535, 128.9858],{icon: blueMarker}).addTo(map);
-    var st_marker3 = L.marker([35.0488, 128.9852],{icon: blueMarker}).addTo(map);
-    var st_marker4 = L.marker([35.08318, 129.0029],{icon: blueMarker}).addTo(map);
-    var st_marker5 = L.marker([35.07633, 129.0016],{icon: blueMarker}).addTo(map);
+var st_marker1 = "";
+var st_marker2 = "";
+var st_marker3 = "";
+var st_marker4 = "";
+var st_marker5 = "";
+var st_marker6 = "";
+var st_marker7 = "";
+var st_marker8 = "";
+var st_marker9 = "";
+var st_marker10 = "";
 
+function addMaker(layerclear) {
 
-    var st_marker6 = L.marker([35.07168, 128.9979],{icon: blueMarker}).addTo(map);
-    var st_marker7 = L.marker([35.06458, 128.9995],{icon: blueMarker}).addTo(map);
-    var st_marker8 = L.marker([35.0568, 129.003],{icon: blueMarker}).addTo(map);
-    var st_marker9 = L.marker([35.04195, 128.9931],{icon: blueMarker}).addTo(map);
-    var st_marker10 = L.marker([35.03748, 129.0062],{icon: blueMarker}).addTo(map);
+    marker = L.marker([35.0686, 128.994],{icon: redMarker}).addTo(map);
+    marker1 = L.marker([35.08313, 128.9964],{icon: redMarker}).addTo(map);
+    marker2 = L.marker([35.06733, 128.9927],{icon: redMarker}).addTo(map);
+    marker3 = L.marker([35.08437, 128.9932],{icon: redMarker}).addTo(map);
+
+    st_marker1 = L.marker([35.0543, 128.9753],{icon: blueMarker}).addTo(map);
+    st_marker2 = L.marker([35.05535, 128.9858],{icon: blueMarker}).addTo(map);
+    st_marker3 = L.marker([35.0488, 128.9852],{icon: blueMarker}).addTo(map);
+    st_marker4 = L.marker([35.08318, 129.0029],{icon: blueMarker}).addTo(map);
+    st_marker5 = L.marker([35.07633, 129.0016],{icon: blueMarker}).addTo(map);
+    st_marker6 = L.marker([35.07168, 128.9979],{icon: blueMarker}).addTo(map);
+    st_marker7 = L.marker([35.06458, 128.9995],{icon: blueMarker}).addTo(map);
+    st_marker8 = L.marker([35.0568, 129.003],{icon: blueMarker}).addTo(map);
+    st_marker9 = L.marker([35.04195, 128.9931],{icon: blueMarker}).addTo(map);
+    st_marker10 = L.marker([35.03748, 129.0062],{icon: blueMarker}).addTo(map);
 
     marker.bindPopup("부산탱크터미널㈜-1<br>부산탱크터미널㈜-2");
     marker1.bindPopup("한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2");
@@ -938,6 +957,24 @@ function addMaker() {
     st_marker8.bindPopup("St.8");
     st_marker9.bindPopup("St.9");
     st_marker10.bindPopup("St.10");
+}
+
+function removeMarker(){
+    map.removeLayer(marker);
+    map.removeLayer(marker1);    
+    map.removeLayer(marker2);
+    map.removeLayer(marker3);
+
+    map.removeLayer(st_marker1);
+    map.removeLayer(st_marker2);    
+    map.removeLayer(st_marker3);
+    map.removeLayer(st_marker4);
+    map.removeLayer(st_marker5);
+    map.removeLayer(st_marker6);    
+    map.removeLayer(st_marker7);
+    map.removeLayer(st_marker8);
+    map.removeLayer(st_marker9);
+    map.removeLayer(st_marker10);
 }
 
 function nameMattiong(){
