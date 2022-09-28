@@ -732,8 +732,9 @@ input[id="b"] {
 }
 
 .window_btn {
+    height: 80px;
+    padding:20px 20px 0 0;
     text-align: center;
-    margin-top: 100px;
 }
 
 .window_btn button {
@@ -754,9 +755,8 @@ input[id="b"] {
 }
 
 .window_body {
-    background-color: #eaeaea;
-    width: 780px;
-    margin-left: 10px;
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 20px;
     border-top: 2px solid #000;
     color: #666;
@@ -766,7 +766,8 @@ input[id="b"] {
 .window_tabbox{
     font-size: 14px;
     margin-left: 10px;
-    width: 780px;
+    width: 90vw;
+    margin: 0 auto;
     margin-top: 20px;
     display: flex;
 }
@@ -793,26 +794,37 @@ input[id="b"] {
 
 
 .detail_box{
-    width: 780px;
-    margin-left: 10px;
+    width: 90vw;
+    margin: 0 auto !important;
+    padding-top: 10px;
     height: 500px;
 }
 
 .window_flex{
     display: flex;
     flex-wrap: wrap;
-    position: relative;
     margin-top: 50px;
 }
 
-.window_flex div{
-    width: calc(100% / 2);
-    font-size: 14px;
-    height: 250px;
-    line-height: 250px;
-    left: 3px;
-    position: relative;
+#columnchart_values, #columnchart_values2, #columnchart_values3, #columnchart_values4{
+    height: 100%;
+    min-height: 300px;
+}
 
+#mi_chart_1, #mi_chart_2, #mi_chart_3, #mi_chart_4,#mi_chart_5,#mi_chart_6,#mi_chart_7,#mi_chart_8,#mi_chart_9,#mi_chart_10,#mi_chart_11,#mi_chart_12,#mi_chart_13,#mi_chart_14,#mi_chart_15{
+    height: 100%;
+    min-height: 300px;
+}
+
+#st_mi_chart_1, #st_mi_chart_2, #st_mi_chart_3, #st_mi_chart_4,#st_mi_chart_5,#st_mi_chart_6,#st_mi_chart_7,#st_mi_chart_8,#st_mi_chart_9,#st_mi_chart_10,#st_mi_chart_11,#st_mi_chart_12,#st_mi_chart_13,#st_mi_chart_14,#st_mi_chart_15{
+    height: 100%;
+    min-height: 300px;
+}
+.suon_chart{
+    width: calc(100% / 2);
+    height: 100%;
+    min-height: 300px;
+    padding-left: 10px;
 }
 
 .window_flex_water{
@@ -821,36 +833,38 @@ input[id="b"] {
     margin-top: 50px;
 }
 
-.window_flex_water div{
-    font-size: 14px;
-    height: 250px;
-    line-height: 250px;
-    text-align: center;
-    padding-right: 10px;
-    position: relative;
-    bottom: 5px;
-    left: -4px;
+#hwi_chart{
+    height: 100%;
+    min-height: 400px;
 }
+
+#hwi_chart2{
+    height: 100%;
+    min-height: 400px;
+}
+
+#etc_chart1 , #etc_chart2 , #etc_chart3 , #st_etc_chart1, #st_etc_chart2, #st_etc_chart3{
+    height: 100%;
+    min-height: 400px;
+}
+
+#water_chart{
+    height: 100%;
+    min-height: 400px;
+}
+
+#water_chart2{
+    height: 100%;
+    min-height: 400px;
+}
+
 
 .window_flex_etc{
     flex-wrap: wrap;
-    position: relative;
-    margin-top: 50px;
 }
-
-.window_flex_etc div{
-    font-size: 14px;
-    height: 250px;
-    line-height: 250px;
-    text-align: center;
-    padding-right: 10px;
-    position: relative;
-    bottom: 5px;
-}
-
 
 .tab_table{
-    width: 780px;
+    width: 100%;
     height: 100%;
     margin-top: 10px;
 }

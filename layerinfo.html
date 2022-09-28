@@ -19,8 +19,12 @@
     <style>
         td {
             text-align: center;
-            font-size: 14px;
-            height: 30px;
+            font-size: 15px;
+            height: 35px;
+        }
+
+        table{
+            width: 100%;
         }
 
         table,
@@ -41,7 +45,11 @@
 
 <body style="background-color: #fff;">
     <div class="window_title">
-        HNS 방류 실태 조사 결과
+        <span style="margin-left: 10px;">HNS 방류 실태 조사 결과</span>
+        <span style="float: right; margin-right: 10px; cursor: pointer;" onclick="windowClose()">
+            <i class="fa-solid fa-x"></i>
+        </span>
+        <span style="clear: both;"></span>
     </div>
     <div class="window_body">
         <table>
@@ -50,15 +58,15 @@
                 <td colspan="2" style="background-color: #d9d9d9;">분류</td>
             </tr>
             <tr>
-                <td style="width: 200px;">대상지역</td>
+                <td style="width: 30%;">대상지역</td>
                 <td id="td_area"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 70%; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <tr>
                 <td style="width: 200px;">시설구분</td>
                 <td id="td_st"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <!--해양산업시설현황-->
@@ -68,19 +76,19 @@
             <tr>
                 <td style="width: 200px;">해양시설</td>
                 <td id="td0"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <tr>
                 <td style="width: 200px;">해양산업시설</td>
                 <td id="td1"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <tr>
                 <td style="width: 200px;">해당해양시설</td>
                 <td id="td2"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <!--시료채취-->
@@ -90,13 +98,13 @@
             <tr>
                 <td style="width: 200px;">배출수</td>
                 <td id="td3"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <tr>
                 <td style="width: 200px;">주변해역</td>
                 <td id="td4"
-                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
+                    style="width: 360px; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
                 </td>
             </tr>
             <!--조사내용 (고정)-->
@@ -105,28 +113,28 @@
             </tr>
             <tr>
                 <td colspan="2"
-                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
-                    기초환경조사 (주변해역)</td>
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
+                    기초환경자료 (주변해역)</td>
             </tr>
             <tr>
                 <td colspan="2"
-                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
-                    수질오염물질 (방류구 및 주변해역)</td>
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
+                    수질오염물질 (배출수 및 주변해역)</td>
             </tr>
             <tr>
                 <td colspan="2"
-                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
-                    미량금속 (방류구 및 주변해역</td>
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
+                    휘발성유기화합물 (배출수 및 주변해역)</td>
             </tr>
             <tr>
                 <td colspan="2"
-                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
-                    휘발성 유기화합물 (방류구 및 주변해역)</td>
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
+                    미량금속 (배출수 및 주변해역)</td>
             </tr>
             <tr>
                 <td colspan="2"
-                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 13px;">
-                    기초환경조사 (주변해역)</td>
+                    style="width: 780px; text-align:center !important; color:#000; text-align: left; padding-left: 20px; background-color: #fff; font-size: 14px;">
+                    기타물질 (배출수 및 주변해역)</td>
             </tr>
         </table>
     </div>
@@ -146,9 +154,9 @@
                 <h2 id="h2_title" style="margin-bottom: 10px;">부산 주변해역 기초환경자료</h2>
                 <table style="margin-bottom: 10px;">
                     <!--분류-->
-                    <tr style="width: 780px;">
-                        <td style="width: 100px;"></td>
-                        <td style="width: calc(680px / 10);">
+                    <tr style="width: 100%;">
+                        <td style="width: 100px"></td>
+                        <td style="width: calc(100% / 10);">
                             St.1
                         </td>
                         <td style="width: calc(680px / 10);">
@@ -254,16 +262,16 @@
 
             </div>
             <div class="window_flex">
-                <div>
+                <div class="suon_chart">
                     <div id="columnchart_values"></div>
                 </div>
-                <div>
+                <div  class="suon_chart">
                     <div id="columnchart_values2"></div>
                 </div>
-                <div>
+                <div  class="suon_chart">
                     <div id="columnchart_values3"></div>
                 </div>
-                <div>
+                <div  class="suon_chart">
                     <div id="columnchart_values4"></div>
                 </div>
             </div>
@@ -1955,49 +1963,49 @@
 
                 </table>
                 <div class="window_flex">
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_1"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_2"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_3"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_4"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_5"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_6"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_7"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_8"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_9"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_10"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_11"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_12"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_13"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_14"></div>
                     </div>
-                    <div>
+                    <div class="suon_chart">
                         <div id="mi_chart_15"></div>
                     </div>
                 </div>
@@ -2251,49 +2259,49 @@
 
             </div>
             <div class="window_flex">
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_1"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_2"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_3"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_4"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_5"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_6"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_7"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_8"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_9"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_10"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_11"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_12"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_13"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_14"></div>
                 </div>
-                <div>
+                <div class="suon_chart">
                     <div id="st_mi_chart_15"></div>
                 </div>
             </div>
@@ -2381,7 +2389,7 @@
 
                 </table>
                 <div class="window_flex_etc">
-                    <div>
+                    <div id="test">
                         <div id="etc_chart1"></div>
                     </div>
                     <div>

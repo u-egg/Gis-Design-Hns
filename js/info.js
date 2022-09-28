@@ -215,18 +215,20 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'st');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < 10; i++){
   data.addRows([
-  ['st'+ (i + 1), suon[i]]
+  ['st'+ (i + 1), suon[i], suon[i]]
   ]);
 }
 
 var options = {
   title: "- 수온 -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -234,6 +236,9 @@ var chart = new google.visualization.ColumnChart(document.getElementById("column
 
 chart.draw(data, options);
 }
+
+
+
 
 // 차트 2 (염분)
 google.charts.load("current", {packages:['corechart']});
@@ -254,9 +259,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- 염분 -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -284,9 +290,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- pH -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -314,9 +321,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Do -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -324,6 +332,7 @@ var chart = new google.visualization.ColumnChart(document.getElementById("column
 
 chart.draw(data, options);
 }
+
 
 
 /*
@@ -350,9 +359,10 @@ var data = google.visualization.arrayToDataTable([
   ]);
 
   var options = {
-      width: 780,
-      height: 250,
-      bar: { groupWidth: '75%' },
+      width: '100%',
+      height: '100%',
+      chartArea: {left: 60, width: '80%', top:60},
+      bar: { groupWidth: '40%' },
       title: '배출수'
     };
 var chart = new google.visualization.ColumnChart(document.getElementById("water_chart"));
@@ -383,9 +393,10 @@ var data = google.visualization.arrayToDataTable([
   ]);
 
   var options = {
-      width: 780,
-      height: 250,
-      bar: { groupWidth: '75%' },
+    width: '100%',
+    height: '100%',
+    chartArea: {left: 60, width: '80%', top:60,},
+    bar: { groupWidth: '40%' },
       title: '주변해역'
     };
 var chart = new google.visualization.ColumnChart(document.getElementById("water_chart2"));
@@ -450,10 +461,11 @@ var data = google.visualization.arrayToDataTable([
   ]);
 
   var options = {
-      width: 780,
-      height: 250,
-      bar: { groupWidth: '75%' },
-      title: '배출수'
+    width: '100%',
+    height: '100%',
+    chartArea: {left: 60, width: '85%', top:60,},
+    bar: { groupWidth: '40%' },
+    title: '배출수'
     };
 var chart = new google.visualization.ColumnChart(document.getElementById("hwi_chart"));
 
@@ -522,9 +534,10 @@ var data = google.visualization.arrayToDataTable([
   ]);
 
   var options = {
-      width: 780,
-      height: 250,
-      bar: { groupWidth: '75%' },
+    width: '100%',
+    height: '100%',
+    chartArea: {left: 60, width: '85%', top:60,},
+    bar: { groupWidth: '40%' },
       title: '주변해역'
     };
 var chart = new google.visualization.ColumnChart(document.getElementById("hwi_chart2"));
@@ -544,18 +557,20 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q1.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q1[i]]
+  ['No.'+ (i + 1), mi_q1[i], mi_q1[i]]
   ]);
 }
 
 var options = {
   title: "- Cd -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 
 };
@@ -583,9 +598,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- As -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -612,9 +628,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Pb -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -641,9 +658,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Cu -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -670,9 +688,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Cr -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -699,9 +718,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Zn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -728,9 +748,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ni -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -757,9 +778,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Mn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -786,9 +808,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- V -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -815,9 +838,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Se -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -844,9 +868,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ba -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -873,9 +898,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Sn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -902,9 +928,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ag -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -931,9 +958,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- B -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -960,9 +988,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Hg -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '25%' },
   legend: { position: "none" },
 };
 
@@ -994,9 +1023,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Cd -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1023,9 +1053,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- As -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1052,9 +1083,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Pb -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1081,9 +1113,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Cu -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1110,9 +1143,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Cr -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1139,9 +1173,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Zn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1168,9 +1203,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ni -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1197,9 +1233,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Mn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1226,9 +1263,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- V -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1255,9 +1293,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Se -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1284,9 +1323,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ba -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1313,9 +1353,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Sn -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1342,9 +1383,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Ag -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1371,9 +1413,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- B -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1400,9 +1443,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- Hg -",
-  width: 380,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '80%', top:60},
+  bar: { groupWidth: '40%' },
   legend: { position: "none" },
 };
 
@@ -1425,18 +1469,20 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < etc_q1.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), etc_q1[i]]
+  ['No.'+ (i + 1), etc_q1[i], etc_q1[i]]
   ]);
 }
 
 var options = {
   title: "- TOC -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1463,9 +1509,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- CN -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1492,9 +1539,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- 페놀 -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1522,9 +1570,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- TOC -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1551,9 +1600,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- CN -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1580,9 +1630,10 @@ var data = new google.visualization.DataTable();
 
 var options = {
   title: "- 페놀 -",
-  width: 780,
-  height: 250,
-  bar: {groupWidth: "95%"},
+  width: '100%',
+  height: '100%',
+  chartArea: {left: 60, width: '100%', top:60},
+  bar: { groupWidth: '15%' },
   legend: { position: "none" },
 };
 
@@ -1590,6 +1641,66 @@ var chart = new google.visualization.ColumnChart(document.getElementById("st_etc
 
 chart.draw(data, options);
 }
+
+// 차트 리사이징
+$(document).ready(function () {
+  $(window).resize(function(){
+    //수온
+    drawChart();
+    drawChart2();
+    drawChart3();
+    drawChart4();
+    //수질오염물질
+    drawChart_water2();
+    drawChart_water();
+    //휘발성유기화합물
+    drawChart_hwi();
+    drawChart_hwi2();
+
+    //미량금속
+    miDrawChart1();
+    miDrawChart2();
+    miDrawChart3();
+    miDrawChart4();
+    miDrawChart5();
+    miDrawChart6();
+    miDrawChart7();
+    miDrawChart8();
+    miDrawChart9();
+    miDrawChart10();
+    miDrawChart11();
+    miDrawChart12();
+    miDrawChart13();
+    miDrawChart14();
+    miDrawChart15();
+
+    st_miDrawChart1();
+    st_miDrawChart2();
+    st_miDrawChart3();
+    st_miDrawChart4();
+    st_miDrawChart5();
+    st_miDrawChart6();
+    st_miDrawChart7();
+    st_miDrawChart8();
+    st_miDrawChart9();
+    st_miDrawChart10();
+    st_miDrawChart11();
+    st_miDrawChart12();
+    st_miDrawChart13();
+    st_miDrawChart14();
+    st_miDrawChart15();
+
+    //기타물질
+    etcDrawChart1();
+    etcDrawChart2();
+    etcDrawChart3();
+
+    st_etcDrawChart1();
+    st_etcDrawChart2();
+    st_etcDrawChart3();
+
+  });
+});
 
 
 function windowClose() {
