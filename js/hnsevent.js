@@ -789,7 +789,7 @@ var stName = "";
 // var ulsan = ["50","35","12","14","10"];
 
 function layerInfo(){
-    window.open( "./layerinfo.html", "Child", "width=815, height=1000px, top=160, left=480");
+    window.open( "./layerinfo.html", "Child", "width=1670, height=1100, top=160, left=480");
 }
 
 var area = "";
@@ -882,59 +882,63 @@ if (chked == false) {
 }
 }
 
+// leaflet 마커 아이콘 추가 및 변경
+var LeafIcon = L.Icon.extend({
+    options: {
+       iconSize: [40, 40],
+    }
+});
+
+var redMarker = new LeafIcon({
+    iconUrl: './img/redmarker.png',
+})
+
+var LeafIcon2 = L.Icon.extend({
+    options: {
+       iconSize: [36, 36],
+    }
+});
+
+var blueMarker = new LeafIcon2({
+    iconUrl: './img/bluemarker.png',
+})
 
 function addMaker() {
 
-    var marker = L.marker([35.0686, 128.994],{color:'blue'}).addTo(map);
-    var marker1 = L.marker([35.08313, 128.9964]).addTo(map);
-    var marker2 = L.marker([35.06733, 128.9927]).addTo(map);
-    var marker3 = L.marker([35.08437, 128.9932]).addTo(map);
+    var marker = L.marker([35.0686, 128.994],{icon: redMarker}).addTo(map);
+    var marker1 = L.marker([35.08313, 128.9964],{icon: redMarker}).addTo(map);
+    var marker2 = L.marker([35.06733, 128.9927],{icon: redMarker}).addTo(map);
+    var marker3 = L.marker([35.08437, 128.9932],{icon: redMarker}).addTo(map);
 
-    addst();
+    var st_marker1 = L.marker([35.0543, 128.9753],{icon: blueMarker}).addTo(map);
+    var st_marker2 = L.marker([35.05535, 128.9858],{icon: blueMarker}).addTo(map);
+    var st_marker3 = L.marker([35.0488, 128.9852],{icon: blueMarker}).addTo(map);
+    var st_marker4 = L.marker([35.08318, 129.0029],{icon: blueMarker}).addTo(map);
+    var st_marker5 = L.marker([35.07633, 129.0016],{icon: blueMarker}).addTo(map);
+
+
+    var st_marker6 = L.marker([35.07168, 128.9979],{icon: blueMarker}).addTo(map);
+    var st_marker7 = L.marker([35.06458, 128.9995],{icon: blueMarker}).addTo(map);
+    var st_marker8 = L.marker([35.0568, 129.003],{icon: blueMarker}).addTo(map);
+    var st_marker9 = L.marker([35.04195, 128.9931],{icon: blueMarker}).addTo(map);
+    var st_marker10 = L.marker([35.03748, 129.0062],{icon: blueMarker}).addTo(map);
 
     marker.bindPopup("부산탱크터미널㈜-1<br>부산탱크터미널㈜-2");
     marker1.bindPopup("한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2");
     marker2.bindPopup("㈜모든");
     marker3.bindPopup("삼한산업㈜ 제1탱크터미널");
 
+    st_marker1.bindPopup("St.1");
+    st_marker2.bindPopup("St.2");
+    st_marker3.bindPopup("St.3");
+    st_marker4.bindPopup("St.4");    
+    st_marker5.bindPopup("St.5");
+    st_marker6.bindPopup("St.6");
+    st_marker7.bindPopup("St.7");
+    st_marker8.bindPopup("St.8");
+    st_marker9.bindPopup("St.9");
+    st_marker10.bindPopup("St.10");
 }
-
-
-function addst(){
-    data = [
-        // {state: 'border',content: '부산탱크터미널㈜-1<br>부산탱크터미널㈜-2', lat: 35.0686, lon: 128.994},
-        // {state: 'border',content: '한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2', lat: 35.08313, lon: 128.9964},
-        // {state: 'border',content: '㈜모든', lat: 35.06733, lon: 128.9927},
-        // {state: 'border',content: '삼한산업㈜ 제1탱크터미널', lat: 35.08437, lon: 128.9932},
-
-        {state: 'redborder', content: 'St.1', lat: 35.0543, lon: 128.9753},
-        {state: 'redborder', content: 'St.2', lat: 35.05535, lon: 128.9858},
-        {state: 'redborder', content: 'St.3', lat: 35.0488, lon: 128.9852},
-        {state: 'redborder', content: 'St.4', lat: 35.08318, lon: 129.0029},
-        {state: 'redborder', content: 'St.5', lat: 35.07633, lon: 129.0016},
-        {state: 'redborder', content: 'St.6', lat: 35.07168, lon: 128.9979},
-        {state: 'redborder', content: 'St.7', lat: 35.06458, lon: 128.9995},
-        {state: 'redborder', content: 'St.8', lat: 35.0568, lon: 129.003},
-        {state: 'redborder', content: 'St.9', lat: 35.04195, lon: 128.9931},
-        {state: 'redborder', content: 'St.10', lat: 35.03748, lon: 129.0062},
-      ];
-      
-      data.forEach(function(row){
-        var pos = new L.LatLng(row.lat,row.lon);
-        var icontext = row.content;
-        var instanceclass = row.state || '';
-      
-         var icon = L.divIcon({
-           iconSize:null,
-           html:'<div class="map-label '+instanceclass+'"><div class="map-label-content">'+icontext+'</div><div class="map-label-arrow"></div></div>'
-         });
-      
-        L.marker(pos).addTo(map); //reference marker (for checking position)
-        L.marker(pos,{icon: icon}).addTo(map);
-    });
-      
-}
-
 
 function nameMattiong(){
 
