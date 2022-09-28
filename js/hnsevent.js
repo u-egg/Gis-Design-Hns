@@ -854,7 +854,7 @@ layerclear = $('input[name=discharge_rdo]:checked').val();
 if(layerclear == 'clear'){
     removeMarker();
 }
-else{
+else if(layerclear == 'all'){
     addMaker();
 }
 
