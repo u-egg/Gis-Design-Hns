@@ -609,8 +609,6 @@ li {
     display: none;
 }
 
-
-
 .datepicker{
     position: relative;
     z-index: 9999;
@@ -898,6 +896,52 @@ input[id="b"] {
 .tab_5{
     display: none;
 }
+
+
+.frame_innerbox{
+    width: calc(100% / 2);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+.popup_title{
+    height: 105px;
+    margin-top: 10px;
+}
+.popup_text{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.popup_img{
+    width: 95%;
+    height: 180px;
+    margin-top: 10px;
+}
+
+.link{
+    font-size: 12px;
+    width: 70%;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #fff;
+    background-color: #0277bd;
+}
+
+.popup_text{
+    width: 100%;
+}
+
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    width: 400px;
+    height: 200px;
+    display: flex;
+}
+
 
 
 /* @media only screen and (max-width:1920px) {

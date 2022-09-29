@@ -840,7 +840,7 @@ function mapsetting(){ // 좌표이동
         map.addLayer(baseLayer);
     }
 
-    addMaker();
+    addMarker();
     layerInfo();
 }
 
@@ -855,7 +855,7 @@ if(layerclear == 'clear'){
     removeMarker();
 }
 else if(layerclear == 'all'){
-    addMaker();
+    addMarker();
 }
 
 setImgType = type;
@@ -924,7 +924,7 @@ var st_marker8 = "";
 var st_marker9 = "";
 var st_marker10 = "";
 
-function addMaker(layerclear) {
+function addMarker(layerclear) {
 
     marker = L.marker([35.0686, 128.994],{icon: redMarker}).addTo(map);
     marker1 = L.marker([35.08313, 128.9964],{icon: redMarker}).addTo(map);
@@ -942,21 +942,21 @@ function addMaker(layerclear) {
     st_marker9 = L.marker([35.04195, 128.9931],{icon: blueMarker}).addTo(map);
     st_marker10 = L.marker([35.03748, 129.0062],{icon: blueMarker}).addTo(map);
 
-    marker.bindPopup("부산탱크터미널㈜-1<br>부산탱크터미널㈜-2");
-    marker1.bindPopup("한국남부발전㈜부산발전본부-1<br>한국남부발전㈜부산발전본부-2");
-    marker2.bindPopup("㈜모든");
-    marker3.bindPopup("삼한산업㈜ 제1탱크터미널");
+    marker.bindPopup("<div class='frame_innerbox'><div class='popup_title'>부산탱크터미널㈜-1,2</div><div class='popup_text'>Tel:051-264-1400</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/busan_1.jpg'></div>");
+    marker1.bindPopup("<div class='frame_innerbox'><div class='popup_title'>한국남부발전㈜<br>부산발전본부-1,2</div><div class='popup_text'>Tel:070-7713-8000</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/busan_2.jpg'></div>");
+    marker2.bindPopup("<div class='frame_innerbox'><div class='popup_title'>㈜모든</div><div class='popup_text'>Tel:051-264-1400</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/busan_1.jpg'></div>");
+    marker3.bindPopup("<div class='frame_innerbox'><div class='popup_title'>삼한산업㈜<br>제1탱크터미널</div><div class='popup_text'>Tel:051-262-3131</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/busan_3.gif'></div>");
 
-    st_marker1.bindPopup("St.1");
-    st_marker2.bindPopup("St.2");
-    st_marker3.bindPopup("St.3");
-    st_marker4.bindPopup("St.4");    
-    st_marker5.bindPopup("St.5");
-    st_marker6.bindPopup("St.6");
-    st_marker7.bindPopup("St.7");
-    st_marker8.bindPopup("St.8");
-    st_marker9.bindPopup("St.9");
-    st_marker10.bindPopup("St.10");
+    st_marker1.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.1</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker2.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.2</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker3.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.3</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker4.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.4</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");    
+    st_marker5.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.5</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker6.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.6</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker7.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.7</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker8.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.8</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker9.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.9</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
+    st_marker10.bindPopup("<div class='frame_innerbox'><div class='popup_title'>St.10</div><div class='popup_text'>Tel:-</div><div class='link'onclick='mapsetting();'>세부정보보기</div></div><div class='frame_innerbox'><img class='popup_img'src='./assets/st.jpg'></div>");
 }
 
 function removeMarker(){

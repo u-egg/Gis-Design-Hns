@@ -593,10 +593,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q2.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q2[i]]
+  ['No.'+ (i + 1), mi_q2[i],mi_q2[i]]
   ]);
 }
 
@@ -623,10 +624,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q3.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q3[i]]
+  ['No.'+ (i + 1), mi_q3[i],mi_q3[i]]
   ]);
 }
 
@@ -653,10 +655,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q4.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q4[i]]
+  ['No.'+ (i + 1), mi_q4[i],mi_q4[i]]
   ]);
 }
 
@@ -683,10 +686,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q5.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q5[i]]
+  ['No.'+ (i + 1), mi_q5[i],mi_q5[i]]
   ]);
 }
 
@@ -713,10 +717,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q6.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q6[i]]
+  ['No.'+ (i + 1), mi_q6[i],mi_q6[i]]
   ]);
 }
 
@@ -743,10 +748,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q7.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q7[i]]
+  ['No.'+ (i + 1), mi_q7[i],mi_q7[i]]
   ]);
 }
 
@@ -773,10 +779,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q8.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q8[i]]
+  ['No.'+ (i + 1), mi_q8[i],mi_q8[i]]
   ]);
 }
 
@@ -803,10 +810,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q9.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q9[i]]
+  ['No.'+ (i + 1), mi_q9[i],mi_q9[i]]
   ]);
 }
 
@@ -833,10 +841,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q10.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q10[i]]
+  ['No.'+ (i + 1), mi_q10[i],mi_q10[i]]
   ]);
 }
 
@@ -863,10 +872,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q11.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q11[i]]
+  ['No.'+ (i + 1), mi_q11[i],mi_q11[i]]
   ]);
 }
 
@@ -893,10 +903,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q12.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q12[i]]
+  ['No.'+ (i + 1), mi_q12[i],mi_q12[i]]
   ]);
 }
 
@@ -923,10 +934,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q13.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q13[i]]
+  ['No.'+ (i + 1), mi_q13[i],mi_q13[i]]
   ]);
 }
 
@@ -953,10 +965,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q14.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q14[i]]
+  ['No.'+ (i + 1), mi_q14[i],mi_q14[i]]
   ]);
 }
 
@@ -983,10 +996,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < mi_q15.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), mi_q15[i]]
+  ['No.'+ (i + 1), mi_q15[i],mi_q15[i]]
   ]);
 }
 
@@ -1018,10 +1032,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q1.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q1[i]]
+  ['St.'+ (i + 1), st_mi_q1[i],st_mi_q1[i]]
   ]);
 }
 
@@ -1048,10 +1063,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q2.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q2[i]]
+  ['St.'+ (i + 1), st_mi_q2[i],st_mi_q2[i]]
   ]);
 }
 
@@ -1078,10 +1094,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q3.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q3[i]]
+  ['St.'+ (i + 1), st_mi_q3[i],st_mi_q3[i]]
   ]);
 }
 
@@ -1108,10 +1125,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q4.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q4[i]]
+  ['St.'+ (i + 1), st_mi_q4[i],st_mi_q4[i]]
   ]);
 }
 
@@ -1138,10 +1156,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q5.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q5[i]]
+  ['St.'+ (i + 1), st_mi_q5[i],st_mi_q5[i]]
   ]);
 }
 
@@ -1168,10 +1187,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q6.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q6[i]]
+  ['St.'+ (i + 1), st_mi_q6[i],st_mi_q6[i]]
   ]);
 }
 
@@ -1198,10 +1218,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q7.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q7[i]]
+  ['St.'+ (i + 1), st_mi_q7[i],st_mi_q7[i]]
   ]);
 }
 
@@ -1228,10 +1249,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q8.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q8[i]]
+  ['St.'+ (i + 1), st_mi_q8[i],st_mi_q8[i]]
   ]);
 }
 
@@ -1258,10 +1280,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q9.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q9[i]]
+  ['St.'+ (i + 1), st_mi_q9[i],st_mi_q9[i]]
   ]);
 }
 
@@ -1288,10 +1311,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q10.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q10[i]]
+  ['St.'+ (i + 1), st_mi_q10[i],st_mi_q10[i]]
   ]);
 }
 
@@ -1318,10 +1342,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q11.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q11[i]]
+  ['St.'+ (i + 1), st_mi_q11[i],st_mi_q11[i]]
   ]);
 }
 
@@ -1348,10 +1373,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q12.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q12[i]]
+  ['St.'+ (i + 1), st_mi_q12[i],st_mi_q12[i]]
   ]);
 }
 
@@ -1378,10 +1404,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q13.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q13[i]]
+  ['St.'+ (i + 1), st_mi_q13[i],st_mi_q13[i]]
   ]);
 }
 
@@ -1408,10 +1435,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q14.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q14[i]]
+  ['St.'+ (i + 1), st_mi_q14[i],st_mi_q14[i]]
   ]);
 }
 
@@ -1438,10 +1466,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_mi_q15.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_mi_q15[i]]
+  ['St.'+ (i + 1), st_mi_q15[i],st_mi_q15[i]]
   ]);
 }
 
@@ -1504,10 +1533,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < etc_q2.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), etc_q2[i]]
+  ['No.'+ (i + 1), etc_q2[i],etc_q2[i]]
   ]);
 }
 
@@ -1534,10 +1564,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < etc_q3.length; i++){
   data.addRows([
-  ['No.'+ (i + 1), etc_q3[i]]
+  ['No.'+ (i + 1), etc_q3[i],etc_q3[i]]
   ]);
 }
 
@@ -1565,10 +1596,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_etc_q1.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_etc_q1[i]]
+  ['St.'+ (i + 1), st_etc_q1[i],st_etc_q1[i]]
   ]);
 }
 
@@ -1595,10 +1627,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_etc_q2.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_etc_q2[i]]
+  ['St.'+ (i + 1), st_etc_q2[i],st_etc_q2[i]]
   ]);
 }
 
@@ -1625,10 +1658,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'No');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < st_etc_q3.length; i++){
   data.addRows([
-  ['St.'+ (i + 1), st_etc_q3[i]]
+  ['St.'+ (i + 1), st_etc_q3[i],st_etc_q3[i]]
   ]);
 }
 
