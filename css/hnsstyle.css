@@ -588,6 +588,11 @@ li {
     border: 1px solid #000;
 }
 
+
+.part_1{
+    display: block;
+}
+
 .part_2 {
     display: none;
 }
@@ -601,12 +606,10 @@ li {
 }
 
 .part_5 {
-    display: block;
-}
-
-.part_1{
     display: none;
 }
+
+
 
 .datepicker{
     position: relative;
@@ -903,60 +906,3 @@ input[id="b"] {
         font-size: 50%;
     }
 } */
-
-
-
-/*Wraperclass for the divicon*/
-.map-label {
-  position: absolute;
-  bottom: 0;left: -50%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-/*Wrap the content of the divicon (text) in this class*/
-.map-label-content {
-  order: 1;
-  position: relative; left: -50%;
-  background-color: #fff;
-  color: #000;
-  border-radius: 30px;
-  border-style: solid;
-  padding: 3px;
-  height: 30px;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-/*Add this arrow*/
-.map-label-arrow {
-  order: 2;
-  width: 0px; height: 0px; left: 50%;
-  border-style: solid;
-  border-color: #444 transparent transparent transparent;
-  border-width: 10px 6px 0 6px; /*[first number is height, second/fourth are rigth/left width]*/
-  margin-left: -6px;
-}
-
-/*Instance classes*/
-.map-label.inactive {
-  opacity: 0.5;
-}
-
-.map-label.border > .map-label-content {
-    border-color: #e05c5c;
-    height: 100%;
-    min-height: 30px;
-}
-
-.map-label.border > .map-label-arrow {
-border-top-color: #e05c5c;
-}
-
-
-.map-label.redborder > .map-label-content {
-  border-color: #0277bd;
-  height: 30px;
-}
-
-.map-label.redborder > .map-label-arrow {
-  border-top-color: #0277bd;
-}

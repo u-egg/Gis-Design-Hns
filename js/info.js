@@ -250,10 +250,12 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'st');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
+
 
   for(var i = 0; i < 10; i++){
   data.addRows([
-  ['st'+ (i + 1), yeombun[i]]
+  ['st'+ (i + 1), yeombun[i], yeombun[i]]
   ]);
 }
 
@@ -281,10 +283,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'st');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < 10; i++){
   data.addRows([
-  ['st'+ (i + 1) , ph[i]]
+  ['st'+ (i + 1) , ph[i],ph[i]]
   ]);
 }
 
@@ -312,10 +315,11 @@ var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'st');
   data.addColumn('number', 'value');
+  data.addColumn({type:'number', role:'annotation'});
 
   for(var i = 0; i < 10; i++){
   data.addRows([
-  ['st'+ (i + 1), Do[i]]
+  ['st'+ (i + 1), Do[i],Do[i]]
   ]);
 }
 
