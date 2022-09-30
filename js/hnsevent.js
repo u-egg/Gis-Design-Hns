@@ -824,7 +824,7 @@ function mapsetting(){ // 좌표이동
     nameMattiong();
 
     //C# 호출
-    // javascripr: CefCustomObject.func('siltae', area);
+    javascripr: CefCustomObject.func('siltae', area);
 
     if (base == 1) { // 위성지도
 
@@ -877,11 +877,12 @@ if (chked == false) {
         title: '경고',
         text: '레이어를 선택해 주세요.'
     })
-} else {
+} 
+else {
 
     dischargelayerType = $('input[name=discharge_rdo]:checked').val();
     
-    // javascripr: CefCustomObject.func('yousok', layerType);
+//     javascripr: CefCustomObject.func('yousok', layerType);
 }
 }
 
@@ -994,5 +995,14 @@ function nameMattiong(){
 
     window.localStorage.setItem('areaname',areaName);
     window.localStorage.setItem('stname',stName);
+}
+
+function siltaeInfo(val){
+    //var sss = array(val);
+    var aaa = val;
+
+    var bbb = aaa.split('/');
+
+    console.log(bbb);
 }
 
