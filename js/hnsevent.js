@@ -784,10 +784,6 @@ function settingVector () {
 var areaName = "";
 var stName = "";
 
-// var busan = ["59","18","11","6","10"];
-// var yeosu = ["71","43","25","17","10"];
-// var ulsan = ["50","35","12","14","10"];
-
 function layerInfo(){
     window.open( "./layerinfo.html", "Child", "width=820, height=1100, top=160, left=1480");
 }
@@ -1001,8 +997,40 @@ function siltaeInfo(val){
     //var sss = array(val);
     var aaa = val;
 
-    var bbb = aaa.split('/');
+    var bbb = aaa.split('/'); // 쪼개고
 
-    console.log(bbb);
+    var busan = [];
+    var yeosu = [];
+    var ulsan = [];
+
+    for(var i =0; i<bbb.length; i++){
+        if(bbb[i] == '부산'){
+            for(var j =0; j<7; j++){
+                busan[j] = bbb[i];
+                i++;
+            }
+        }
+        else if(bbb[i] == '여수'){
+            for(var j =0; j<7; j++){
+                yeosu[j] = bbb[i];
+                i++;
+            }
+        }
+        else if(bbb[i] == '울산'){
+            for(var j =0; j<7; j++){
+                ulsan[j] = bbb[i];
+                i++;
+            }
+        }
+    }
+
+    const busanString = JSON.stringify(busan); // 배열은 로컬스토리지에 저장 x json형태로 바꿈
+
+    localStorage.setItem("busan",busanString); // 로컬저장
+
+
+    // console.log(busan);
+    // console.log(yeosu);
+    // console.log(ulsan);
 }
 

@@ -1,6 +1,8 @@
 // 표 쓰기
 $( document ).ready(function() {
 
+  // alert(localStorage.getItem("busan"));
+
   var area_Name = window.localStorage.getItem('areaname');
   var st_Name = window.localStorage.getItem('stname');
 
@@ -1742,8 +1744,9 @@ $(document).ready(function () {
 
 
 function windowClose() {
+  localStorage.clear();
   window.close();
-}
+} 
 
 //tab 이벤트
 function tab_btn(num) {
