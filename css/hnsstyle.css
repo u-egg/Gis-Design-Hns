@@ -188,7 +188,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 24rem;
+    height: 310px;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -240,6 +240,56 @@ section {
 
 .setTimeDataSelect {
     width: 73px;
+    height: 3rem;
+    text-align: center;
+    border: 1px solid #b7b3b3;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
+.icheck-greensea button{
+    width: 200px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    background: #fff;
+    text-align: center;
+    color: #fff;
+    background-color: #0277bd;
+    border: 1px solid #0277bd;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+}
+
+.label_table{
+    padding-left: 5px;
+    position: relative;
+    top: 3px;
+}
+.area_select{
+    width: 160px;
+    border: 1px solid #b7b3b3;
+    height: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
+.area_select_sea{
+    width: 267px;
+    border: 1px solid #b7b3b3;
+    height: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+}
+
+.area_select_sub{
+    width: 103px;
     height: 3rem;
     text-align: center;
     border: 1px solid #b7b3b3;
@@ -328,11 +378,24 @@ section {
     left: 35px;
 }
 
+.anw_info{
+    margin: 0 auto;
+    width: 31rem;
+    padding: 1rem;
+    height: 240px;
+    display: block;
+    font-size: 1.4rem;
+    border: 1px solid #ddd;
+    padding-left: 2rem;
+    overflow-x: hidden;
+    position: relative;
+}
+
 .anw_yousok {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 31rem;
+    height: 24rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -345,7 +408,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 400px;
+    height: 370px;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -370,7 +433,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 31rem;
+    height: 57rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -936,13 +999,41 @@ input[id="b"] {
     width: 100%;
 }
 
+.anw3_info{
+    margin: 0 auto;
+    width: 31rem;
+    padding: 1rem;
+    height: 125px;
+    font-size: 1.4rem;
+    border: 1px solid #ddd;
+    overflow-x: hidden;
+    position: relative;
+    padding-left: 2rem;
+}
+
 .leaflet-popup-content-wrapper .leaflet-popup-content {
     width: 400px;
     height: 200px;
     display: flex;
 }
 
+.marker_img{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    margin-top: 12.5px;
+}
 
+.text{
+    height: 50px;
+    line-height: 50px;
+}
+
+.text span{
+    position: relative;
+    top: -6px;
+    left: 10px;
+}
 
 /* @media only screen and (max-width:1920px) {
 

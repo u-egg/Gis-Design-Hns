@@ -820,7 +820,7 @@ function mapsetting(){ // 좌표이동
     nameMattiong();
 
     //C# 호출
-    javascripr: CefCustomObject.func('siltae', area);
+    // javascripr: CefCustomObject.func('siltae', area);
 
     if (base == 1) { // 위성지도
 

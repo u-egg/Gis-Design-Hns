@@ -171,31 +171,31 @@
 		<div class="side_nav">
 			<ul>
 				<li id="menu_btn_1" onclick="menu_btn('1')" class="menu_on">
-					<i class="fa-solid fa-arrow-up-right-dots" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<i class="fa-solid fa-arrow-up-right-dots" style="font-size: 2rem; margin-top: 25px;"></i>
 					<br>
 					<div style="height: 5px;"></div>
-					유속 조회
+					해양환경<br>정보
 				</li>
 				<li id="menu_btn_2" onclick="menu_btn('2')" class="menu_off">
-					<i class="fa-solid fa-temperature-high" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<i class="fa-solid fa-temperature-high" style="font-size: 2rem; margin-top: 25px;"></i>
 					<br>
 					<div style="height: 5px;"></div>
-					수온 조회
+					HNS<br>확산영역
 				</li>
 				<li id="menu_btn_3" onclick="menu_btn(3)" class="menu_off">
-					<i class="fa-brands fa-buffer" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<i class="fa-brands fa-buffer" style="font-size: 2rem; margin-top: 25px;"></i>
 					<br>
 					<div style="height: 5px;"></div>
-					취약성
+					해양환경<br>영향평가
 				</li>
 				<li id="menu_btn_4" onclick="menu_btn(4)" class="menu_off">
-					<i class="fa-solid fa-database" style="font-size: 2rem; margin-top: 3rem;"></i>
+					<i class="fa-solid fa-database" style="font-size: 2rem; margin-top: 25px;"></i>
 					<br>
 					<div style="height: 5px;"></div>
-					DATABASE
+					DATABASE<br>조회
 				</li>
 				<li id="menu_btn_5" onclick="menu_btn(5)" class="menu_off">
-					<i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-top: 2rem;"></i>
+					<i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-top: 25px;"></i>
 					<br>
 					<div style="height: 5px;"></div>
 					HNS
@@ -266,7 +266,7 @@
 				<div class="part_1">
 					<!--top-->
 					<div class="side_body_top">
-						<h2>유속 조회</h2>
+						<h2>해양환경 정보</h2>
 					</div>
 
 					<!--body-->
@@ -296,7 +296,18 @@
 									<input class="datepicker setTimeDateInput" id="yousokDate2" value="2022-04-01">
 									<select class="setTime setTimeDataSelect" id="yousokTime2"></select>
 								</div>
-
+								<div style="margin-top: 10px;">
+									<span>
+										공간범위
+									</span><br>
+									<select class="area_select" id="area_select">
+										<option>중간역</option>
+										<option>세부역</option>
+									</select>
+									<select class="area_select_sub" id="area_select_1">
+										<option>여수산단</option>
+									</select>
+								</div>
 								<div class="setTimebtn"
 									onclick="document.getElementById('yousok_layer').style.display = 'block'; ">조회
 								</div>
@@ -311,10 +322,26 @@
 								<div class="layer_select">
 									<span>레이어 선택</span>
 									<div>
-										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:11rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer" style="display:none;">
+
 												<div class="icheck-greensea">
+													<input type="checkbox" id="yousok_rdo0" value="L1"
+														name="yousok_chkbox" />
+													<label for="yousok_rdo0">
+														<span class="label_table">유속</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="yousok_rdo1" value="L2"
+														name="yousok_chkbox" />
+													<label for="yousok_rdo1">
+														<span class="label_table">수온</span>
+													</label>
+												</div>
+
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="yousok_clear" value="clear"
 														name="yousok_chkbox" />
 													<label for="yousok_clear">
@@ -341,7 +368,7 @@
 													<label for="yousok_rdo2">
 														<span class="label_table">상세역 레이어</span>
 													</label>
-												</div>
+												</div> -->
 											</div>
 										</div>
 
@@ -427,7 +454,7 @@
 				<div class="part_2">
 					<!--top-->
 					<div class="side_body_top">
-						<h2>수온 조회</h2>
+						<h2>HNS 확산 영역</h2>
 					</div>
 
 					<!--body-->
@@ -455,6 +482,14 @@
 									<input class="datepicker setTimeDateInput" id="suonDate2" value="2022-04-01">
 									<select class="setTime setTimeDataSelect" id="suonTime2"></select>
 									<div class="clear"></div>
+								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										공간범위
+									</span><br>
+									<select class="area_select_sea" id="area_select_sea">
+										<option>여수산단</option>
+									</select>
 								</div>
 								<div class="setTimebtn"
 									onclick="document.getElementById('yousok_layer2').style.display = 'block'; ">조회
@@ -487,10 +522,20 @@
 									<span>레이어 선택</span>
 									<div>
 
-										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:12rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer2" style="display:none;">
 												<div class="icheck-greensea">
+													<input type="checkbox" id="suon_rdo0" value="L1" name="rdoSuon" />
+													<label for="suon_rdo0">
+														<span class="label_table">최대확산 범위</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<button><i class="fa-solid fa-play"
+															style="padding-right: 10px;"></i>확산 시뮬레이션</button>
+												</div>
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="suon_clear" value="clear" name="rdoSuon" />
 													<label for="suon_clear">
 														<span class="label_table">레이어 제거</span>
@@ -513,7 +558,7 @@
 													<label for="suon_rdo2">
 														<span class="label_table">상세역 레이어</span>
 													</label>
-												</div>
+												</div> -->
 											</div>
 										</div>
 
@@ -599,7 +644,7 @@
 				<div class="part_3">
 					<!--top-->
 					<div class="side_body_top">
-						<h2>취약성</h2>
+						<h2>해양환경 영향평가</h2>
 					</div>
 
 					<!--body-->
@@ -628,6 +673,14 @@
 									<select class="setTime setTimeDataSelect" id="vulnerTime2"></select>
 									<div class="clear"></div>
 								</div>
+								<div style="margin-top: 10px;">
+									<span>
+										공간범위
+									</span><br>
+									<select class="area_select_sea" id="area_select_sea">
+										<option>여수산단</option>
+									</select>
+								</div>
 								<div class="setTimebtn"
 									onclick="document.getElementById('yousok_layer3').style.display = 'block'; ">조회
 								</div>
@@ -640,7 +693,7 @@
 							</div>
 							<div class="anw_vulner">
 
-								<div style="padding:0; margin-bottom:1rem;">
+								<!-- <div style="padding:0; margin-bottom:1rem;">
 									<table cellpadding=0 cellspacing=0 width=100%>
 										<tr>
 											<td style="width:5rem;">
@@ -652,7 +705,7 @@
 											</td>
 										</tr>
 									</table>
-								</div>
+								</div> -->
 
 
 								<div class="layer_select">
@@ -663,6 +716,57 @@
 											<div id="yousok_layer3" style="display:none; position: relative;">
 
 												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('0');">
+													<span class="cateTitle">연안환경 영향평가</span>
+													<img id="sub_img_on0" src="./assets/sub_open.png">
+													<img id="sub_img_off0" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate0">
+													<div class="icheck-greensea">
+														<input type="checkbox" id="safe_danger"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="safe_danger">
+															<span class="label_table">보호구역 취약성</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_danger"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="species_danger">
+															<span class="label_table">종 취약성</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_danger"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="area_danger">
+															<span class="label_table">서식지 취약성</span>
+														</label>
+													</div>
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('1');">
+													<span class="cateTitle">사회·경제 영향평가</span>
+													<img id="sub_img_on1" src="./assets/sub_open.png">
+													<img id="sub_img_off1" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate1">
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_danger"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="social_danger">
+															<span class="label_table">사회·경제 취약성</span>
+														</label>
+													</div>
+												</div>
+												<!-- <div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
 													<span class="cateTitle">레이어 제거</span>
 													<img id="sub_img_on0" src="./assets/sub_open.png">
@@ -864,7 +968,7 @@
 															<span class="label_table">WINTER</span>
 														</label>
 													</div>
-												</div>
+												</div> -->
 
 											</div>
 										</div>
@@ -877,7 +981,7 @@
 
 							<!--part3_main_que-3-->
 
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -936,7 +1040,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel2" style="font-weight:600;">7</span></div>
@@ -959,72 +1063,111 @@
 
 						<div>
 							<!--part4_main_que-1-->
-							<div class="que" style="margin-top: 20px;">
-								<span>조회 범위 선택</span>
-							</div>
 
-							<div class="anw">
-								<div>
-									<span>
-										시작시간
-									</span><br>
-									<input class="datepicker setTimeDateInput" id="dbDate1" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="dbTime1"></select>
-									<div class="clear"></div>
-								</div>
-								<div style="margin-top: 10px;">
-									<span>
-										종료시간
-									</span><br>
-									<input class="datepicker setTimeDateInput" id="dbDate2" value="2022-04-01">
-									<select class="setTime setTimeDataSelect" id="dbTime2"></select>
-									<div class="clear"></div>
-								</div>
-								<div class="setTimebtn"
-									onclick="document.getElementById('yousok_layer4').style.display = 'block'; ">조회
-								</div>
-							</div>
 
 							<!--part4_main_que-2-->
 
-							<div class="que2">
+							<div class="que2" style="margin-top: 20px;">
 								<span>레이어</span>
 							</div>
 							<div class="anw_db">
 								<div class="layer_select">
 									<span>레이어 선택</span>
 									<div>
-										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:44rem; overflow-y:auto; border:1px solid #eaeaea;">
 
-											<div id="yousok_layer4" style="display:none;">
+											<div id="yousok_layer4" style="display:block;">
 												<div class="icheck-greensea">
-													<input type="radio" id="DB_clear" value="clear"
+													<input type="checkbox" id="db_1" value="db_1" name="rdoDatabase" />
+													<label for="db_1">
+														<span class="label_table">수자원보호구역</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_2" value="db_2" name="rdoDatabase" />
+													<label for="db_2">
+														<span class="label_table">특정도서</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_3" value="db_3" name="rdoDatabase" />
+													<label for="db_3">
+														<span class="label_table">수자원보호구역</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_4" value="db_4" name="rdoDatabase" />
+													<label for="db_4">
+														<span class="label_table">특정도서</span>
+													</label>
+												</div>
+
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_5" value="db_5" name="rdoDatabase" />
+													<label for="db_5">
+														<span class="label_table">수자원보호구역</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_6" value="db_6" name="rdoDatabase" />
+													<label for="db_6">
+														<span class="label_table">특정도서</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_7" value="db_7" name="rdoDatabase" />
+													<label for="db_7">
+														<span class="label_table">수자원보호구역</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_8" value="db_8" name="rdoDatabase" />
+													<label for="db_8">
+														<span class="label_table">특정도서</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_9" value="db_9" name="rdoDatabase" />
+													<label for="db_9">
+														<span class="label_table">수자원보호구역</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="checkbox" id="db_10" value="db_10"
+														name="rdoDatabase" />
+													<label for="db_10">
+														<span class="label_table">특정도서</span>
+													</label>
+												</div>
+												<!-- <div class="icheck-greensea">
+													<input type="checkbox" id="DB_clear" value="clear"
 														name="rdoDatabase" />
 													<label for="DB_clear">
 														<span class="label_table">레이어제거</span>
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="radio" id="DB_rdo0" value="04_조업밀집구역_가을"
+													<input type="checkbox" id="DB_rdo0" value="04_조업밀집구역_가을"
 														name="rdoDatabase" />
 													<label for="DB_rdo0">
 														<span class="label_table">조업밀집구역(가을)</span>
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="radio" id="DB_rdo1" value="10_양식장"
+													<input type="checkbox" id="DB_rdo1" value="10_양식장"
 														name="rdoDatabase" />
 													<label for="DB_rdo1">
 														<span class="label_table">양식장</span>
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="radio" id="DB_rdo2" value="21_마리나항위치"
+													<input type="checkbox" id="DB_rdo2" value="21_마리나항위치"
 														name="rdoDatabase" />
 													<label for="DB_rdo2">
 														<span class="label_table">마리나항 위치</span>
 													</label>
-												</div>
+												</div> -->
+
 											</div>
 										</div>
 
@@ -1036,7 +1179,7 @@
 
 							<!--part4_main_que-3-->
 
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -1095,7 +1238,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel3" style="font-weight:600;">7</span></div>
@@ -1122,7 +1265,7 @@
 								<span>조회 범위 선택</span>
 							</div>
 
-							<div class="anw">
+							<div class="anw_info">
 								<div class="Hns_search">
 									<span>
 										시설구분
@@ -1145,8 +1288,8 @@
 									</select>
 								</div>
 								<div class="discharge_btn"
-									onclick="document.getElementById('yousok_layer5').style.display = 'block'; mapsetting();">
-								조회
+									onclick="document.getElementById('info_box').style.display = 'block'; mapsetting();">
+									조회
 								</div>
 								<!-- <div class="discharge_btn"
 								onclick="mapsetting();">
@@ -1163,7 +1306,7 @@
 									<div>
 										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
 
-											<div id="yousok_layer5" style="display:none;">
+											<div id="yousok_layer5">
 												<div class="icheck-greensea">
 													<input type="radio" id="discharge_clear" value="clear"
 														name="discharge_rdo" />
@@ -1200,7 +1343,21 @@
 									</div>
 								</div>
 							</div>
-
+							<div class="que3">
+								<span>정보</span>
+							</div>
+							<div class="anw3_info">
+								<div id="info_box" style="display: none;">
+								<div class="text">
+									<img src="./img/bluemarker.png" class="marker_img">
+									<span>해양산업시설 - 배출구</span>
+								</div>
+								<div class="text">
+									<img src="./img/redmarker.png" class="marker_img">
+									<span>해양산업시설 - 산업단지</span>
+								</div>
+								</div>
+							</div>
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel4" style="font-weight:600;">7</span></div>
@@ -1476,7 +1633,7 @@
 	</script>
 
 	<script>
-		javascript:CefCustomObject.showDevTools();
+		javascript: CefCustomObject.showDevTools();
 	</script>
 
 </body>
