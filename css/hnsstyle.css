@@ -295,6 +295,7 @@ section {
     border: 1px solid #b7b3b3;
     margin-top: 1rem;
     font-size: 1.3rem;
+    display: none;
 }
 
 .setTimebtn {

@@ -84,6 +84,33 @@ for (var i = 0; i < objTime.length; i++) {
 
 //part_1 유속
 
+var L_layerType = "";
+
+function layerChange(value){
+
+    L_layerType = value;
+
+    if(L_layerType == "mid_layer"){
+        $('.area_select_sub').css('display','none');
+    }
+    else{
+        $('.area_select_sub').css('display','inline-block');
+    }
+}
+
+function layer_select(){
+
+    var mid ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>유속</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>수온</span></label></div>"
+    var detail ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>유속</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>수온</span></label></div>"
+    
+    if(L_layerType == "" | L_layerType == "mid_layer" ){
+        document.querySelector("#yousok_layer").innerHTML = mid;
+    }
+    else{
+        document.querySelector("#yousok_layer").innerHTML = detail;
+    }    
+}
+
 var layerType = "";
 
 

@@ -203,9 +203,7 @@
 					결과 조회
 				</li>
 				<!-- 마지막 메뉴 밑선 -->
-
 				<li></li>
-
 
 				<!-- <li id="menu_btn_3" onclick="menu_btn_3()" class="menu_off">
 					<i class="fa-solid fa-arrow-down-short-wide" style="font-size: 2rem; margin-top: 3rem;"></i>
@@ -262,7 +260,8 @@
 		</div>
 		<div id="left_slide">
 			<div class="left_slide_body">
-				<!--menu_part_1 유속조회-->
+
+				<!--menu_part_1 해양환경정보-->
 				<div class="part_1">
 					<!--top-->
 					<div class="side_body_top">
@@ -300,16 +299,17 @@
 									<span>
 										공간범위
 									</span><br>
-									<select class="area_select" id="area_select">
-										<option>중간역</option>
-										<option>세부역</option>
+									<select class="area_select" id="area_select" onchange="layerChange(this.value)">
+										<option value="mid_layer" selected>중간역</option>
+										<option value="detail_layer">세부역</option>
 									</select>
+
 									<select class="area_select_sub" id="area_select_1">
-										<option>여수산단</option>
+										<option value="YS_layer">여수산단</option>
 									</select>
 								</div>
 								<div class="setTimebtn"
-									onclick="document.getElementById('yousok_layer').style.display = 'block'; ">조회
+									onclick="layer_select(); document.getElementById('yousok_layer').style.display = 'block';">조회
 								</div>
 							</div>
 
@@ -326,20 +326,7 @@
 
 											<div id="yousok_layer" style="display:none;">
 
-												<div class="icheck-greensea">
-													<input type="checkbox" id="yousok_rdo0" value="L1"
-														name="yousok_chkbox" />
-													<label for="yousok_rdo0">
-														<span class="label_table">유속</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="checkbox" id="yousok_rdo1" value="L2"
-														name="yousok_chkbox" />
-													<label for="yousok_rdo1">
-														<span class="label_table">수온</span>
-													</label>
-												</div>
+												<!-- 광역이 L1 / 중간이 L2 / 상세가 L3 (js 로 처리)-->
 
 												<!-- <div class="icheck-greensea">
 													<input type="radio" id="yousok_clear" value="clear"
@@ -1298,11 +1285,11 @@
 							</div>
 
 							<div class="que2">
-								<span>레이어</span>
+								<span>시설정보</span>
 							</div>
 							<div class="anw_discharge">
 								<div class="layer_select">
-									<span>레이어 선택</span>
+									<span>시설정보</span>
 									<div>
 										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
 
@@ -1338,8 +1325,8 @@
 											</div>
 										</div>
 
-										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewDischargeLayer('tif')">레이어 보기</div>
+										<!-- <div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewDischargeLayer('tif')">레이어 보기</div> -->
 									</div>
 								</div>
 							</div>
@@ -1350,11 +1337,11 @@
 								<div id="info_box" style="display: none;">
 								<div class="text">
 									<img src="./img/bluemarker.png" class="marker_img">
-									<span>해양산업시설 - 배출구</span>
+									<span>해양산업시설 - 주변해역</span>
 								</div>
 								<div class="text">
 									<img src="./img/redmarker.png" class="marker_img">
-									<span>해양산업시설 - 산업단지</span>
+									<span>해양산업시설 - 배출수</span>
 								</div>
 								</div>
 							</div>
