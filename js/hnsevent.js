@@ -82,12 +82,12 @@ for (var i = 0; i < objTime.length; i++) {
 }
 
 
-//part_1 유속
+//part_1 해양환경 정보 (유속 + 수온)
 
 var L_layerType = "";
 
-function layerChange(value){
-
+function layerChange(value){ // 공간범위 이벤트
+ 
     L_layerType = value;
 
     if(L_layerType == "mid_layer"){
@@ -100,9 +100,9 @@ function layerChange(value){
 
 function layer_select(){
 
-    var mid ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>유속</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>수온</span></label></div>"
-    var detail ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>유속</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>수온</span></label></div>"
-    
+    var mid ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+    var detail ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+
     if(L_layerType == "" | L_layerType == "mid_layer" ){
         document.querySelector("#yousok_layer").innerHTML = mid;
     }
@@ -116,18 +116,24 @@ var layerType = "";
 
 function viewYousokLayer(type) {
 
+// 레이어 제거
 layerclear = $('input[name=yousok_chkbox]:checked').val();
 
 if(layerclear == 'clear'){
     map.removeLayer(layerGroup);
+    tifLayer.remove();
     return;
 }
+
 
 setImgType = type;
 
 layerType = ""
+
 var chk = document.getElementsByName("yousok_chkbox");
+
 var chked = false;
+
 for (var i = 0; i < chk.length; i++) {
     if (chk[i].checked == true) {
         chked = true;
@@ -135,18 +141,31 @@ for (var i = 0; i < chk.length; i++) {
     }
 }
 
+layerType = $('input[name=yousok_chkbox]:checked').val();
+
 if (chked == false) {
     Swal.fire({
         icon: 'error',
         title: '경고',
         text: '레이어를 선택해 주세요.'
     })
-} else {
-
-    layerType = $('input[name=yousok_chkbox]:checked').val();
-
-    javascripr: CefCustomObject.func('yousok', layerType);
-}
+    } 
+    else if(layerType == "suon_L2"){
+        layerType = "L2";
+        javascripr: CefCustomObject.func('suon', layerType);
+    }
+    else if(layerType == "suon_L3"){
+        layerType = "L3";
+        javascripr: CefCustomObject.func('suon', layerType);
+    }
+    else if(layerType =="yousok_L2"){
+        layerType = "L2";
+        javascripr: CefCustomObject.func('yousok', layerType);
+    }
+    else{
+        layerType = "L3";
+        javascripr: CefCustomObject.func('yousok', layerType);
+    }
 }
 
 function reload(aa){
@@ -349,11 +368,10 @@ function addImagePng(imgPath, minX, minY, maxX, maxY){
 
 var tifLayer = null;
 var suonLayerType = "";
+
 function viewYousokLayer2(type){
 
     var layerclear = $('input[name=rdoSuon]:checked').val();
-
-
 
     suonLayerType = "";
     setImgType = type;
