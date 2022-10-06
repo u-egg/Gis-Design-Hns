@@ -230,7 +230,7 @@ section {
 }
 
 .setTimeDateInput {
-    width: 190px;
+    width: 160px;
     border: 1px solid #b7b3b3;
     height: 3rem;
     text-align: center;
@@ -239,7 +239,7 @@ section {
 }
 
 .setTimeDataSelect {
-    width: 73px;
+    width: 103px;
     height: 3rem;
     text-align: center;
     border: 1px solid #b7b3b3;
@@ -295,7 +295,7 @@ section {
     border: 1px solid #b7b3b3;
     margin-top: 1rem;
     font-size: 1.3rem;
-    display: none;
+    display: inline-block;
 }
 
 .setTimebtn {
@@ -654,7 +654,7 @@ li {
 
 
 .part_1{
-    display: block;
+    display: none;
 }
 
 .part_2 {
@@ -662,7 +662,7 @@ li {
 }
 
 .part_3 {
-    display: none;
+    display: block;
 }
 
 .part_4 {

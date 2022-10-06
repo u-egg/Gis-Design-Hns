@@ -90,18 +90,21 @@ function layerChange(value){ // 공간범위 이벤트
  
     L_layerType = value;
 
+    var mid = "<option value='null'>-</option>"
+    var detail = "<option value='YS_layer'>여수산단</option>"
+
     if(L_layerType == "mid_layer"){
-        $('.area_select_sub').css('display','none');
+        document.querySelector("#area_select_1").innerHTML = mid;
     }
     else{
-        $('.area_select_sub').css('display','inline-block');
+        document.querySelector("#area_select_1").innerHTML = detail;
     }
 }
 
 function layer_select(){
 
-    var mid ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
-    var detail ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+    var mid ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+    var detail ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='yousok_L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
 
     if(L_layerType == "" | L_layerType == "mid_layer" ){
         document.querySelector("#yousok_layer").innerHTML = mid;
@@ -151,18 +154,22 @@ if (chked == false) {
     })
     } 
     else if(layerType == "suon_L2"){
+        map.removeLayer(layerGroup);
         layerType = "L2";
         javascripr: CefCustomObject.func('suon', layerType);
     }
     else if(layerType == "suon_L3"){
+        map.removeLayer(layerGroup);
         layerType = "L3";
         javascripr: CefCustomObject.func('suon', layerType);
     }
     else if(layerType =="yousok_L2"){
+        tifLayer.remove();
         layerType = "L2";
         javascripr: CefCustomObject.func('yousok', layerType);
     }
     else{
+        tifLayer.remove();
         layerType = "L3";
         javascripr: CefCustomObject.func('yousok', layerType);
     }
@@ -272,7 +279,6 @@ function drawArrow(sbLon, sbLat, sb_wind_direction){
         }
 
     }
-    
         setMaxLon = mapMaxLon;
         setMaxLat = mapMaxLat;
         setMinLon = mapMinLon;
@@ -329,16 +335,16 @@ var layerGroup = L.layerGroup();
 
 var setImgType = "";
 
-//part_2 수온
+//part_2 HNS 확산 영역
 
-function opacity_redraw(val){
-	if(setImgType == "tif"){
-		tifLayer.setOpacity(val / 10);
-	}else{
-		imgOverlay.setOpacity(val / 10);
-	}
+// function opacity_redraw(val){
+// 	if(setImgType == "tif"){
+// 		tifLayer.setOpacity(val / 10);
+// 	}else{
+// 		imgOverlay.setOpacity(val / 10);
+// 	}
 	
-}
+// }
 
 var imgOverlay = null;
 
@@ -452,7 +458,7 @@ function drawTIF(binaryDATA, bufferSize, minLon, minLat, maxLon, maxLat, scaleLo
 
 //part_3 취약성
 
-var vulnerLayerType = "";
+// var vulnerLayerType = "";
 
 function opacity_redraw2(val){
 	if(setImgType == "tif"){
@@ -464,19 +470,18 @@ function opacity_redraw2(val){
 
 function viewYousokLayer3(type){
 
-    var layerclear = $('input[name=vulner]:checked').val();
+    var layertype = $('input[name=vulner]:checked').val();
 
     setImgType = type;
     
     var chk = document.getElementsByName("vulner");
+
     var chked = false;
 
     for(var i = 0; i < chk.length; i++){
 
         if(chk[i].checked == true){
-
             chked = true;
-            vulnerLayerType = chk[i].value;
             break;
         }
     }
@@ -486,17 +491,223 @@ function viewYousokLayer3(type){
           icon: 'error',
           title: '경고',
           text: '레이어를 선택해 주세요.'
-          //,footer: '<a href="">Why do I have this issue?</a>'
         })
-        //alert("레이어를 선택해 주세요.");
     }
-    else if(layerclear == 'clear'){
-        tifLayer.remove();
+
+    if(layertype == "p01" | layertype == "p02" | layertype == "p03" | layertype == "p04" | layertype == "p05" | layertype == "p06" | layertype == "p07" | layertype == "p08" | layertype == "p09" | layertype == "p10" | layertype == "p11" | layertype == "p12" | layertype == "p13" | layertype == "p14" | layertype == "p15" | layertype == "p16") // 보호구역 취약성
+    {
+        if(layertype == "p01"){
+            layertype = "01"
+        }
+        else if(layertype == "p02"){
+            layertype = "02"
+        }
+        else if(layertype == "p03"){
+            layertype = "03"
+        }
+        else if(layertype == "p04"){
+            layertype = "04"
+        }
+        else if(layertype == "p05"){
+            layertype = "05"
+        }
+        else if(layertype == "p06"){
+            layertype = "06"
+        }
+        else if(layertype == "p07"){
+            layertype = "07"
+        }
+        else if(layertype == "p08"){
+            layertype = "08"
+        }
+        else if(layertype == "p09"){
+            layertype = "09"
+        }
+        else if(layertype == "p10"){
+            layertype = "10"
+        }
+        else if(layertype == "p11"){
+            layertype = "11"
+        }
+        else if(layertype == "p12"){
+            layertype = "12"
+        }
+        else if(layertype == "p13"){
+            layertype = "13"
+        }
+        else if(layertype == "p14"){
+            layertype = "14"
+        }
+        else if(layertype == "p15"){
+            layertype = "15"
+        }
+        else{
+            layertype = "16"
+        }
+
+        var aaa = "ddd";
+
+        javascripr:CefCustomObject.func('vulnerability_protect', layertype);
+
+    }
+    else if(layertype == "s01" | layertype == "s02" | layertype == "s03" | layertype == "s04" | layertype == "s05" | layertype == "s06" | layertype == "s07" | layertype == "s08" | layertype == "s09" | layertype == "s10" | layertype == "s11" | layertype == "s12" | layertype == "s13" | layertype == "s14" | layertype == "s15" | layertype == "s16") // 종 취약성
+    {
+        if(layertype == "s01"){
+            layertype = "01"
+        }
+        else if(layertype == "s02"){
+            layertype = "02"
+        }
+        else if(layertype == "s03"){
+            layertype = "03"
+        }
+        else if(layertype == "s04"){
+            layertype = "04"
+        }
+        else if(layertype == "s05"){
+            layertype = "05"
+        }
+        else if(layertype == "s06"){
+            layertype = "06"
+        }
+        else if(layertype == "s07"){
+            layertype = "07"
+        }
+        else if(layertype == "s08"){
+            layertype = "08"
+        }
+        else if(layertype == "s09"){
+            layertype = "09"
+        }
+        else if(layertype == "s10"){
+            layertype = "10"
+        }
+        else if(layertype == "s11"){
+            layertype = "11"
+        }
+        else if(layertype == "s12"){
+            layertype = "12"
+        }
+        else if(layertype == "s13"){
+            layertype = "13"
+        }
+        else if(layertype == "s14"){
+            layertype = "14"
+        }
+        else if(layertype == "s15"){
+            layertype = "15"
+        }
+        else{
+            layertype = "16"
+        }
+        javascripr:CefCustomObject.func('vulnerability_species', layertype);
+    }
+    else if(layertype == "a01" | layertype == "a02" | layertype == "a03" | layertype == "a04" | layertype == "a05" | layertype == "a06" | layertype == "a07" | layertype == "a08" | layertype == "a09" | layertype == "a10" | layertype == "a11" | layertype == "a12" | layertype == "a13" | layertype == "a14" | layertype == "a15" | layertype == "a16") // 서식지 취약성
+    {
+        if(layertype == "a01"){
+            layertype = "01"
+        }
+        else if(layertype == "a02"){
+            layertype = "02"
+        }
+        else if(layertype == "a03"){
+            layertype = "03"
+        }
+        else if(layertype == "a04"){
+            layertype = "04"
+        }
+        else if(layertype == "a05"){
+            layertype = "05"
+        }
+        else if(layertype == "a06"){
+            layertype = "06"
+        }
+        else if(layertype == "a07"){
+            layertype = "07"
+        }
+        else if(layertype == "a08"){
+            layertype = "08"
+        }
+        else if(layertype == "a09"){
+            layertype = "09"
+        }
+        else if(layertype == "a10"){
+            layertype = "10"
+        }
+        else if(layertype == "a11"){
+            layertype = "11"
+        }
+        else if(layertype == "a12"){
+            layertype = "12"
+        }
+        else if(layertype == "a13"){
+            layertype = "13"
+        }
+        else if(layertype == "a14"){
+            layertype = "14"
+        }
+        else if(layertype == "a15"){
+            layertype = "15"
+        }
+        else{
+            layertype = "16"
+        }
+        javascripr:CefCustomObject.func('vulnerability_area', layertype);
+    }
+    else if(layertype == "so01" | layertype == "so02" | layertype == "so03" | layertype == "so04" | layertype == "so05" | layertype == "so06" | layertype == "so07" | layertype == "so08" | layertype == "so09" | layertype == "so10" | layertype == "so11" | layertype == "so12" | layertype == "so13" | layertype == "so14" | layertype == "so15" | layertype == "so16") // 사회경제 취약성
+    {
+        if(layertype == "so01"){
+            layertype = "01"
+        }
+        else if(layertype == "so02"){
+            layertype = "02"
+        }
+        else if(layertype == "so03"){
+            layertype = "03"
+        }
+        else if(layertype == "so04"){
+            layertype = "04"
+        }
+        else if(layertype == "so05"){
+            layertype = "05"
+        }
+        else if(layertype == "so06"){
+            layertype = "06"
+        }
+        else if(layertype == "so07"){
+            layertype = "07"
+        }
+        else if(layertype == "so08"){
+            layertype = "08"
+        }
+        else if(layertype == "so09"){
+            layertype = "09"
+        }
+        else if(layertype == "so10"){
+            layertype = "10"
+        }
+        else if(layertype == "so11"){
+            layertype = "11"
+        }
+        else if(layertype == "so12"){
+            layertype = "12"
+        }
+        else if(layertype == "so13"){
+            layertype = "13"
+        }
+        else if(layertype == "so14"){
+            layertype = "14"
+        }
+        else if(layertype == "so15"){
+            layertype = "15"
+        }
+        else{
+            layertype = "16"
+        }
+        javascripr:CefCustomObject.func('vulnerability_social', layertype);
     }
     else{
-        
-        javascripr:CefCustomObject.func('vulnerability', vulnerLayerType);
-    
+        tifLayer.remove();
     }
 }
 

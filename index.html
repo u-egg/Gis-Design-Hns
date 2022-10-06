@@ -261,7 +261,7 @@
 		<div id="left_slide">
 			<div class="left_slide_body">
 
-				<!--menu_part_1 해양환경정보-->
+				<!--menu_part_1 해양환경정보(중복체크문제해결필요)-->
 				<div class="part_1">
 					<!--top-->
 					<div class="side_body_top">
@@ -305,11 +305,12 @@
 									</select>
 
 									<select class="area_select_sub" id="area_select_1">
-										<option value="YS_layer">여수산단</option>
+										<option>-</option>
 									</select>
 								</div>
 								<div class="setTimebtn"
-									onclick="layer_select(); document.getElementById('yousok_layer').style.display = 'block';">조회
+									onclick="layer_select(); document.getElementById('yousok_layer').style.display = 'block';">
+									조회
 								</div>
 							</div>
 
@@ -356,7 +357,7 @@
 														<span class="label_table">상세역 레이어</span>
 													</label>
 												</div> -->
-												
+
 											</div>
 										</div>
 
@@ -438,8 +439,7 @@
 
 				</div>
 
-
-				<!--menu_part_2 수온조회-->
+				<!--menu_part_2 HNS 확산 영역-->
 				<div class="part_2">
 					<!--top-->
 					<div class="side_body_top">
@@ -492,7 +492,7 @@
 							</div>
 							<div class="anw2">
 
-								<div style="padding:0; margin-bottom:1rem;">
+								<!-- <div style="padding:0; margin-bottom:1rem;">
 									<table cellpadding=0 cellspacing=0 border=0 width=100%>
 										<tr>
 											<td style="width:5rem;">
@@ -504,7 +504,7 @@
 											</td>
 										</tr>
 									</table>
-								</div>
+								</div> -->
 
 								<div class="layer_select">
 
@@ -706,55 +706,615 @@
 
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
-													<span class="cateTitle">연안환경 영향평가</span>
+													<span class="cateTitle">보호구역 취약성</span>
 													<img id="sub_img_on0" src="./assets/sub_open.png">
 													<img id="sub_img_off0" src="./assets/sub_close.png">
 												</div>
 
 												<div style=" display:none; position: relative;" id="cate0">
+
+													<!--protect_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="safe_danger"
-															style="float:left; margin-right:5px;" value="clear"
+														<input type="checkbox" id="protect_1"
+															style="float:left; margin-right:5px;" value="p01"
 															name="vulner" />
-														<label for="safe_danger">
-															<span class="label_table">보호구역 취약성</span>
+														<label for="protect_1">
+															<span class="label_table">SURF-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_danger"
-															style="float:left; margin-right:5px;" value="clear"
+														<input type="checkbox" id="protect_2"
+															style="float:left; margin-right:5px;" value="p02"
 															name="vulner" />
-														<label for="species_danger">
-															<span class="label_table">종 취약성</span>
+														<label for="protect_2">
+															<span class="label_table">SURF-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_danger"
-															style="float:left; margin-right:5px;" value="clear"
+														<input type="checkbox" id="protect_3"
+															style="float:left; margin-right:5px;" value="p03"
 															name="vulner" />
-														<label for="area_danger">
-															<span class="label_table">서식지 취약성</span>
+														<label for="protect_3">
+															<span class="label_table">SURF-AUTUMN</span>
 														</label>
 													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_4"
+															style="float:left; margin-right:5px;" value="p04"
+															name="vulner" />
+														<label for="protect_4">
+															<span class="label_table">SURF-WINTER</span>
+														</label>
+													</div>
+
+													<!--protect_COLUMN-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_5"
+															style="float:left; margin-right:5px;" value="p05"
+															name="vulner" />
+														<label for="protect_5">
+															<span class="label_table">COLUMN-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_6"
+															style="float:left; margin-right:5px;" value="p06"
+															name="vulner" />
+														<label for="protect_6">
+															<span class="label_table">COLUMN-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_7"
+															style="float:left; margin-right:5px;" value="p07"
+															name="vulner" />
+														<label for="protect_7">
+															<span class="label_table">COLUMN-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_8"
+															style="float:left; margin-right:5px;" value="p08"
+															name="vulner" />
+														<label for="protect_8">
+															<span class="label_table">COLUMN-WINTER</span>
+														</label>
+													</div>
+
+													<!--protect_SEABED-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_9"
+															style="float:left; margin-right:5px;" value="p09"
+															name="vulner" />
+														<label for="protect_9">
+															<span class="label_table">SEABED-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_10"
+															style="float:left; margin-right:5px;" value="p10"
+															name="vulner" />
+														<label for="protect_10">
+															<span class="label_table">SEABED-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_11"
+															style="float:left; margin-right:5px;" value="p11"
+															name="vulner" />
+														<label for="protect_11">
+															<span class="label_table">SEABED-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_12"
+															style="float:left; margin-right:5px;" value="p12"
+															name="vulner" />
+														<label for="protect_12">
+															<span class="label_table">SEABED-WINTER</span>
+														</label>
+													</div>
+
+
+													<!--protect_AIR-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_13"
+															style="float:left; margin-right:5px;" value="p13"
+															name="vulner" />
+														<label for="protect_13">
+															<span class="label_table">AIR-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_14"
+															style="float:left; margin-right:5px;" value="p14"
+															name="vulner" />
+														<label for="protect_14">
+															<span class="label_table">AIR-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_15"
+															style="float:left; margin-right:5px;" value="p15"
+															name="vulner" />
+														<label for="protect_15">
+															<span class="label_table">AIR-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="protect_16"
+															style="float:left; margin-right:5px;" value="p16"
+															name="vulner" />
+														<label for="protect_16">
+															<span class="label_table">AIR-WINTER</span>
+														</label>
+													</div>
+
 												</div>
+
 
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('1');">
-													<span class="cateTitle">사회·경제 영향평가</span>
+													<span class="cateTitle">종 취약성</span>
 													<img id="sub_img_on1" src="./assets/sub_open.png">
 													<img id="sub_img_off1" src="./assets/sub_close.png">
 												</div>
 
 												<div style=" display:none; position: relative;" id="cate1">
+
+													<!--species_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_danger"
+														<input type="checkbox" id="species_1"
+															style="float:left; margin-right:5px;" value="s01"
+															name="vulner" />
+														<label for="species_1">
+															<span class="label_table">SURF-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_2"
+															style="float:left; margin-right:5px;" value="s02"
+															name="vulner" />
+														<label for="species_2">
+															<span class="label_table">SURF-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_3"
+															style="float:left; margin-right:5px;" value="s03"
+															name="vulner" />
+														<label for="species_3">
+															<span class="label_table">SURF-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_4"
+															style="float:left; margin-right:5px;" value="s04"
+															name="vulner" />
+														<label for="species_4">
+															<span class="label_table">SURF-WINTER</span>
+														</label>
+													</div>
+
+													<!--species_COLUMN-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_5"
+															style="float:left; margin-right:5px;" value="s05"
+															name="vulner" />
+														<label for="species_5">
+															<span class="label_table">COLUMN-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_6"
+															style="float:left; margin-right:5px;" value="s06"
+															name="vulner" />
+														<label for="species_6">
+															<span class="label_table">COLUMN-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_7"
+															style="float:left; margin-right:5px;" value="s07"
+															name="vulner" />
+														<label for="species_7">
+															<span class="label_table">COLUMN-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_8"
+															style="float:left; margin-right:5px;" value="s08"
+															name="vulner" />
+														<label for="species_8">
+															<span class="label_table">COLUMN-WINTER</span>
+														</label>
+													</div>
+
+													<!--species_SEABED-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_9"
+															style="float:left; margin-right:5px;" value="s09"
+															name="vulner" />
+														<label for="species_9">
+															<span class="label_table">SEABED-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_10"
+															style="float:left; margin-right:5px;" value="s10"
+															name="vulner" />
+														<label for="species_10">
+															<span class="label_table">SEABED-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_11"
+															style="float:left; margin-right:5px;" value="s11"
+															name="vulner" />
+														<label for="species_11">
+															<span class="label_table">SEABED-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_12"
+															style="float:left; margin-right:5px;" value="s12"
+															name="vulner" />
+														<label for="species_12">
+															<span class="label_table">SEABED-WINTER</span>
+														</label>
+													</div>
+
+
+													<!--species_AIR-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_13"
+															style="float:left; margin-right:5px;" value="s13"
+															name="vulner" />
+														<label for="species_13">
+															<span class="label_table">AIR-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_14"
+															style="float:left; margin-right:5px;" value="s14"
+															name="vulner" />
+														<label for="species_14">
+															<span class="label_table">AIR-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_15"
+															style="float:left; margin-right:5px;" value="s15"
+															name="vulner" />
+														<label for="species_15">
+															<span class="label_table">AIR-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="species_16"
+															style="float:left; margin-right:5px;" value="s16"
+															name="vulner" />
+														<label for="species_16">
+															<span class="label_table">AIR-WINTER</span>
+														</label>
+													</div>
+
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('2');">
+													<span class="cateTitle">서식지 취약성</span>
+													<img id="sub_img_on2" src="./assets/sub_open.png">
+													<img id="sub_img_off2" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate2">
+
+													<!--area_SURF-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_1"
+															style="float:left; margin-right:5px;" value="a01"
+															name="vulner" />
+														<label for="area_1">
+															<span class="label_table">SURF-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_2"
+															style="float:left; margin-right:5px;" value="a02"
+															name="vulner" />
+														<label for="area_2">
+															<span class="label_table">SURF-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_3"
+															style="float:left; margin-right:5px;" value="a03"
+															name="vulner" />
+														<label for="area_3">
+															<span class="label_table">SURF-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_4"
+															style="float:left; margin-right:5px;" value="a04"
+															name="vulner" />
+														<label for="area_4">
+															<span class="label_table">SURF-WINTER</span>
+														</label>
+													</div>
+
+													<!--area_COLUMN-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_5"
+															style="float:left; margin-right:5px;" value="a05"
+															name="vulner" />
+														<label for="area_5">
+															<span class="label_table">COLUMN-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_6"
+															style="float:left; margin-right:5px;" value="a06"
+															name="vulner" />
+														<label for="area_6">
+															<span class="label_table">COLUMN-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_7"
+															style="float:left; margin-right:5px;" value="a07"
+															name="vulner" />
+														<label for="area_7">
+															<span class="label_table">COLUMN-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_8"
+															style="float:left; margin-right:5px;" value="a08"
+															name="vulner" />
+														<label for="area_8">
+															<span class="label_table">COLUMN-WINTER</span>
+														</label>
+													</div>
+
+													<!--area_SEABED-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_9"
+															style="float:left; margin-right:5px;" value="a09"
+															name="vulner" />
+														<label for="area_9">
+															<span class="label_table">SEABED-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_10"
+															style="float:left; margin-right:5px;" value="a10"
+															name="vulner" />
+														<label for="area_10">
+															<span class="label_table">SEABED-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_11"
+															style="float:left; margin-right:5px;" value="a11"
+															name="vulner" />
+														<label for="area_11">
+															<span class="label_table">SEABED-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_12"
+															style="float:left; margin-right:5px;" value="a12"
+															name="vulner" />
+														<label for="area_12">
+															<span class="label_table">SEABED-WINTER</span>
+														</label>
+													</div>
+
+
+													<!--area_AIR-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_13"
+															style="float:left; margin-right:5px;" value="a13"
+															name="vulner" />
+														<label for="area_13">
+															<span class="label_table">AIR-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_14"
+															style="float:left; margin-right:5px;" value="a14"
+															name="vulner" />
+														<label for="area_14">
+															<span class="label_table">AIR-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_15"
+															style="float:left; margin-right:5px;" value="a15"
+															name="vulner" />
+														<label for="area_15">
+															<span class="label_table">AIR-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="area_16"
+															style="float:left; margin-right:5px;" value="a16"
+															name="vulner" />
+														<label for="area_16">
+															<span class="label_table">AIR-WINTER</span>
+														</label>
+													</div>
+
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('3');">
+													<span class="cateTitle">사회·경제 취약성</span>
+													<img id="sub_img_on3" src="./assets/sub_open.png">
+													<img id="sub_img_off3" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate3">
+													<!--social_SURF-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_1"
+															style="float:left; margin-right:5px;" value="so01"
+															name="vulner" />
+														<label for="social_1">
+															<span class="label_table">SURF-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_2"
+															style="float:left; margin-right:5px;" value="so02"
+															name="vulner" />
+														<label for="social_2">
+															<span class="label_table">SURF-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_3"
+															style="float:left; margin-right:5px;" value="so03"
+															name="vulner" />
+														<label for="social_3">
+															<span class="label_table">SURF-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_4"
+															style="float:left; margin-right:5px;" value="so04"
+															name="vulner" />
+														<label for="social_4">
+															<span class="label_table">SURF-WINTER</span>
+														</label>
+													</div>
+
+													<!--social_COLUMN-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_5"
+															style="float:left; margin-right:5px;" value="so05"
+															name="vulner" />
+														<label for="social_5">
+															<span class="label_table">COLUMN-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_6"
+															style="float:left; margin-right:5px;" value="so06"
+															name="vulner" />
+														<label for="social_6">
+															<span class="label_table">COLUMN-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_7"
+															style="float:left; margin-right:5px;" value="so07"
+															name="vulner" />
+														<label for="social_7">
+															<span class="label_table">COLUMN-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_8"
+															style="float:left; margin-right:5px;" value="so08"
+															name="vulner" />
+														<label for="social_8">
+															<span class="label_table">COLUMN-WINTER</span>
+														</label>
+													</div>
+
+													<!--social_SEABED-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_9"
+															style="float:left; margin-right:5px;" value="so09"
+															name="vulner" />
+														<label for="social_9">
+															<span class="label_table">SEABED-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_10"
+															style="float:left; margin-right:5px;" value="so10"
+															name="vulner" />
+														<label for="social_10">
+															<span class="label_table">SEABED-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_11"
+															style="float:left; margin-right:5px;" value="so11"
+															name="vulner" />
+														<label for="social_11">
+															<span class="label_table">SEABED-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_12"
+															style="float:left; margin-right:5px;" value="so12"
+															name="vulner" />
+														<label for="social_12">
+															<span class="label_table">SEABED-WINTER</span>
+														</label>
+													</div>
+
+
+													<!--social_AIR-->
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_13"
+															style="float:left; margin-right:5px;" value="so13"
+															name="vulner" />
+														<label for="social_13">
+															<span class="label_table">AIR-SPRING</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_14"
+															style="float:left; margin-right:5px;" value="so14"
+															name="vulner" />
+														<label for="social_14">
+															<span class="label_table">AIR-SUMMER</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_15"
+															style="float:left; margin-right:5px;" value="so15"
+															name="vulner" />
+														<label for="social_15">
+															<span class="label_table">AIR-AUTUMN</span>
+														</label>
+													</div>
+													<div class="icheck-greensea">
+														<input type="checkbox" id="social_16"
+															style="float:left; margin-right:5px;" value="so16"
+															name="vulner" />
+														<label for="social_16">
+															<span class="label_table">AIR-WINTER</span>
+														</label>
+													</div>
+
+												</div>
+
+												<div style="cursor:pointer; position: relative;"
+													onclick="cateAnimate('4');">
+													<span class="cateTitle">레이어 제거</span>
+													<img id="sub_img_on4" src="./assets/sub_open.png">
+													<img id="sub_img_off4" src="./assets/sub_close.png">
+												</div>
+
+												<div style=" display:none; position: relative;" id="cate4">
+													<div class="icheck-greensea">
+														<input type="checkbox" id="rdo_clear"
 															style="float:left; margin-right:5px;" value="clear"
 															name="vulner" />
-														<label for="social_danger">
-															<span class="label_table">사회·경제 취약성</span>
+														<label for="rdo_clear">
+															<span class="label_table">레이어 제거</span>
 														</label>
 													</div>
 												</div>
+
+
 												<!-- <div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
 													<span class="cateTitle">레이어 제거</span>
@@ -1337,14 +1897,14 @@
 							</div>
 							<div class="anw3_info">
 								<div id="info_box" style="display: none;">
-								<div class="text">
-									<img src="./img/bluemarker.png" class="marker_img">
-									<span>해양산업시설 - 주변해역</span>
-								</div>
-								<div class="text">
-									<img src="./img/redmarker.png" class="marker_img">
-									<span>해양산업시설 - 배출수</span>
-								</div>
+									<div class="text">
+										<img src="./img/bluemarker.png" class="marker_img">
+										<span>해양산업시설 - 주변해역</span>
+									</div>
+									<div class="text">
+										<img src="./img/redmarker.png" class="marker_img">
+										<span>해양산업시설 - 배출수</span>
+									</div>
 								</div>
 							</div>
 							<!--현재 줌 레벨-->
