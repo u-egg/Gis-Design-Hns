@@ -801,13 +801,12 @@ function viewDatabaseLayer(type){
           //,footer: '<a href="">Why do I have this issue?</a>'
         })
         //alert("레이어를 선택해 주세요.");
-    }else if(layerclear == 'clear'){
+    }
+    else if(layerclear == 'clear'){
         map.removeLayer(shpLayer);
     }
     else{
-        
-            javascripr:CefCustomObject.func('database', dbLayerType);
-        
+        javascripr:CefCustomObject.func('database', dbLayerType);
     }
 }
 
