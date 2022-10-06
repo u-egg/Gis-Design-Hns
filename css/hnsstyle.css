@@ -396,7 +396,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 26rem;
+    height: 27rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -434,7 +434,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 57rem;
+    height: 55rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -448,7 +448,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 35rem;
+    height: 24rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -662,11 +662,11 @@ li {
 }
 
 .part_3 {
-    display: block;
+    display: none;
 }
 
 .part_4 {
-    display: none;
+    display: block;
 }
 
 .part_5 {
