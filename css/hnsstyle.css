@@ -409,7 +409,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 370px;
+    height: 420px;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -542,14 +542,14 @@ section {
     position: absolute;
     right: 10px;
     top: 12px;
-    display: block;
+    display: none;
 }
 
 #sub_img_off4 {
     position: absolute;
     right: 10px;
     top: 15px;
-    display: none;
+    display: block;
 }
 
 .anw3 {

@@ -696,14 +696,30 @@
 									</table>
 								</div> -->
 
-
 								<div class="layer_select">
 									<span>레이어 선택</span>
 									<div>
 										<div
-											style="height:24rem; overflow-y:scroll; overflow-x:hidden; border:1px solid #eaeaea;">
+											style="height:30rem; overflow-y:scroll; overflow-x:hidden; border:1px solid #eaeaea;">
 											<div id="yousok_layer3" style="display:none; position: relative;">
 
+												<div style="cursor:pointer; position: relative;"
+												onclick="cateAnimate('4');">
+												<span class="cateTitle">레이어 제거</span>
+												<img id="sub_img_on4" src="./assets/sub_open.png">
+												<img id="sub_img_off4" src="./assets/sub_close.png">
+											</div>
+
+											<div style=" position: relative;" id="cate4">
+												<div class="icheck-greensea">
+													<input type="radio" id="rdo_clear"
+														style="float:left; margin-right:5px;" value="clear"
+														name="vulner" />
+													<label for="rdo_clear">
+														<span class="label_table">레이어 제거</span>
+													</label>
+												</div>
+												</div>
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
 													<span class="cateTitle">보호구역 취약성</span>
@@ -715,7 +731,7 @@
 
 													<!--protect_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_1"
+														<input type="radio" id="protect_1"
 															style="float:left; margin-right:5px;" value="p01"
 															name="vulner" />
 														<label for="protect_1">
@@ -723,7 +739,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_2"
+														<input type="radio" id="protect_2"
 															style="float:left; margin-right:5px;" value="p02"
 															name="vulner" />
 														<label for="protect_2">
@@ -731,7 +747,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_3"
+														<input type="radio" id="protect_3"
 															style="float:left; margin-right:5px;" value="p03"
 															name="vulner" />
 														<label for="protect_3">
@@ -739,7 +755,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_4"
+														<input type="radio" id="protect_4"
 															style="float:left; margin-right:5px;" value="p04"
 															name="vulner" />
 														<label for="protect_4">
@@ -749,7 +765,7 @@
 
 													<!--protect_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_5"
+														<input type="radio" id="protect_5"
 															style="float:left; margin-right:5px;" value="p05"
 															name="vulner" />
 														<label for="protect_5">
@@ -757,7 +773,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_6"
+														<input type="radio" id="protect_6"
 															style="float:left; margin-right:5px;" value="p06"
 															name="vulner" />
 														<label for="protect_6">
@@ -765,7 +781,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_7"
+														<input type="radio" id="protect_7"
 															style="float:left; margin-right:5px;" value="p07"
 															name="vulner" />
 														<label for="protect_7">
@@ -773,7 +789,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_8"
+														<input type="radio" id="protect_8"
 															style="float:left; margin-right:5px;" value="p08"
 															name="vulner" />
 														<label for="protect_8">
@@ -783,7 +799,7 @@
 
 													<!--protect_SEABED-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_9"
+														<input type="radio" id="protect_9"
 															style="float:left; margin-right:5px;" value="p09"
 															name="vulner" />
 														<label for="protect_9">
@@ -791,7 +807,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_10"
+														<input type="radio" id="protect_10"
 															style="float:left; margin-right:5px;" value="p10"
 															name="vulner" />
 														<label for="protect_10">
@@ -799,7 +815,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_11"
+														<input type="radio" id="protect_11"
 															style="float:left; margin-right:5px;" value="p11"
 															name="vulner" />
 														<label for="protect_11">
@@ -807,7 +823,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_12"
+														<input type="radio" id="protect_12"
 															style="float:left; margin-right:5px;" value="p12"
 															name="vulner" />
 														<label for="protect_12">
@@ -818,7 +834,7 @@
 
 													<!--protect_AIR-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_13"
+														<input type="radio" id="protect_13"
 															style="float:left; margin-right:5px;" value="p13"
 															name="vulner" />
 														<label for="protect_13">
@@ -826,7 +842,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_14"
+														<input type="radio" id="protect_14"
 															style="float:left; margin-right:5px;" value="p14"
 															name="vulner" />
 														<label for="protect_14">
@@ -834,7 +850,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_15"
+														<input type="radio" id="protect_15"
 															style="float:left; margin-right:5px;" value="p15"
 															name="vulner" />
 														<label for="protect_15">
@@ -842,7 +858,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="protect_16"
+														<input type="radio" id="protect_16"
 															style="float:left; margin-right:5px;" value="p16"
 															name="vulner" />
 														<label for="protect_16">
@@ -864,7 +880,7 @@
 
 													<!--species_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_1"
+														<input type="radio" id="species_1"
 															style="float:left; margin-right:5px;" value="s01"
 															name="vulner" />
 														<label for="species_1">
@@ -872,7 +888,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_2"
+														<input type="radio" id="species_2"
 															style="float:left; margin-right:5px;" value="s02"
 															name="vulner" />
 														<label for="species_2">
@@ -880,7 +896,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_3"
+														<input type="radio" id="species_3"
 															style="float:left; margin-right:5px;" value="s03"
 															name="vulner" />
 														<label for="species_3">
@@ -888,7 +904,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_4"
+														<input type="radio" id="species_4"
 															style="float:left; margin-right:5px;" value="s04"
 															name="vulner" />
 														<label for="species_4">
@@ -898,7 +914,7 @@
 
 													<!--species_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_5"
+														<input type="radio" id="species_5"
 															style="float:left; margin-right:5px;" value="s05"
 															name="vulner" />
 														<label for="species_5">
@@ -906,7 +922,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_6"
+														<input type="radio" id="species_6"
 															style="float:left; margin-right:5px;" value="s06"
 															name="vulner" />
 														<label for="species_6">
@@ -914,7 +930,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_7"
+														<input type="radio" id="species_7"
 															style="float:left; margin-right:5px;" value="s07"
 															name="vulner" />
 														<label for="species_7">
@@ -922,7 +938,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_8"
+														<input type="radio" id="species_8"
 															style="float:left; margin-right:5px;" value="s08"
 															name="vulner" />
 														<label for="species_8">
@@ -932,7 +948,7 @@
 
 													<!--species_SEABED-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_9"
+														<input type="radio" id="species_9"
 															style="float:left; margin-right:5px;" value="s09"
 															name="vulner" />
 														<label for="species_9">
@@ -940,7 +956,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_10"
+														<input type="radio" id="species_10"
 															style="float:left; margin-right:5px;" value="s10"
 															name="vulner" />
 														<label for="species_10">
@@ -948,7 +964,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_11"
+														<input type="radio" id="species_11"
 															style="float:left; margin-right:5px;" value="s11"
 															name="vulner" />
 														<label for="species_11">
@@ -956,7 +972,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_12"
+														<input type="radio" id="species_12"
 															style="float:left; margin-right:5px;" value="s12"
 															name="vulner" />
 														<label for="species_12">
@@ -967,7 +983,7 @@
 
 													<!--species_AIR-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_13"
+														<input type="radio" id="species_13"
 															style="float:left; margin-right:5px;" value="s13"
 															name="vulner" />
 														<label for="species_13">
@@ -975,7 +991,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_14"
+														<input type="radio" id="species_14"
 															style="float:left; margin-right:5px;" value="s14"
 															name="vulner" />
 														<label for="species_14">
@@ -983,7 +999,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_15"
+														<input type="radio" id="species_15"
 															style="float:left; margin-right:5px;" value="s15"
 															name="vulner" />
 														<label for="species_15">
@@ -991,7 +1007,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="species_16"
+														<input type="radio" id="species_16"
 															style="float:left; margin-right:5px;" value="s16"
 															name="vulner" />
 														<label for="species_16">
@@ -1012,7 +1028,7 @@
 
 													<!--area_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_1"
+														<input type="radio" id="area_1"
 															style="float:left; margin-right:5px;" value="a01"
 															name="vulner" />
 														<label for="area_1">
@@ -1020,7 +1036,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_2"
+														<input type="radio" id="area_2"
 															style="float:left; margin-right:5px;" value="a02"
 															name="vulner" />
 														<label for="area_2">
@@ -1028,7 +1044,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_3"
+														<input type="radio" id="area_3"
 															style="float:left; margin-right:5px;" value="a03"
 															name="vulner" />
 														<label for="area_3">
@@ -1036,7 +1052,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_4"
+														<input type="radio" id="area_4"
 															style="float:left; margin-right:5px;" value="a04"
 															name="vulner" />
 														<label for="area_4">
@@ -1046,7 +1062,7 @@
 
 													<!--area_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_5"
+														<input type="radio" id="area_5"
 															style="float:left; margin-right:5px;" value="a05"
 															name="vulner" />
 														<label for="area_5">
@@ -1054,7 +1070,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_6"
+														<input type="radio" id="area_6"
 															style="float:left; margin-right:5px;" value="a06"
 															name="vulner" />
 														<label for="area_6">
@@ -1062,7 +1078,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_7"
+														<input type="radio" id="area_7"
 															style="float:left; margin-right:5px;" value="a07"
 															name="vulner" />
 														<label for="area_7">
@@ -1070,7 +1086,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_8"
+														<input type="radio" id="area_8"
 															style="float:left; margin-right:5px;" value="a08"
 															name="vulner" />
 														<label for="area_8">
@@ -1080,7 +1096,7 @@
 
 													<!--area_SEABED-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_9"
+														<input type="radio" id="area_9"
 															style="float:left; margin-right:5px;" value="a09"
 															name="vulner" />
 														<label for="area_9">
@@ -1088,7 +1104,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_10"
+														<input type="radio" id="area_10"
 															style="float:left; margin-right:5px;" value="a10"
 															name="vulner" />
 														<label for="area_10">
@@ -1096,7 +1112,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_11"
+														<input type="radio" id="area_11"
 															style="float:left; margin-right:5px;" value="a11"
 															name="vulner" />
 														<label for="area_11">
@@ -1104,7 +1120,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_12"
+														<input type="radio" id="area_12"
 															style="float:left; margin-right:5px;" value="a12"
 															name="vulner" />
 														<label for="area_12">
@@ -1115,7 +1131,7 @@
 
 													<!--area_AIR-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_13"
+														<input type="radio" id="area_13"
 															style="float:left; margin-right:5px;" value="a13"
 															name="vulner" />
 														<label for="area_13">
@@ -1123,7 +1139,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_14"
+														<input type="radio" id="area_14"
 															style="float:left; margin-right:5px;" value="a14"
 															name="vulner" />
 														<label for="area_14">
@@ -1131,7 +1147,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_15"
+														<input type="radio" id="area_15"
 															style="float:left; margin-right:5px;" value="a15"
 															name="vulner" />
 														<label for="area_15">
@@ -1139,7 +1155,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="area_16"
+														<input type="radio" id="area_16"
 															style="float:left; margin-right:5px;" value="a16"
 															name="vulner" />
 														<label for="area_16">
@@ -1159,7 +1175,7 @@
 												<div style=" display:none; position: relative;" id="cate3">
 													<!--social_SURF-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_1"
+														<input type="radio" id="social_1"
 															style="float:left; margin-right:5px;" value="so01"
 															name="vulner" />
 														<label for="social_1">
@@ -1167,7 +1183,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_2"
+														<input type="radio" id="social_2"
 															style="float:left; margin-right:5px;" value="so02"
 															name="vulner" />
 														<label for="social_2">
@@ -1175,7 +1191,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_3"
+														<input type="radio" id="social_3"
 															style="float:left; margin-right:5px;" value="so03"
 															name="vulner" />
 														<label for="social_3">
@@ -1183,7 +1199,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_4"
+														<input type="radio" id="social_4"
 															style="float:left; margin-right:5px;" value="so04"
 															name="vulner" />
 														<label for="social_4">
@@ -1193,7 +1209,7 @@
 
 													<!--social_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_5"
+														<input type="radio" id="social_5"
 															style="float:left; margin-right:5px;" value="so05"
 															name="vulner" />
 														<label for="social_5">
@@ -1201,7 +1217,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_6"
+														<input type="radio" id="social_6"
 															style="float:left; margin-right:5px;" value="so06"
 															name="vulner" />
 														<label for="social_6">
@@ -1209,7 +1225,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_7"
+														<input type="radio" id="social_7"
 															style="float:left; margin-right:5px;" value="so07"
 															name="vulner" />
 														<label for="social_7">
@@ -1217,7 +1233,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_8"
+														<input type="radio" id="social_8"
 															style="float:left; margin-right:5px;" value="so08"
 															name="vulner" />
 														<label for="social_8">
@@ -1227,7 +1243,7 @@
 
 													<!--social_SEABED-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_9"
+														<input type="radio" id="social_9"
 															style="float:left; margin-right:5px;" value="so09"
 															name="vulner" />
 														<label for="social_9">
@@ -1235,7 +1251,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_10"
+														<input type="radio" id="social_10"
 															style="float:left; margin-right:5px;" value="so10"
 															name="vulner" />
 														<label for="social_10">
@@ -1243,7 +1259,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_11"
+														<input type="radio" id="social_11"
 															style="float:left; margin-right:5px;" value="so11"
 															name="vulner" />
 														<label for="social_11">
@@ -1251,7 +1267,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_12"
+														<input type="radio" id="social_12"
 															style="float:left; margin-right:5px;" value="so12"
 															name="vulner" />
 														<label for="social_12">
@@ -1262,7 +1278,7 @@
 
 													<!--social_AIR-->
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_13"
+														<input type="radio" id="social_13"
 															style="float:left; margin-right:5px;" value="so13"
 															name="vulner" />
 														<label for="social_13">
@@ -1270,7 +1286,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_14"
+														<input type="radio" id="social_14"
 															style="float:left; margin-right:5px;" value="so14"
 															name="vulner" />
 														<label for="social_14">
@@ -1278,7 +1294,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_15"
+														<input type="radio" id="social_15"
 															style="float:left; margin-right:5px;" value="so15"
 															name="vulner" />
 														<label for="social_15">
@@ -1286,7 +1302,7 @@
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="checkbox" id="social_16"
+														<input type="radio" id="social_16"
 															style="float:left; margin-right:5px;" value="so16"
 															name="vulner" />
 														<label for="social_16">
@@ -1296,228 +1312,7 @@
 
 												</div>
 
-												<div style="cursor:pointer; position: relative;"
-													onclick="cateAnimate('4');">
-													<span class="cateTitle">레이어 제거</span>
-													<img id="sub_img_on4" src="./assets/sub_open.png">
-													<img id="sub_img_off4" src="./assets/sub_close.png">
 												</div>
-
-												<div style=" display:none; position: relative;" id="cate4">
-													<div class="icheck-greensea">
-														<input type="checkbox" id="rdo_clear"
-															style="float:left; margin-right:5px;" value="clear"
-															name="vulner" />
-														<label for="rdo_clear">
-															<span class="label_table">레이어 제거</span>
-														</label>
-													</div>
-												</div>
-
-
-												<!-- <div style="cursor:pointer; position: relative;"
-													onclick="cateAnimate('0');">
-													<span class="cateTitle">레이어 제거</span>
-													<img id="sub_img_on0" src="./assets/sub_open.png">
-													<img id="sub_img_off0" src="./assets/sub_close.png">
-												</div>
-
-												<div style=" display:none; position: relative;" id="cate0">
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo_clear"
-															style="float:left; margin-right:5px;" value="clear"
-															name="vulner" />
-														<label for="rdo_clear">
-															<span class="label_table">레이어 제거</span>
-														</label>
-													</div>
-												</div>
-
-												<div style="cursor:pointer; position: relative;"
-													onclick="cateAnimate('1');">
-													<span class="cateTitle">SURF</span>
-													<img id="sub_img_on1" src="./assets/sub_open.png">
-													<img id="sub_img_off1" src="./assets/sub_close.png">
-												</div>
-
-												<div style=" display:none; position: relative;" id="cate1">
-
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo0"
-															style="float:left; margin-right:5px;" value="01"
-															name="vulner" />
-														<label for="rdo0">
-															<span class="label_table">SPRING</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo1"
-															style="float:left; margin-right:5px;" value="02"
-															name="vulner" />
-
-														<label for="rdo1">
-															<span class="label_table">SUMMER</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo2"
-															style="float:left; margin-right:5px;" value="03"
-															name="vulner" />
-
-														<label for="rdo2">
-															<span class="label_table">AUTUMN</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo3"
-															style="float:left; margin-right:5px;" value="04"
-															name="vulner" />
-
-														<label for="rdo3">
-															<span class="label_table">WINTER</span>
-														</label>
-													</div>
-												</div>
-
-												<div style="cursor:pointer;  position: relative;"
-													onclick="cateAnimate('2');">
-													<span class="cateTitle">COLUMN</span>
-													<img id="sub_img_on2" src="./assets/sub_open.png">
-													<img id="sub_img_off2" src="./assets/sub_close.png">
-												</div>
-
-												<div style="  display:none;" id="cate2">
-
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo4"
-															style="float:left; margin-right:5px;" value="05"
-															name="vulner" />
-
-														<label for="rdo4">
-															<span class="label_table">SPRING</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo5"
-															style="float:left; margin-right:5px;" value="06"
-															name="vulner" />
-
-														<label for="rdo5">
-															<span class="label_table">SUMMER</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo6"
-															style="float:left; margin-right:5px;" value="07"
-															name="vulner" />
-
-														<label for="rdo6">
-															<span class="label_table">AUTUMN</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo7"
-															style="float:left; margin-right:5px;" value="08"
-															name="vulner" />
-
-														<label for="rdo7">
-															<span class="label_table">WINTER</span>
-														</label>
-													</div>
-												</div>
-
-												<div style="cursor:pointer; position: relative;"
-													onclick="cateAnimate('3');"><span class="cateTitle">SEABED</span>
-													<img id="sub_img_on3" src="./assets/sub_open.png">
-													<img id="sub_img_off3" src="./assets/sub_close.png">
-												</div>
-
-												<div style=" display:none;" id="cate3">
-
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo8"
-															style="float:left; margin-right:5px;" value="09"
-															name="vulner" />
-
-														<label for="rdo8">
-															<span class="label_table">SPRING</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo9"
-															style="float:left; margin-right:5px;" value="10"
-															name="vulner" />
-
-														<label for="rdo9">
-															<span class="label_table">SUMMER</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo10"
-															style="float:left; margin-right:5px;" value="11"
-															name="vulner" />
-
-														<label for="rdo10">
-															<span class="label_table">AUTUMN</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo11"
-															style="float:left; margin-right:5px;" value="12"
-															name="vulner" />
-
-														<label for="rdo11">
-															<span class="label_table">WINTER</span>
-														</label>
-													</div>
-												</div>
-
-												<div style="cursor:pointer; position: relative;"
-													onclick="cateAnimate('4');"><span class="cateTitle">AIR</span>
-													<img id="sub_img_on4" src="./assets/sub_open.png">
-													<img id="sub_img_off4" src="./assets/sub_close.png">
-												</div>
-
-
-												<div style=" display:none;" id="cate4">
-
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo12"
-															style="float:left; margin-right:5px;" value="13"
-															name="vulner" />
-
-														<label for="rdo12">
-															<span class="label_table">SPRING</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo13"
-															style="float:left; margin-right:5px;" value="14"
-															name="vulner" />
-
-														<label for="rdo13">
-															<span class="label_table">SUMMER</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo14"
-															style="float:left; margin-right:5px;" value="15"
-															name="vulner" />
-
-														<label for="rdo14">
-															<span class="label_table">AUTUMN</span>
-														</label>
-													</div>
-													<div class="icheck-greensea">
-														<input type="radio" id="rdo15"
-															style="float:left; margin-right:5px;" value="16"
-															name="vulner" />
-
-														<label for="rdo15">
-															<span class="label_table">WINTER</span>
-														</label>
-													</div>
-												</div> -->
 
 											</div>
 										</div>
@@ -1527,69 +1322,7 @@
 									</div>
 								</div>
 							</div>
-
-							<!--part3_main_que-3-->
-
-							<!-- <div class="que3">
-								<span>범례</span>
-							</div>
-							<div class="anw3">
-								<div>
-									<div style="margin-top:2rem; margin-bottom: 2rem;">
-										<div style="margin-bottom:2rem;">
-											<span
-												style="text-align:center; width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
-												<div
-													style="width:100; height:5px; background:#006100; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-
-											<span
-												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
-												<div
-													style="width:100; height:5px; background:#7aab00; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-
-											<span
-												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
-												<div
-													style="width:100; height:5px; background:#e7e70a; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-										</div>
-
-										<div>
-											<span
-												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem; margin-right:6%;">
-												<div
-													style="width:100; height:5px; background:#ff9900; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-
-											<span
-												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;  margin-right:6%;">
-												<div
-													style="width:100; height:5px; background:#bb3c99; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-
-											<span
-												style="text-align:center;  width:28%; display:inline-block; font-size:1.2rem;">
-												<div
-													style="width:100; height:5px; background:#ff2200; margin-bottom:5px;">
-												</div>
-												<div>0.00 - 0.00</div>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div> -->
+				
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel2" style="font-weight:600;">7</span></div>
