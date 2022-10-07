@@ -1025,6 +1025,13 @@ input[id="b"] {
     margin-top: 12.5px;
 }
 
+.marker_img_2{
+    width: 27px;
+    height: 27px;
+    margin-left: 10px;
+    margin-top: 12.5px;
+}
+
 .text{
     height: 50px;
     line-height: 50px;

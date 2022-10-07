@@ -579,8 +579,12 @@ function drawFileTIF(binaryDATA, bufferSize, maxVal, minVal){
 	// document.getElementById("chkTyphoon").checked = true;
 
 	//document.getElementById("lineLange").value = 10;
-	tifLayer.setOpacity(parseInt(document.getElementById("lineLange").value) / 10);
+
+
+    // 2022-10-07 주석처리 (뭔지모름)
+	// tifLayer.setOpacity(parseInt(document.getElementById("lineLange").value) / 10);
 	 
+
 }
 
 //part_4 데이터베이스
@@ -647,7 +651,6 @@ function csharpSHP(shpByteString, dbfByteString, prjTxt, shpBufferSize, dbfBuffe
 	
 		shpLayer = null;
 	
-		
 		var shpByteSplit = shpByteString.split(',');
 		shpByteSplit.pop();
 		var shpByteArray = new Array();
@@ -655,15 +658,12 @@ function csharpSHP(shpByteString, dbfByteString, prjTxt, shpBufferSize, dbfBuffe
 		var shpInt8arr = new Int8Array(shpArrayByffer);
 		shpInt8arr.set(shpByteSplit);
 
-
 		var dbfByteSplit = dbfByteString.split(',');
 		dbfByteSplit.pop();
 		var dbfByteArray = new Array();
 		var dbfArrayByffer = new ArrayBuffer(dbfBufferSize);
 		var dbfInt8arr = new Int8Array(dbfArrayByffer);
 		dbfInt8arr.set(dbfByteSplit);
-
-
 
 		var cnt = 0;
 
@@ -687,8 +687,6 @@ function csharpSHP(shpByteString, dbfByteString, prjTxt, shpBufferSize, dbfBuffe
 					
 					
 						//data.features[0].geometry.name = layerType;
-						
-					
 					
 							/*
 							
@@ -724,9 +722,6 @@ function csharpSHP(shpByteString, dbfByteString, prjTxt, shpBufferSize, dbfBuffe
 							}
 
 
-							
-
-							
 							arrRangeColor[0] = "#006100";
 							arrRangeColor[1] = "#7aab00";
 							arrRangeColor[2] = "#ffff00";
