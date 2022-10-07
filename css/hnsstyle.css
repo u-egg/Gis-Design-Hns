@@ -654,7 +654,7 @@ li {
 
 
 .part_1{
-    display: none;
+    display: block;
 }
 
 .part_2 {
@@ -666,7 +666,7 @@ li {
 }
 
 .part_4 {
-    display: block;
+    display: none;
 }
 
 .part_5 {

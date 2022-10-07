@@ -103,8 +103,8 @@ function layerChange(value){ // 공간범위 이벤트
 
 function layer_select(){
 
-    var mid ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
-    var detail ="<div class='icheck-greensea'><input type='checkbox'id='yousok'value='yousok_L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='suon'value='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+    var mid ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
+    var detail ="<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L3'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='suon'value='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'>세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>"
 
     if(L_layerType == "" | L_layerType == "mid_layer" ){
         document.querySelector("#yousok_layer").innerHTML = mid;
@@ -153,25 +153,26 @@ if (chked == false) {
         text: '레이어를 선택해 주세요.'
     })
     } 
+    // 레이어 제거의 수정필요성 ?
     else if(layerType == "suon_L2"){
-        map.removeLayer(layerGroup);
         layerType = "L2";
         javascripr: CefCustomObject.func('suon', layerType);
+        map.removeLayer(layerGroup);
     }
     else if(layerType == "suon_L3"){
-        map.removeLayer(layerGroup);
         layerType = "L3";
         javascripr: CefCustomObject.func('suon', layerType);
+        map.removeLayer(layerGroup);
     }
     else if(layerType =="yousok_L2"){
-        tifLayer.remove();
         layerType = "L2";
         javascripr: CefCustomObject.func('yousok', layerType);
+        tifLayer.remove();
     }
     else{
-        tifLayer.remove();
         layerType = "L3";
         javascripr: CefCustomObject.func('yousok', layerType);
+        tifLayer.remove();
     }
 }
 
