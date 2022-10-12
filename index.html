@@ -109,7 +109,6 @@
 	<!--상단 헤더-->
 	<div class="fas_content">
 		<img src="./assets/큐버로고.png">
-		<!--커밋 테스트 -->
 		<!-- <div class="nav">
 			<ul>
 				<li onclick="menu_btn_1()" id="top_menu_1" class="top_menu_on">
@@ -512,13 +511,21 @@
 									<span>레이어 선택</span>
 									<div>
 
-										<div style="height:12rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:15rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer2" style="display:none;">
 												<div class="icheck-greensea">
 													<input type="radio" id="suon_rdo0" value="L1" name="rdoSuon" />
 													<label for="suon_rdo0">
+														<!--임시 데이터 수온 광역 레이어 (L1) 표출-->
 														<span class="label_table">최대확산 범위</span>
+
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="clear2" value="clear" name="rdoSuon" />
+													<label for="clear2">
+														<span class="label_table">레이어 제거</span>
 													</label>
 												</div>
 												<div class="icheck-greensea">
@@ -561,7 +568,7 @@
 
 							<!--part2_main_que-3-->
 
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -620,7 +627,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel1" style="font-weight:600;">7</span></div>
@@ -1532,7 +1539,7 @@
 
 							<!--part3_main_que-3-->
 
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -1591,7 +1598,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel2" style="font-weight:600;">7</span></div>
@@ -1626,24 +1633,24 @@
 										<div style="height:43rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer4" style="display:block;">
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="db_1" value="03_국립공원" name="rdoDatabase" />
 													<label for="db_1">
 														<span class="label_table">국립공원</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<input type="radio" id="db_2" value="04_군립공원" name="rdoDatabase" />
 													<label for="db_2">
 														<span class="label_table">군립공원</span>
 													</label>
 												</div>
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="db_3" value="05_도립공원" name="rdoDatabase" />
 													<label for="db_3">
 														<span class="label_table">도립공원</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<input type="radio" id="db_4" value="16_특별관리해역" name="rdoDatabase" />
 													<label for="db_4">
@@ -1651,7 +1658,7 @@
 													</label>
 												</div>
 
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="db_5" value="17_수산자원보호구역" name="rdoDatabase" />
 													<label for="db_5">
 														<span class="label_table">수산자원보호구역</span>
@@ -1662,19 +1669,19 @@
 													<label for="db_6">
 														<span class="label_table">환경보전지역</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<input type="radio" id="db_7" value="양식장영역" name="rdoDatabase" />
 													<label for="db_7">
 														<span class="label_table">양식장영역</span>
 													</label>
 												</div>
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="db_8" value="어장정보도" name="rdoDatabase" />
 													<label for="db_8">
 														<span class="label_table">어장정보도</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<input type="radio" id="db_9" value="조업집중구역(봄)" name="rdoDatabase" />
 													<label for="db_9">
@@ -1682,8 +1689,8 @@
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="radio" id="clear" value="clear" name="rdoDatabase" />
-													<label for="clear">
+													<input type="radio" id="clear3" value="clear" name="rdoDatabase" />
+													<label for="clear3">
 														<span class="label_table">레이어 제거</span>
 													</label>
 												</div>
@@ -1701,15 +1708,16 @@
 														<span class="label_table">조업밀집구역(가을)</span>
 													</label>
 												</div>
-												<div class="icheck-greensea">
-													<input type="checkbox" id="DB_rdo1" value="10_양식장"
+												 -->
+												<!-- <div class="icheck-greensea">
+													<input type="radio" id="DB_rdo1" value="10_양식장"
 														name="rdoDatabase" />
 													<label for="DB_rdo1">
 														<span class="label_table">양식장</span>
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="checkbox" id="DB_rdo2" value="21_마리나항위치"
+													<input type="radio" id="DB_rdo2" value="21_마리나항위치"
 														name="rdoDatabase" />
 													<label for="DB_rdo2">
 														<span class="label_table">마리나항 위치</span>
@@ -1727,7 +1735,7 @@
 
 							<!--part4_main_que-3-->
 
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -1786,7 +1794,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel3" style="font-weight:600;">7</span></div>
@@ -1856,6 +1864,20 @@
 
 											<div id="yousok_layer5">
 												<div class="icheck-greensea">
+													<input type="radio" id="si_1" value="해양산업시설_Point"
+														name="discharge_rdo" />
+													<label for="si_1">
+														<span class="label_table">해양산업시설</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
+													<input type="radio" id="si_2" value="all"
+														name="discharge_rdo" />
+													<label for="si_2">
+														<span class="label_table">방류 실태조사</span>
+													</label>
+												</div>
+												<div class="icheck-greensea">
 													<input type="radio" id="discharge_clear" value="clear"
 														name="discharge_rdo" />
 													<label for="discharge_clear">
@@ -1893,8 +1915,8 @@
 											</div>
 										</div>
 
-										<!-- <div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewDischargeLayer('tif')">레이어 보기</div> -->
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewDischargeLayer('tif')">레이어 보기</div>
 									</div>
 								</div>
 							</div>
@@ -1913,7 +1935,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="que3">
+							<!-- <div class="que3">
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -1972,7 +1994,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
 								<div>현재 줌 레벨 : <span id="thisZoomLevel4" style="font-weight:600;">7</span></div>
@@ -2227,7 +2249,7 @@
 
 			map.on("zoomend", function (e) {
 				if (layerclear != 'clear') {
-					drawArrow(setLon, setLat, set_wind_direction);
+					//drawArrow(setLon, setLat, set_wind_direction);
 				}
 				document.getElementById("thisZoomLevel").innerHTML = map.getZoom();
 				document.getElementById("thisZoomLevel1").innerHTML = map.getZoom();

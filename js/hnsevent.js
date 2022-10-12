@@ -152,43 +152,51 @@ if (chked == false) {
         title: '경고',
         text: '레이어를 선택해 주세요.'
     })
-    } 
+    }
+
     // 레이어 제거의 수정필요성 ?
+
     else if(layerType == "suon_L2"){
         layerType = "L2";
+        layerclear = "clear";
         javascripr: CefCustomObject.func('suon', layerType);
         map.removeLayer(layerGroup);
     }
     else if(layerType == "suon_L3"){
         layerType = "L3";
+        layerclear = "clear";
         javascripr: CefCustomObject.func('suon', layerType);
         map.removeLayer(layerGroup);
     }
     else if(layerType =="yousok_L2"){
         layerType = "L2";
+        layerclear = "";
         javascripr: CefCustomObject.func('yousok', layerType);
         tifLayer.remove();
     }
     else{
         layerType = "L3";
+        layerclear = "";
         javascripr: CefCustomObject.func('yousok', layerType);
         tifLayer.remove();
     }
+
 }
 
-function reload(aa){
-    window.location.reload();
-}
+// function reload(aa){
+//     window.location.reload();
+// }
 
 
-function openInfo(val){
-    alert(val);
-}
+// function openInfo(val){
+//     alert(val);
+// }
 
 
-function reload(aa){
-    location.reload(true);
-}
+// function reload(aa){
+//     location.reload(true);
+// }
+
 var c = null;
 
 var setLon = null;
@@ -543,9 +551,17 @@ function drawFileTIF(binaryDATA, bufferSize, maxVal, minVal){
 	document.getElementById("maxVal").innerHTML = max;
 */
 	dt = binaryDATA.split(',');
+
+    // for(var i =0; i < dt.length; i++){
+    //     if(dt[i] > 4){
+    //         dt[i] = "1";
+    //     }
+    // }
+
 	dt.pop();
 	
 	var byteArray = new Array();
+    
 	ab = new ArrayBuffer(bufferSize);
 	var int8arr = new Int8Array(ab);
 	int8arr.set(dt);
@@ -575,7 +591,7 @@ function drawFileTIF(binaryDATA, bufferSize, maxVal, minVal){
             }
      ).addTo(map);
 
-	 //$("#divTyphoonResult").css("display","block");
+	//$("#divTyphoonResult").css("display","block");
 	// document.getElementById("chkTyphoon").checked = true;
 
 	//document.getElementById("lineLange").value = 10;
@@ -584,7 +600,6 @@ function drawFileTIF(binaryDATA, bufferSize, maxVal, minVal){
     // 2022-10-07 주석처리 (뭔지모름)
 	// tifLayer.setOpacity(parseInt(document.getElementById("lineLange").value) / 10);
 	 
-
 }
 
 //part_4 데이터베이스
@@ -917,12 +932,16 @@ function viewDischargeLayer(type) {
 layerclear = $('input[name=discharge_rdo]:checked').val();
 
 if(layerclear == 'clear'){
+    map.removeLayer(shpLayer);
     removeMarker();
+
 }
 else if(layerclear == 'all'){
     addMarker();
 }
-
+else if(layerclear =='해양산업시설_Point'){
+    javascripr: CefCustomObject.func('database', layerclear);
+}
 setImgType = type;
 
 dischargelayerType = ""
@@ -943,11 +962,9 @@ if (chked == false) {
         text: '레이어를 선택해 주세요.'
     })
 } 
-else {
 
-    dischargelayerType = $('input[name=discharge_rdo]:checked').val();
-    
-//     javascripr: CefCustomObject.func('yousok', layerType);
+else {
+    dischargelayerType = $('input[name=discharge_rdo]:checked').val();    
 }
 }
 
