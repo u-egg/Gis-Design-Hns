@@ -1118,5 +1118,5 @@ function siltaeInfo(val){
     // console.log(busan);
     // console.log(yeosu);
     // console.log(ulsan);
-}
 
+}

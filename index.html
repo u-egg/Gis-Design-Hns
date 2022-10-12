@@ -9,6 +9,7 @@
 
 	<link rel="stylesheet" href="./css/jquery-ui.min.css" />
 	<link rel="stylesheet" href="./css/icheck-bootstrap.min.css" />
+	<link rel="stylesheet" href="./leaflet-velocity.css" />
 
 	<link rel="stylesheet" href="./css/hnsstyle.css" />
 	<link rel="stylesheet" href="./css/leaflet_new.css" />
@@ -21,6 +22,7 @@
 	<script src="./js/jquery-2.1.0.min.js"></script>
 	<script src="./js/jquery-ui.min.js"></script>
 
+	
 	<script src="./js/leaflet_new.js"></script>
 	<script src="./js/jszip.js"></script>
 	<script src="./js/jszip-utils.js"></script>
@@ -28,7 +30,7 @@
 	<script src="./js/semantic.min.js"></script>
 	<script src="./js/dbf.js"></script>
 	<script src="./js/preview.js" charset="utf-8"></script>
-
+<script src="./leaflet-velocity.js"></script>
 
 	<!--googleChart-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -51,6 +53,7 @@
 	<script src="./js/leaflet-geotiff-vector-arrows.js"></script>
 	<script src="./js/leaflet-triangle-marker.js"></script>
 	<script src='./js/proj4js-combined.js'></script>
+	<script src="./js/L3_windy.js"></script>
 
 	<script src="https://kit.fontawesome.com/c86cffdf64.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> <!-- 경고창 스크립트 -->
@@ -68,11 +71,12 @@
 </head>
 
 <style>
+	.leaflet-bottom {display:none !important;}
 	/*css/hnsstyle.css 로 이동하여 수정*/
 </style>
 
 <body>
-
+	
 	<script>
 		$.datepicker.setDefaults({
 			dateFormat: 'yy-mm-dd',
@@ -2270,7 +2274,7 @@
 	</script>
 
 	<script>
-		javascript: CefCustomObject.showDevTools();
+		//javascript: CefCustomObject.showDevTools();
 	</script>
 
 </body>
