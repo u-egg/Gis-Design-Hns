@@ -2059,20 +2059,74 @@
 						<span><i class="fa-solid fa-x" onclick="layer_select_frame_off()"></i></span>
 					</div>
 					<div class="layer_text">
-						<div>[해양환경정보] 중간역 유속 레이어 <i class="fa-regular fa-trash-can select_logo_1"></i><i class="fa-solid fa-eye select_logo_2"></i></div>
-						<div>[해양환경정보] 중간역 수온 레이어</div>
-						<div>[해양환경정보] (여수산단) 세부역 유속 레이어</div>
-						<div>[해양환경정보] (여수산단) 세부역 수온 레이어</div>
-						<div>[HNS 확산영역] (여수산단) 최대확산 범위</div>
-						<div>[해양환경 영향평가] 보호구역 취약성</div>
-						<div>[해양환경 영향평가] 종 취약성</div>
-						<div>[해양환경 영향평가] 서식지 취약성</div>
-						<div>[해양환경 영향평가] 사회·경제 취약성</div>
-						<div>[DATABASE] 군립공원</div>
-						<div>[DATABASE] 특별관리해역</div>
-						<div>[DATABASE] 양식장영역</div>
-						<div>[DATABASE] 조업집중구역(봄)</div>
-						<div>[HNS 실태 조사 결과 조회] 해양산업시설</div>
+
+						<div id="select_menu1">[해양환경정보] 중간역 유속 레이어 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('1')"></i>
+
+							<i class="fa-solid fa-eye select_logo_midyousok" onclick="select_menu_change('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_midyousok_off" onclick="select_menu_change('2')"></i>
+						</div>
+						
+						<div id="select_menu2">[해양환경정보] 중간역 수온 레이어 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('2')"></i>
+
+							<i class="fa-solid fa-eye select_logo_midsuon" onclick="select_menu_change_midsuon('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_midsuon_off" onclick="select_menu_change_midsuon('2')"></i>
+						</div>
+						<div id="select_menu3">[해양환경정보] (여수산단) 세부역 유속 레이어 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('3')"></i>
+						
+							<i class="fa-solid fa-eye select_logo_detailyousok" onclick="select_menu_change_detailyousok('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_detailyousok_off" onclick="select_menu_change_detailyousok('2')"></i>
+
+						</div>
+						<div id="select_menu4">[해양환경정보] (여수산단) 세부역 수온 레이어 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('4')"></i>
+						
+							<i class="fa-solid fa-eye select_logo_detailsuon" onclick="select_menu_change_detailsuon('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_detailsuon_off" onclick="select_menu_change_detailsuon('2')"></i>
+						</div>
+
+						<div id="select_menu5">[HNS 확산영역] (여수산단) 최대확산 범위 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('5')"></i>
+						
+						</div>
+						<div id="select_menu6">[해양환경 영향평가] 보호구역 취약성 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('6')"></i>
+						
+						</div>
+						<div id="select_menu7">[해양환경 영향평가] 종 취약성 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('7')"></i>
+						
+						</div>
+						<div id="select_menu8">[해양환경 영향평가] 서식지 취약성 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('8')"></i>
+						
+						</div>
+						<div id="select_menu9">[해양환경 영향평가] 사회·경제 취약성 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('9')"></i>
+						
+						</div>
+						<div id="select_menu10">[DATABASE] 군립공원 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('10')"></i>
+						
+						</div>
+						<div id="select_menu11">[DATABASE] 특별관리해역 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('11')"></i>
+						
+						</div>
+						<div id="select_menu12">[DATABASE] 양식장영역 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('12')"></i>
+						
+						</div>
+						<div id="select_menu13">[DATABASE] 조업집중구역(봄) 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('13')"></i>
+						
+						</div>
+						<div id="select_menu14">[HNS 실태 조사 결과 조회] 해양산업시설 
+							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('14')"></i>
+						
+						</div>
 					</div>
 				</div>
 
@@ -2154,6 +2208,8 @@
 		var hybridLayer2 = L.tileLayer('http://xdworld.vworld.kr:8080/2d/Hybrid/201802/{z}/{x}/{y}.png');
 
 		$(document).ready(function () {
+
+			select_menu_setting();
 
 			map = L.map('map').setView([36.5, 126], 7);
 			//map = L.map('map').setView([34.76105018295595, 127.80174711434886], 12);

@@ -27,6 +27,7 @@ function L3_Windy() {
             
 
     velocityLayer = L.velocityLayer({
+
         displayValues: true,
         displayOptions: {
             velocityType: "GBR Wind",
@@ -35,6 +36,7 @@ function L3_Windy() {
         },
         data: data,
         maxVelocity: 10
+        
     });
 
     map.addLayer(velocityLayer);
