@@ -540,7 +540,7 @@
 									<span>레이어 선택</span>
 									<div>
 
-										<div style="height:15rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:11rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer2" style="display:none;">
 												<div class="icheck-greensea">
@@ -551,12 +551,12 @@
 
 													</label>
 												</div>
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="clear2" value="clear" name="rdoSuon" />
 													<label for="clear2">
 														<span class="label_table">레이어 제거</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<button><i class="fa-solid fa-play"
 															style="padding-right: 10px;"></i>확산 시뮬레이션</button>
@@ -589,7 +589,7 @@
 										</div>
 
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer2('tif')">레이어 보기</div>
+											onclick="viewYousokLayer2('tif')">레이어 추가</div>
 									</div>
 								</div>
 							</div>
@@ -2089,8 +2089,15 @@
 
 						<div id="select_menu5">[HNS 확산영역] (여수산단) 최대확산 범위 
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('5')"></i>
-						
+
+							<i class="fa-solid fa-eye select_logo_range" onclick="select_menu_change_range('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_range_off" onclick="select_menu_change_range('2')"></i>
 						</div>
+
+
+
+
+
 						<div id="select_menu6">[해양환경 영향평가] 보호구역 취약성 
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('6')"></i>
 						
@@ -2107,6 +2114,10 @@
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('9')"></i>
 						
 						</div>
+
+
+
+
 						<div id="select_menu10">[DATABASE] 군립공원 
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('10')"></i>
 						
@@ -2123,6 +2134,10 @@
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('13')"></i>
 						
 						</div>
+
+
+
+						
 						<div id="select_menu14">[HNS 실태 조사 결과 조회] 해양산업시설 
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('14')"></i>
 						
