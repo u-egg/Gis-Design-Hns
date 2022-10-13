@@ -5,6 +5,8 @@ function menu_btn(num) {
     $("#menu_btn_" + num).attr("class", 'menu_on');
     $("#top_menu_" + num).attr("class", 'top_menu_on');
 
+    layerclear = "clear";
+
     if (num == '1') {
         $(".part_1").css("display", "block");
         $(".part_2").css("display", "none");
@@ -74,9 +76,9 @@ function classSetTime() {
             var option = $("<option value='" + j + "'>" + j + "시</option>");
             $(objTime[i]).append(option);
 
-            if (i == 1 && j == 5) {
-                objTime[i].selectedIndex = j;
-            }
+            // if (i == 1 && j == 5) {
+            //     objTime[i].selectedIndex = j;
+            // }
         }
     }
 }
@@ -91,43 +93,66 @@ function layerChange(value) { // 공간범위 이벤트
 
     var mid = "<option value='null'>-</option>"
     var detail = "<option value='YS_layer'>여수산단</option>"
+    var all = "<option value='YS_layer'>여수산단</option>"
 
     if (L_layerType == "mid_layer") {
         document
             .querySelector("#area_select_1")
             .innerHTML = mid;
-    } else {
+            //layer_select();
+    } else if(L_layerType == "detail_layer"){
         document
             .querySelector("#area_select_1")
             .innerHTML = detail;
+            //layer_select();
+
+    } else {
+        document
+            .querySelector("#area_select_1")
+            .innerHTML = all;
+            //layer_select();
     }
 }
 
 function layer_select() {
 
-    var mid = "<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'na" +
-            "me='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon'va" +
-            "lue='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'" +
-            ">중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radi" +
-            "o'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class=" +
-            "'label_table'>레이어 제거</span></label></div>"
-    var detail = "<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L3'na" +
-            "me='yousok_chkbox'/><label for='yousok'><span class='label_table'>세부역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon'va" +
-            "lue='suon_L3'name='yousok_chkbox'/><label for='suon'><span class='label_table'" +
+    var mid = "<div class='icheck-greensea'>"+
+    "<input type='radio'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div>"
+    +"<div class='icheck-greensea'><input type='radio'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div>"
+    +"<div class='icheck-greensea'><input type='radio'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class='label_table'>레이어 제거</span></label></div>";
+
+    var detail = "<div class='icheck-greensea'><input type='radio'id='yousok2'value='yousok_L3'na" +
+            "me='yousok_chkbox'/><label for='yousok2'><span class='label_table'>세부역 유속 레이어</" +
+            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon2'va" +
+            "lue='suon_L3'name='yousok_chkbox'/><label for='suon2'><span class='label_table'" +
             ">세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radi" +
             "o'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class=" +
-            "'label_table'>레이어 제거</span></label></div>"
+            "'label_table'>레이어 제거</span></label></div>";
 
+    var all = "<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'na" +
+    "me='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</" +
+    "span></label></div><div class='icheck-greensea'><input type='radio'id='suon'va" +
+    "lue='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'" +
+    ">중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='yousok2'value='yousok_L3'na" +
+    "me='yousok_chkbox'/><label for='yousok2'><span class='label_table'>세부역 유속 레이어</" +
+    "span></label></div><div class='icheck-greensea'><input type='radio'id='suon2'va" +
+    "lue='suon_L3'name='yousok_chkbox'/><label for='suon2'><span class='label_table'" +
+    ">세부역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radi" +
+    "o'id='clear'value='clear'name='yousok_chkbox'/><label for='clear'><span class=" +
+    "'label_table'>레이어 제거</span></label></div>";
+    
     if (L_layerType == "" | L_layerType == "mid_layer") {
         document
             .querySelector("#yousok_layer")
             .innerHTML = mid;
-    } else {
+    } else if(L_layerType == "detail_layer") {
         document
             .querySelector("#yousok_layer")
             .innerHTML = detail;
+    } else {
+        document
+            .querySelector("#yousok_layer")
+            .innerHTML = all;
     }
 }
 
@@ -169,28 +194,40 @@ function viewYousokLayer(type) {
 
     if (chked == false) {
         Swal.fire(
-            {icon: 'error', title: '경고', text: '레이어를 선택해 주세요.'}// 레이어 제거 코드 변경 ?
-
+            {icon: 'error', title: '경고', text: '레이어를 선택해 주세요.'}
         )
-    } else if (layerType == "suon_L2") {
+    } else{
+        layer_select_frame_on();
+    }
+    
+    if (layerType == "suon_L2") {
         layerType = "L2";
         layerclear = "clear";
+        map.setView([
+            36.5, 126
+        ], 7);
         javascripr : CefCustomObject.func('suon', layerType);
         map.removeLayer(layerGroup);
 
     } else if (layerType == "suon_L3") {
         layerType = "L3";
         layerclear = "clear";
+        map.setView([
+            34.7599, 127.7594
+        ], 11);
         javascripr : CefCustomObject.func('suon', layerType);
         map.removeLayer(layerGroup);
 
     } else if (layerType == "yousok_L2") {
         layerType = "L2";
         layerclear = "";
+        map.setView([
+            36.5, 126
+        ], 7);
         javascripr : CefCustomObject.func('yousok', layerType);
         tifLayer.remove();
 
-    } else {
+    } else if(layerType =="yousok_L3") {
         layerType = "L3";
         layerclear = "clear";
         L3_Windy();
@@ -429,6 +466,9 @@ function viewYousokLayer2(type) {
     } else if (layerclear == 'clear') {
         tifLayer.remove();
     } else {
+        map.setView([
+            34.7599, 127.7594
+        ], 11);
         javascripr : CefCustomObject.func('suon', suonLayerType);
 
     }
@@ -520,6 +560,10 @@ function viewYousokLayer3(type) {
             break;
         }
     }
+
+    map.setView([
+        34.7599, 127.7594
+    ], 11);
 
     if (chked == false) {
         Swal.fire({icon: 'error', title: '경고', text: '레이어를 선택해 주세요.'})
@@ -642,6 +686,7 @@ function viewDatabaseLayer(type) {
     } else if (layerclear == 'clear') {
         map.removeLayer(shpLayer);
     } else {
+        map.setView([36.5, 126], 7);
         javascripr : CefCustomObject.func('database', dbLayerType);
     }
 }
@@ -950,16 +995,19 @@ var dischargelayerType = "";
 
 function viewDischargeLayer(type) {
 
-    layerclear = $('input[name=discharge_rdo]:checked').val();
+    layerclear = "clear";
 
-    if (layerclear == 'clear') {
+    layerclear_dis = $('input[name=discharge_rdo]:checked').val();
+
+    if (layerclear_dis == 'clear') {
         map.removeLayer(shpLayer);
-        removeMarker();
+//        removeMarker();
 
-    } else if (layerclear == 'all') {
+    } else if (layerclear_dis == 'all') {
         addMarker();
-    } else if (layerclear == '해양산업시설_Point') {
-        javascripr : CefCustomObject.func('database', layerclear);
+    } else if (layerclear_dis == '해양산업시설_Point') {
+        map.setView([36.5, 126], 7);
+        javascripr : CefCustomObject.func('database', layerclear_dis);
     }
     setImgType = type;
 
@@ -1255,4 +1303,50 @@ function siltaeInfo(val) {
 
     // console.log(busan); console.log(yeosu); console.log(ulsan);
 
+}
+
+// 레이어 선택 보기 창
+dragElement(document.getElementById("layer_select_absolute"));
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "_title")) {
+    document.getElementById(elmnt.id + "_title").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+
+// 레이어 선택 보기 창 이벤트
+function layer_select_frame_on(){
+    $("#layer_select_absolute").css("display", "block");
+}
+
+function layer_select_frame_off(){
+    $("#layer_select_absolute").css("display", "none");
 }

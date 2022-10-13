@@ -22,7 +22,7 @@
 	<script src="./js/jquery-2.1.0.min.js"></script>
 	<script src="./js/jquery-ui.min.js"></script>
 
-	
+
 	<script src="./js/leaflet_new.js"></script>
 	<script src="./js/jszip.js"></script>
 	<script src="./js/jszip-utils.js"></script>
@@ -30,7 +30,7 @@
 	<script src="./js/semantic.min.js"></script>
 	<script src="./js/dbf.js"></script>
 	<script src="./js/preview.js" charset="utf-8"></script>
-<script src="./leaflet-velocity.js"></script>
+	<script src="./leaflet-velocity.js"></script>
 
 	<!--googleChart-->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -71,12 +71,15 @@
 </head>
 
 <style>
-	.leaflet-bottom {display:none !important;}
+	.leaflet-bottom {
+		display: none !important;
+	}
+
 	/*css/hnsstyle.css 로 이동하여 수정*/
 </style>
 
 <body>
-	
+
 	<script>
 		$.datepicker.setDefaults({
 			dateFormat: 'yy-mm-dd',
@@ -306,6 +309,7 @@
 									<select class="area_select" id="area_select" onchange="layerChange(this.value)">
 										<option value="mid_layer" selected>중간역</option>
 										<option value="detail_layer">세부역</option>
+										<option value="all_layer">전체</option>
 									</select>
 
 									<select class="area_select_sub" id="area_select_1">
@@ -329,7 +333,28 @@
 									<div>
 										<div style="height:15rem; overflow-y:auto; border:1px solid #eaeaea;">
 
-											<div id="yousok_layer" style="display:none;">
+											<div id="yousok_layer" style="display:block;">
+
+
+
+
+												<!-- <div class='icheck-greensea'>
+													<input type='radio' id='yousok' value='yousok_L2'
+														name='yousok_chkbox' /><label for='yousok'><span
+															class='label_table'>중간역 유속 레이어</span></label>
+												</div>
+												<div class='icheck-greensea'><input type='radio' id='suon'
+														value='suon_L2' name='yousok_chkbox' /><label for='suon'><span
+															class='label_table'>중간역 수온 레이어</span></label></div>
+												<div class='icheck-greensea'><input type='radio' id='clear'
+														value='clear' name='yousok_chkbox' /><label for='clear'><span
+															class='label_table'>레이어 제거</span></label></div> -->
+
+
+
+
+
+
 
 												<!-- 광역이 L1 / 중간이 L2 / 상세가 L3 (js 로 처리)-->
 
@@ -367,7 +392,7 @@
 
 
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer('tif')">레이어 보기</div>
+											onclick="viewYousokLayer('tif');">레이어 추가</div>
 									</div>
 								</div>
 							</div>
@@ -519,7 +544,7 @@
 
 											<div id="yousok_layer2" style="display:none;">
 												<div class="icheck-greensea">
-													<input type="radio" id="suon_rdo0" value="L1" name="rdoSuon" />
+													<input type="radio" id="suon_rdo0" value="L3" name="rdoSuon" />
 													<label for="suon_rdo0">
 														<!--임시 데이터 수온 광역 레이어 (L1) 표출-->
 														<span class="label_table">최대확산 범위</span>
@@ -683,7 +708,8 @@
 									</select>
 								</div>
 								<div class="setTimebtn"
-									onclick="document.getElementById('yousok_layer3').style.display = 'block'; ">해양환경 영향평가 분석
+									onclick="document.getElementById('yousok_layer3').style.display = 'block'; ">해양환경
+									영향평가 분석
 								</div>
 							</div>
 
@@ -716,22 +742,22 @@
 											<div id="yousok_layer3" style="display:none; position: relative;">
 
 												<div style="cursor:pointer; position: relative;"
-												onclick="cateAnimate('4');">
-												<span class="cateTitle">레이어 제거</span>
-												<img id="sub_img_on4" src="./assets/sub_open.png">
-												<img id="sub_img_off4" src="./assets/sub_close.png">
-											</div>
-
-											<div style=" position: relative;" id="cate4">
-												<div class="icheck-greensea">
-													<input type="radio" id="rdo_clear"
-														style="float:left; margin-right:5px;" value="clear"
-														name="vulner" />
-													<label for="rdo_clear">
-														<span class="label_table">레이어 제거</span>
-													</label>
+													onclick="cateAnimate('4');">
+													<span class="cateTitle">레이어 제거</span>
+													<img id="sub_img_on4" src="./assets/sub_open.png">
+													<img id="sub_img_off4" src="./assets/sub_close.png">
 												</div>
-											</div>
+
+												<div style=" position: relative;" id="cate4">
+													<div class="icheck-greensea">
+														<input type="radio" id="rdo_clear"
+															style="float:left; margin-right:5px;" value="clear"
+															name="vulner" />
+														<label for="rdo_clear">
+															<span class="label_table">레이어 제거</span>
+														</label>
+													</div>
+												</div>
 
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
@@ -1656,7 +1682,8 @@
 													</label>
 												</div> -->
 												<div class="icheck-greensea">
-													<input type="radio" id="db_4" value="16_특별관리해역" name="rdoDatabase" />
+													<input type="radio" id="db_4" value="16_특별관리해역"
+														name="rdoDatabase" />
 													<label for="db_4">
 														<span class="label_table">특별관리해역</span>
 													</label>
@@ -1687,7 +1714,8 @@
 													</label>
 												</div> -->
 												<div class="icheck-greensea">
-													<input type="radio" id="db_9" value="조업집중구역(봄)" name="rdoDatabase" />
+													<input type="radio" id="db_9" value="조업집중구역(봄)"
+														name="rdoDatabase" />
 													<label for="db_9">
 														<span class="label_table">조업집중구역(봄)</span>
 													</label>
@@ -1874,13 +1902,13 @@
 														<span class="label_table">해양산업시설</span>
 													</label>
 												</div>
-												<div class="icheck-greensea">
+												<!-- <div class="icheck-greensea">
 													<input type="radio" id="si_2" value="all"
 														name="discharge_rdo" />
 													<label for="si_2">
 														<span class="label_table">방류 실태조사</span>
 													</label>
-												</div>
+												</div> -->
 												<div class="icheck-greensea">
 													<input type="radio" id="discharge_clear" value="clear"
 														name="discharge_rdo" />
@@ -2024,6 +2052,29 @@
 			<div id="wrap" class="wrap">
 
 				<div id="map"></div>
+
+				<!--레이어 선택 보기 창 구현-->
+				<div id="layer_select_absolute">
+					<div id="layer_select_title">레이어 선택 보기 창
+						<span><i class="fa-solid fa-x" onclick="layer_select_frame_off()"></i></span>
+					</div>
+					<div class="layer_text">
+						<div>[해양환경정보] 중간역 유속 레이어 <i class="fa-regular fa-trash-can select_logo_1"></i><i class="fa-solid fa-eye select_logo_2"></i></div>
+						<div>[해양환경정보] 중간역 수온 레이어</div>
+						<div>[해양환경정보] (여수산단) 세부역 유속 레이어</div>
+						<div>[해양환경정보] (여수산단) 세부역 수온 레이어</div>
+						<div>[HNS 확산영역] (여수산단) 최대확산 범위</div>
+						<div>[해양환경 영향평가] 보호구역 취약성</div>
+						<div>[해양환경 영향평가] 종 취약성</div>
+						<div>[해양환경 영향평가] 서식지 취약성</div>
+						<div>[해양환경 영향평가] 사회·경제 취약성</div>
+						<div>[DATABASE] 군립공원</div>
+						<div>[DATABASE] 특별관리해역</div>
+						<div>[DATABASE] 양식장영역</div>
+						<div>[DATABASE] 조업집중구역(봄)</div>
+						<div>[HNS 실태 조사 결과 조회] 해양산업시설</div>
+					</div>
+				</div>
 
 				<div id="attr">
 					<div class="tableDisplay">

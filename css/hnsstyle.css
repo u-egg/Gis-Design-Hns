@@ -457,6 +457,85 @@ section {
     position: relative;
 }
 
+#layer_select_absolute {
+    width: 500px;
+    height: 300px;
+    z-index: 9999;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+
+    display: block;
+
+}
+
+#layer_select_title {
+    height: 46px;
+    font-weight: normal;
+    padding: 0 20px;
+    font-size: 15px;
+    line-height: 46px;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    cursor: move;
+}
+
+
+#layer_select_title i{
+    cursor: pointer;
+    position: relative;
+    right: -320px;
+}
+
+
+.layer_text {
+    overflow-y: scroll;
+    height: calc(100% - 46px);
+}
+
+.layer_text div {
+    height: 30px;
+    background: #f5f5f5;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 30px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.select_logo_1{
+    font-size:14px;
+    margin-top: 3px;
+    position: absolute;
+    padding-top: 5px;
+    right: 35px;
+    cursor: pointer;
+    background-color: #4f6070;
+    color: #Fff;
+    width: 30px;
+    text-align: center;
+    height: 24px;
+}
+
+.select_logo_2{
+    font-size:14px;
+    margin-top: 3px;
+    padding-top: 5px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: #fff;
+    width: 30px;
+    text-align: center;
+    height: 24px;
+}
+
+.layer_text div:nth-child(even) {
+    background: #e7e7e7;
+}
+
 .layer_select {
     border: 1px solid #ccc;
     width: 26.5rem;
