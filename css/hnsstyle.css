@@ -1118,7 +1118,11 @@ input[id="b"] {
 
 .select_logo_midyousok, .select_logo_midsuon, 
 .select_logo_detailyousok, .select_logo_detailsuon, 
-.select_logo_range, .select_logo_protect{
+.select_logo_range, .select_logo_protect,
+.select_logo_protect1,.select_logo_protect2,.select_logo_protect3,.select_logo_protect4,
+.select_logo_protect5,.select_logo_protect6,.select_logo_protect7,.select_logo_protect8,
+.select_logo_protect9,.select_logo_protect10,.select_logo_protect11,.select_logo_protect12,
+.select_logo_protect13,.select_logo_protect14,.select_logo_protect15,.select_logo_protect16{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
@@ -1135,7 +1139,11 @@ input[id="b"] {
 
 .select_logo_midyousok_off, .select_logo_midsuon_off,
 .select_logo_detailyousok_off, .select_logo_detailsuon_off,
-.select_logo_range_off, .select_logo_protect_off
+.select_logo_range_off, .select_logo_protect_off,
+.select_logo_protect_off1,.select_logo_protect_off2,.select_logo_protect_off3,.select_logo_protect_off4,
+.select_logo_protect_off5,.select_logo_protect_off6,.select_logo_protect_off7,.select_logo_protect_off8,
+.select_logo_protect_off9,.select_logo_protect_off10,.select_logo_protect_off11,.select_logo_protect_off12,
+.select_logo_protect_off13,.select_logo_protect_off14,.select_logo_protect_off15,.select_logo_protect_off16
 {
     font-size:14px;
     margin-top: 3px;

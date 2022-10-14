@@ -1429,19 +1429,21 @@ function layerChecked(obj,val){
             $('.select_logo_midsuon_off').css('display','');
             tifLayer.remove();
         }
-        else if(val == '6'){ // 해양환경영향평가 (보호구역 취약성)
+
+
+
+        // 해양환경영향평가 (보호구역 취약성) , (번호수정필요)
+        else if(val == '61'){
             
-            var layertype = $('input[name=vulner]:checked').val();
-            var layertypeArr = layertype.split("-");
+            var layertype = 01;
             
             $('.select_logo_protect').css('display','');
-            $('#select_menu6').css('display','block');
+            $('#select_menu61').css('display','block');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
 
-            layertype = layertypeArr[1];
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
             //중복 방지
@@ -1449,7 +1451,285 @@ function layerChecked(obj,val){
             // $('.select_logo_midsuon_off').css('display','');
             // tifLayer.remove();
         }
+        else if(val == '62'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 02;
+
+            $('.select_logo_protect').css('display','');
+            $('#select_menu62').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '63'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 03;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu63').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '64'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 04;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu64').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+        else if(val == '65'){
+            
+            var layertype = 05;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu65').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '66'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 06;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu66').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '67'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 07;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu67').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '68'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 08;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu68').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+
+
+
+        else if(val == '69'){
+            
+            var layertype = 09;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu69').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '610'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 10;
+
+            $('.select_logo_protect').css('display','');
+            $('#select_menu610').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '611'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 11;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu611').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '612'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 12;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu612').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+        else if(val == '613'){
+            
+            var layertype = 13;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu613').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '614'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 14;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu614').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '615'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 15;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu615').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '616'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = 16;
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu616').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
 	}
+
     else{ // 체크해제시 이벤트
         if(val == '1'){
             $('#select_menu1').css('display','none');
@@ -1471,6 +1751,81 @@ function layerChecked(obj,val){
             $('#select_menu5').css('display','none');
             select_menu_change_range('1'); 
         }
+
+
+
+        // 해양환경평가 (번호 수정 필요)
+        else if(val == '61'){
+            $('#select_menu61').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '62'){
+            $('#select_menu62').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '63'){
+            $('#select_menu63').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '64'){
+            $('#select_menu64').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '65'){
+            $('#select_menu65').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '66'){
+            $('#select_menu66').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '67'){
+            $('#select_menu67').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '68'){
+            $('#select_menu68').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '69'){
+            $('#select_menu69').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '610'){
+            $('#select_menu610').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '611'){
+            $('#select_menu611').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '612'){
+            $('#select_menu612').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '613'){
+            $('#select_menu613').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '614'){
+            $('#select_menu614').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '615'){
+            $('#select_menu615').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '616'){
+            $('#select_menu616').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
     }
 }
 
@@ -1486,7 +1841,7 @@ function layer_select_frame_off(){
 }
 
 function select_menu_delete(value){
-    for(var i =1; i <15; i++){
+    for(var i =1; i < 999; i++){
         if(i == value){
             $('#select_menu'+ value).css('display','none');
             $("input:checkbox[id='layer_"+i+"']").prop('checked',false); //체크박스 해제
@@ -1507,15 +1862,75 @@ function select_menu_delete(value){
             else if(i == 5){
                 select_menu_change_range('1'); 
             }
-            else if(i == 6){
-                var layertype = $('input[name=vulner]:checked').val();
-                var layertypeArr = layertype.split("-");
-
-                j = layertypeArr[1];
-
-                $("input:checkbox[id='layer_"+i+"_"+j+"']").prop('checked',false); //체크박스 해제
+            else if(i == 61){
+                $("input:checkbox[id='layer_6_01']").prop('checked',false); //체크박스 해제
                 select_menu_change_protect('1');
             }
+            else if(i == 62){
+                $("input:checkbox[id='layer_6_02']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 63){
+                $("input:checkbox[id='layer_6_03']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }            
+            else if(i == 64){
+                $("input:checkbox[id='layer_6_04']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+
+            else if(i == 65){
+                $("input:checkbox[id='layer_6_05']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 66){
+                $("input:checkbox[id='layer_6_06']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 67){
+                $("input:checkbox[id='layer_6_07']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }            
+            else if(i == 68){
+                $("input:checkbox[id='layer_6_08']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+
+
+            else if(i == 69){
+                $("input:checkbox[id='layer_6_09']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 610){
+                $("input:checkbox[id='layer_6_10']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 611){
+                $("input:checkbox[id='layer_6_11']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }            
+            else if(i == 612){
+                $("input:checkbox[id='layer_6_12']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+
+            else if(i == 613){
+                $("input:checkbox[id='layer_6_13']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 614){
+                $("input:checkbox[id='layer_6_14']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+            else if(i == 615){
+                $("input:checkbox[id='layer_6_15']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }            
+            else if(i == 616){
+                $("input:checkbox[id='layer_6_16']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
+            }
+
         }
     }
 }
@@ -1632,28 +2047,26 @@ function select_menu_change_range(value){
 }
 
 // 레이어 선택 보기 이벤트 (해양환경 영향평가)
-function select_menu_change_protect(value){
+// 보호구역 (건드릴 필요 x)
+function select_menu_change_protect(value,val,c_val){
     
     // var layertype = $('input[name=vulner]:checked').val();
     // var layertypeArr = layertype.split("-");
 
     if(value == '1'){
-        $('.select_logo_protect').css('display','none');
-        $('.select_logo_protect_off').css('display','');
+        $('.select_logo_protect' + val).css('display','none');
+        $('.select_logo_protect_off' + val).css('display','');
         tifLayer.remove();
     }
     else{
-        $('.select_logo_protect_off').css('display','none');
-        $('.select_logo_protect').css('display','');
+        $('.select_logo_protect_off' + val).css('display','none');
+        $('.select_logo_protect' + val).css('display','');
 
         map.setView([
             34.7599, 127.7594
         ], 11);
 
-        var layertype = $('input[name=vulner]:checked').val();
-        var layertypeArr = layertype.split("-");
-
-        layertype = layertypeArr[1];
+        layertype = c_val;
         javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
         // suonLayerType = "L3"
