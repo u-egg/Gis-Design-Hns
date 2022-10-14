@@ -71,15 +71,18 @@
 </head>
 
 <style>
+	
 	.leaflet-bottom {
 		display: none !important;
 	}
 
 	/*css/hnsstyle.css 로 이동하여 수정*/
+
 </style>
 
 <body>
 
+	<!--DatePiker-->
 	<script>
 		$.datepicker.setDefaults({
 			dateFormat: 'yy-mm-dd',
@@ -100,18 +103,6 @@
 			});
 		});
 	</script>
-
-	<!-- <script>
-		function setMenu(num) {
-			for (var i = 1; i <= 3; i++) {
-				document.getElementById("frame" + i).style.display = "none";
-				$("#menu" + i).removeClass('fas_active');
-			}
-
-			document.getElementById("frame" + num).style.display = "block";
-			$("#menu" + num).addClass('fas_active')
-		}
-	</script> -->
 
 	<!--상단 헤더-->
 	<div class="fas_content">
@@ -268,7 +259,7 @@
 		<div id="left_slide">
 			<div class="left_slide_body">
 
-				<!--menu_part_1 해양환경정보(중복체크문제해결필요)-->
+				<!--menu_part_1 해양환경정보-->
 				<div class="part_1">
 					<!--top-->
 					<div class="side_body_top">
@@ -325,74 +316,20 @@
 							<!--main_que-2-->
 
 							<div class="que2">
-								<span>레이어</span>
+								<span>레이어 추가</span>
 							</div>
 							<div class="anw_yousok">
 								<div class="layer_select">
 									<span>레이어 선택</span>
 									<div>
-										<div style="height:15rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer" style="display:block;">
-
-
-
-
-												<!-- <div class='icheck-greensea'>
-													<input type='radio' id='yousok' value='yousok_L2'
-														name='yousok_chkbox' /><label for='yousok'><span
-															class='label_table'>중간역 유속 레이어</span></label>
-												</div>
-												<div class='icheck-greensea'><input type='radio' id='suon'
-														value='suon_L2' name='yousok_chkbox' /><label for='suon'><span
-															class='label_table'>중간역 수온 레이어</span></label></div>
-												<div class='icheck-greensea'><input type='radio' id='clear'
-														value='clear' name='yousok_chkbox' /><label for='clear'><span
-															class='label_table'>레이어 제거</span></label></div> -->
-
-
-
-
-
-
-
-												<!-- 광역이 L1 / 중간이 L2 / 상세가 L3 (js 로 처리)-->
-
-												<!-- <div class="icheck-greensea">
-													<input type="radio" id="clear" value="clear"
-														name="yousok_chkbox" />
-													<label for="clear">
-														<span class="label_table">레이어 제거</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="yousok_rdo0" value="L1"
-														name="yousok_chkbox" />
-													<label for="yousok_rdo0">
-														<span class="label_table">광역 레이어</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="yousok_rdo1" value="L2"
-														name="yousok_chkbox" />
-													<label for="yousok_rdo1">
-														<span class="label_table">중간역 레이어</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="yousok_rdo2" value="L3"
-														name="yousok_chkbox" />
-													<label for="yousok_rdo2">
-														<span class="label_table">상세역 레이어</span>
-													</label>
-												</div> -->
-
+												<!--js로 구현 (메뉴선택에 따른 다른메뉴 표출)-->
 											</div>
 										</div>
-
-
-										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer('tif');">레이어 추가</div>
+										<!-- <div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer('tif');">레이어 추가</div> -->
 									</div>
 								</div>
 							</div>
@@ -517,7 +454,7 @@
 							<!--part2_main_que-2-->
 
 							<div class="que2">
-								<span>레이어</span>
+								<span>레이어 추가</span>
 							</div>
 							<div class="anw2">
 
@@ -540,56 +477,28 @@
 									<span>레이어 선택</span>
 									<div>
 
-										<div style="height:11rem; overflow-y:auto; border:1px solid #eaeaea;">
+										<div style="height:10rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer2" style="display:none;">
 												<div class="icheck-greensea">
-													<input type="radio" id="suon_rdo0" value="L3" name="rdoSuon" />
-													<label for="suon_rdo0">
+													<input type="checkbox"  onclick='layerChecked(this,5)' id="layer_5" value="L3" name="rdoSuon" />
+													<label for="layer_5">
 														<!--임시 데이터 수온 광역 레이어 (L1) 표출-->
 														<span class="label_table">최대확산 범위</span>
+													</label>
+												</div>
 
-													</label>
-												</div>
-												<!-- <div class="icheck-greensea">
-													<input type="radio" id="clear2" value="clear" name="rdoSuon" />
-													<label for="clear2">
-														<span class="label_table">레이어 제거</span>
-													</label>
-												</div> -->
-												<div class="icheck-greensea">
-													<button><i class="fa-solid fa-play"
-															style="padding-right: 10px;"></i>확산 시뮬레이션</button>
-												</div>
-												<!-- <div class="icheck-greensea">
-													<input type="radio" id="suon_clear" value="clear" name="rdoSuon" />
-													<label for="suon_clear">
-														<span class="label_table">레이어 제거</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="suon_rdo0" value="L1" name="rdoSuon" />
-													<label for="suon_rdo0">
-														<span class="label_table">광역 레이어</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="suon_rdo1" value="L2" name="rdoSuon" />
-													<label for="suon_rdo1">
-														<span class="label_table">중간역 레이어</span>
-													</label>
-												</div>
-												<div class="icheck-greensea">
-													<input type="radio" id="suon_rdo2" value="L3" name="rdoSuon" />
-													<label for="suon_rdo2">
-														<span class="label_table">상세역 레이어</span>
-													</label>
-												</div> -->
 											</div>
 										</div>
-
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer2('tif')">레이어 추가</div>
+											onclick=""><i class="fa-solid fa-play" style="padding-right: 10px;"></i>확산 시뮬레이션</div>
+										<!-- <div class="icheck-greensea">
+											<button>
+												<i class="fa-solid fa-play" style="padding-right: 10px;"></i>확산 시뮬레이션</button>
+										</div> -->
+										<!-- 
+										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
+											onclick="viewYousokLayer2('tif')">레이어 추가</div> -->
 									</div>
 								</div>
 							</div>
@@ -2060,87 +1969,95 @@
 					</div>
 					<div class="layer_text">
 
-						<div id="select_menu1">[해양환경정보] 중간역 유속 레이어 
+						<div id="select_menu1" style="display: none;">[해양환경정보] 중간역 유속 레이어
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('1')"></i>
 
 							<i class="fa-solid fa-eye select_logo_midyousok" onclick="select_menu_change('1')"></i>
-							<i class="fa-solid fa-eye-slash select_logo_midyousok_off" onclick="select_menu_change('2')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_midyousok_off"
+								onclick="select_menu_change('2')"></i>
 						</div>
-						
-						<div id="select_menu2">[해양환경정보] 중간역 수온 레이어 
+
+						<div id="select_menu2" style="display: none;">[해양환경정보] 중간역 수온 레이어
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('2')"></i>
 
-							<i class="fa-solid fa-eye select_logo_midsuon" onclick="select_menu_change_midsuon('1')"></i>
-							<i class="fa-solid fa-eye-slash select_logo_midsuon_off" onclick="select_menu_change_midsuon('2')"></i>
+							<i class="fa-solid fa-eye select_logo_midsuon"
+								onclick="select_menu_change_midsuon('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_midsuon_off"
+								onclick="select_menu_change_midsuon('2')"></i>
 						</div>
-						<div id="select_menu3">[해양환경정보] (여수산단) 세부역 유속 레이어 
+						<div id="select_menu3" style="display: none;">[해양환경정보] (여수산단) 세부역 유속 레이어
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('3')"></i>
-						
-							<i class="fa-solid fa-eye select_logo_detailyousok" onclick="select_menu_change_detailyousok('1')"></i>
-							<i class="fa-solid fa-eye-slash select_logo_detailyousok_off" onclick="select_menu_change_detailyousok('2')"></i>
+
+							<i class="fa-solid fa-eye select_logo_detailyousok"
+								onclick="select_menu_change_detailyousok('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_detailyousok_off"
+								onclick="select_menu_change_detailyousok('2')"></i>
 
 						</div>
-						<div id="select_menu4">[해양환경정보] (여수산단) 세부역 수온 레이어 
+						<div id="select_menu4" style="display: none;">[해양환경정보] (여수산단) 세부역 수온 레이어
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('4')"></i>
-						
-							<i class="fa-solid fa-eye select_logo_detailsuon" onclick="select_menu_change_detailsuon('1')"></i>
-							<i class="fa-solid fa-eye-slash select_logo_detailsuon_off" onclick="select_menu_change_detailsuon('2')"></i>
+
+							<i class="fa-solid fa-eye select_logo_detailsuon"
+								onclick="select_menu_change_detailsuon('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_detailsuon_off"
+								onclick="select_menu_change_detailsuon('2')"></i>
 						</div>
 
-						<div id="select_menu5">[HNS 확산영역] (여수산단) 최대확산 범위 
+						<div id="select_menu5" style="display: none;">[HNS 확산영역] (여수산단) 최대확산 범위
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('5')"></i>
 
 							<i class="fa-solid fa-eye select_logo_range" onclick="select_menu_change_range('1')"></i>
-							<i class="fa-solid fa-eye-slash select_logo_range_off" onclick="select_menu_change_range('2')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_range_off"
+								onclick="select_menu_change_range('2')"></i>
 						</div>
 
 
 
 
 
-						<div id="select_menu6">[해양환경 영향평가] 보호구역 취약성 
+						<div id="select_menu6" style="display: none;">[해양환경 영향평가] 보호구역 취약성
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('6')"></i>
-						
+
 						</div>
-						<div id="select_menu7">[해양환경 영향평가] 종 취약성 
+						<div id="select_menu7" style="display: none;">[해양환경 영향평가] 종 취약성
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('7')"></i>
-						
+
 						</div>
-						<div id="select_menu8">[해양환경 영향평가] 서식지 취약성 
+						<div id="select_menu8" style="display: none;">[해양환경 영향평가] 서식지 취약성
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('8')"></i>
-						
+
 						</div>
-						<div id="select_menu9">[해양환경 영향평가] 사회·경제 취약성 
+						<div id="select_menu9" style="display: none;">[해양환경 영향평가] 사회·경제 취약성
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('9')"></i>
-						
+
 						</div>
 
 
 
 
-						<div id="select_menu10">[DATABASE] 군립공원 
+						<div id="select_menu10" style="display: none;">[DATABASE] 군립공원
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('10')"></i>
-						
+
 						</div>
-						<div id="select_menu11">[DATABASE] 특별관리해역 
+						<div id="select_menu11" style="display: none;">[DATABASE] 특별관리해역
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('11')"></i>
-						
+
 						</div>
-						<div id="select_menu12">[DATABASE] 양식장영역 
+						<div id="select_menu12" style="display: none;">[DATABASE] 양식장영역
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('12')"></i>
-						
+
 						</div>
-						<div id="select_menu13">[DATABASE] 조업집중구역(봄) 
+						<div id="select_menu13" style="display: none;">[DATABASE] 조업집중구역(봄)
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('13')"></i>
-						
+
 						</div>
 
 
 
-						
-						<div id="select_menu14">[HNS 실태 조사 결과 조회] 해양산업시설 
+
+						<div id="select_menu14" style="display: none;">[HNS 실태 조사 결과 조회] 해양산업시설
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('14')"></i>
-						
+
 						</div>
 					</div>
 				</div>
@@ -2224,7 +2141,7 @@
 
 		$(document).ready(function () {
 
-			select_menu_setting();
+			// select_menu_setting();
 
 			map = L.map('map').setView([36.5, 126], 7);
 			//map = L.map('map').setView([34.76105018295595, 127.80174711434886], 12);
