@@ -83,18 +83,6 @@ function classSetTime() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 //part_1 해양환경 정보 (유속 + 수온)
 
 var L_layerType = "";
@@ -128,24 +116,23 @@ function layerChange(value) { // 공간범위 이벤트
 function layer_select() {
 
     var mid = "<div class='icheck-greensea'>"+
-    "<input type='radio'id='yousok'value='yousok_L2'name='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</span></label></div>"
-    +"<div class='icheck-greensea'><input type='radio'id='suon'value='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'>중간역 수온 레이어</span></label></div>";
+    "<input type='checkbox'id='layer_1' value='yousok_L2' name='yousok_chkbox' onclick='layerChecked(this,1)'/><label for='layer_1'><span class='label_table'>중간역 유속 레이어</span></label></div>"
+    +"<div class='icheck-greensea'>"
+    +"<input type='checkbox'id='layer_2'value='suon_L2'name='yousok_chkbox' onclick='layerChecked(this,3)'/><label for='layer_2'><span class='label_table'>중간역 수온 레이어</span></label></div>";
 
-    var detail = "<div class='icheck-greensea'><input type='radio'id='yousok2'value='yousok_L3'na" +
-            "me='yousok_chkbox'/><label for='yousok2'><span class='label_table'>세부역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon2'va" +
-            "lue='suon_L3'name='yousok_chkbox'/><label for='suon2'><span class='label_table'" +
+    var detail = "<div class='icheck-greensea'><input type='checkbox'id='layer_3' value='yousok_L3'na" +
+            "me='yousok_chkbox' onclick='layerChecked(this,2)'/><label for='layer_3'><span class='label_table'>세부역 유속 레이어</" +
+            "span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_4'va" +
+            "lue='suon_L3'name='yousok_chkbox' onclick='layerChecked(this,4)'/><label for='layer_4'><span class='label_table'" +
             ">세부역 수온 레이어</span></label></div>";
 
-    var all = "<div class='icheck-greensea'><input type='radio'id='yousok'value='yousok_L2'na" +
-            "me='yousok_chkbox'/><label for='yousok'><span class='label_table'>중간역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon'va" +
-            "lue='suon_L2'name='yousok_chkbox'/><label for='suon'><span class='label_table'" +
-            ">중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='radio'id='yousok2'value='yousok_L3'na" +
-            "me='yousok_chkbox'/><label for='yousok2'><span class='label_table'>세부역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='radio'id='suon2'va" +
-            "lue='suon_L3'name='yousok_chkbox'/><label for='suon2'><span class='label_table'" +
-            ">세부역 수온 레이어</span></label></div>";
+    var all = "<div class='icheck-greensea'>"+
+    "<input type='checkbox'id='layer_1' value='yousok_L2' name='yousok_chkbox' onclick='layerChecked(this,1)'/><label for='layer_1'><span class='label_table'>중간역 유속 레이어</span></label></div>"
+    +"<div class='icheck-greensea'><input type='checkbox'id='layer_2'value='suon_L2'name='yousok_chkbox' onclick='layerChecked(this,3)'/><label for='layer_2'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_3' value='yousok_L3'na" +
+    "me='yousok_chkbox' onclick='layerChecked(this,2)'/><label for='layer_3'><span class='label_table'>세부역 유속 레이어</" +
+    "span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_4'va" +
+    "lue='suon_L3'name='yousok_chkbox' onclick='layerChecked(this,4)'/><label for='layer_4'><span class='label_table'" +
+    ">세부역 수온 레이어</span></label></div>";
     
     if (L_layerType == "" | L_layerType == "mid_layer") {
         document
@@ -188,60 +175,60 @@ function viewYousokLayer(type) {
             {icon: 'error', title: '경고', text: '레이어를 선택해 주세요.'}
         )
     } 
-    else{
-        layer_select_frame_on();
-    }
+    // else{
+    //     layer_select_frame_on();
+    // }
     
-    if (layerType == "suon_L2") {
-        $('.select_logo_midsuon').css('display','');
-        layerType = "L2";
-        $('#select_menu2').css('display','block');
-        map.setView([
-            36.5, 126
-        ], 7);
-        javascripr : CefCustomObject.func('suon', layerType);
+    // if (layerType == "suon_L2") {
+    //     $('.select_logo_midsuon').css('display','');
+    //     layerType = "L2";
+    //     $('#select_menu2').css('display','block');
+    //     map.setView([
+    //         36.5, 126
+    //     ], 7);
+    //     javascripr : CefCustomObject.func('suon', layerType);
 
-        //중복 방지
-        $('.select_logo_detailsuon').css('display','none');
-        $('.select_logo_detailsuon_off').css('display','');
-        tifLayer.remove();
+    //     //중복 방지
+    //     $('.select_logo_detailsuon').css('display','none');
+    //     $('.select_logo_detailsuon_off').css('display','');
+    //     tifLayer.remove();
 
 
-    } else if (layerType == "suon_L3") {
-        $('.select_logo_detailsuon').css('display','');
-        layerType = "L3";
-        $('#select_menu4').css('display','block');
-        map.setView([
-            34.7599, 127.7594
-        ], 11);
-        javascripr : CefCustomObject.func('suon', layerType);
+    // } else if (layerType == "suon_L3") {
+    //     $('.select_logo_detailsuon').css('display','');
+    //     layerType = "L3";
+    //     $('#select_menu4').css('display','block');
+    //     map.setView([
+    //         34.7599, 127.7594
+    //     ], 11);
+    //     javascripr : CefCustomObject.func('suon', layerType);
         
-        //중복 방지
-        $('.select_logo_midsuon').css('display','none');
-        $('.select_logo_midsuon_off').css('display','');
-        tifLayer.remove();
+    //     //중복 방지
+    //     $('.select_logo_midsuon').css('display','none');
+    //     $('.select_logo_midsuon_off').css('display','');
+    //     tifLayer.remove();
 
 
-    } else if (layerType == "yousok_L2") {
-        $('.select_logo_midyousok').css('display','');
-        layerType = "L2";
-        $('#select_menu1').css('display','block');
-        map.setView([
-            36.5, 126
-        ], 7);
-        javascripr : CefCustomObject.func('yousok', layerType);
-        $('.select_logo_detailyousok').css('display','none');
-        $('.select_logo_detailyousok_off').css('display','');
-        removeWindy(); //중복 방지
+    // } else if (layerType == "yousok_L2") {
+    //     $('.select_logo_midyousok').css('display','');
+    //     layerType = "L2";
+    //     $('#select_menu1').css('display','block');
+    //     map.setView([
+    //         36.5, 126
+    //     ], 7);
+    //     javascripr : CefCustomObject.func('yousok', layerType);
+    //     $('.select_logo_detailyousok').css('display','none');
+    //     $('.select_logo_detailyousok_off').css('display','');
+    //     removeWindy(); //중복 방지
 
-    } else if(layerType =="yousok_L3") {
-        $('.select_logo_detailyousok').css('display','');
-        $('#select_menu3').css('display','block');
-        L3_Windy();
-        $('.select_logo_midyousok').css('display','none');
-        $('.select_logo_midyousok_off').css('display','');
-        map.removeLayer(layerGroup); //중복방지
-    }
+    // } else if(layerType =="yousok_L3") {
+    //     $('.select_logo_detailyousok').css('display','');
+    //     $('#select_menu3').css('display','block');
+    //     L3_Windy();
+    //     $('.select_logo_midyousok').css('display','none');
+    //     $('.select_logo_midyousok_off').css('display','');
+    //     map.removeLayer(layerGroup); //중복방지
+    // }
 
 }
 
@@ -415,7 +402,9 @@ var layerGroup = L.layerGroup();
 
 var setImgType = "";
 
-// part_2 HNS 확산 영역 function opacity_redraw(val){ 	if(setImgType == "tif"){
+// part_2 HNS 확산 영역 
+
+// function opacity_redraw(val){ 	if(setImgType == "tif"){
 // tifLayer.setOpacity(val / 10); 	}else{ 		imgOverlay.setOpacity(val / 10); 	}
 // }
 
@@ -471,16 +460,27 @@ function viewYousokLayer2(type) {
             //,footer: '<a href="">Why do I have this issue?</a>'
         })
         //alert("레이어를 선택해 주세요.");
-    } else if (layerclear == 'clear') {
+    }
+    else{
+        layer_select_frame_on();
+    }
+    
+    if (layerclear == 'clear') {
         tifLayer.remove();
-    } else {
+    } 
+    else {
         map.setView([
             34.7599, 127.7594
         ], 11);
+
+        $('#select_menu5').css('display','block');
+        $('.select_logo_range').css('display','');
+
         javascripr : CefCustomObject.func('suon', suonLayerType);
 
     }
 }
+
 
 function drawTIF(
     binaryDATA,
@@ -1312,7 +1312,17 @@ function nameMattiong() {
 
 // }
 
-// 레이어 선택 보기 창
+// function select_menu_setting(){
+
+//     for(var i = 1; i < 15; i++){
+//         $('#select_menu'+ i ).css('display','none');
+//     }
+
+// }
+
+// 레이어 선택 이벤트 구현 및 함수 2022-10-13
+
+// 레이어 선택 보기 창 움직임
 dragElement(document.getElementById("layer_select_absolute"));
 
 function dragElement(elmnt) {
@@ -1349,28 +1359,120 @@ function dragElement(elmnt) {
   }
 }
 
+
+// 레이어 체크박스 시 표출
+
+function layerChecked(obj,val){
+
+    layer_select_frame_on();
+
+	if(obj.checked == true){
+        if(val == '1'){ //중간역 유속
+            $('.select_logo_midyousok').css('display','');
+            layerType = "L2";
+            $('#select_menu1').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            javascripr : CefCustomObject.func('yousok', layerType);
+            $('.select_logo_detailyousok').css('display','none');
+            $('.select_logo_detailyousok_off').css('display','');
+            removeWindy(); //중복 방지
+        }
+        else if(val == '2'){ //세부역 유속
+            $('.select_logo_detailyousok').css('display','');
+            $('#select_menu3').css('display','block');
+            L3_Windy();
+            $('.select_logo_midyousok').css('display','none');
+            $('.select_logo_midyousok_off').css('display','');
+            map.removeLayer(layerGroup); //중복방지
+        }
+        else if(val == '3'){ // 중간역 수온
+            $('.select_logo_midsuon').css('display','');
+            layerType = "L2";
+            $('#select_menu2').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            javascripr : CefCustomObject.func('suon', layerType);
+    
+            //중복 방지
+            $('.select_logo_detailsuon').css('display','none');
+            $('.select_logo_detailsuon_off').css('display','');
+            tifLayer.remove();
+        }
+
+        else if(val == '4'){ // 세부역 수온
+            $('.select_logo_detailsuon').css('display','');
+            layerType = "L3";
+            $('#select_menu4').css('display','block');
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+            javascripr : CefCustomObject.func('suon', layerType);
+            
+            //중복 방지
+            $('.select_logo_midsuon').css('display','none');
+            $('.select_logo_midsuon_off').css('display','');
+            tifLayer.remove();
+        }
+        else if(val == '5'){ // HNS 확산영역 최대확산범위 (현재 세부역 수온과 동일)
+            $('.select_logo_range').css('display','');
+            layerType = "L3";
+            $('#select_menu5').css('display','block');
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+            javascripr : CefCustomObject.func('suon', layerType);
+            
+            //중복 방지
+            $('.select_logo_midsuon').css('display','none');
+            $('.select_logo_midsuon_off').css('display','');
+            tifLayer.remove();
+        }
+	}
+}
+
+
 // 레이어 선택 보기 창 이벤트
 function layer_select_frame_on(){
-    $("#layer_select_absolute").css("display", "block");
+    //$("#layer_select_absolute").css("display", "block");
+    $("#layer_select_absolute").removeClass('removeLayerbox');
+
 }
 
 function layer_select_frame_off(){
-    $("#layer_select_absolute").css("display", "none");
+    $("#layer_select_absolute").addClass('removeLayerbox');
 }
 
 function select_menu_delete(value){
     for(var i =1; i <15; i++){
         if(i == value){
             $('#select_menu'+ value).css('display','none');
+            $("input:checkbox[id='layer_"+i+"']").prop('checked',false); //체크박스 해제
+           
+            //체크박스 해제 시 만약 그려져 있다면 레이어 제거
+            if(i == 1){
+                select_menu_change('1');
+            }
+            else if(i == 2){
+                select_menu_change_midsuon('1');
+            }
+            else if(i == 3){
+                select_menu_change_detailyousok('1');
+            }
+            else if(i == 4){
+                select_menu_change_detailsuon('1');
+            }
+            else if(i == 5){
+                select_menu_change_range('1');
+            }
         }
     }
 }
 
 
-
-
-
-// 레이어 선택 보기 이벤트
+// 레이어 선택 보기 이벤트 (해양환경정보)
 
 function select_menu_change(value){
     if(value == '1'){
@@ -1460,10 +1562,43 @@ function select_menu_change_detailsuon(value){
     }
 }
 
-function select_menu_setting(){
-
-    for(var i = 1; i < 15; i++){
-        $('#select_menu'+ i ).css('display','none');
+// 레이어 선택 보기 이벤트 (HNS 확산영역) - 중복처리 미구현 및 데이터 x
+function select_menu_change_range(value){
+    if(value == '1'){
+        $('.select_logo_range').css('display','none');
+        $('.select_logo_range_off').css('display','');
+        tifLayer.remove();
     }
+    else{
+        $('.select_logo_range_off').css('display','none');
+        $('.select_logo_range').css('display','');
 
+        map.setView([
+            34.7599, 127.7594
+        ], 11);
+        suonLayerType = "L3"
+        javascripr : CefCustomObject.func('suon', suonLayerType);
+
+    }
 }
+
+// 레이어 선택 보기 이벤트 (해양환경 영향평가)
+// function select_menu_change_range(value){
+//     if(value == '1'){
+//         $('.select_logo_range').css('display','none');
+//         $('.select_logo_range_off').css('display','');
+//         tifLayer.remove();
+//     }
+//     else{
+//         $('.select_logo_range_off').css('display','none');
+//         $('.select_logo_range').css('display','');
+
+//         map.setView([
+//             34.7599, 127.7594
+//         ], 11);
+//         suonLayerType = "L3"
+//         javascripr : CefCustomObject.func('suon', suonLayerType);
+
+//     }
+// }
+

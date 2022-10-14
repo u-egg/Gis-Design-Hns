@@ -448,7 +448,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 27rem;
+    height: 23rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -466,9 +466,12 @@ section {
     right: 100px;
     background-color: #fff;
     border: 1px solid #ccc;
+}
 
-    display: none;
-
+.removeLayerbox{
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+    opacity: 0;
 }
 
 #layer_select_title {
@@ -1216,6 +1219,36 @@ input[id="b"] {
 }
 
 .select_logo_detailsuon_off{
+    font-size:14px;
+    margin-top: 3px;
+    padding-top: 5px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: #fff;
+    color: #ccc;
+    width: 30px;
+    text-align: center;
+    height: 24px;
+    display: none;
+}
+
+.select_logo_range{
+    font-size:14px;
+    margin-top: 3px;
+    padding-top: 5px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    width: 30px;
+    text-align: center;
+    height: 24px;
+    z-index: 999;
+}
+
+.select_logo_range_off{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
