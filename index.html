@@ -71,7 +71,7 @@
 </head>
 
 <style>
-	
+
 	.leaflet-bottom {
 		display: none !important;
 	}
@@ -625,7 +625,7 @@
 							<!--part3_main_que-2-->
 
 							<div class="que2">
-								<span>레이어</span>
+								<span>레이어 추가</span>
 							</div>
 							<div class="anw_vulner">
 
@@ -647,9 +647,9 @@
 									<span>레이어 선택</span>
 									<div>
 										<div
-											style="height:30rem; overflow-y:scroll; overflow-x:hidden; border:1px solid #eaeaea;">
+											style="height:20rem; overflow-y:scroll; overflow-x:hidden; border:1px solid #eaeaea;">
 											<div id="yousok_layer3" style="display:none; position: relative;">
-
+<!-- 
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('4');">
 													<span class="cateTitle">레이어 제거</span>
@@ -666,7 +666,7 @@
 															<span class="label_table">레이어 제거</span>
 														</label>
 													</div>
-												</div>
+												</div> -->
 
 												<div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
@@ -679,102 +679,102 @@
 
 													<!--protect_SURF-->
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_1"
-															style="float:left; margin-right:5px;" value="p-01"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_01"
+															 value="p-01"
 															name="vulner" />
-														<label for="protect_1">
+														<label for="layer_6_01">
 															<span class="label_table">SURF-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_2"
-															style="float:left; margin-right:5px;" value="p-02"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_02"
+															 value="p-02"
 															name="vulner" />
-														<label for="protect_2">
+														<label for="layer_6_02">
 															<span class="label_table">SURF-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_3"
-															style="float:left; margin-right:5px;" value="p-03"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_03"
+															 value="p-03"
 															name="vulner" />
-														<label for="protect_3">
+														<label for="layer_6_03">
 															<span class="label_table">SURF-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_4"
-															style="float:left; margin-right:5px;" value="p-04"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_04"
+															 value="p-04"
 															name="vulner" />
-														<label for="protect_4">
+														<label for="layer_6_04">
 															<span class="label_table">SURF-WINTER</span>
 														</label>
 													</div>
 
 													<!--protect_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_5"
-															style="float:left; margin-right:5px;" value="p-05"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_05"
+															 value="p-05"
 															name="vulner" />
-														<label for="protect_5">
+														<label for="layer_6_05">
 															<span class="label_table">COLUMN-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_6"
-															style="float:left; margin-right:5px;" value="p-06"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_06"
+															 value="p-06"
 															name="vulner" />
-														<label for="protect_6">
+														<label for="layer_6_06">
 															<span class="label_table">COLUMN-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_7"
-															style="float:left; margin-right:5px;" value="p-07"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_07"
+															 value="p-07"
 															name="vulner" />
-														<label for="protect_7">
+														<label for="layer_6_07">
 															<span class="label_table">COLUMN-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_8"
-															style="float:left; margin-right:5px;" value="p-08"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_08"
+															 value="p-08"
 															name="vulner" />
-														<label for="protect_8">
+														<label for="layer_6_08">
 															<span class="label_table">COLUMN-WINTER</span>
 														</label>
 													</div>
 
 													<!--protect_SEABED-->
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_9"
-															style="float:left; margin-right:5px;" value="p-09"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_09"
+															 value="p-09"
 															name="vulner" />
-														<label for="protect_9">
+														<label for="layer_6_09">
 															<span class="label_table">SEABED-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_10"
-															style="float:left; margin-right:5px;" value="p-10"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_10"
+															 value="p-10"
 															name="vulner" />
-														<label for="protect_10">
+														<label for="layer_6_10">
 															<span class="label_table">SEABED-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_11"
-															style="float:left; margin-right:5px;" value="p-11"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_11"
+															 value="p-11"
 															name="vulner" />
-														<label for="protect_11">
+														<label for="layer_6_11">
 															<span class="label_table">SEABED-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_12"
-															style="float:left; margin-right:5px;" value="p-12"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_12"
+															 value="p-12"
 															name="vulner" />
-														<label for="protect_12">
+														<label for="layer_6_12">
 															<span class="label_table">SEABED-WINTER</span>
 														</label>
 													</div>
@@ -782,34 +782,34 @@
 
 													<!--protect_AIR-->
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_13"
-															style="float:left; margin-right:5px;" value="p-13"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_13"
+															 value="p-13"
 															name="vulner" />
-														<label for="protect_13">
+														<label for="layer_6_13">
 															<span class="label_table">AIR-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_14"
-															style="float:left; margin-right:5px;" value="p-14"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_14"
+															 value="p-14"
 															name="vulner" />
-														<label for="protect_14">
+														<label for="layer_6_14">
 															<span class="label_table">AIR-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_15"
-															style="float:left; margin-right:5px;" value="p-15"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_15"
+															 value="p-15"
 															name="vulner" />
-														<label for="protect_15">
+														<label for="layer_6_15">
 															<span class="label_table">AIR-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="protect_16"
-															style="float:left; margin-right:5px;" value="p-16"
+														<input type="checkbox" onclick="layerChecked(this,6)" id="layer_6_16"
+															 value="p-16"
 															name="vulner" />
-														<label for="protect_16">
+														<label for="layer_6_16">
 															<span class="label_table">AIR-WINTER</span>
 														</label>
 													</div>
@@ -828,102 +828,102 @@
 
 													<!--species_SURF-->
 													<div class="icheck-greensea">
-														<input type="radio" id="species_1"
-															style="float:left; margin-right:5px;" value="s-01"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_01"
+															 value="s-01"
 															name="vulner" />
-														<label for="species_1">
+														<label for="layer_7_01">
 															<span class="label_table">SURF-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_2"
-															style="float:left; margin-right:5px;" value="s-02"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_02"
+															 value="s-02"
 															name="vulner" />
-														<label for="species_2">
+														<label for="layer_7_02">
 															<span class="label_table">SURF-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_3"
-															style="float:left; margin-right:5px;" value="s-03"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_03"
+															 value="s-03"
 															name="vulner" />
-														<label for="species_3">
+														<label for="layer_7_03">
 															<span class="label_table">SURF-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_4"
-															style="float:left; margin-right:5px;" value="s-04"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_04"
+															 value="s-04"
 															name="vulner" />
-														<label for="species_4">
+														<label for="layer_7_04">
 															<span class="label_table">SURF-WINTER</span>
 														</label>
 													</div>
 
 													<!--species_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="radio" id="species_5"
-															style="float:left; margin-right:5px;" value="s-05"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_05"
+															 value="s-05"
 															name="vulner" />
-														<label for="species_5">
+														<label for="layer_7_05">
 															<span class="label_table">COLUMN-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_6"
-															style="float:left; margin-right:5px;" value="s-06"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_06"
+															 value="s-06"
 															name="vulner" />
-														<label for="species_6">
+														<label for="layer_7_06">
 															<span class="label_table">COLUMN-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_7"
-															style="float:left; margin-right:5px;" value="s-07"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_07"
+															 value="s-07"
 															name="vulner" />
-														<label for="species_7">
+														<label for="layer_7_07">
 															<span class="label_table">COLUMN-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_8"
-															style="float:left; margin-right:5px;" value="s-08"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_08"
+															 value="s-08"
 															name="vulner" />
-														<label for="species_8">
+														<label for="layer_7_08">
 															<span class="label_table">COLUMN-WINTER</span>
 														</label>
 													</div>
 
 													<!--species_SEABED-->
 													<div class="icheck-greensea">
-														<input type="radio" id="species_9"
-															style="float:left; margin-right:5px;" value="s-09"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_09"
+															 value="s-09"
 															name="vulner" />
-														<label for="species_9">
+														<label for="layer_7_09">
 															<span class="label_table">SEABED-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_10"
-															style="float:left; margin-right:5px;" value="s-10"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_10"
+															 value="s-10"
 															name="vulner" />
-														<label for="species_10">
+														<label for="layer_7_10">
 															<span class="label_table">SEABED-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_11"
-															style="float:left; margin-right:5px;" value="s-11"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_11"
+															 value="s-11"
 															name="vulner" />
-														<label for="species_11">
+														<label for="layer_7_11">
 															<span class="label_table">SEABED-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_12"
-															style="float:left; margin-right:5px;" value="s-12"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_12"
+															 value="s-12"
 															name="vulner" />
-														<label for="species_12">
+														<label for="layer_7_12">
 															<span class="label_table">SEABED-WINTER</span>
 														</label>
 													</div>
@@ -931,34 +931,34 @@
 
 													<!--species_AIR-->
 													<div class="icheck-greensea">
-														<input type="radio" id="species_13"
-															style="float:left; margin-right:5px;" value="s-13"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_13"
+															 value="s-13"
 															name="vulner" />
-														<label for="species_13">
+														<label for="layer_7_13">
 															<span class="label_table">AIR-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_14"
-															style="float:left; margin-right:5px;" value="s-14"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_14"
+															 value="s-14"
 															name="vulner" />
-														<label for="species_14">
+														<label for="layer_7_14">
 															<span class="label_table">AIR-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_15"
-															style="float:left; margin-right:5px;" value="s-15"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_15"
+															 value="s-15"
 															name="vulner" />
-														<label for="species_15">
+														<label for="layer_7_15">
 															<span class="label_table">AIR-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="species_16"
-															style="float:left; margin-right:5px;" value="s-16"
+														<input type="checkbox" onclick="layerChecked(this,7)" id="layer_7_16"
+															 value="s-16"
 															name="vulner" />
-														<label for="species_16">
+														<label for="layer_7_16">
 															<span class="label_table">AIR-WINTER</span>
 														</label>
 													</div>
@@ -976,32 +976,32 @@
 
 													<!--area_SURF-->
 													<div class="icheck-greensea">
-														<input type="radio" id="area_1"
-															style="float:left; margin-right:5px;" value="a-01"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_1"
+															 value="a-01"
 															name="vulner" />
 														<label for="area_1">
 															<span class="label_table">SURF-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_2"
-															style="float:left; margin-right:5px;" value="a-02"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_2"
+															 value="a-02"
 															name="vulner" />
 														<label for="area_2">
 															<span class="label_table">SURF-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_3"
-															style="float:left; margin-right:5px;" value="a-03"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_3"
+															 value="a-03"
 															name="vulner" />
 														<label for="area_3">
 															<span class="label_table">SURF-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_4"
-															style="float:left; margin-right:5px;" value="a-04"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_4"
+															 value="a-04"
 															name="vulner" />
 														<label for="area_4">
 															<span class="label_table">SURF-WINTER</span>
@@ -1010,32 +1010,32 @@
 
 													<!--area_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="radio" id="area_5"
-															style="float:left; margin-right:5px;" value="a-05"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_5"
+															 value="a-05"
 															name="vulner" />
 														<label for="area_5">
 															<span class="label_table">COLUMN-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_6"
-															style="float:left; margin-right:5px;" value="a-06"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_6"
+															 value="a-06"
 															name="vulner" />
 														<label for="area_6">
 															<span class="label_table">COLUMN-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_7"
-															style="float:left; margin-right:5px;" value="a-07"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_7"
+															 value="a-07"
 															name="vulner" />
 														<label for="area_7">
 															<span class="label_table">COLUMN-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_8"
-															style="float:left; margin-right:5px;" value="a-08"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_8"
+															 value="a-08"
 															name="vulner" />
 														<label for="area_8">
 															<span class="label_table">COLUMN-WINTER</span>
@@ -1044,32 +1044,32 @@
 
 													<!--area_SEABED-->
 													<div class="icheck-greensea">
-														<input type="radio" id="area_9"
-															style="float:left; margin-right:5px;" value="a-09"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_9"
+															 value="a-09"
 															name="vulner" />
 														<label for="area_9">
 															<span class="label_table">SEABED-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_10"
-															style="float:left; margin-right:5px;" value="a-10"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_10"
+															 value="a-10"
 															name="vulner" />
 														<label for="area_10">
 															<span class="label_table">SEABED-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_11"
-															style="float:left; margin-right:5px;" value="a-11"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_11"
+															 value="a-11"
 															name="vulner" />
 														<label for="area_11">
 															<span class="label_table">SEABED-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_12"
-															style="float:left; margin-right:5px;" value="a-12"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_12"
+															 value="a-12"
 															name="vulner" />
 														<label for="area_12">
 															<span class="label_table">SEABED-WINTER</span>
@@ -1079,32 +1079,32 @@
 
 													<!--area_AIR-->
 													<div class="icheck-greensea">
-														<input type="radio" id="area_13"
-															style="float:left; margin-right:5px;" value="a-13"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_13"
+															 value="a-13"
 															name="vulner" />
 														<label for="area_13">
 															<span class="label_table">AIR-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_14"
-															style="float:left; margin-right:5px;" value="a-14"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_14"
+															 value="a-14"
 															name="vulner" />
 														<label for="area_14">
 															<span class="label_table">AIR-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_15"
-															style="float:left; margin-right:5px;" value="a-15"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_15"
+															 value="a-15"
 															name="vulner" />
 														<label for="area_15">
 															<span class="label_table">AIR-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="area_16"
-															style="float:left; margin-right:5px;" value="a-16"
+														<input type="checkbox" onclick="layerChecked(this,8)" id="area_16"
+															 value="a-16"
 															name="vulner" />
 														<label for="area_16">
 															<span class="label_table">AIR-WINTER</span>
@@ -1123,32 +1123,32 @@
 												<div style=" display:none; position: relative;" id="cate3">
 													<!--social_SURF-->
 													<div class="icheck-greensea">
-														<input type="radio" id="social_1"
-															style="float:left; margin-right:5px;" value="so-01"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_1"
+															 value="so-01"
 															name="vulner" />
 														<label for="social_1">
 															<span class="label_table">SURF-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_2"
-															style="float:left; margin-right:5px;" value="so-02"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_2"
+															 value="so-02"
 															name="vulner" />
 														<label for="social_2">
 															<span class="label_table">SURF-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_3"
-															style="float:left; margin-right:5px;" value="so-03"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_3"
+															 value="so-03"
 															name="vulner" />
 														<label for="social_3">
 															<span class="label_table">SURF-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_4"
-															style="float:left; margin-right:5px;" value="so-04"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_4"
+															 value="so-04"
 															name="vulner" />
 														<label for="social_4">
 															<span class="label_table">SURF-WINTER</span>
@@ -1157,32 +1157,32 @@
 
 													<!--social_COLUMN-->
 													<div class="icheck-greensea">
-														<input type="radio" id="social_5"
-															style="float:left; margin-right:5px;" value="so-05"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_5"
+															 value="so-05"
 															name="vulner" />
 														<label for="social_5">
 															<span class="label_table">COLUMN-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_6"
-															style="float:left; margin-right:5px;" value="so-06"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_6"
+															 value="so-06"
 															name="vulner" />
 														<label for="social_6">
 															<span class="label_table">COLUMN-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_7"
-															style="float:left; margin-right:5px;" value="so-07"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_7"
+															 value="so-07"
 															name="vulner" />
 														<label for="social_7">
 															<span class="label_table">COLUMN-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_8"
-															style="float:left; margin-right:5px;" value="so-08"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_8"
+															 value="so-08"
 															name="vulner" />
 														<label for="social_8">
 															<span class="label_table">COLUMN-WINTER</span>
@@ -1191,32 +1191,32 @@
 
 													<!--social_SEABED-->
 													<div class="icheck-greensea">
-														<input type="radio" id="social_9"
-															style="float:left; margin-right:5px;" value="so-09"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_9"
+															 value="so-09"
 															name="vulner" />
 														<label for="social_9">
 															<span class="label_table">SEABED-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_10"
-															style="float:left; margin-right:5px;" value="so-10"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_10"
+															 value="so-10"
 															name="vulner" />
 														<label for="social_10">
 															<span class="label_table">SEABED-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_11"
-															style="float:left; margin-right:5px;" value="so-11"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_11"
+															 value="so-11"
 															name="vulner" />
 														<label for="social_11">
 															<span class="label_table">SEABED-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_12"
-															style="float:left; margin-right:5px;" value="so-12"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_12"
+															 value="so-12"
 															name="vulner" />
 														<label for="social_12">
 															<span class="label_table">SEABED-WINTER</span>
@@ -1226,32 +1226,32 @@
 
 													<!--social_AIR-->
 													<div class="icheck-greensea">
-														<input type="radio" id="social_13"
-															style="float:left; margin-right:5px;" value="so-13"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_13"
+															 value="so-13"
 															name="vulner" />
 														<label for="social_13">
 															<span class="label_table">AIR-SPRING</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_14"
-															style="float:left; margin-right:5px;" value="so-14"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_14"
+															 value="so-14"
 															name="vulner" />
 														<label for="social_14">
 															<span class="label_table">AIR-SUMMER</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_15"
-															style="float:left; margin-right:5px;" value="so-15"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_15"
+															 value="so-15"
 															name="vulner" />
 														<label for="social_15">
 															<span class="label_table">AIR-AUTUMN</span>
 														</label>
 													</div>
 													<div class="icheck-greensea">
-														<input type="radio" id="social_16"
-															style="float:left; margin-right:5px;" value="so-16"
+														<input type="checkbox" onclick="layerChecked(this,9)" id="social_16"
+															 value="so-16"
 															name="vulner" />
 														<label for="social_16">
 															<span class="label_table">AIR-WINTER</span>
@@ -1259,9 +1259,6 @@
 													</div>
 
 												</div>
-
-
-
 
 												<!-- <div style="cursor:pointer; position: relative;"
 													onclick="cateAnimate('0');">
@@ -1469,16 +1466,15 @@
 
 											</div>
 										</div>
-
+<!-- 
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick="viewYousokLayer3('tif')">레이어 보기</div>
+											onclick="viewYousokLayer3('tif')">레이어 보기</div> -->
 									</div>
 								</div>
 							</div>
-
 							<!--part3_main_que-3-->
-
 							<!-- <div class="que3">
+
 								<span>범례</span>
 							</div>
 							<div class="anw3">
@@ -1963,7 +1959,7 @@
 				<div id="map"></div>
 
 				<!--레이어 선택 보기 창 구현-->
-				<div id="layer_select_absolute">
+				<div id="layer_select_absolute" class="removeLayerbox">
 					<div id="layer_select_title">레이어 선택 보기 창
 						<span><i class="fa-solid fa-x" onclick="layer_select_frame_off()"></i></span>
 					</div>
@@ -2011,14 +2007,36 @@
 								onclick="select_menu_change_range('2')"></i>
 						</div>
 
-
-
-
-
-						<div id="select_menu6" style="display: none;">[해양환경 영향평가] 보호구역 취약성
+						<!--보호구역취약성 16개-->
+						<div id="select_menu6" style="display: none;">[해양환경 영향평가] 보호구역 취약성-S
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('6')"></i>
-
+							<i class="fa-solid fa-eye select_logo_protect" 
+								onclick="select_menu_change_protect('1')"></i>
+							<i class="fa-solid fa-eye-slash select_logo_protect_off"
+								onclick="select_menu_change_protect('2')"></i>
 						</div>
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 						<div id="select_menu7" style="display: none;">[해양환경 영향평가] 종 취약성
 							<i class="fa-regular fa-trash-can select_logo_1" onclick="select_menu_delete('7')"></i>
 
@@ -2313,7 +2331,7 @@
 	</script>
 
 	<script>
-		javascript: CefCustomObject.showDevTools();
+		javascript: CefCustomObject.showDevTools(); //개발환경열기
 	</script>
 
 </body>

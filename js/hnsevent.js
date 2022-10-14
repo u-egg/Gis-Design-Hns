@@ -481,7 +481,6 @@ function viewYousokLayer2(type) {
     }
 }
 
-
 function drawTIF(
     binaryDATA,
     bufferSize,
@@ -1430,7 +1429,49 @@ function layerChecked(obj,val){
             $('.select_logo_midsuon_off').css('display','');
             tifLayer.remove();
         }
+        else if(val == '6'){ // 해양환경영향평가 (보호구역 취약성)
+            
+            var layertype = $('input[name=vulner]:checked').val();
+            var layertypeArr = layertype.split("-");
+            
+            $('.select_logo_protect').css('display','');
+            $('#select_menu6').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            layertype = layertypeArr[1];
+            javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
 	}
+    else{ // 체크해제시 이벤트
+        if(val == '1'){
+            $('#select_menu1').css('display','none');
+            select_menu_change('1');
+        }
+        else if(val == '2'){
+            $('#select_menu3').css('display','none');
+            select_menu_change_detailyousok('1');
+        }
+        else if(val == '3'){
+            $('#select_menu2').css('display','none');
+            select_menu_change_midsuon('1');
+        }
+        else if(val == '4'){
+            $('#select_menu4').css('display','none');
+            select_menu_change_detailsuon('1');
+        }
+        else if(val == '5'){
+            $('#select_menu5').css('display','none');
+            select_menu_change_range('1'); 
+        }
+    }
 }
 
 
@@ -1438,7 +1479,6 @@ function layerChecked(obj,val){
 function layer_select_frame_on(){
     //$("#layer_select_absolute").css("display", "block");
     $("#layer_select_absolute").removeClass('removeLayerbox');
-
 }
 
 function layer_select_frame_off(){
@@ -1465,7 +1505,16 @@ function select_menu_delete(value){
                 select_menu_change_detailsuon('1');
             }
             else if(i == 5){
-                select_menu_change_range('1');
+                select_menu_change_range('1'); 
+            }
+            else if(i == 6){
+                var layertype = $('input[name=vulner]:checked').val();
+                var layertypeArr = layertype.split("-");
+
+                j = layertypeArr[1];
+
+                $("input:checkbox[id='layer_"+i+"_"+j+"']").prop('checked',false); //체크박스 해제
+                select_menu_change_protect('1');
             }
         }
     }
@@ -1583,22 +1632,33 @@ function select_menu_change_range(value){
 }
 
 // 레이어 선택 보기 이벤트 (해양환경 영향평가)
-// function select_menu_change_range(value){
-//     if(value == '1'){
-//         $('.select_logo_range').css('display','none');
-//         $('.select_logo_range_off').css('display','');
-//         tifLayer.remove();
-//     }
-//     else{
-//         $('.select_logo_range_off').css('display','none');
-//         $('.select_logo_range').css('display','');
+function select_menu_change_protect(value){
+    
+    // var layertype = $('input[name=vulner]:checked').val();
+    // var layertypeArr = layertype.split("-");
 
-//         map.setView([
-//             34.7599, 127.7594
-//         ], 11);
-//         suonLayerType = "L3"
-//         javascripr : CefCustomObject.func('suon', suonLayerType);
+    if(value == '1'){
+        $('.select_logo_protect').css('display','none');
+        $('.select_logo_protect_off').css('display','');
+        tifLayer.remove();
+    }
+    else{
+        $('.select_logo_protect_off').css('display','none');
+        $('.select_logo_protect').css('display','');
 
-//     }
-// }
+        map.setView([
+            34.7599, 127.7594
+        ], 11);
+
+        var layertype = $('input[name=vulner]:checked').val();
+        var layertypeArr = layertype.split("-");
+
+        layertype = layertypeArr[1];
+        javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+
+        // suonLayerType = "L3"
+        // javascripr : CefCustomObject.func('suon', suonLayerType);
+
+    }
+}
 

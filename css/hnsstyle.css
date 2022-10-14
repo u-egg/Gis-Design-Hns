@@ -265,6 +265,10 @@ section {
     font-size: 13px;
 }
 
+#yousok_layer3 .icheck-greensea{
+    margin-top: -20px;
+    height: 30px;
+}
 .label_table{
     padding-left: 5px;
     position: relative;
@@ -409,7 +413,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 420px;
+    height: 290px;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -1112,7 +1116,9 @@ input[id="b"] {
     left: 10px;
 }
 
-.select_logo_midyousok{
+.select_logo_midyousok, .select_logo_midsuon, 
+.select_logo_detailyousok, .select_logo_detailsuon, 
+.select_logo_range, .select_logo_protect{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
@@ -1127,128 +1133,10 @@ input[id="b"] {
     z-index: 999;
 }
 
-.select_logo_midyousok_off{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #ccc;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    display: none;
-}
-
-.select_logo_midsuon{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #333;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    z-index: 999;
-}
-
-.select_logo_midsuon_off{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #ccc;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    display: none;
-}
-
-.select_logo_detailyousok{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #333;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    z-index: 999;
-}
-
-.select_logo_detailyousok_off{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #ccc;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    display: none;
-}
-
-
-.select_logo_detailsuon{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #333;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    z-index: 999;
-}
-
-.select_logo_detailsuon_off{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #ccc;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    display: none;
-}
-
-.select_logo_range{
-    font-size:14px;
-    margin-top: 3px;
-    padding-top: 5px;
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    background-color: #fff;
-    color: #333;
-    width: 30px;
-    text-align: center;
-    height: 24px;
-    z-index: 999;
-}
-
-.select_logo_range_off{
+.select_logo_midyousok_off, .select_logo_midsuon_off,
+.select_logo_detailyousok_off, .select_logo_detailsuon_off,
+.select_logo_range_off, .select_logo_protect_off
+{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
