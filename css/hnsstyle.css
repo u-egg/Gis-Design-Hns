@@ -1125,7 +1125,11 @@ input[id="b"] {
 .select_logo_species1,.select_logo_species2,.select_logo_species3,.select_logo_species4,
 .select_logo_species5,.select_logo_species6,.select_logo_species7,.select_logo_species8,
 .select_logo_species9,.select_logo_species10,.select_logo_species11,.select_logo_species12,
-.select_logo_species13,.select_logo_species14,.select_logo_species15,.select_logo_species16{
+.select_logo_species13,.select_logo_species14,.select_logo_species15,.select_logo_species16,
+.select_logo_area1,.select_logo_area2,.select_logo_area3,.select_logo_area4,
+.select_logo_area5,.select_logo_area6,.select_logo_area7,.select_logo_area8,
+.select_logo_area9,.select_logo_area10,.select_logo_area11,.select_logo_area12,
+.select_logo_area13,.select_logo_area14,.select_logo_area15,.select_logo_area16{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
@@ -1150,7 +1154,11 @@ input[id="b"] {
 .select_logo_species_off1,.select_logo_species_off2,.select_logo_species_off3,.select_logo_species_off4,
 .select_logo_species_off5,.select_logo_species_off6,.select_logo_species_off7,.select_logo_species_off8,
 .select_logo_species_off9,.select_logo_species_off10,.select_logo_species_off11,.select_logo_species_off12,
-.select_logo_species_off13,.select_logo_species_off14,.select_logo_species_off15,.select_logo_species_off16
+.select_logo_species_off13,.select_logo_species_off14,.select_logo_species_off15,.select_logo_species_off16,
+.select_logo_area_off1,.select_logo_area_off2,.select_logo_area_off3,.select_logo_area_off4,
+.select_logo_area_off5,.select_logo_area_off6,.select_logo_area_off7,.select_logo_area_off8,
+.select_logo_area_off9,.select_logo_area_off10,.select_logo_area_off11,.select_logo_area_off12,
+.select_logo_area_off13,.select_logo_area_off14,.select_logo_area_off15,.select_logo_area_off16
 {
     font-size:14px;
     margin-top: 3px;

@@ -258,9 +258,6 @@ function layerChecked(obj,val){
             // tifLayer.remove();
         }
 
-
-
-
         else if(val == '69'){
             
             var layertype = 09;
@@ -555,9 +552,6 @@ function layerChecked(obj,val){
             // tifLayer.remove();
         }
 
-
-
-
         else if(val == '79'){
             
             var layertype = 09;
@@ -704,6 +698,299 @@ function layerChecked(obj,val){
             // tifLayer.remove();
         }
 
+
+        // 서식지 취약성
+        else if(val == '81'){
+            
+            var layertype = 01;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu81').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '82'){ 
+            
+            var layertype = 02;
+
+            $('.select_logo_area').css('display','');
+            $('#select_menu82').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '83'){ 
+            
+            var layertype = 03;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu83').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '84'){ 
+            
+            var layertype = 04;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu84').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+        else if(val == '85'){
+            
+            var layertype = 05;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu85').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '86'){ 
+            
+            var layertype = 06;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu86').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '87'){ 
+            
+            var layertype = 07;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu87').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '88'){ 
+            
+            var layertype = 08;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu88').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+        else if(val == '89'){
+            
+            var layertype = 09;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu89').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '810'){ 
+            
+            var layertype = 10;
+
+            $('.select_logo_area').css('display','');
+            $('#select_menu810').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '811'){ 
+            
+            var layertype = 11;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu811').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '812'){ 
+            
+            var layertype = 12;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu812').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+
+        else if(val == '813'){
+            
+            var layertype = 13;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu813').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '814'){ 
+            
+            var layertype = 14;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu814').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '815'){ 
+            
+            var layertype = 15;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu815').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
+        else if(val == '816'){ 
+            
+            var layertype = 16;
+            
+            $('.select_logo_area').css('display','');
+            $('#select_menu816').css('display','block');
+
+            map.setView([
+                34.7599, 127.7594
+            ], 11);
+
+            javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+            //중복 방지
+            // $('.select_logo_midsuon').css('display','none');
+            // $('.select_logo_midsuon_off').css('display','');
+            // tifLayer.remove();
+        }
         
 	}
 
@@ -874,6 +1161,79 @@ function layerChecked(obj,val){
         }
         else if(val == '716'){
             $('#select_menu716').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        // 서식지 취약성
+        else if(val == '81'){
+            $('#select_menu81').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '82'){
+            $('#select_menu82').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '83'){
+            $('#select_menu83').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '84'){
+            $('#select_menu84').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '85'){
+            $('#select_menu85').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '86'){
+            $('#select_menu86').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '87'){
+            $('#select_menu87').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '88'){
+            $('#select_menu88').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '89'){
+            $('#select_menu89').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '810'){
+            $('#select_menu810').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '811'){
+            $('#select_menu811').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '812'){
+            $('#select_menu812').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+
+
+        else if(val == '813'){
+            $('#select_menu813').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '814'){
+            $('#select_menu814').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '815'){
+            $('#select_menu815').css('display','none');
+            //select_menu_change_range('1'); 
+        }
+        else if(val == '816'){
+            $('#select_menu816').css('display','none');
             //select_menu_change_range('1'); 
         }
     }
@@ -1054,6 +1414,76 @@ function select_menu_delete(value){
                 $("input:checkbox[id='layer_7_16']").prop('checked',false); //체크박스 해제
                 select_menu_change_species('1');
             }
+
+
+            //서식지 취약성
+            else if(i == 81){
+                $("input:checkbox[id='layer_8_01']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 82){
+                $("input:checkbox[id='layer_8_02']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 83){
+                $("input:checkbox[id='layer_8_03']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }            
+            else if(i == 84){
+                $("input:checkbox[id='layer_8_04']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+
+            else if(i == 85){
+                $("input:checkbox[id='layer_8_05']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 86){
+                $("input:checkbox[id='layer_8_06']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 87){
+                $("input:checkbox[id='layer_8_07']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }            
+            else if(i == 88){
+                $("input:checkbox[id='layer_8_08']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+
+            else if(i == 89){
+                $("input:checkbox[id='layer_8_09']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 810){
+                $("input:checkbox[id='layer_8_10']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 811){
+                $("input:checkbox[id='layer_8_11']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }            
+            else if(i == 812){
+                $("input:checkbox[id='layer_8_12']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+
+            else if(i == 813){
+                $("input:checkbox[id='layer_8_13']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 814){
+                $("input:checkbox[id='layer_8_14']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
+            else if(i == 815){
+                $("input:checkbox[id='layer_8_15']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }            
+            else if(i == 816){
+                $("input:checkbox[id='layer_8_16']").prop('checked',false); //체크박스 해제
+                select_menu_change_area('1');
+            }
         }
     }
 }
@@ -1172,7 +1602,8 @@ function select_menu_change_range(value){
 }
 
 // 레이어 선택 보기 이벤트 (해양환경 영향평가)
-// 보호구역 (건드릴 필요 x)
+
+// 보호구역취약성 (건드릴 필요 x)
 function select_menu_change_protect(value,val,c_val){
     
     // var layertype = $('input[name=vulner]:checked').val();
@@ -1228,3 +1659,30 @@ function select_menu_change_species(value,val,c_val){
     }
 }
 
+// 서식지 취약성 (건드릴 필요 x)
+function select_menu_change_area(value,val,c_val){
+    
+    // var layertype = $('input[name=vulner]:checked').val();
+    // var layertypeArr = layertype.split("-");
+
+    if(value == '1'){
+        $('.select_logo_area' + val).css('display','none');
+        $('.select_logo_area_off' + val).css('display','');
+        tifLayer.remove();
+    }
+    else{
+        $('.select_logo_area_off' + val).css('display','none');
+        $('.select_logo_area' + val).css('display','');
+
+        map.setView([
+            34.7599, 127.7594
+        ], 11);
+
+        layertype = c_val;
+        javascripr : CefCustomObject.func('vulnerability_area', layertype);
+
+        // suonLayerType = "L3"
+        // javascripr : CefCustomObject.func('suon', suonLayerType);
+
+    }
+}
