@@ -413,7 +413,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 290px;
+    height: 400px;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -446,7 +446,6 @@ section {
     padding-left: 2rem;
     position: relative;
 }
-
 
 .anw2 {
     margin: 0 auto;
@@ -1122,7 +1121,11 @@ input[id="b"] {
 .select_logo_protect1,.select_logo_protect2,.select_logo_protect3,.select_logo_protect4,
 .select_logo_protect5,.select_logo_protect6,.select_logo_protect7,.select_logo_protect8,
 .select_logo_protect9,.select_logo_protect10,.select_logo_protect11,.select_logo_protect12,
-.select_logo_protect13,.select_logo_protect14,.select_logo_protect15,.select_logo_protect16{
+.select_logo_protect13,.select_logo_protect14,.select_logo_protect15,.select_logo_protect16,
+.select_logo_species1,.select_logo_species2,.select_logo_species3,.select_logo_species4,
+.select_logo_species5,.select_logo_species6,.select_logo_species7,.select_logo_species8,
+.select_logo_species9,.select_logo_species10,.select_logo_species11,.select_logo_species12,
+.select_logo_species13,.select_logo_species14,.select_logo_species15,.select_logo_species16{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
@@ -1143,7 +1146,11 @@ input[id="b"] {
 .select_logo_protect_off1,.select_logo_protect_off2,.select_logo_protect_off3,.select_logo_protect_off4,
 .select_logo_protect_off5,.select_logo_protect_off6,.select_logo_protect_off7,.select_logo_protect_off8,
 .select_logo_protect_off9,.select_logo_protect_off10,.select_logo_protect_off11,.select_logo_protect_off12,
-.select_logo_protect_off13,.select_logo_protect_off14,.select_logo_protect_off15,.select_logo_protect_off16
+.select_logo_protect_off13,.select_logo_protect_off14,.select_logo_protect_off15,.select_logo_protect_off16,
+.select_logo_species_off1,.select_logo_species_off2,.select_logo_species_off3,.select_logo_species_off4,
+.select_logo_species_off5,.select_logo_species_off6,.select_logo_species_off7,.select_logo_species_off8,
+.select_logo_species_off9,.select_logo_species_off10,.select_logo_species_off11,.select_logo_species_off12,
+.select_logo_species_off13,.select_logo_species_off14,.select_logo_species_off15,.select_logo_species_off16
 {
     font-size:14px;
     margin-top: 3px;
