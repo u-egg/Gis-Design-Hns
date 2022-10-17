@@ -601,7 +601,7 @@ function layerChecked(obj,val){
         else if(val == '76'){ 
             
             var layertype = '06';
-            var num = '7';
+            var num = '6';
             
             $('#select_menu76').css('display','block');
             $('.select_logo_species' + num).css('display','');
@@ -871,7 +871,7 @@ function layerChecked(obj,val){
         else if(val == '86'){ 
             
             var layertype = '06';
-            var num = '7';
+            var num = '6';
             
             $('#select_menu86').css('display','block');
             $('.select_logo_area' + num).css('display','');
@@ -1142,7 +1142,7 @@ function layerChecked(obj,val){
         else if(val == '96'){ 
             
             var layertype = '06';
-            var num = '7';
+            var num = '6';
             
             $('#select_menu96').css('display','block');
             $('.select_logo_social' + num).css('display','');
@@ -1454,7 +1454,6 @@ function layerChecked(obj,val){
 
         }
 
-
         // 종취약성
         else if(val == '71'){
             $('#select_menu71').css('display','none');
@@ -1476,7 +1475,6 @@ function layerChecked(obj,val){
             select_menu_change_species('1','4','04');
 
         }
-
 
         else if(val == '75'){
             $('#select_menu75').css('display','none');
