@@ -438,7 +438,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 55rem;
+    height: 37rem;
     display: block;
     font-size: 1.4rem;
     border: 1px solid #ddd;
@@ -1129,7 +1129,13 @@ input[id="b"] {
 .select_logo_area1,.select_logo_area2,.select_logo_area3,.select_logo_area4,
 .select_logo_area5,.select_logo_area6,.select_logo_area7,.select_logo_area8,
 .select_logo_area9,.select_logo_area10,.select_logo_area11,.select_logo_area12,
-.select_logo_area13,.select_logo_area14,.select_logo_area15,.select_logo_area16{
+.select_logo_area13,.select_logo_area14,.select_logo_area15,.select_logo_area16,
+.select_logo_social1,.select_logo_social2,.select_logo_social3,.select_logo_social4,
+.select_logo_social5,.select_logo_social6,.select_logo_social7,.select_logo_social8,
+.select_logo_social9,.select_logo_social10,.select_logo_social11,.select_logo_social12,
+.select_logo_social13,.select_logo_social14,.select_logo_social15,.select_logo_social16,
+.select_logo_db1,.select_logo_db2,.select_logo_db3,.select_logo_db4
+{
     font-size:14px;
     margin-top: 3px;
     padding-top: 5px;
@@ -1158,7 +1164,12 @@ input[id="b"] {
 .select_logo_area_off1,.select_logo_area_off2,.select_logo_area_off3,.select_logo_area_off4,
 .select_logo_area_off5,.select_logo_area_off6,.select_logo_area_off7,.select_logo_area_off8,
 .select_logo_area_off9,.select_logo_area_off10,.select_logo_area_off11,.select_logo_area_off12,
-.select_logo_area_off13,.select_logo_area_off14,.select_logo_area_off15,.select_logo_area_off16
+.select_logo_area_off13,.select_logo_area_off14,.select_logo_area_off15,.select_logo_area_off16,
+.select_logo_social_off1,.select_logo_social_off2,.select_logo_social_off3,.select_logo_social_off4,
+.select_logo_social_off5,.select_logo_social_off6,.select_logo_social_off7,.select_logo_social_off8,
+.select_logo_social_off9,.select_logo_social_off10,.select_logo_social_off11,.select_logo_social_off12,
+.select_logo_social_off13,.select_logo_social_off14,.select_logo_social_off15,.select_logo_social_off16,
+.select_logo_db_off1,.select_logo_db_off2,.select_logo_db_off3,.select_logo_db_off4
 {
     font-size:14px;
     margin-top: 3px;
