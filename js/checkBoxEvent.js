@@ -144,6 +144,8 @@ function layerChecked(obj,val){
             $('.select_logo_db3_off').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db4_off').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
             
             javascripr : CefCustomObject.func('database', dbLayerType);
 
@@ -165,6 +167,8 @@ function layerChecked(obj,val){
             $('.select_logo_db3_off').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db4_off').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
 
             javascripr : CefCustomObject.func('database', dbLayerType);
 
@@ -186,6 +190,8 @@ function layerChecked(obj,val){
             $('.select_logo_db1_off').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db4_off').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
 
             javascripr : CefCustomObject.func('database', dbLayerType);
 
@@ -207,10 +213,36 @@ function layerChecked(obj,val){
             $('.select_logo_db3_off').css('display',''); 
             $('.select_logo_db1').css('display','none');
             $('.select_logo_db1_off').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
 
             javascripr : CefCustomObject.func('database', dbLayerType);
 
         }
+        else if(val == '999'){    
+
+            $('.select_logo_st1').css('display','');
+
+            dbLayerType = "해양산업시설_Point";
+
+            $('#select_menu999').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            $('.select_logo_db1').css('display','none');
+            $('.select_logo_db_off1').css('display',''); 
+            $('.select_logo_db2').css('display','none');
+            $('.select_logo_db_off2').css('display',''); 
+            $('.select_logo_db3').css('display','none');
+            $('.select_logo_db_off3').css('display',''); 
+            $('.select_logo_db4').css('display','none');
+            $('.select_logo_db_off4').css('display','');
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
 
         // 해양환경영향평가 (보호구역 취약성) , (번호수정필요)
         else if(val == '61'){
@@ -1326,104 +1358,133 @@ function layerChecked(obj,val){
 	}
 
     else{ // 체크해제시 이벤트
+        
         if(val == '1'){
             $('#select_menu1').css('display','none');
+            select_menu_change('1');
         }
         else if(val == '2'){
             $('#select_menu3').css('display','none');
+            select_menu_change_detailyousok('1');
         }
         else if(val == '3'){
             $('#select_menu2').css('display','none');
+            select_menu_change_midsuon('1');
         }
         else if(val == '4'){
             $('#select_menu4').css('display','none');
+            select_menu_change_detailsuon('1');
         }
         else if(val == '5'){
             $('#select_menu5').css('display','none');
+            select_menu_change_range('1'); 
         }
+
         else if(val == '10'){
             $('#select_menu10').css('display','none');
+            select_menu_change_db('1','1')
         }
         else if(val == '11'){
             $('#select_menu11').css('display','none');
+            select_menu_change_db('1','2')
         }
         else if(val == '12'){
             $('#select_menu12').css('display','none');
+            select_menu_change_db('1','3')
         }
         else if(val == '13'){
             $('#select_menu13').css('display','none');
+            select_menu_change_db('1','4')
         }
-
+        else if(val == '999'){
+            $('#select_menu999').css('display','none');
+            select_menu_change_info('1','1')
+        }
         // 해양환경평가 (번호 수정 필요)
         // 보호구역취약성
         else if(val == '61'){
             $('#select_menu61').css('display','none');
-
+			select_menu_change_protect('1','1','01');
         }
         else if(val == '62'){
             $('#select_menu62').css('display','none');
+			select_menu_change_protect('1','2','02');
 
         }
         else if(val == '63'){
             $('#select_menu63').css('display','none');
+			select_menu_change_protect('1','3','03');
 
         }
         else if(val == '64'){
             $('#select_menu64').css('display','none');
+			select_menu_change_protect('1','4','04');
 
         }
 
 
         else if(val == '65'){
             $('#select_menu65').css('display','none');
+			select_menu_change_protect('1','5','05');
 
         }
         else if(val == '66'){
             $('#select_menu66').css('display','none');
+			select_menu_change_protect('1','6','06');
 
         }
         else if(val == '67'){
             $('#select_menu67').css('display','none');
+			select_menu_change_protect('1','7','07');
 
         }
         else if(val == '68'){
             $('#select_menu68').css('display','none');
+			select_menu_change_protect('1','8','08');
 
         }
 
 
         else if(val == '69'){
             $('#select_menu69').css('display','none');
+			select_menu_change_protect('1','9','09');
 
         }
         else if(val == '610'){
             $('#select_menu610').css('display','none');
+			select_menu_change_protect('1','10','10');
 
         }
         else if(val == '611'){
             $('#select_menu611').css('display','none');
+			select_menu_change_protect('1','11','11');
 
         }
         else if(val == '612'){
             $('#select_menu612').css('display','none');
+			select_menu_change_protect('1','12','12');
 
         }
 
 
         else if(val == '613'){
             $('#select_menu613').css('display','none');
+			select_menu_change_protect('1','13','13');
 
         }
         else if(val == '614'){
             $('#select_menu614').css('display','none');
+			select_menu_change_protect('1','14','14');
 
         }
         else if(val == '615'){
             $('#select_menu615').css('display','none');
+			select_menu_change_protect('1','15','15');
 
         }
         else if(val == '616'){
             $('#select_menu616').css('display','none');
+			select_menu_change_protect('1','16','16');
 
         }
 
@@ -1431,72 +1492,88 @@ function layerChecked(obj,val){
         // 종취약성
         else if(val == '71'){
             $('#select_menu71').css('display','none');
+            select_menu_change_species('1','1','01');
 
         }
         else if(val == '72'){
             $('#select_menu72').css('display','none');
+            select_menu_change_species('1','2','02');
 
         }
         else if(val == '73'){
             $('#select_menu73').css('display','none');
+            select_menu_change_species('1','3','03');
 
         }
         else if(val == '74'){
             $('#select_menu74').css('display','none');
+            select_menu_change_species('1','4','04');
 
         }
 
 
         else if(val == '75'){
             $('#select_menu75').css('display','none');
+            select_menu_change_species('1','5','05');
 
         }
         else if(val == '76'){
             $('#select_menu76').css('display','none');
+            select_menu_change_species('1','6','06');
 
         }
         else if(val == '77'){
             $('#select_menu77').css('display','none');
+            select_menu_change_species('1','7','07');
 
         }
         else if(val == '78'){
             $('#select_menu78').css('display','none');
+            select_menu_change_species('1','8','08');
 
         }
 
 
         else if(val == '79'){
             $('#select_menu79').css('display','none');
+            select_menu_change_species('1','9','09');
 
         }
         else if(val == '710'){
             $('#select_menu710').css('display','none');
+            select_menu_change_species('1','10','10');
 
         }
         else if(val == '711'){
             $('#select_menu711').css('display','none');
+            select_menu_change_species('1','11','11');
 
         }
         else if(val == '712'){
             $('#select_menu712').css('display','none');
+            select_menu_change_species('1','12','12');
 
         }
 
 
         else if(val == '713'){
             $('#select_menu713').css('display','none');
+            select_menu_change_species('1','13','13');
 
         }
         else if(val == '714'){
             $('#select_menu714').css('display','none');
+            select_menu_change_species('1','14','14');
 
         }
         else if(val == '715'){
             $('#select_menu715').css('display','none');
+            select_menu_change_species('1','15','15');
 
         }
         else if(val == '716'){
             $('#select_menu716').css('display','none');
+            select_menu_change_species('1','16','16');
 
         }
 
@@ -1504,144 +1581,174 @@ function layerChecked(obj,val){
         // 서식지 취약성
         else if(val == '81'){
             $('#select_menu81').css('display','none');
+            select_menu_change_area('1','1','01');
 
         }
         else if(val == '82'){
             $('#select_menu82').css('display','none');
+            select_menu_change_area('1','2','02');
 
         }
         else if(val == '83'){
             $('#select_menu83').css('display','none');
+            select_menu_change_area('1','3','03');
 
         }
         else if(val == '84'){
             $('#select_menu84').css('display','none');
+            select_menu_change_area('1','4','04');
 
         }
 
 
         else if(val == '85'){
             $('#select_menu85').css('display','none');
+            select_menu_change_area('1','5','05');
 
         }
         else if(val == '86'){
             $('#select_menu86').css('display','none');
+            select_menu_change_area('1','6','06');
 
         }
         else if(val == '87'){
             $('#select_menu87').css('display','none');
+            select_menu_change_area('1','7','07');
 
         }
         else if(val == '88'){
             $('#select_menu88').css('display','none');
+            select_menu_change_area('1','8','08');
 
         }
 
 
         else if(val == '89'){
             $('#select_menu89').css('display','none');
+            select_menu_change_area('1','9','09');
 
         }
         else if(val == '810'){
             $('#select_menu810').css('display','none');
+            select_menu_change_area('1','10','10');
 
         }
         else if(val == '811'){
             $('#select_menu811').css('display','none');
+            select_menu_change_area('1','11','11');
 
         }
         else if(val == '812'){
             $('#select_menu812').css('display','none');
+            select_menu_change_area('1','12','12');
 
         }
 
 
         else if(val == '813'){
             $('#select_menu813').css('display','none');
+            select_menu_change_area('1','13','13');
 
         }
         else if(val == '814'){
             $('#select_menu814').css('display','none');
+            select_menu_change_area('1','14','14');
 
         }
         else if(val == '815'){
             $('#select_menu815').css('display','none');
+            select_menu_change_area('1','15','15');
 
         }
         else if(val == '816'){
             $('#select_menu816').css('display','none');
+            select_menu_change_area('1','16','16');
 
         }
 
         // 사회경제 취약성
         else if(val == '91'){
             $('#select_menu91').css('display','none');
+            select_menu_change_social('1','1','01');
 
         }
         else if(val == '92'){
             $('#select_menu92').css('display','none');
+            select_menu_change_social('1','2','02');
 
         }
         else if(val == '93'){
             $('#select_menu93').css('display','none');
+            select_menu_change_social('1','3','03');
 
         }
         else if(val == '94'){
             $('#select_menu94').css('display','none');
+            select_menu_change_social('1','4','04');
 
         }
 
 
         else if(val == '95'){
             $('#select_menu95').css('display','none');
+            select_menu_change_social('1','5','05');
 
         }
         else if(val == '96'){
             $('#select_menu96').css('display','none');
+            select_menu_change_social('1','6','06');
 
         }
         else if(val == '97'){
             $('#select_menu97').css('display','none');
+            select_menu_change_social('1','7','07');
 
         }
         else if(val == '98'){
             $('#select_menu98').css('display','none');
+            select_menu_change_social('1','8','08');
 
         }
 
-
         else if(val == '99'){
             $('#select_menu99').css('display','none');
+            select_menu_change_social('1','09','09');
 
         }
         else if(val == '910'){
             $('#select_menu910').css('display','none');
+            select_menu_change_social('1','10','10');
 
         }
         else if(val == '911'){
             $('#select_menu911').css('display','none');
+            select_menu_change_social('1','11','11');
 
         }
         else if(val == '912'){
             $('#select_menu912').css('display','none');
+            select_menu_change_social('1','12','12');
 
         }
 
-
         else if(val == '913'){
             $('#select_menu913').css('display','none');
+            select_menu_change_social('1','13','13');
 
         }
         else if(val == '914'){
             $('#select_menu914').css('display','none');
+            select_menu_change_social('1','14','14');
 
         }
         else if(val == '915'){
             $('#select_menu915').css('display','none');
+            select_menu_change_social('1','15','15');
 
         }
         else if(val == '916'){
             $('#select_menu916').css('display','none');
+            select_menu_change_social('1','16','16');
 
         }
     }
@@ -1659,12 +1766,14 @@ function layer_select_frame_off(){
 }
 
 function select_menu_delete(value){
-    for(var i =1; i < 999; i++){
+    for(var i =1; i < 1000; i++){
         if(i == value){
             $('#select_menu'+ value).css('display','none');
             $("input:checkbox[id='layer_"+i+"']").prop('checked',false); //체크박스 해제
            
+
             //체크박스 해제 시 만약 그려져 있다면 레이어 제거
+
             if(i == 1){
                 select_menu_change('1');
             }
@@ -1691,6 +1800,11 @@ function select_menu_delete(value){
             }
             else if(i == 13){
                 select_menu_change_db('1','4'); 
+            }
+
+            //해양산업시설 (임시)
+            else if(i == 999){
+                select_menu_change_info('1','1'); 
             }
 
             //보호구역취약성
@@ -2114,7 +2228,6 @@ function select_menu_change_db(value,val){
         $('.select_logo_db_off' + val).css('display','');
         map.removeLayer(shpLayer);
     }
-
     else{
         $('.select_logo_db_off' + val).css('display','none');
         $('.select_logo_db' + val).css('display','');
@@ -2129,6 +2242,8 @@ function select_menu_change_db(value,val){
             $('.select_logo_db_off3').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db_off4').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
         }
         else if(val == '2'){
             dbLayerType = "16_특별관리해역";
@@ -2139,6 +2254,8 @@ function select_menu_change_db(value,val){
             $('.select_logo_db_off3').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db_off4').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
         }
         else if(val == '3'){
             dbLayerType = "양식장영역";
@@ -2149,7 +2266,10 @@ function select_menu_change_db(value,val){
             $('.select_logo_db_off1').css('display',''); 
             $('.select_logo_db4').css('display','none');
             $('.select_logo_db_off4').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
         }
+
         else if(val =='4'){
             dbLayerType = "조업집중구역(봄)";
 
@@ -2159,6 +2279,8 @@ function select_menu_change_db(value,val){
             $('.select_logo_db_off3').css('display',''); 
             $('.select_logo_db1').css('display','none');
             $('.select_logo_db_off1').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
         }
 
         map.setView([
@@ -2167,6 +2289,47 @@ function select_menu_change_db(value,val){
 
         javascripr : CefCustomObject.func('database', dbLayerType);
 
+    }
+}
+
+function select_menu_change_info(value,val){
+
+
+
+    if(value == '1'){
+        $('.select_logo_st' + val).css('display','none');
+        $('.select_logo_st_off' + val).css('display','');
+        map.removeLayer(shpLayer);
+    }
+
+    else{
+
+        
+        $('.select_logo_st_off' + val).css('display','none');
+        $('.select_logo_st' + val).css('display','');
+
+        if (val =='1'){
+
+            dbLayerType = "해양산업시설_Point";
+
+            $('.select_logo_db1').css('display','none');
+            $('.select_logo_db_off1').css('display',''); 
+            $('.select_logo_db2').css('display','none');
+            $('.select_logo_db_off2').css('display',''); 
+            $('.select_logo_db3').css('display','none');
+            $('.select_logo_db_off3').css('display',''); 
+            $('.select_logo_db4').css('display','none');
+            $('.select_logo_db_off4').css('display','');
+
+        }
+
+        map.setView([
+            36.5, 126
+        ], 7);
+
+        javascripr : CefCustomObject.func('database', dbLayerType);
+
+        
     }
 }
 
