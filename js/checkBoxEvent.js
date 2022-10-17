@@ -248,46 +248,50 @@ function layerChecked(obj,val){
         else if(val == '61'){
             
             var layertype = '01';
-            
+            var num = '1';
+
             $('#select_menu61').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
 
+            deleteLayer(num);
+
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
-            //중복 방지
-            // $('.select_logo_midsuon').css('display','none');
-            // $('.select_logo_midsuon_off').css('display','');
-            // tifLayer.remove();
         }
         else if(val == '62'){ 
             
             var layertype = '02';
+            var num ='2';
 
             $('#select_menu62').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
 
+            deleteLayer(num);
+
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
-            //중복 방지
-            // $('.select_logo_midsuon').css('display','none');
-            // $('.select_logo_midsuon_off').css('display','');
-            // tifLayer.remove();
         }
         else if(val == '63'){ 
             
             var layertype = '03';
-            
+            var num = '3';
+
             $('#select_menu63').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -299,12 +303,16 @@ function layerChecked(obj,val){
         else if(val == '64'){ 
             
             var layertype = '04';
-            
+            var num = '4';
+
             $('#select_menu64').css('display','block');
+            $('.select_logo_protect4').css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -317,12 +325,16 @@ function layerChecked(obj,val){
         else if(val == '65'){
             
             var layertype = '05';
-            
+            var num = '5';
+
             $('#select_menu65').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -334,12 +346,16 @@ function layerChecked(obj,val){
         else if(val == '66'){ 
             
             var layertype = '06';
+            var num = '6';
             
             $('#select_menu66').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -351,12 +367,16 @@ function layerChecked(obj,val){
         else if(val == '67'){ 
             
             var layertype = '07';
+            var num = '7';
             
             $('#select_menu67').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -368,12 +388,16 @@ function layerChecked(obj,val){
         else if(val == '68'){ 
             
             var layertype = '08';
+            var num = '8';
             
             $('#select_menu68').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -386,12 +410,16 @@ function layerChecked(obj,val){
         else if(val == '69'){
             
             var layertype = '09';
-            
+            var num = '9';
+
             $('#select_menu69').css('display','block');
+            $('.select_logo_protect' + num).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -405,10 +433,13 @@ function layerChecked(obj,val){
             var layertype = '10';
 
             $('#select_menu610').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -422,10 +453,13 @@ function layerChecked(obj,val){
             var layertype = '11';
             
             $('#select_menu611').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -439,10 +473,13 @@ function layerChecked(obj,val){
             var layertype = '12';
             
             $('#select_menu612').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -457,10 +494,13 @@ function layerChecked(obj,val){
             var layertype = '13';
             
             $('#select_menu613').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -474,10 +514,13 @@ function layerChecked(obj,val){
             var layertype = '14';
             
             $('#select_menu614').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -491,10 +534,13 @@ function layerChecked(obj,val){
             var layertype = '15';
             
             $('#select_menu615').css('display','block');
+            $('.select_logo_protect' + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -508,10 +554,13 @@ function layerChecked(obj,val){
             var layertype = '16';
             
             $('#select_menu616').css('display','block');
+            $('.select_logo_protect'  + layertype).css('display','');
 
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -1810,283 +1859,283 @@ function select_menu_delete(value){
             //보호구역취약성
             else if(i == 61){
                 $("input:checkbox[id='layer_6_01']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','1','01');
             }
             else if(i == 62){
                 $("input:checkbox[id='layer_6_02']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','2','02');
             }
             else if(i == 63){
                 $("input:checkbox[id='layer_6_03']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','3','03');
             }            
             else if(i == 64){
                 $("input:checkbox[id='layer_6_04']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','4','04');
             }
 
             else if(i == 65){
                 $("input:checkbox[id='layer_6_05']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','5','05');
             }
             else if(i == 66){
                 $("input:checkbox[id='layer_6_06']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','6','06');
             }
             else if(i == 67){
                 $("input:checkbox[id='layer_6_07']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','7','07');
             }            
             else if(i == 68){
                 $("input:checkbox[id='layer_6_08']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','8','08');
             }
 
 
             else if(i == 69){
                 $("input:checkbox[id='layer_6_09']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','9','09');
             }
             else if(i == 610){
                 $("input:checkbox[id='layer_6_10']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','10','10');
             }
             else if(i == 611){
                 $("input:checkbox[id='layer_6_11']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','11','11');
             }            
             else if(i == 612){
                 $("input:checkbox[id='layer_6_12']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','12','12');
             }
 
             else if(i == 613){
                 $("input:checkbox[id='layer_6_13']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','13','13');
             }
             else if(i == 614){
                 $("input:checkbox[id='layer_6_14']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','14','14');
             }
             else if(i == 615){
                 $("input:checkbox[id='layer_6_15']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','15','15');
             }            
             else if(i == 616){
                 $("input:checkbox[id='layer_6_16']").prop('checked',false); //체크박스 해제
-                select_menu_change_protect('1');
+                select_menu_change_protect('1','16','16');
             }
-
-
 
             //종취약성
             else if(i == 71){
                 $("input:checkbox[id='layer_7_01']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','1','01');
             }
             else if(i == 72){
                 $("input:checkbox[id='layer_7_02']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','2','02');
             }
             else if(i == 73){
                 $("input:checkbox[id='layer_7_03']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','3','03');
             }            
             else if(i == 74){
                 $("input:checkbox[id='layer_7_04']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','4','04');
             }
 
             else if(i == 75){
                 $("input:checkbox[id='layer_7_05']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','5','05');
             }
             else if(i == 76){
                 $("input:checkbox[id='layer_7_06']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','6','06');
             }
             else if(i == 77){
                 $("input:checkbox[id='layer_7_07']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','7','07');
             }            
             else if(i == 78){
                 $("input:checkbox[id='layer_7_08']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','8','08');
             }
 
 
             else if(i == 79){
                 $("input:checkbox[id='layer_7_09']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','9','09');
             }
             else if(i == 710){
                 $("input:checkbox[id='layer_7_10']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','10','10');
             }
             else if(i == 711){
                 $("input:checkbox[id='layer_7_11']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','11','11');
             }            
             else if(i == 712){
                 $("input:checkbox[id='layer_7_12']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','12','12');
             }
 
             else if(i == 713){
                 $("input:checkbox[id='layer_7_13']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','13','13');
             }
             else if(i == 714){
                 $("input:checkbox[id='layer_7_14']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','14','14');
             }
             else if(i == 715){
                 $("input:checkbox[id='layer_7_15']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','15','15');
             }            
             else if(i == 716){
                 $("input:checkbox[id='layer_7_16']").prop('checked',false); //체크박스 해제
-                select_menu_change_species('1');
+                select_menu_change_species('1','16','16');
             }
-
 
             //서식지 취약성
             else if(i == 81){
                 $("input:checkbox[id='layer_8_01']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','1','01');
             }
             else if(i == 82){
                 $("input:checkbox[id='layer_8_02']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','2','02');
             }
             else if(i == 83){
                 $("input:checkbox[id='layer_8_03']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','3','03');
             }            
             else if(i == 84){
                 $("input:checkbox[id='layer_8_04']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','4','04');
             }
 
             else if(i == 85){
                 $("input:checkbox[id='layer_8_05']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','5','05');
             }
             else if(i == 86){
                 $("input:checkbox[id='layer_8_06']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','6','06');
             }
             else if(i == 87){
                 $("input:checkbox[id='layer_8_07']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','7','07');
             }            
             else if(i == 88){
                 $("input:checkbox[id='layer_8_08']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','8','08');
             }
+
 
             else if(i == 89){
                 $("input:checkbox[id='layer_8_09']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','9','09');
             }
             else if(i == 810){
                 $("input:checkbox[id='layer_8_10']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','10','10');
             }
             else if(i == 811){
                 $("input:checkbox[id='layer_8_11']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','11','11');
             }            
             else if(i == 812){
                 $("input:checkbox[id='layer_8_12']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','12','12');
             }
 
             else if(i == 813){
                 $("input:checkbox[id='layer_8_13']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','13','13');
             }
             else if(i == 814){
                 $("input:checkbox[id='layer_8_14']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','14','14');
             }
             else if(i == 815){
                 $("input:checkbox[id='layer_8_15']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','15','15');
             }            
             else if(i == 816){
                 $("input:checkbox[id='layer_8_16']").prop('checked',false); //체크박스 해제
-                select_menu_change_area('1');
+                select_menu_change_area('1','16','16');
             }
-
+            
             //사회경제 취약성
             else if(i == 91){
                 $("input:checkbox[id='layer_9_01']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','1','01');
             }
             else if(i == 92){
                 $("input:checkbox[id='layer_9_02']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','2','02');
             }
             else if(i == 93){
                 $("input:checkbox[id='layer_9_03']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','3','03');
             }            
             else if(i == 94){
                 $("input:checkbox[id='layer_9_04']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','4','04');
             }
 
             else if(i == 95){
                 $("input:checkbox[id='layer_9_05']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','5','05');
             }
             else if(i == 96){
                 $("input:checkbox[id='layer_9_06']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','6','06');
             }
             else if(i == 97){
                 $("input:checkbox[id='layer_9_07']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','7','07');
             }            
             else if(i == 98){
                 $("input:checkbox[id='layer_9_08']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','8','08');
             }
+
 
             else if(i == 99){
                 $("input:checkbox[id='layer_9_09']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','9','09');
             }
             else if(i == 910){
                 $("input:checkbox[id='layer_9_10']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','10','10');
             }
             else if(i == 911){
                 $("input:checkbox[id='layer_9_11']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','11','11');
             }            
             else if(i == 912){
                 $("input:checkbox[id='layer_9_12']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','12','12');
             }
 
             else if(i == 913){
                 $("input:checkbox[id='layer_9_13']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','13','13');
             }
             else if(i == 914){
                 $("input:checkbox[id='layer_9_14']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','14','14');
             }
             else if(i == 915){
                 $("input:checkbox[id='layer_9_15']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','15','15');
             }            
             else if(i == 916){
                 $("input:checkbox[id='layer_9_16']").prop('checked',false); //체크박스 해제
-                select_menu_change_social('1');
+                select_menu_change_social('1','16','16');
             }
+        
         }
     }
 }
@@ -2354,6 +2403,55 @@ function select_menu_change_protect(value,val,c_val){
             34.7599, 127.7594
         ], 11);
 
+        if (val == '1'){
+            deleteLayer(val);
+        }
+        else if(val =='2'){
+            deleteLayer(val);
+        }        
+        else if(val =='3'){
+            deleteLayer(val);
+        }
+        else if(val =='4'){
+            deleteLayer(val);
+        }
+        else if(val =='5'){
+            deleteLayer(val);
+        }
+        else if(val =='6'){
+            deleteLayer(val);
+        }
+        else if(val =='7'){
+            deleteLayer(val);
+        }
+        else if(val =='8'){
+            deleteLayer(val);
+        }
+        else if(val =='9'){
+            deleteLayer(val);
+        }
+        else if(val =='10'){
+            deleteLayer(val);
+        }
+        else if(val =='11'){
+            deleteLayer(val);
+        }
+        else if(val =='12'){
+            deleteLayer(val);
+        }
+        else if(val =='13'){
+            deleteLayer(val);
+        }
+        else if(val =='14'){
+            deleteLayer(val);
+        }
+        else if(val =='15'){
+            deleteLayer(val);
+        }       
+        else if(val =='16'){
+            deleteLayer(val);
+        }
+       
         layertype = c_val;
         javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
@@ -2445,8 +2543,4 @@ function select_menu_change_social(value,val,c_val){
         // javascripr : CefCustomObject.func('suon', suonLayerType);
 
     }
-}
-
-function deleteLayer(){
-
 }
