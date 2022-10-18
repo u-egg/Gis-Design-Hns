@@ -2070,7 +2070,7 @@ function select_menu_delete(value){
             $("input:checkbox[id='layer_"+i+"']").prop('checked',false); //체크박스 해제
            
 
-            //체크박스 해제 시 만약 그려져 있다면 레이어 제거
+            //체크박스 해제 시 만약 그려져 있다면 레이어 제거 (수정필요성 ?)
 
             if(i == 1){
                 select_menu_change('1');
