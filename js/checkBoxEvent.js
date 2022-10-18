@@ -101,6 +101,13 @@ function layerChecked(obj,val){
             $('.select_logo_range').css('display','none');
             $('.select_logo_range_off').css('display','');
 
+            for(var i = 1; i < 17; i++){
+                deleteLayer(i);
+                deleteLayer_species(i);
+                deleteLayer_area(i);
+                deleteLayer_social(i);
+            }
+
             javascripr : CefCustomObject.func('suon', layerType);
 
             tifLayer.remove();
@@ -119,6 +126,13 @@ function layerChecked(obj,val){
 
             $('.select_logo_detailsuon').css('display','none');
             $('.select_logo_detailsuon_off').css('display','');
+
+            for(var i = 1; i < 17; i++){
+                deleteLayer(i);
+                deleteLayer_species(i);
+                deleteLayer_area(i);
+                deleteLayer_social(i);
+            }
 
             javascripr : CefCustomObject.func('suon', layerType);
 
@@ -253,6 +267,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -269,6 +288,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(num);
 
@@ -287,6 +311,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -303,6 +332,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(num);
 
@@ -322,6 +356,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -338,6 +377,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(num);
 
@@ -356,6 +400,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -372,6 +421,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(num);
 
@@ -391,6 +445,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(num);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -406,6 +465,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(layertype);
 
@@ -423,6 +487,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -438,6 +507,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(layertype);
 
@@ -456,6 +530,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -471,6 +550,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(layertype);
 
@@ -488,6 +572,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_protect', layertype);
@@ -503,6 +592,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer(layertype);
 
@@ -524,6 +618,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(num);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -540,6 +639,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(num);
 
@@ -558,6 +662,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(num);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -574,6 +683,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(num);
 
@@ -593,6 +707,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(num);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -609,6 +728,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(num);
 
@@ -627,6 +751,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(num);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -643,6 +772,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(num);
 
@@ -662,6 +796,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(num);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -677,6 +816,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(layertype);
 
@@ -694,6 +838,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -709,6 +858,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(layertype);
 
@@ -727,6 +881,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -742,6 +901,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(layertype);
 
@@ -759,6 +923,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_species(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_species', layertype);
@@ -774,6 +943,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_species(layertype);
 
@@ -794,6 +968,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(num);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -810,6 +989,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(num);
 
@@ -828,6 +1012,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(num);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -844,6 +1033,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(num);
 
@@ -863,6 +1057,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(num);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -879,6 +1078,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(num);
 
@@ -897,6 +1101,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(num);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -913,6 +1122,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(num);
 
@@ -932,6 +1146,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(num);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -947,6 +1166,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(layertype);
 
@@ -964,6 +1188,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -979,6 +1208,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(layertype);
 
@@ -997,6 +1231,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -1012,6 +1251,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(layertype);
 
@@ -1029,6 +1273,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_area(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_area', layertype);
@@ -1044,6 +1293,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_area(layertype);
 
@@ -1065,6 +1319,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(num);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1081,6 +1340,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(num);
 
@@ -1099,6 +1363,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(num);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1115,6 +1384,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(num);
 
@@ -1134,6 +1408,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(num);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1150,6 +1429,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(num);
 
@@ -1168,6 +1452,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(num);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1184,6 +1473,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(num);
 
@@ -1203,6 +1497,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(num);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1218,6 +1517,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(layertype);
 
@@ -1235,6 +1539,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1250,6 +1559,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(layertype);
 
@@ -1268,6 +1582,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1283,6 +1602,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(layertype);
 
@@ -1300,6 +1624,11 @@ function layerChecked(obj,val){
                 34.7599, 127.7594
             ], 11);
 
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
+
             deleteLayer_social(layertype);
 
             javascripr : CefCustomObject.func('vulnerability_social', layertype);
@@ -1315,6 +1644,11 @@ function layerChecked(obj,val){
             map.setView([
                 34.7599, 127.7594
             ], 11);
+
+            $('.select_logo_range').css('display', 'none');
+            $('.select_logo_range_off').css('display', '');
+            $('.select_logo_detailsuon').css('display', 'none');
+            $('.select_logo_detailsuon_off').css('display', '');
 
             deleteLayer_social(layertype);
 
@@ -2150,6 +2484,13 @@ function select_menu_change_detailsuon(value){
         $('.select_logo_range').css('display','none');
         $('.select_logo_range_off').css('display','');
 
+        for(var i = 1; i < 17; i++){
+            deleteLayer(i);
+            deleteLayer_species(i);
+            deleteLayer_area(i);
+            deleteLayer_social(i);
+        }
+
         javascripr : CefCustomObject.func('suon', layerType);
 
         tifLayer.remove();
@@ -2179,6 +2520,13 @@ function select_menu_change_range(value){
 
         $('.select_logo_detailsuon').css('display','none');
         $('.select_logo_detailsuon_off').css('display','');
+
+        for(var i = 1; i < 17; i++){
+            deleteLayer(i);
+            deleteLayer_species(i);
+            deleteLayer_area(i);
+            deleteLayer_social(i);
+        }
 
         javascripr : CefCustomObject.func('suon', suonLayerType);
 
@@ -2267,8 +2615,6 @@ function select_menu_change_info(value,val){
     }
 
     else{
-
-        
         $('.select_logo_st_off' + val).css('display','none');
         $('.select_logo_st' + val).css('display','');
 
@@ -2276,15 +2622,10 @@ function select_menu_change_info(value,val){
 
             dbLayerType = "해양산업시설_Point";
 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db_off1').css('display',''); 
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db_off2').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db_off3').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db_off4').css('display','');
-
+            for(var i = 1; i<5; i++){
+                $('.select_logo_db'+ i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
         }
 
         map.setView([
@@ -2313,6 +2654,11 @@ function select_menu_change_protect(value,val,c_val){
     else{
         $('.select_logo_protect_off' + val).css('display','none');
         $('.select_logo_protect' + val).css('display','');
+
+        $('.select_logo_range').css('display', 'none');
+        $('.select_logo_range_off').css('display', '');
+        $('.select_logo_detailsuon').css('display', 'none');
+        $('.select_logo_detailsuon_off').css('display', '');
 
         map.setView([
             34.7599, 127.7594
@@ -2391,6 +2737,11 @@ function select_menu_change_species(value,val,c_val){
         $('.select_logo_species_off' + val).css('display','none');
         $('.select_logo_species' + val).css('display','');
 
+        $('.select_logo_range').css('display', 'none');
+        $('.select_logo_range_off').css('display', '');
+        $('.select_logo_detailsuon').css('display', 'none');
+        $('.select_logo_detailsuon_off').css('display', '');
+
         map.setView([
             34.7599, 127.7594
         ], 11);
@@ -2468,6 +2819,11 @@ function select_menu_change_area(value,val,c_val){
         $('.select_logo_area_off' + val).css('display','none');
         $('.select_logo_area' + val).css('display','');
 
+        $('.select_logo_range').css('display', 'none');
+        $('.select_logo_range_off').css('display', '');
+        $('.select_logo_detailsuon').css('display', 'none');
+        $('.select_logo_detailsuon_off').css('display', '');
+
         map.setView([
             34.7599, 127.7594
         ], 11);
@@ -2544,6 +2900,11 @@ function select_menu_change_social(value,val,c_val){
     else{
         $('.select_logo_social_off' + val).css('display','none');
         $('.select_logo_social' + val).css('display','');
+
+        $('.select_logo_range').css('display', 'none');
+        $('.select_logo_range_off').css('display', '');
+        $('.select_logo_detailsuon').css('display', 'none');
+        $('.select_logo_detailsuon_off').css('display', '');
 
         map.setView([
             34.7599, 127.7594

@@ -3,6 +3,7 @@ function deleteLayer(val) {
 
     if (val == '1') {
 
+        
         for (var i = 1; i<2; i++){
             $('.select_logo_species' + i).css('display', 'none');
             $('.select_logo_species_off' + i).css('display', '');
@@ -23,11 +24,6 @@ function deleteLayer(val) {
             $('.select_logo_social' + i).css('display', 'none');
             $('.select_logo_social_off' + i).css('display', '');
         }
-
-        // $('.select_logo_range').css('display', 'none');
-        // $('.select_logo_range_off').css('display', '');
-        // $('.select_logo_detailsuon').css('display', 'none');
-        // $('.select_logo_detailsuon_off').css('display', '');
 
     } else if (val == '2') {
 
