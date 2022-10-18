@@ -863,14 +863,10 @@ function senterChange(value) {
 
     if (center == "facility") {
         area = "busan";
-        document
-            .querySelector("#area_option")
-            .innerHTML = aa;
+        document.querySelector("#area_option").innerHTML = aa;
     } else {
         area = "gori";
-        document
-            .querySelector("#area_option")
-            .innerHTML = bb;
+        document.querySelector("#area_option").innerHTML = bb;
     }
 }
 
@@ -1185,6 +1181,330 @@ function nameMattiong() {
     window
         .localStorage
         .setItem('stname', stName);
+}
+
+function selectLayerIndexAdd(val){
+
+    var index1 = "<div id='select_menu1'style='display: none;'>[해양환경정보]중간역유속레이어<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(1)'></i><i class='fa-solid fa-eye select_logo_midyousok'onclick='select_menu_change(1)'></i><i class='fa-solid fa-eye-slash select_logo_midyousok_off'onclick='select_menu_change(2)'></i></div>";
+    var index2 = "<div id='select_menu2'style='display: none;'>[해양환경정보]중간역수온레이어<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(2)'></i><i class='fa-solid fa-eye select_logo_midsuon'onclick='select_menu_change_midsuon(1)'></i><i class='fa-solid fa-eye-slash select_logo_midsuon_off'onclick='select_menu_change_midsuon(2)'></i></div>";
+    var index3 = "<div id='select_menu3'style='display: none;'>[해양환경정보](여수산단)세부역유속레이어<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(3)'></i><i class='fa-solid fa-eye select_logo_detailyousok'onclick='select_menu_change_detailyousok(1)'></i><i class='fa-solid fa-eye-slash select_logo_detailyousok_off'onclick='select_menu_change_detailyousok(2)'></i></div>";
+    var index4 = "<div id='select_menu4'style='display: none;'>[해양환경정보](여수산단)세부역수온레이어<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(4)'></i><i class='fa-solid fa-eye select_logo_detailsuon'onclick='select_menu_change_detailsuon(1)'></i><i class='fa-solid fa-eye-slash select_logo_detailsuon_off'onclick='select_menu_change_detailsuon(2)'></i></div>";
+    var index5 = "<div id='select_menu5'style='display: none;'>[HNS확산영역](여수산단)최대확산범위<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(5)'></i><i class='fa-solid fa-eye select_logo_range'onclick='select_menu_change_range(1)'></i><i class='fa-solid fa-eye-slash select_logo_range_off'onclick='select_menu_change_range(2)'></i></div>";
+    var index6 = "<div id='select_menu61'style='display: none;'>[해양환경영향평가]보호구역취약성-SURF-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(61)'></i><i class='fa-solid fa-eye select_logo_protect1'onclick='select_menu_change_protect(1,1,01)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off1'onclick='select_menu_change_protect(2,1,01)'></i></div>";
+    var index7 = "<div id='select_menu62'style='display: none;'>[해양환경영향평가]보호구역취약성-SURF-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(62)'></i><i class='fa-solid fa-eye select_logo_protect2'onclick='select_menu_change_protect(1,2,02)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off2'onclick='select_menu_change_protect(2,2,02)'></i></div>";
+    var index8 = "<div id='select_menu63'style='display: none;'>[해양환경영향평가]보호구역취약성-SURF-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(63)'></i><i class='fa-solid fa-eye select_logo_protect3'onclick='select_menu_change_protect(1,3,03)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off3'onclick='select_menu_change_protect(2,3,03)'></i></div>";
+    var index9 = "<div id='select_menu64'style='display: none;'>[해양환경영향평가]보호구역취약성-SURF-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(64)'></i><i class='fa-solid fa-eye select_logo_protect4'onclick='select_menu_change_protect(1,4,04)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off4'onclick='select_menu_change_protect(2,4,04)'></i></div>";
+    var index10 = "<div id='select_menu65'style='display: none;'>[해양환경영향평가]보호구역취약성-COLUMN-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(65)'></i><i class='fa-solid fa-eye select_logo_protect5'onclick='select_menu_change_protect(1,5,05)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off5'onclick='select_menu_change_protect(2,5,05)'></i></div>";
+
+    var index11 = "<div id='select_menu66'style='display: none;'>[해양환경영향평가]보호구역취약성-COLUMN-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(66)'></i><i class='fa-solid fa-eye select_logo_protect6'onclick='select_menu_change_protect(1,6,06)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off6'onclick='select_menu_change_protect(2,6,06)'></i></div>";
+    var index12 = "<div id='select_menu67'style='display: none;'>[해양환경영향평가]보호구역취약성-COLUMN-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(67)'></i><i class='fa-solid fa-eye select_logo_protect7'onclick='select_menu_change_protect(1,7,07)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off7'onclick='select_menu_change_protect(2,7,07)'></i></div>";
+    var index13 = "<div id='select_menu68'style='display: none;'>[해양환경영향평가]보호구역취약성-COLUMN-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(68)'></i><i class='fa-solid fa-eye select_logo_protect8'onclick='select_menu_change_protect(1,8,08)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off8'onclick='select_menu_change_protect(2,8,08)'></i></div>";
+    var index14 = "<div id='select_menu69'style='display: none;'>[해양환경영향평가]보호구역취약성-SEABED-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(69)'></i><i class='fa-solid fa-eye select_logo_protect9'onclick='select_menu_change_protect(1,9,09)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off9'onclick='select_menu_change_protect(2,9,09)'></i></div>";
+    var index15 = "<div id='select_menu610'style='display: none;'>[해양환경영향평가]보호구역취약성-SEABED-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(610)'></i><i class='fa-solid fa-eye select_logo_protect10'onclick='select_menu_change_protect(1,10,10)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off10'onclick='select_menu_change_protect(2,10,10)'></i></div>";
+    var index16 = "<div id='select_menu611'style='display: none;'>[해양환경영향평가]보호구역취약성-SEABED-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(611)'></i><i class='fa-solid fa-eye select_logo_protect11'onclick='select_menu_change_protect(1,11,11)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off11'onclick='select_menu_change_protect(2,11,11)'></i></div>";
+    var index17 = "<div id='select_menu612'style='display: none;'>[해양환경영향평가]보호구역취약성-SEABED-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(612)'></i><i class='fa-solid fa-eye select_logo_protect12'onclick='select_menu_change_protect(1,12,12)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off12'onclick='select_menu_change_protect(2,12,12)'></i></div>";
+    var index18 = "<div id='select_menu613'style='display: none;'>[해양환경영향평가]보호구역취약성-AIR-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(613)'></i><i class='fa-solid fa-eye select_logo_protect13'onclick='select_menu_change_protect(1,13,13)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off13'onclick='select_menu_change_protect(2,13,13)'></i></div>";
+    var index19 = "<div id='select_menu614'style='display: none;'>[해양환경영향평가]보호구역취약성-AIR-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(614)'></i><i class='fa-solid fa-eye select_logo_protect14'onclick='select_menu_change_protect(1,14,14)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off14'onclick='select_menu_change_protect(2,14,14)'></i></div>";
+    var index20 = "<div id='select_menu615'style='display: none;'>[해양환경영향평가]보호구역취약성-AIR-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(615)'></i><i class='fa-solid fa-eye select_logo_protect15'onclick='select_menu_change_protect(1,15,15)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off15'onclick='select_menu_change_protect(2,15,15)'></i></div>";
+
+    var index21 = "<div id='select_menu616'style='display: none;'>[해양환경영향평가]보호구역취약성-AIR-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(616)'></i><i class='fa-solid fa-eye select_logo_protect16'onclick='select_menu_change_protect(1,16,16)'></i><i class='fa-solid fa-eye-slash select_logo_protect_off16'onclick='select_menu_change_protect(2,16,16)'></i></div>";
+    var index22 = "<div id='select_menu71'style='display: none;'>[해양환경영향평가]종취약성-SURF-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(71)'></i><i class='fa-solid fa-eye select_logo_species1'onclick='select_menu_change_species(1,1,01)'></i><i class='fa-solid fa-eye-slash select_logo_species_off1'onclick='select_menu_change_species(2,1,01)'></i></div>";
+    var index23 = "<div id='select_menu72'style='display: none;'>[해양환경영향평가]종취약성-SURF-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(72)'></i><i class='fa-solid fa-eye select_logo_species2'onclick='select_menu_change_species(1,2,02)'></i><i class='fa-solid fa-eye-slash select_logo_species_off2'onclick='select_menu_change_species(2,2,02)'></i></div>";
+    var index24 = "<div id='select_menu73'style='display: none;'>[해양환경영향평가]종취약성-SURF-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(73)'></i><i class='fa-solid fa-eye select_logo_species3'onclick='select_menu_change_species(1,3,03)'></i><i class='fa-solid fa-eye-slash select_logo_species_off3'onclick='select_menu_change_species(2,3,03)'></i></div>";
+    var index25 = "<div id='select_menu74'style='display: none;'>[해양환경영향평가]종취약성-SURF-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(74)'></i><i class='fa-solid fa-eye select_logo_species4'onclick='select_menu_change_species(1,4,04)'></i><i class='fa-solid fa-eye-slash select_logo_species_off4'onclick='select_menu_change_species(2,4,04)'></i></div>";
+    var index26 = "<div id='select_menu75'style='display: none;'>[해양환경영향평가]종취약성-COLUMN-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(75)'></i><i class='fa-solid fa-eye select_logo_species5'onclick='select_menu_change_species(1,5,05)'></i><i class='fa-solid fa-eye-slash select_logo_species_off5'onclick='select_menu_change_species(2,5,05)'></i></div>";
+    var index27 = "<div id='select_menu76'style='display: none;'>[해양환경영향평가]종취약성-COLUMN-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(76)'></i><i class='fa-solid fa-eye select_logo_species6'onclick='select_menu_change_species(1,6,06)'></i><i class='fa-solid fa-eye-slash select_logo_species_off6'onclick='select_menu_change_species(2,6,06)'></i></div>";
+    var index28 = "<div id='select_menu77'style='display: none;'>[해양환경영향평가]종취약성-COLUMN-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(77)'></i><i class='fa-solid fa-eye select_logo_species7'onclick='select_menu_change_species(1,7,07)'></i><i class='fa-solid fa-eye-slash select_logo_species_off7'onclick='select_menu_change_species(2,7,07)'></i></div>";
+    var index29 = "<div id='select_menu78'style='display: none;'>[해양환경영향평가]종취약성-COLUMN-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(78)'></i><i class='fa-solid fa-eye select_logo_species8'onclick='select_menu_change_species(1,8,08)'></i><i class='fa-solid fa-eye-slash select_logo_species_off8'onclick='select_menu_change_species(2,8,08)'></i></div>";
+    var index30 = "<div id='select_menu79'style='display: none;'>[해양환경영향평가]종취약성-SEABED-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(79)'></i><i class='fa-solid fa-eye select_logo_species9'onclick='select_menu_change_species(1,9,09)'></i><i class='fa-solid fa-eye-slash select_logo_species_off9'onclick='select_menu_change_species(2,9,09)'></i></div>";
+
+    var index31 = "<div id='select_menu710'style='display: none;'>[해양환경영향평가]종취약성-SEABED-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(710)'></i><i class='fa-solid fa-eye select_logo_species10'onclick='select_menu_change_species(1,10,10)'></i><i class='fa-solid fa-eye-slash select_logo_species_off10'onclick='select_menu_change_species(2,10,10)'></i></div>";
+    var index32 = "<div id='select_menu711'style='display: none;'>[해양환경영향평가]종취약성-SEABED-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(711)'></i><i class='fa-solid fa-eye select_logo_species11'onclick='select_menu_change_species(1,11,11)'></i><i class='fa-solid fa-eye-slash select_logo_species_off11'onclick='select_menu_change_species(2,11,11)'></i></div>";
+    var index33 = "<div id='select_menu712'style='display: none;'>[해양환경영향평가]종취약성-SEABED-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(712)'></i><i class='fa-solid fa-eye select_logo_species12'onclick='select_menu_change_species(1,12,12)'></i><i class='fa-solid fa-eye-slash select_logo_species_off12'onclick='select_menu_change_species(2,12,12)'></i></div>";
+    var index34 = "<div id='select_menu713'style='display: none;'>[해양환경영향평가]종취약성-AIR-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(713)'></i><i class='fa-solid fa-eye select_logo_species13'onclick='select_menu_change_species(1,13,13)'></i><i class='fa-solid fa-eye-slash select_logo_species_off13'onclick='select_menu_change_species(2,13,13)'></i></div>";
+    var index35 = "<div id='select_menu714'style='display: none;'>[해양환경영향평가]종취약성-AIR-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(714)'></i><i class='fa-solid fa-eye select_logo_species14'onclick='select_menu_change_species(1,14,14)'></i><i class='fa-solid fa-eye-slash select_logo_species_off14'onclick='select_menu_change_species(2,14,14)'></i></div>";
+    var index36 = "<div id='select_menu715'style='display: none;'>[해양환경영향평가]종취약성-AIR-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(715)'></i><i class='fa-solid fa-eye select_logo_species15'onclick='select_menu_change_species(1,15,15)'></i><i class='fa-solid fa-eye-slash select_logo_species_off15'onclick='select_menu_change_species(2,15,15)'></i></div>";
+    var index37 = "<div id='select_menu716'style='display: none;'>[해양환경영향평가]종취약성-AIR-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(716)'></i><i class='fa-solid fa-eye select_logo_species16'onclick='select_menu_change_species(1,16,16)'></i><i class='fa-solid fa-eye-slash select_logo_species_off16'onclick='select_menu_change_species(2,16,16)'></i></div>";
+    var index38 = "<div id='select_menu81'style='display: none;'>[해양환경영향평가]서식지취약성-SURF-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(81)'></i><i class='fa-solid fa-eye select_logo_area1'onclick='select_menu_change_area(1,1,01)'></i><i class='fa-solid fa-eye-slash select_logo_area_off1'onclick='select_menu_change_area(2,1,01)'></i></div>";
+    var index39 = "<div id='select_menu82'style='display: none;'>[해양환경영향평가]서식지취약성-SURF-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(82)'></i><i class='fa-solid fa-eye select_logo_area2'onclick='select_menu_change_area(1,2,02)'></i><i class='fa-solid fa-eye-slash select_logo_area_off2'onclick='select_menu_change_area(2,2,02)'></i></div>";
+    var index40 = "<div id='select_menu83'style='display: none;'>[해양환경영향평가]서식지취약성-SURF-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(83)'></i><i class='fa-solid fa-eye select_logo_area3'onclick='select_menu_change_area(1,3,03)'></i><i class='fa-solid fa-eye-slash select_logo_area_off3'onclick='select_menu_change_area(2,3,03)'></i></div>";
+
+    var index41 = "<div id='select_menu84'style='display: none;'>[해양환경영향평가]서식지취약성-SURF-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(84)'></i><i class='fa-solid fa-eye select_logo_area4'onclick='select_menu_change_area(1,4,04)'></i><i class='fa-solid fa-eye-slash select_logo_area_off4'onclick='select_menu_change_area(2,4,04)'></i></div>";
+    var index42 = "<div id='select_menu85'style='display: none;'>[해양환경영향평가]서식지취약성-COLUMN-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(85)'></i><i class='fa-solid fa-eye select_logo_area5'onclick='select_menu_change_area(1,5,05)'></i><i class='fa-solid fa-eye-slash select_logo_area_off5'onclick='select_menu_change_area(2,5,05)'></i></div>";
+    var index43 = "<div id='select_menu86'style='display: none;'>[해양환경영향평가]서식지취약성-COLUMN-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(86)'></i><i class='fa-solid fa-eye select_logo_area6'onclick='select_menu_change_area(1,6,06)'></i><i class='fa-solid fa-eye-slash select_logo_area_off6'onclick='select_menu_change_area(2,6,06)'></i></div>";
+    var index44 = "<div id='select_menu87'style='display: none;'>[해양환경영향평가]서식지취약성-COLUMN-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(87)'></i><i class='fa-solid fa-eye select_logo_area7'onclick='select_menu_change_area(1,7,07)'></i><i class='fa-solid fa-eye-slash select_logo_area_off7'onclick='select_menu_change_area(2,7,07)'></i></div>";
+    var index45 = "<div id='select_menu88'style='display: none;'>[해양환경영향평가]서식지취약성-COLUMN-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(88)'></i><i class='fa-solid fa-eye select_logo_area8'onclick='select_menu_change_area(1,8,08)'></i><i class='fa-solid fa-eye-slash select_logo_area_off8'onclick='select_menu_change_area(2,8,08)'></i></div>";
+    var index46 = "<div id='select_menu89'style='display: none;'>[해양환경영향평가]서식지취약성-SEABED-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(89)'></i><i class='fa-solid fa-eye select_logo_area9'onclick='select_menu_change_area(1,9,09)'></i><i class='fa-solid fa-eye-slash select_logo_area_off9'onclick='select_menu_change_area(2,9,09)'></i></div>";
+    var index47 = "<div id='select_menu810'style='display: none;'>[해양환경영향평가]서식지취약성-SEABED-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(810)'></i><i class='fa-solid fa-eye select_logo_area10'onclick='select_menu_change_area(1,10,10)'></i><i class='fa-solid fa-eye-slash select_logo_area_off10'onclick='select_menu_change_area(2,10,10)'></i></div>";
+    var index48 = "<div id='select_menu811'style='display: none;'>[해양환경영향평가]서식지취약성-SEABED-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(811)'></i><i class='fa-solid fa-eye select_logo_area11'onclick='select_menu_change_area(1,11,11)'></i><i class='fa-solid fa-eye-slash select_logo_area_off11'onclick='select_menu_change_area(2,11,11)'></i></div>";
+    var index49 = "<div id='select_menu812'style='display: none;'>[해양환경영향평가]서식지취약성-SEABED-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(812)'></i><i class='fa-solid fa-eye select_logo_area12'onclick='select_menu_change_area(1,12,12)'></i><i class='fa-solid fa-eye-slash select_logo_area_off12'onclick='select_menu_change_area(2,12,12)'></i></div>";
+    var index50 = "<div id='select_menu813'style='display: none;'>[해양환경영향평가]서식지취약성-AIR-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(813)'></i><i class='fa-solid fa-eye select_logo_area13'onclick='select_menu_change_area(1,13,13)'></i><i class='fa-solid fa-eye-slash select_logo_area_off13'onclick='select_menu_change_area(2,13,13)'></i></div>";
+
+    var index51 = "<div id='select_menu814'style='display: none;'>[해양환경영향평가]서식지취약성-AIR-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(814)'></i><i class='fa-solid fa-eye select_logo_area14'onclick='select_menu_change_area(1,14,14)'></i><i class='fa-solid fa-eye-slash select_logo_area_off14'onclick='select_menu_change_area(2,14,14)'></i></div>";
+    var index52 = "<div id='select_menu815'style='display: none;'>[해양환경영향평가]서식지취약성-AIR-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(815)'></i><i class='fa-solid fa-eye select_logo_area15'onclick='select_menu_change_area(1,15,15)'></i><i class='fa-solid fa-eye-slash select_logo_area_off15'onclick='select_menu_change_area(2,15,15)'></i></div>";
+    var index53 = "<div id='select_menu816'style='display: none;'>[해양환경영향평가]서식지취약성-AIR-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(816)'></i><i class='fa-solid fa-eye select_logo_area16'onclick='select_menu_change_area(1,16,16)'></i><i class='fa-solid fa-eye-slash select_logo_area_off16'onclick='select_menu_change_area(2,16,16)'></i></div>";
+    var index54 = "<div id='select_menu91'style='display: none;'>[해양환경영향평가]사회·경제취약성-SURF-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(91)'></i><i class='fa-solid fa-eye select_logo_social1'onclick='select_menu_change_social(1,1,01)'></i><i class='fa-solid fa-eye-slash select_logo_social_off1'onclick='select_menu_change_social(2,1,01)'></i></div>";
+    var index55 = "<div id='select_menu92'style='display: none;'>[해양환경영향평가]사회·경제취약성-SURF-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(92)'></i><i class='fa-solid fa-eye select_logo_social2'onclick='select_menu_change_social(1,2,02)'></i><i class='fa-solid fa-eye-slash select_logo_social_off2'onclick='select_menu_change_social(2,2,02)'></i></div>";
+    var index56 = "<div id='select_menu93'style='display: none;'>[해양환경영향평가]사회·경제취약성-SURF-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(93)'></i><i class='fa-solid fa-eye select_logo_social3'onclick='select_menu_change_social(1,3,03)'></i><i class='fa-solid fa-eye-slash select_logo_social_off3'onclick='select_menu_change_social(2,3,03)'></i></div>";
+    var index57 = "<div id='select_menu94'style='display: none;'>[해양환경영향평가]사회·경제취약성-SURF-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(94)'></i><i class='fa-solid fa-eye select_logo_social4'onclick='select_menu_change_social(1,4,04)'></i><i class='fa-solid fa-eye-slash select_logo_social_off4'onclick='select_menu_change_social(2,4,04)'></i></div>";
+    var index58 = "<div id='select_menu95'style='display: none;'>[해양환경영향평가]사회·경제취약성-COLUMN-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(95)'></i><i class='fa-solid fa-eye select_logo_social5'onclick='select_menu_change_social(1,5,05)'></i><i class='fa-solid fa-eye-slash select_logo_social_off5'onclick='select_menu_change_social(2,5,05)'></i></div>";
+    var index59 = "<div id='select_menu96'style='display: none;'>[해양환경영향평가]사회·경제취약성-COLUMN-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(96)'></i><i class='fa-solid fa-eye select_logo_social6'onclick='select_menu_change_social(1,6,06)'></i><i class='fa-solid fa-eye-slash select_logo_social_off6'onclick='select_menu_change_social(2,6,06)'></i></div>";
+    var index60 = "<div id='select_menu97'style='display: none;'>[해양환경영향평가]사회·경제취약성-COLUMN-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(97)'></i><i class='fa-solid fa-eye select_logo_social7'onclick='select_menu_change_social(1,7,07)'></i><i class='fa-solid fa-eye-slash select_logo_social_off7'onclick='select_menu_change_social(2,7,07)'></i></div>";
+
+
+    var index61 = "<div id='select_menu98'style='display: none;'>[해양환경영향평가]사회·경제취약성-COLUMN-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(98)'></i><i class='fa-solid fa-eye select_logo_social8'onclick='select_menu_change_social(1,8,08)'></i><i class='fa-solid fa-eye-slash select_logo_social_off8'onclick='select_menu_change_social(2,8,08)'></i></div>";
+    var index62 = "<div id='select_menu99'style='display: none;'>[해양환경영향평가]사회·경제취약성-SEABED-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(99)'></i><i class='fa-solid fa-eye select_logo_social9'onclick='select_menu_change_social(1,9,09)'></i><i class='fa-solid fa-eye-slash select_logo_social_off9'onclick='select_menu_change_social(2,9,09)'></i></div>";
+    var index63 = "<div id='select_menu910'style='display: none;'>[해양환경영향평가]사회·경제취약성-SEABED-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(910)'></i><i class='fa-solid fa-eye select_logo_social10'onclick='select_menu_change_social(1,10,10)'></i><i class='fa-solid fa-eye-slash select_logo_social_off10'onclick='select_menu_change_social(2,10,10)'></i></div>";
+    var index64 = "<div id='select_menu911'style='display: none;'>[해양환경영향평가]사회·경제취약성-SEABED-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(911)'></i><i class='fa-solid fa-eye select_logo_social11'onclick='select_menu_change_social(1,11,11)'></i><i class='fa-solid fa-eye-slash select_logo_social_off11'onclick='select_menu_change_social(2,11,11)'></i></div>";
+    var index65 = "<div id='select_menu912'style='display: none;'>[해양환경영향평가]사회·경제취약성-SEABED-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(912)'></i><i class='fa-solid fa-eye select_logo_social12'onclick='select_menu_change_social(1,12,12)'></i><i class='fa-solid fa-eye-slash select_logo_social_off12'onclick='select_menu_change_social(2,12,12)'></i></div>";
+    var index66 = "<div id='select_menu913'style='display: none;'>[해양환경영향평가]사회·경제취약성-AIR-SPRING<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(913)'></i><i class='fa-solid fa-eye select_logo_social13'onclick='select_menu_change_social(1,13,13)'></i><i class='fa-solid fa-eye-slash select_logo_social_off13'onclick='select_menu_change_social(2,13,13)'></i></div>";
+    var index67 = "<div id='select_menu914'style='display: none;'>[해양환경영향평가]사회·경제취약성-AIR-SUMMER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(914)'></i><i class='fa-solid fa-eye select_logo_social14'onclick='select_menu_change_social(1,14,14)'></i><i class='fa-solid fa-eye-slash select_logo_social_off14'onclick='select_menu_change_social(2,14,14)'></i></div>";
+    var index68 = "<div id='select_menu915'style='display: none;'>[해양환경영향평가]사회·경제취약성-AIR-AUTUMN<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(915)'></i><i class='fa-solid fa-eye select_logo_social15'onclick='select_menu_change_social(1,15,15)'></i><i class='fa-solid fa-eye-slash select_logo_social_off15'onclick='select_menu_change_social(2,15,15)'></i></div>";
+    var index69 = "<div id='select_menu916'style='display: none;'>[해양환경영향평가]사회·경제취약성-AIR-WINTER<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(916)'></i><i class='fa-solid fa-eye select_logo_social16'onclick='select_menu_change_social(1,16,16)'></i><i class='fa-solid fa-eye-slash select_logo_social_off16'onclick='select_menu_change_social(2,16,16)'></i></div>";
+    var index70 = "<div id='select_menu10'style='display: none;'>[DATABASE]군립공원<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(10)'></i><i class='fa-solid fa-eye select_logo_db1'onclick='select_menu_change_db(1,1)'></i><i class='fa-solid fa-eye-slash select_logo_db_off1'onclick='select_menu_change_db(2,1)'></i></div>";
+
+    var index71 = "<div id='select_menu11'style='display: none;'>[DATABASE]특별관리해역<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(11)'></i><i class='fa-solid fa-eye select_logo_db2'onclick='select_menu_change_db(1,2)'></i><i class='fa-solid fa-eye-slash select_logo_db_off2'onclick='select_menu_change_db(2,2)'></i></div>";
+    var index72 = "<div id='select_menu12'style='display: none;'>[DATABASE]양식장영역<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(12)'></i><i class='fa-solid fa-eye select_logo_db3'onclick='select_menu_change_db(1,3)'></i><i class='fa-solid fa-eye-slash select_logo_db_off3'onclick='select_menu_change_db(2,3)'></i></div>";
+    var index73 = "<div id='select_menu13'style='display: none;'>[DATABASE]조업집중구역(봄)<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(13)'></i><i class='fa-solid fa-eye select_logo_db4'onclick='select_menu_change_db(1,4)'></i><i class='fa-solid fa-eye-slash select_logo_db_off4'onclick='select_menu_change_db(2,4)'></i></div>";
+    var index74 = "<div id='select_menu999'style='display: none;'>[HNS방류실태조사정보조회]해양산업시설<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(999)'></i><i class='fa-solid fa-eye select_logo_st1'onclick='select_menu_change_info(1,1)'></i><i class='fa-solid fa-eye-slash select_logo_st_off1'onclick='select_menu_change_info(2,1)'></i></div>";
+
+    if(val == '1'){
+        $(".layer_text").prepend(index1);
+    }
+    else if(val == '2'){
+        $(".layer_text").prepend(index2);
+    }
+    else if(val == '3'){
+        $(".layer_text").prepend(index3);
+    }
+    else if(val == '4'){
+        $(".layer_text").prepend(index4);
+    }
+    else if(val == '5'){
+        $(".layer_text").prepend(index5);
+    }
+    else if(val == '6'){
+        $(".layer_text").prepend(index6);
+    }
+    else if(val == '7'){
+        $(".layer_text").prepend(index7);
+    }
+    else if(val == '8'){
+        $(".layer_text").prepend(index8);
+    }
+    else if(val == '9'){
+        $(".layer_text").prepend(index9);
+    }
+    else if(val == '10'){
+        $(".layer_text").prepend(index10);
+    }
+
+
+    else if(val == '11'){
+        $(".layer_text").prepend(index11);
+    }
+    else if(val == '12'){
+        $(".layer_text").prepend(index12);
+    }
+    else if(val == '13'){
+        $(".layer_text").prepend(index13);
+    }
+    else if(val == '14'){
+        $(".layer_text").prepend(index14);
+    }
+    else if(val == '15'){
+        $(".layer_text").prepend(index15);
+    }
+    else if(val == '16'){
+        $(".layer_text").prepend(index16);
+    }
+    else if(val == '17'){
+        $(".layer_text").prepend(index17);
+    }
+    else if(val == '18'){
+        $(".layer_text").prepend(index18);
+    }
+    else if(val == '19'){
+        $(".layer_text").prepend(index19);
+    }
+    else if(val == '20'){
+        $(".layer_text").prepend(index20);
+    }
+
+    
+    else if(val == '21'){
+        $(".layer_text").prepend(index21);
+    }
+    else if(val == '22'){
+        $(".layer_text").prepend(index22);
+    }
+    else if(val == '23'){
+        $(".layer_text").prepend(index23);
+    }
+    else if(val == '24'){
+        $(".layer_text").prepend(index24);
+    }
+    else if(val == '25'){
+        $(".layer_text").prepend(index25);
+    }
+    else if(val == '26'){
+        $(".layer_text").prepend(index26);
+    }
+    else if(val == '27'){
+        $(".layer_text").prepend(index27);
+    }
+    else if(val == '28'){
+        $(".layer_text").prepend(index28);
+    }
+    else if(val == '29'){
+        $(".layer_text").prepend(index29);
+    }
+    else if(val == '30'){
+        $(".layer_text").prepend(index30);
+    }
+
+
+    else if(val == '31'){
+        $(".layer_text").prepend(index31);
+    }
+    else if(val == '32'){
+        $(".layer_text").prepend(index32);
+    }
+    else if(val == '33'){
+        $(".layer_text").prepend(index33);
+    }
+    else if(val == '34'){
+        $(".layer_text").prepend(index34);
+    }
+    else if(val == '35'){
+        $(".layer_text").prepend(index35);
+    }
+    else if(val == '36'){
+        $(".layer_text").prepend(index36);
+    }
+    else if(val == '37'){
+        $(".layer_text").prepend(index37);
+    }
+    else if(val == '38'){
+        $(".layer_text").prepend(index38);
+    }
+    else if(val == '39'){
+        $(".layer_text").prepend(index39);
+    }
+    else if(val == '40'){
+        $(".layer_text").prepend(index40);
+    }
+
+
+    else if(val == '41'){
+        $(".layer_text").prepend(index41);
+    }
+    else if(val == '42'){
+        $(".layer_text").prepend(index42);
+    }
+    else if(val == '43'){
+        $(".layer_text").prepend(index43);
+    }
+    else if(val == '44'){
+        $(".layer_text").prepend(index44);
+    }
+    else if(val == '45'){
+        $(".layer_text").prepend(index45);
+    }
+    else if(val == '46'){
+        $(".layer_text").prepend(index46);
+    }
+    else if(val == '47'){
+        $(".layer_text").prepend(index47);
+    }
+    else if(val == '48'){
+        $(".layer_text").prepend(index48);
+    }
+    else if(val == '49'){
+        $(".layer_text").prepend(index49);
+    }
+    else if(val == '50'){
+        $(".layer_text").prepend(index50);
+    }
+
+
+    else if(val == '51'){
+        $(".layer_text").prepend(index51);
+    }
+    else if(val == '52'){
+        $(".layer_text").prepend(index52);
+    }
+    else if(val == '53'){
+        $(".layer_text").prepend(index53);
+    }
+    else if(val == '54'){
+        $(".layer_text").prepend(index54);
+    }
+    else if(val == '55'){
+        $(".layer_text").prepend(index55);
+    }
+    else if(val == '56'){
+        $(".layer_text").prepend(index56);
+    }
+    else if(val == '57'){
+        $(".layer_text").prepend(index57);
+    }
+    else if(val == '58'){
+        $(".layer_text").prepend(index58);
+    }
+    else if(val == '59'){
+        $(".layer_text").prepend(index59);
+    }
+    else if(val == '60'){
+        $(".layer_text").prepend(index60);
+    }
+
+
+    else if(val == '61'){
+        $(".layer_text").prepend(index61);
+    }
+    else if(val == '62'){
+        $(".layer_text").prepend(index62);
+    }
+    else if(val == '63'){
+        $(".layer_text").prepend(index63);
+    }
+    else if(val == '64'){
+        $(".layer_text").prepend(index64);
+    }
+    else if(val == '65'){
+        $(".layer_text").prepend(index65);
+    }
+    else if(val == '66'){
+        $(".layer_text").prepend(index66);
+    }
+    else if(val == '67'){
+        $(".layer_text").prepend(index67);
+    }
+    else if(val == '68'){
+        $(".layer_text").prepend(index68);
+    }
+    else if(val == '69'){
+        $(".layer_text").prepend(index69);
+    }
+    else if(val == '70'){
+        $(".layer_text").prepend(index70);
+    }
+
+
+    else if(val == '71'){
+        $(".layer_text").prepend(index71);
+    }
+    else if(val == '72'){
+        $(".layer_text").prepend(index72);
+    }
+    else if(val == '73'){
+        $(".layer_text").prepend(index73);
+    }
+    else if(val == '74'){
+        $(".layer_text").prepend(index74);
+    }
+
 }
 
 // function siltaeInfo(val) {

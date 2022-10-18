@@ -47,18 +47,27 @@ function layerChecked(obj,val){
 	if(obj.checked == true){
 
         if(val == '1'){ //중간역 유속
+
+            selectLayerIndexAdd('1');
+           
             $('.select_logo_midyousok').css('display','');
             layerType = "L2";
             $('#select_menu1').css('display','block');
             map.setView([
                 36.5, 126
             ], 7);
-            javascripr : CefCustomObject.func('yousok', layerType);
             $('.select_logo_detailyousok').css('display','none');
             $('.select_logo_detailyousok_off').css('display','');
+
+            javascripr : CefCustomObject.func('yousok', layerType);
+
             removeWindy(); //중복 방지
+
         }
         else if(val == '2'){ //세부역 유속
+
+            selectLayerIndexAdd('3');
+
             $('.select_logo_detailyousok').css('display','');
             $('#select_menu3').css('display','block');
             L3_Windy();
@@ -67,6 +76,9 @@ function layerChecked(obj,val){
             map.removeLayer(layerGroup); //중복방지
         }
         else if(val == '3'){ // 중간역 수온
+
+            selectLayerIndexAdd('2');
+
             $('.select_logo_midsuon').css('display','');
             layerType = "L2";
             $('#select_menu2').css('display','block');
@@ -87,6 +99,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '4'){ // 세부역 수온
+
+            selectLayerIndexAdd('4');
+
             $('.select_logo_detailsuon').css('display','');
             layerType = "L3";
             $('#select_menu4').css('display','block');
@@ -113,6 +128,9 @@ function layerChecked(obj,val){
             tifLayer.remove();
         }
         else if(val == '5'){ // HNS 확산영역 최대확산범위 (현재 세부역 수온과 동일)
+
+            selectLayerIndexAdd(5);
+
             $('.select_logo_range').css('display','');
             layerType = "L3";
             $('#select_menu5').css('display','block');
@@ -143,6 +161,9 @@ function layerChecked(obj,val){
 
          else if(val == '10'){    
 
+                        
+            selectLayerIndexAdd('70');
+
             $('.select_logo_db1').css('display','');
 
             dbLayerType = "04_군립공원";
@@ -165,6 +186,8 @@ function layerChecked(obj,val){
 
         }
         else if(val == '11'){    
+            
+            selectLayerIndexAdd('71');
 
             $('.select_logo_db2').css('display','');
 
@@ -188,6 +211,8 @@ function layerChecked(obj,val){
 
         }
         else if(val == '12'){    
+                        
+            selectLayerIndexAdd('72');
 
             $('.select_logo_db3').css('display','');
 
@@ -211,6 +236,8 @@ function layerChecked(obj,val){
 
         }
         else if(val == '13'){    
+                        
+            selectLayerIndexAdd('73');
 
             $('.select_logo_db4').css('display','');
 
@@ -233,7 +260,38 @@ function layerChecked(obj,val){
             javascripr : CefCustomObject.func('database', dbLayerType);
 
         }
+
+        /*   제대로 작동 안하는 DATABASE 데이터 추가 구현 필요
+
+        else if(val == '14'){    
+
+            $('.select_logo_db5').css('display','');
+
+            dbLayerType = "03_국립공원";
+
+            $('#select_menu14').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            $('.select_logo_db2').css('display','none');
+            $('.select_logo_db2_off').css('display',''); 
+            $('.select_logo_db3').css('display','none');
+            $('.select_logo_db3_off').css('display',''); 
+            $('.select_logo_db1').css('display','none');
+            $('.select_logo_db1_off').css('display','');
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+        */
+
         else if(val == '999'){    
+            
+            selectLayerIndexAdd('74');
 
             $('.select_logo_st1').css('display','');
 
@@ -256,7 +314,9 @@ function layerChecked(obj,val){
 
         // 해양환경영향평가 (보호구역 취약성) , (번호수정필요)
         else if(val == '61'){
-            
+                        
+            selectLayerIndexAdd('6');
+
             var layertype = '01';
             var num = '1';
 
@@ -278,7 +338,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '62'){ 
-            
+                        
+            selectLayerIndexAdd('7');
+
             var layertype = '02';
             var num ='2';
 
@@ -300,7 +362,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '63'){ 
-            
+                        
+            selectLayerIndexAdd('8');
+
             var layertype = '03';
             var num = '3';
 
@@ -322,7 +386,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '64'){ 
-            
+                        
+            selectLayerIndexAdd('9');
+
             var layertype = '04';
             var num = '4';
 
@@ -345,7 +411,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '65'){
-            
+                        
+            selectLayerIndexAdd(10);
+
             var layertype = '05';
             var num = '5';
 
@@ -367,7 +435,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '66'){ 
-            
+                        
+            selectLayerIndexAdd('11');
+
             var layertype = '06';
             var num = '6';
             
@@ -389,7 +459,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '67'){ 
-            
+                        
+            selectLayerIndexAdd('12');
+
             var layertype = '07';
             var num = '7';
             
@@ -411,7 +483,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '68'){ 
-            
+                        
+            selectLayerIndexAdd('13');
+
             var layertype = '08';
             var num = '8';
             
@@ -434,7 +508,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '69'){
-            
+                        
+            selectLayerIndexAdd('14');
+
             var layertype = '09';
             var num = '9';
 
@@ -456,7 +532,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '610'){ 
-            
+                        
+            selectLayerIndexAdd('15');
+
             var layertype = '10';
 
             $('#select_menu610').css('display','block');
@@ -477,7 +555,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '611'){ 
-            
+                        
+            selectLayerIndexAdd('16');
+
             var layertype = '11';
             
             $('#select_menu611').css('display','block');
@@ -498,7 +578,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '612'){ 
-            
+                        
+            selectLayerIndexAdd('17');
+
             var layertype = '12';
             
             $('#select_menu612').css('display','block');
@@ -520,7 +602,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '613'){
-            
+                        
+            selectLayerIndexAdd('18');
+
             var layertype = '13';
             
             $('#select_menu613').css('display','block');
@@ -541,7 +625,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '614'){ 
-            
+                        
+            selectLayerIndexAdd('19');
+
             var layertype = '14';
             
             $('#select_menu614').css('display','block');
@@ -562,7 +648,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '615'){ 
-            
+                        
+            selectLayerIndexAdd('20');
+
             var layertype = '15';
             
             $('#select_menu615').css('display','block');
@@ -583,7 +671,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '616'){ 
-            
+                        
+            selectLayerIndexAdd('21');
+
             var layertype = '16';
             
             $('#select_menu616').css('display','block');
@@ -607,7 +697,9 @@ function layerChecked(obj,val){
 
         // 종 취약성
         else if(val == '71'){
-            
+                        
+            selectLayerIndexAdd('22');
+
             var layertype = '01';
             var num = '1';
 
@@ -629,7 +721,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '72'){ 
-            
+                        
+            selectLayerIndexAdd('23');
+
             var layertype = '02';
             var num ='2';
 
@@ -651,7 +745,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '73'){ 
-            
+                        
+            selectLayerIndexAdd('24');
+
             var layertype = '03';
             var num = '3';
 
@@ -673,7 +769,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '74'){ 
-            
+                        
+            selectLayerIndexAdd('25');
+
             var layertype = '04';
             var num = '4';
 
@@ -696,7 +794,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '75'){
-            
+                        
+            selectLayerIndexAdd('26');
+
             var layertype = '05';
             var num = '5';
 
@@ -718,7 +818,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '76'){ 
-            
+                        
+            selectLayerIndexAdd('27');
+
             var layertype = '06';
             var num = '6';
             
@@ -740,7 +842,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '77'){ 
-            
+                        
+            selectLayerIndexAdd('28');
+
             var layertype = '07';
             var num = '7';
             
@@ -762,7 +866,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '78'){ 
-            
+                        
+            selectLayerIndexAdd('29');
+
             var layertype = '08';
             var num = '8';
             
@@ -785,7 +891,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '79'){
-            
+                        
+            selectLayerIndexAdd('30');
+
             var layertype = '09';
             var num = '9';
 
@@ -807,7 +915,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '710'){ 
-            
+                        
+            selectLayerIndexAdd('31');
+
             var layertype = '10';
 
             $('#select_menu710').css('display','block');
@@ -828,7 +938,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '711'){ 
-            
+                        
+            selectLayerIndexAdd('32');
+
             var layertype = '11';
             
             $('#select_menu711').css('display','block');
@@ -849,7 +961,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '712'){ 
-            
+                        
+            selectLayerIndexAdd('33');
+
             var layertype = '12';
             
             $('#select_menu712').css('display','block');
@@ -871,7 +985,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '713'){
-            
+                        
+            selectLayerIndexAdd('34');
+
             var layertype = '13';
             
             $('#select_menu713').css('display','block');
@@ -892,7 +1008,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '714'){ 
-            
+                        
+            selectLayerIndexAdd('35');
+
             var layertype = '14';
             
             $('#select_menu714').css('display','block');
@@ -913,7 +1031,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '715'){ 
-            
+                        
+            selectLayerIndexAdd('36');
+
             var layertype = '15';
             
             $('#select_menu715').css('display','block');
@@ -934,7 +1054,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '716'){ 
-            
+                        
+            selectLayerIndexAdd('37');
+
             var layertype = '16';
             
             $('#select_menu716').css('display','block');
@@ -957,7 +1079,9 @@ function layerChecked(obj,val){
 
         // 서식지 취약성
         else if(val == '81'){
-            
+                        
+            selectLayerIndexAdd('38');
+
             var layertype = '01';
             var num = '1';
 
@@ -979,7 +1103,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '82'){ 
-            
+                        
+            selectLayerIndexAdd('39');
+
             var layertype = '02';
             var num ='2';
 
@@ -1001,7 +1127,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '83'){ 
-            
+                        
+            selectLayerIndexAdd('40');
+
             var layertype = '03';
             var num = '3';
 
@@ -1023,7 +1151,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '84'){ 
-            
+                        
+            selectLayerIndexAdd('41');
+
             var layertype = '04';
             var num = '4';
 
@@ -1046,7 +1176,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '85'){
-            
+                        
+            selectLayerIndexAdd('42');
+
             var layertype = '05';
             var num = '5';
 
@@ -1068,7 +1200,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '86'){ 
-            
+                        
+            selectLayerIndexAdd('43');
+
             var layertype = '06';
             var num = '6';
             
@@ -1090,7 +1224,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '87'){ 
-            
+                        
+            selectLayerIndexAdd('44');
+
             var layertype = '07';
             var num = '7';
             
@@ -1112,7 +1248,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '88'){ 
-            
+                        
+            selectLayerIndexAdd('45');
+
             var layertype = '08';
             var num = '8';
             
@@ -1135,7 +1273,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '89'){
-            
+                        
+            selectLayerIndexAdd('46');
+
             var layertype = '09';
             var num = '9';
 
@@ -1157,7 +1297,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '810'){ 
-            
+                        
+            selectLayerIndexAdd('47');
+
             var layertype = '10';
 
             $('#select_menu810').css('display','block');
@@ -1178,7 +1320,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '811'){ 
-            
+                        
+            selectLayerIndexAdd('48');
+
             var layertype = '11';
             
             $('#select_menu811').css('display','block');
@@ -1199,7 +1343,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '812'){ 
-            
+                        
+            selectLayerIndexAdd('49');
+
             var layertype = '12';
             
             $('#select_menu812').css('display','block');
@@ -1221,7 +1367,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '813'){
-            
+                        
+            selectLayerIndexAdd('50');
+
             var layertype = '13';
             
             $('#select_menu813').css('display','block');
@@ -1242,7 +1390,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '814'){ 
-            
+                        
+            selectLayerIndexAdd('51');
+
             var layertype = '14';
             
             $('#select_menu814').css('display','block');
@@ -1263,7 +1413,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '815'){ 
-            
+                        
+            selectLayerIndexAdd('52');
+
             var layertype = '15';
             
             $('#select_menu815').css('display','block');
@@ -1284,7 +1436,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '816'){ 
-            
+                        
+            selectLayerIndexAdd('53');
+
             var layertype = '16';
             
             $('#select_menu816').css('display','block');
@@ -1308,7 +1462,9 @@ function layerChecked(obj,val){
         // 사회경제 취약성
 
         else if(val == '91'){
-            
+                        
+            selectLayerIndexAdd('54');
+
             var layertype = '01';
             var num = '1';
 
@@ -1330,7 +1486,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '92'){ 
-            
+                        
+            selectLayerIndexAdd('55');
+
             var layertype = '02';
             var num ='2';
 
@@ -1352,7 +1510,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '93'){ 
-            
+                        
+            selectLayerIndexAdd('56');
+
             var layertype = '03';
             var num = '3';
 
@@ -1374,7 +1534,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '94'){ 
-            
+                        
+            selectLayerIndexAdd('57');
+
             var layertype = '04';
             var num = '4';
 
@@ -1397,7 +1559,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '95'){
-            
+                        
+            selectLayerIndexAdd('58');
+
             var layertype = '05';
             var num = '5';
 
@@ -1419,7 +1583,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '96'){ 
-            
+                        
+            selectLayerIndexAdd('59');
+
             var layertype = '06';
             var num = '6';
             
@@ -1441,7 +1607,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '97'){ 
-            
+                        
+            selectLayerIndexAdd('60');
+
             var layertype = '07';
             var num = '7';
             
@@ -1463,7 +1631,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '98'){ 
-            
+                        
+            selectLayerIndexAdd('61');
+
             var layertype = '08';
             var num = '8';
             
@@ -1486,7 +1656,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '99'){
-            
+                        
+            selectLayerIndexAdd('62');
+
             var layertype = '09';
             var num = '9';
 
@@ -1508,7 +1680,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '910'){ 
-            
+                        
+            selectLayerIndexAdd('63');
+
             var layertype = '10';
 
             $('#select_menu910').css('display','block');
@@ -1529,7 +1703,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '911'){ 
-            
+                        
+            selectLayerIndexAdd('64');
+
             var layertype = '11';
             
             $('#select_menu911').css('display','block');
@@ -1550,7 +1726,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '912'){ 
-            
+                        
+            selectLayerIndexAdd('65');
+
             var layertype = '12';
             
             $('#select_menu912').css('display','block');
@@ -1572,7 +1750,9 @@ function layerChecked(obj,val){
         }
 
         else if(val == '913'){
-            
+                        
+            selectLayerIndexAdd('66');
+
             var layertype = '13';
             
             $('#select_menu913').css('display','block');
@@ -1593,7 +1773,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '914'){ 
-            
+                        
+            selectLayerIndexAdd('67');
+
             var layertype = '14';
             
             $('#select_menu914').css('display','block');
@@ -1614,7 +1796,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '915'){ 
-            
+                        
+            selectLayerIndexAdd('68');
+
             var layertype = '15';
             
             $('#select_menu915').css('display','block');
@@ -1635,7 +1819,9 @@ function layerChecked(obj,val){
 
         }
         else if(val == '916'){ 
-            
+                        
+            selectLayerIndexAdd('69');
+
             var layertype = '16';
             
             $('#select_menu916').css('display','block');
@@ -2409,10 +2595,12 @@ function select_menu_change(value){
         map.setView([
             36.5, 126
         ], 7);
-        javascripr : CefCustomObject.func('yousok', layerType);
 
         $('.select_logo_detailyousok').css('display','none');
         $('.select_logo_detailyousok_off').css('display',''); //중복방지
+
+        javascripr : CefCustomObject.func('yousok', layerType);
+
         removeWindy();
     }
 }
@@ -2643,9 +2831,6 @@ function select_menu_change_info(value,val){
 // 보호구역취약성 (건드릴 필요 x)
 function select_menu_change_protect(value,val,c_val){
     
-    // var layertype = $('input[name=vulner]:checked').val();
-    // var layertypeArr = layertype.split("-");
-
     if(value == '1'){
         $('.select_logo_protect' + val).css('display','none');
         $('.select_logo_protect_off' + val).css('display','');
@@ -2664,60 +2849,18 @@ function select_menu_change_protect(value,val,c_val){
             34.7599, 127.7594
         ], 11);
 
-        if (val == '1'){
-            deleteLayer(val);
+        for(var j =1; j<17; j++){
+            if (val == j){
+                deleteLayer(val);
+            }
         }
-        else if(val =='2'){
-            deleteLayer(val);
-        }        
-        else if(val =='3'){
-            deleteLayer(val);
-        }
-        else if(val =='4'){
-            deleteLayer(val);
-        }
-        else if(val =='5'){
-            deleteLayer(val);
-        }
-        else if(val =='6'){
-            deleteLayer(val);
-        }
-        else if(val =='7'){
-            deleteLayer(val);
-        }
-        else if(val =='8'){
-            deleteLayer(val);
-        }
-        else if(val =='9'){
-            deleteLayer(val);
-        }
-        else if(val =='10'){
-            deleteLayer(val);
-        }
-        else if(val =='11'){
-            deleteLayer(val);
-        }
-        else if(val =='12'){
-            deleteLayer(val);
-        }
-        else if(val =='13'){
-            deleteLayer(val);
-        }
-        else if(val =='14'){
-            deleteLayer(val);
-        }
-        else if(val =='15'){
-            deleteLayer(val);
-        }       
-        else if(val =='16'){
-            deleteLayer(val);
-        }
-       
-        layertype = c_val;
-        javascripr : CefCustomObject.func('vulnerability_protect', layertype);
 
-        // suonLayerType = "L3"
-        // javascripr : CefCustomObject.func('suon', suonLayerType);
+        for(var i = 1; i<10; i++){
+            if(c_val == i){
+                layertype = "0" + i;
+                javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+            }
+        }
 
     }
 }
@@ -2725,9 +2868,6 @@ function select_menu_change_protect(value,val,c_val){
 // 종취약성 (건드릴 필요 x)
 function select_menu_change_species(value,val,c_val){
     
-    // var layertype = $('input[name=vulner]:checked').val();
-    // var layertypeArr = layertype.split("-");
-
     if(value == '1'){
         $('.select_logo_species' + val).css('display','none');
         $('.select_logo_species_off' + val).css('display','');
@@ -2746,69 +2886,25 @@ function select_menu_change_species(value,val,c_val){
             34.7599, 127.7594
         ], 11);
 
-        if (val == '1'){
-            deleteLayer_species(val);
-        }
-        else if(val =='2'){
-            deleteLayer_species(val);
-        }        
-        else if(val =='3'){
-            deleteLayer_species(val);
-        }
-        else if(val =='4'){
-            deleteLayer_species(val);
-        }
-        else if(val =='5'){
-            deleteLayer_species(val);
-        }
-        else if(val =='6'){
-            deleteLayer_species(val);
-        }
-        else if(val =='7'){
-            deleteLayer_species(val);
-        }
-        else if(val =='8'){
-            deleteLayer_species(val);
-        }
-        else if(val =='9'){
-            deleteLayer_species(val);
-        }
-        else if(val =='10'){
-            deleteLayer_species(val);
-        }
-        else if(val =='11'){
-            deleteLayer_species(val);
-        }
-        else if(val =='12'){
-            deleteLayer_species(val);
-        }
-        else if(val =='13'){
-            deleteLayer_species(val);
-        }
-        else if(val =='14'){
-            deleteLayer_species(val);
-        }
-        else if(val =='15'){
-            deleteLayer_species(val);
-        }       
-        else if(val =='16'){
-            deleteLayer_species(val);
+
+        for(var j =1; j<17; j++){
+            if (val == j){
+                deleteLayer_species(val);
+            }
         }
 
-        layertype = c_val;
-        javascripr : CefCustomObject.func('vulnerability_species', layertype);
-
-        // suonLayerType = "L3"
-        // javascripr : CefCustomObject.func('suon', suonLayerType);
+        for(var i = 1; i<10; i++){
+            if(c_val == i){
+                layertype = "0" + i;
+                javascripr : CefCustomObject.func('vulnerability_species', layertype);
+            }
+        }
 
     }
 }
 
 // 서식지 취약성 (건드릴 필요 x)
 function select_menu_change_area(value,val,c_val){
-    
-    // var layertype = $('input[name=vulner]:checked').val();
-    // var layertypeArr = layertype.split("-");
 
     if(value == '1'){
         $('.select_logo_area' + val).css('display','none');
@@ -2828,60 +2924,18 @@ function select_menu_change_area(value,val,c_val){
             34.7599, 127.7594
         ], 11);
 
-        if (val == '1'){
-            deleteLayer_area(val);
-        }
-        else if(val =='2'){
-            deleteLayer_area(val);
-        }        
-        else if(val =='3'){
-            deleteLayer_area(val);
-        }
-        else if(val =='4'){
-            deleteLayer_area(val);
-        }
-        else if(val =='5'){
-            deleteLayer_area(val);
-        }
-        else if(val =='6'){
-            deleteLayer_area(val);
-        }
-        else if(val =='7'){
-            deleteLayer_area(val);
-        }
-        else if(val =='8'){
-            deleteLayer_area(val);
-        }
-        else if(val =='9'){
-            deleteLayer_area(val);
-        }
-        else if(val =='10'){
-            deleteLayer_area(val);
-        }
-        else if(val =='11'){
-            deleteLayer_area(val);
-        }
-        else if(val =='12'){
-            deleteLayer_area(val);
-        }
-        else if(val =='13'){
-            deleteLayer_area(val);
-        }
-        else if(val =='14'){
-            deleteLayer_area(val);
-        }
-        else if(val =='15'){
-            deleteLayer_area(val);
-        }       
-        else if(val =='16'){
-            deleteLayer_area(val);
+        for(var j =1; j<17; j++){
+            if (val == j){
+                deleteLayer_area(val);
+            }
         }
 
-        layertype = c_val;
-        javascripr : CefCustomObject.func('vulnerability_area', layertype);
-
-        // suonLayerType = "L3"
-        // javascripr : CefCustomObject.func('suon', suonLayerType);
+        for(var i = 1; i<10; i++){
+            if(c_val == i){
+                layertype = "0" + i;
+                javascripr : CefCustomObject.func('vulnerability_area', layertype);
+            }
+        }
 
     }
 }
@@ -2889,9 +2943,6 @@ function select_menu_change_area(value,val,c_val){
 // 사회경제 취약성 (건드릴 필요 x)
 function select_menu_change_social(value,val,c_val){
     
-    // var layertype = $('input[name=vulner]:checked').val();
-    // var layertypeArr = layertype.split("-");
-
     if(value == '1'){
         $('.select_logo_social' + val).css('display','none');
         $('.select_logo_social_off' + val).css('display','');
@@ -2910,60 +2961,18 @@ function select_menu_change_social(value,val,c_val){
             34.7599, 127.7594
         ], 11);
 
-        if (val == '1'){
-            deleteLayer_social(val);
-        }
-        else if(val =='2'){
-            deleteLayer_social(val);
-        }        
-        else if(val =='3'){
-            deleteLayer_social(val);
-        }
-        else if(val =='4'){
-            deleteLayer_social(val);
-        }
-        else if(val =='5'){
-            deleteLayer_social(val);
-        }
-        else if(val =='6'){
-            deleteLayer_social(val);
-        }
-        else if(val =='7'){
-            deleteLayer_social(val);
-        }
-        else if(val =='8'){
-            deleteLayer_social(val);
-        }
-        else if(val =='9'){
-            deleteLayer_social(val);
-        }
-        else if(val =='10'){
-            deleteLayer_social(val);
-        }
-        else if(val =='11'){
-            deleteLayer_social(val);
-        }
-        else if(val =='12'){
-            deleteLayer_social(val);
-        }
-        else if(val =='13'){
-            deleteLayer_social(val);
-        }
-        else if(val =='14'){
-            deleteLayer_social(val);
-        }
-        else if(val =='15'){
-            deleteLayer_social(val);
-        }       
-        else if(val =='16'){
-            deleteLayer_social(val);
+        for(var j =1; j<17; j++){
+            if (val == j){
+                deleteLayer_social(val);
+            }
         }
 
-        layertype = c_val;
-        javascripr : CefCustomObject.func('vulnerability_social', layertype);
-
-        // suonLayerType = "L3"
-        // javascripr : CefCustomObject.func('suon', suonLayerType);
+        for(var i = 1; i<10; i++){
+            if(c_val == i){
+                layertype = "0" + i;
+                javascripr : CefCustomObject.func('vulnerability_social', layertype);
+            }
+        }
 
     }
 }
