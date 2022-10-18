@@ -2,6 +2,16 @@
 function deleteLayer(val) {
 
     if (val == '1') {
+
+        for (var i = 1; i<2; i++){
+            $('.select_logo_species' + i).css('display', 'none');
+            $('.select_logo_species_off' + i).css('display', '');
+            $('.select_logo_area' + i).css('display', 'none');
+            $('.select_logo_area_off' + i).css('display', '');
+            $('.select_logo_social' + i).css('display', 'none');
+            $('.select_logo_social_off' + i).css('display', '');
+        }
+
         for (var i = 2; i < 17; i++) {
             $('.select_logo_protect' + i).css('display', 'none');
             $('.select_logo_protect_off' + i).css('display', '');
@@ -13,6 +23,12 @@ function deleteLayer(val) {
             $('.select_logo_social' + i).css('display', 'none');
             $('.select_logo_social_off' + i).css('display', '');
         }
+
+        // $('.select_logo_range').css('display', 'none');
+        // $('.select_logo_range_off').css('display', '');
+        // $('.select_logo_detailsuon').css('display', 'none');
+        // $('.select_logo_detailsuon_off').css('display', '');
+
     } else if (val == '2') {
 
         for (var i = 1; i < 2; i++) {
@@ -373,6 +389,16 @@ function deleteLayer(val) {
 function deleteLayer_species(val) {
 
     if (val == '1') {
+
+        for (var i = 1; i<2; i++){
+            $('.select_logo_protect' + i).css('display', 'none');
+            $('.select_logo_protect_off' + i).css('display', '');
+            $('.select_logo_area' + i).css('display', 'none');
+            $('.select_logo_area_off' + i).css('display', '');
+            $('.select_logo_social' + i).css('display', 'none');
+            $('.select_logo_social_off' + i).css('display', '');
+        }
+
         for (var i = 2; i < 17; i++) {
             $('.select_logo_species' + i).css('display', 'none');
             $('.select_logo_species_off' + i).css('display', '');
@@ -742,6 +768,16 @@ function deleteLayer_species(val) {
 // 서식지
 function deleteLayer_area(val) {
     if (val == '1') {
+
+        for (var i = 1; i<2; i++){
+            $('.select_logo_protect' + i).css('display', 'none');
+            $('.select_logo_protect_off' + i).css('display', '');
+            $('.select_logo_species' + i).css('display', 'none');
+            $('.select_logo_species_off' + i).css('display', '');
+            $('.select_logo_social' + i).css('display', 'none');
+            $('.select_logo_social_off' + i).css('display', '');
+        }
+
         for (var i = 2; i < 17; i++) {
             $('.select_logo_area' + i).css('display', 'none');
             $('.select_logo_area_off' + i).css('display', '');
@@ -1110,6 +1146,16 @@ function deleteLayer_area(val) {
 function deleteLayer_social(val) {
 
     if (val == '1') {
+
+        for (var i = 1; i<2; i++){
+            $('.select_logo_protect' + i).css('display', 'none');
+            $('.select_logo_protect_off' + i).css('display', '');
+            $('.select_logo_species' + i).css('display', 'none');
+            $('.select_logo_species_off' + i).css('display', '');
+            $('.select_logo_area' + i).css('display', 'none');
+            $('.select_logo_area_off' + i).css('display', '');
+        }
+
         for (var i = 2; i < 17; i++) {
             $('.select_logo_social' + i).css('display', 'none');
             $('.select_logo_social_off' + i).css('display', '');
