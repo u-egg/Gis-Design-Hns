@@ -51,7 +51,9 @@ function layerChecked(obj,val){
             selectLayerIndexAdd('1');
            
             $('.select_logo_midyousok').css('display','');
-            layerType = "L2";
+
+            layerType = "L3";
+            
             $('#select_menu1').css('display','block');
             map.setView([
                 36.5, 126
@@ -172,13 +174,12 @@ function layerChecked(obj,val){
             map.setView([
                 36.5, 126
             ], 7);
+
+            for(var i = 2; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
             
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db2_off').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db3_off').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db4_off').css('display','');
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
             
@@ -198,12 +199,16 @@ function layerChecked(obj,val){
                 36.5, 126
             ], 7);
             
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db1_off').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db3_off').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db4_off').css('display','');
+            for(var i = 1; i<2; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 3; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
 
@@ -223,12 +228,16 @@ function layerChecked(obj,val){
                 36.5, 126
             ], 7);
             
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db2_off').css('display',''); 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db1_off').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db4_off').css('display','');
+            for(var i = 1; i<3; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 4; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
 
@@ -248,12 +257,19 @@ function layerChecked(obj,val){
                 36.5, 126
             ], 7);
             
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db2_off').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db3_off').css('display',''); 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db1_off').css('display','');
+            for(var i = 1; i<4; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 5; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+            
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
 
@@ -261,9 +277,11 @@ function layerChecked(obj,val){
 
         }
 
-        /*   제대로 작동 안하는 DATABASE 데이터 추가 구현 필요
+        /*   제대로 작동 안하는 DATABASE 데이터 추가 구현 필요 */
 
         else if(val == '14'){    
+
+            selectLayerIndexAdd('75');
 
             $('.select_logo_db5').css('display','');
 
@@ -274,12 +292,16 @@ function layerChecked(obj,val){
                 36.5, 126
             ], 7);
             
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db2_off').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db3_off').css('display',''); 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db1_off').css('display','');
+            for(var i = 1; i<5; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 6; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
 
@@ -287,7 +309,124 @@ function layerChecked(obj,val){
 
         }
 
-        */
+        else if(val == '15'){    
+
+            selectLayerIndexAdd('76');
+
+            $('.select_logo_db6').css('display','');
+
+            dbLayerType = "05_도립공원";
+
+            $('#select_menu15').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            for(var i = 1; i<6; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 7; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+
+        else if(val == '16'){    
+
+            selectLayerIndexAdd('77');
+
+            $('.select_logo_db7').css('display','');
+
+            dbLayerType = "17_수산자원보호구역";
+
+            $('#select_menu16').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            for(var i = 1; i<7; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 8; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+
+        else if(val == '17'){    
+
+            selectLayerIndexAdd('78');
+
+            $('.select_logo_db8').css('display','');
+
+            dbLayerType = "18_환경보전지역";
+
+            $('#select_menu17').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            for(var i = 1; i<8; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 9; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+        else if(val == '18'){    
+
+            selectLayerIndexAdd('79');
+
+            $('.select_logo_db9').css('display','');
+
+            dbLayerType = "어장정보도";
+
+            $('#select_menu18').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            for(var i = 1; i<9; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+
 
         else if(val == '999'){    
             
@@ -2286,6 +2425,26 @@ function select_menu_delete(value){
                 select_menu_change_db('1','4'); 
             }
 
+            else if(i == 14){
+                select_menu_change_db('1','5'); 
+            }
+
+            else if(i == 15){
+                select_menu_change_db('1','6'); 
+            }
+
+            else if(i == 16){
+                select_menu_change_db('1','7'); 
+            }
+
+            else if(i == 17){
+                select_menu_change_db('1','8'); 
+            }
+
+            else if(i == 18){
+                select_menu_change_db('1','9'); 
+            }
+
             //해양산업시설 (임시)
             else if(i == 999){
                 select_menu_change_info('1','1'); 
@@ -2736,36 +2895,41 @@ function select_menu_change_db(value,val){
         if(val == '1'){
             dbLayerType = "04_군립공원";
 
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db_off2').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db_off3').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db_off4').css('display','');
+            for(var i = 2; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
         }
         else if(val == '2'){
             dbLayerType = "16_특별관리해역";
             
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db_off1').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db_off3').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db_off4').css('display','');
+            for(var i = 1; i<2; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 3; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
         }
         else if(val == '3'){
             dbLayerType = "양식장영역";
 
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db_off2').css('display',''); 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db_off1').css('display',''); 
-            $('.select_logo_db4').css('display','none');
-            $('.select_logo_db_off4').css('display','');
+            for(var i = 1; i<3; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 4; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
         }
@@ -2773,16 +2937,96 @@ function select_menu_change_db(value,val){
         else if(val =='4'){
             dbLayerType = "조업집중구역(봄)";
 
-            $('.select_logo_db2').css('display','none');
-            $('.select_logo_db_off2').css('display',''); 
-            $('.select_logo_db3').css('display','none');
-            $('.select_logo_db_off3').css('display',''); 
-            $('.select_logo_db1').css('display','none');
-            $('.select_logo_db_off1').css('display','');
+            for(var i = 1; i<4; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 5; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
         }
 
+
+
+        else if(val =='5'){
+            dbLayerType = "03_국립공원";
+
+            for(var i = 1; i<5; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 6; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+        }
+
+        else if(val =='6'){
+            dbLayerType = "05_도립공원";
+
+            for(var i = 1; i<6; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 7; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+        }
+
+        else if(val =='7'){
+            dbLayerType = "17_수산자원보호구역";
+
+            for(var i = 1; i<7; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 8; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+        }
+
+        else if(val =='8'){
+            dbLayerType = "18_환경보전지역";
+
+            for(var i = 1; i<8; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+            for(var i = 9; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+        }
+
+        else if(val =='9'){
+            dbLayerType = "어장정보도";
+
+            for(var i = 1; i<9; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            $('.select_logo_st1').css('display','none');
+            $('.select_logo_st_off1').css('display',''); 
+        }
         map.setView([
             36.5, 126
         ], 7);
@@ -2793,8 +3037,6 @@ function select_menu_change_db(value,val){
 }
 
 function select_menu_change_info(value,val){
-
-
 
     if(value == '1'){
         $('.select_logo_st' + val).css('display','none');
@@ -2857,11 +3099,12 @@ function select_menu_change_protect(value,val,c_val){
 
         for(var i = 1; i<10; i++){
             if(c_val == i){
-                layertype = "0" + i;
-                javascripr : CefCustomObject.func('vulnerability_protect', layertype);
+                c_val = "0" + i;
             }
         }
 
+        layertype = c_val;
+        javascripr : CefCustomObject.func('vulnerability_protect', layertype);
     }
 }
 
@@ -2895,12 +3138,14 @@ function select_menu_change_species(value,val,c_val){
 
         for(var i = 1; i<10; i++){
             if(c_val == i){
-                layertype = "0" + i;
-                javascripr : CefCustomObject.func('vulnerability_species', layertype);
+                c_val = "0" + i;
             }
         }
 
+        layertype = c_val;
+        javascripr : CefCustomObject.func('vulnerability_species', layertype);
     }
+
 }
 
 // 서식지 취약성 (건드릴 필요 x)
@@ -2932,11 +3177,12 @@ function select_menu_change_area(value,val,c_val){
 
         for(var i = 1; i<10; i++){
             if(c_val == i){
-                layertype = "0" + i;
-                javascripr : CefCustomObject.func('vulnerability_area', layertype);
+                c_val = "0" + i;
             }
         }
 
+        layertype = c_val;
+        javascripr : CefCustomObject.func('vulnerability_area', layertype);
     }
 }
 
@@ -2969,10 +3215,12 @@ function select_menu_change_social(value,val,c_val){
 
         for(var i = 1; i<10; i++){
             if(c_val == i){
-                layertype = "0" + i;
-                javascripr : CefCustomObject.func('vulnerability_social', layertype);
+                c_val = "0" + i;
             }
         }
 
+        layertype = c_val;
+        javascripr : CefCustomObject.func('vulnerability_social', layertype);
     }
+
 }

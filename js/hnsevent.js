@@ -175,65 +175,8 @@ function viewYousokLayer(type) {
             {icon: 'error', title: '경고', text: '레이어를 선택해 주세요.'}
         )
     } 
-    // else{
-    //     layer_select_frame_on();
-    // }
-    
-    // if (layerType == "suon_L2") {
-    //     $('.select_logo_midsuon').css('display','');
-    //     layerType = "L2";
-    //     $('#select_menu2').css('display','block');
-    //     map.setView([
-    //         36.5, 126
-    //     ], 7);
-    //     javascripr : CefCustomObject.func('suon', layerType);
-
-    //     //중복 방지
-    //     $('.select_logo_detailsuon').css('display','none');
-    //     $('.select_logo_detailsuon_off').css('display','');
-    //     tifLayer.remove();
-
-
-    // } else if (layerType == "suon_L3") {
-    //     $('.select_logo_detailsuon').css('display','');
-    //     layerType = "L3";
-    //     $('#select_menu4').css('display','block');
-    //     map.setView([
-    //         34.7599, 127.7594
-    //     ], 11);
-    //     javascripr : CefCustomObject.func('suon', layerType);
-        
-    //     //중복 방지
-    //     $('.select_logo_midsuon').css('display','none');
-    //     $('.select_logo_midsuon_off').css('display','');
-    //     tifLayer.remove();
-
-
-    // } else if (layerType == "yousok_L2") {
-    //     $('.select_logo_midyousok').css('display','');
-    //     layerType = "L2";
-    //     $('#select_menu1').css('display','block');
-    //     map.setView([
-    //         36.5, 126
-    //     ], 7);
-    //     javascripr : CefCustomObject.func('yousok', layerType);
-    //     $('.select_logo_detailyousok').css('display','none');
-    //     $('.select_logo_detailyousok_off').css('display','');
-    //     removeWindy(); //중복 방지
-
-    // } else if(layerType =="yousok_L3") {
-    //     $('.select_logo_detailyousok').css('display','');
-    //     $('#select_menu3').css('display','block');
-    //     L3_Windy();
-    //     $('.select_logo_midyousok').css('display','none');
-    //     $('.select_logo_midyousok_off').css('display','');
-    //     map.removeLayer(layerGroup); //중복방지
-    // }
-
+  
 }
-
-// function reload(aa){     window.location.reload(); } function openInfo(val){
-// alert(val); } function reload(aa){     location.reload(true); }
 
 var c = null;
 
@@ -246,21 +189,14 @@ function drawArrow(sbLon, sbLat, sb_wind_direction) {
     if (sbLon == null) {
         return;
     }
-
+    
     setLon = sbLon;
     setLat = sbLat;
-    set_wind_direction = sb_wind_direction;
 
+    set_wind_direction = sb_wind_direction;
+    
     var zoomLevel = map.getZoom();
     var setViewCnt = 0;
-
-    /*
-    var dataMaxLon = 132;
-    var dataMaxLat = 39;
-    var dataMinLon = 123;
-    var dataMinLat = 32;
-
-*/
 
     var dataMaxLon = 200;
     var dataMaxLat = 200;
@@ -336,6 +272,7 @@ function drawArrow(sbLon, sbLat, sb_wind_direction) {
         }
 
     }
+
     setMaxLon = mapMaxLon;
     setMaxLat = mapMaxLat;
     setMinLon = mapMinLon;
@@ -398,6 +335,7 @@ function drawArrow(sbLon, sbLat, sb_wind_direction) {
         map.addLayer(layerGroup);
     }
 }
+
 var layerGroup = L.layerGroup();
 
 var setImgType = "";
@@ -1268,6 +1206,12 @@ function selectLayerIndexAdd(val){
     var index73 = "<div id='select_menu13'style='display: none;'>[DATABASE]조업집중구역(봄)<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(13)'></i><i class='fa-solid fa-eye select_logo_db4'onclick='select_menu_change_db(1,4)'></i><i class='fa-solid fa-eye-slash select_logo_db_off4'onclick='select_menu_change_db(2,4)'></i></div>";
     var index74 = "<div id='select_menu999'style='display: none;'>[HNS방류실태조사정보조회]해양산업시설<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(999)'></i><i class='fa-solid fa-eye select_logo_st1'onclick='select_menu_change_info(1,1)'></i><i class='fa-solid fa-eye-slash select_logo_st_off1'onclick='select_menu_change_info(2,1)'></i></div>";
 
+    var index75 = "<div id='select_menu14'style='display: none;'>[DATABASE]국립공원<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(14)'></i><i class='fa-solid fa-eye select_logo_db5'onclick='select_menu_change_db(1,5)'></i><i class='fa-solid fa-eye-slash select_logo_db_off5'onclick='select_menu_change_db(2,5)'></i></div>";
+    var index76 = "<div id='select_menu15'style='display: none;'>[DATABASE]도립공원<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(15)'></i><i class='fa-solid fa-eye select_logo_db6'onclick='select_menu_change_db(1,6)'></i><i class='fa-solid fa-eye-slash select_logo_db_off6'onclick='select_menu_change_db(2,6)'></i></div>";
+    var index77 = "<div id='select_menu16'style='display: none;'>[DATABASE]수산자원보호구역(봄)<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(16)'></i><i class='fa-solid fa-eye select_logo_db7'onclick='select_menu_change_db(1,7)'></i><i class='fa-solid fa-eye-slash select_logo_db_off7'onclick='select_menu_change_db(2,7)'></i></div>";
+    var index78 = "<div id='select_menu17'style='display: none;'>[DATABASE]환경보전지역<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(17)'></i><i class='fa-solid fa-eye select_logo_db8'onclick='select_menu_change_db(1,8)'></i><i class='fa-solid fa-eye-slash select_logo_db_off8'onclick='select_menu_change_db(2,8)'></i></div>";
+    var index79 = "<div id='select_menu18'style='display: none;'>[DATABASE]어장정보도<i class='fa-regular fa-trash-can select_logo_1'onclick='select_menu_delete(18)'></i><i class='fa-solid fa-eye select_logo_db9'onclick='select_menu_change_db(1,9)'></i><i class='fa-solid fa-eye-slash select_logo_db_off9'onclick='select_menu_change_db(2,9)'></i></div>";
+    
     if(val == '1'){
         $(".layer_text").prepend(index1);
     }
@@ -1503,6 +1447,23 @@ function selectLayerIndexAdd(val){
     }
     else if(val == '74'){
         $(".layer_text").prepend(index74);
+    }
+
+
+    else if(val == '75'){
+        $(".layer_text").prepend(index75);
+    }
+    else if(val == '76'){
+        $(".layer_text").prepend(index76);
+    }
+    else if(val == '77'){
+        $(".layer_text").prepend(index77);
+    }
+    else if(val == '78'){
+        $(".layer_text").prepend(index78);
+    }
+    else if(val == '79'){
+        $(".layer_text").prepend(index79);
     }
 
 }
