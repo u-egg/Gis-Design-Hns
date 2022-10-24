@@ -53,7 +53,6 @@ function L3_Windy(view) {
         ], 11);
     }
 
-
     const data = [
         {
             header: {
@@ -104,7 +103,7 @@ function L3_Windy(view) {
             displayEmptyString: "No wind data"
         },
         data: data,
-        maxVelocity: 30
+        maxVelocity: 10
         
     });
 

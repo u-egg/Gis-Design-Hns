@@ -84,7 +84,9 @@ function layerChecked(obj,val){
             selectLayerIndexAdd('2');
 
             $('.select_logo_midsuon').css('display','');
+
             layerType = "L2";
+
             $('#select_menu2').css('display','block');
             map.setView([
                 36.5, 126
@@ -2747,8 +2749,10 @@ function select_menu_change(value){
         removeWindy();
     }
     else{
+
         $('.select_logo_midyousok_off').css('display','none');
         $('.select_logo_midyousok').css('display','');
+        
         layerType = "L2";
 
         $('.select_logo_detailyousok').css('display','none');
@@ -2777,7 +2781,7 @@ function select_menu_change_detailyousok(value){
         $('.select_logo_midyousok_off').css('display','');
 
         javascripr : CefCustomObject.func('yousok', layerType);
-        
+
         removeWindy();
     }
 }
