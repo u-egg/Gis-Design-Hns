@@ -58,6 +58,7 @@ function layerChecked(obj,val){
             $('.select_logo_detailyousok').css('display','none');
             $('.select_logo_detailyousok_off').css('display','');
 
+            $('.legend_yousok_frame').css('display','none');
             javascripr : CefCustomObject.func('yousok', layerType);
 
             removeWindy(); //중복 방지
@@ -74,6 +75,7 @@ function layerChecked(obj,val){
             $('#select_menu3').css('display','block');
             $('.select_logo_midyousok').css('display','none');
             $('.select_logo_midyousok_off').css('display','');
+            $('.legend_yousok_frame').css('display','none');
 
             javascripr : CefCustomObject.func('yousok', layerType);
 
@@ -86,6 +88,7 @@ function layerChecked(obj,val){
             $('.select_logo_midsuon').css('display','');
 
             layerType = "L2";
+            $('.legend_yousok_frame').css('display','block');
 
             $('#select_menu2').css('display','block');
             map.setView([
@@ -111,6 +114,7 @@ function layerChecked(obj,val){
             $('.select_logo_detailsuon').css('display','');
             layerType = "L3";
             $('#select_menu4').css('display','block');
+            $('.legend_yousok_frame').css('display','block');
             map.setView([
                 34.7599, 127.7594
             ], 11);
@@ -1991,18 +1995,24 @@ function layerChecked(obj,val){
         if(val == '1'){
             $('#select_menu1').css('display','none');
             select_menu_change('1');
+
         }
         else if(val == '2'){
             $('#select_menu3').css('display','none');
             select_menu_change_detailyousok('1');
+
         }
         else if(val == '3'){
             $('#select_menu2').css('display','none');
+            $('.legend_yousok_frame').css('display','none');
             select_menu_change_midsuon('1');
+
         }
         else if(val == '4'){
             $('#select_menu4').css('display','none');
+            $('.legend_yousok_frame').css('display','none');
             select_menu_change_detailsuon('1');
+
         }
         else if(val == '5'){
             $('#select_menu5').css('display','none');
@@ -2789,6 +2799,7 @@ function select_menu_change_detailyousok(value){
 function select_menu_change_midsuon(value){
     if(value == '1'){
         $('.select_logo_midsuon').css('display','none');
+        $('.legend_yousok_frame').css('display','none');
         $('.select_logo_midsuon_off').css('display','');
         tifLayer.remove();
     }
@@ -2816,6 +2827,7 @@ function select_menu_change_midsuon(value){
 function select_menu_change_detailsuon(value){
     if(value == '1'){
         $('.select_logo_detailsuon').css('display','none');
+        $('.legend_yousok_frame').css('display','none');
         $('.select_logo_detailsuon_off').css('display','');
         tifLayer.remove();
     }

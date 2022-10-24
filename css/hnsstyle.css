@@ -628,7 +628,7 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 140px;
+    height: 105px;
     font-size: 1.4rem;
     border: 1px solid #ddd;
     overflow-x: hidden;
@@ -1114,6 +1114,24 @@ input[id="b"] {
     top: -6px;
     left: 10px;
 }
+
+.legend_yousok_frame{
+    display: none;
+}
+
+.yousok_legend{
+    background: rgb(11,96,160);
+    background: linear-gradient(90deg, rgba(11,96,160,1) 0%, rgba(53,150,162,1) 15%, rgba(124,173,122,1) 30%, rgba(242,210,56,1) 45%, rgba(242,169,56,1) 60%, rgba(239,131,53,1) 75%, rgba(255,0,0,1) 90%);
+    width: 260px;
+    height: 15px;
+    margin-top: 10px;
+}
+
+.yousok_legend_text{
+    width: 260px;
+    margin-top: 5px;
+}
+
 
 .select_logo_midyousok, .select_logo_midsuon, 
 .select_logo_detailyousok, .select_logo_detailsuon, 
