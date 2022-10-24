@@ -52,12 +52,9 @@ function layerChecked(obj,val){
            
             $('.select_logo_midyousok').css('display','');
 
-            layerType = "L3";
+            layerType = "L2";
             
             $('#select_menu1').css('display','block');
-            map.setView([
-                36.5, 126
-            ], 7);
             $('.select_logo_detailyousok').css('display','none');
             $('.select_logo_detailyousok_off').css('display','');
 
@@ -71,11 +68,16 @@ function layerChecked(obj,val){
             selectLayerIndexAdd('3');
 
             $('.select_logo_detailyousok').css('display','');
+
+            layerType = "L3";
+
             $('#select_menu3').css('display','block');
-            L3_Windy();
             $('.select_logo_midyousok').css('display','none');
             $('.select_logo_midyousok_off').css('display','');
-            map.removeLayer(layerGroup); //중복방지
+
+            javascripr : CefCustomObject.func('yousok', layerType);
+
+            removeWindy() // 중복방지
         }
         else if(val == '3'){ // 중간역 수온
 
@@ -2741,19 +2743,13 @@ function select_menu_change(value){
     if(value == '1'){
         $('.select_logo_midyousok').css('display','none');
         $('.select_logo_midyousok_off').css('display','');
-        map.removeLayer(layerGroup);
 
-        layerclear = "clear";
-
+        removeWindy();
     }
     else{
         $('.select_logo_midyousok_off').css('display','none');
         $('.select_logo_midyousok').css('display','');
         layerType = "L2";
-        layerclear = "";
-        map.setView([
-            36.5, 126
-        ], 7);
 
         $('.select_logo_detailyousok').css('display','none');
         $('.select_logo_detailyousok_off').css('display',''); //중복방지
@@ -2768,18 +2764,21 @@ function select_menu_change_detailyousok(value){
     if(value == '1'){
         $('.select_logo_detailyousok').css('display','none');
         $('.select_logo_detailyousok_off').css('display','');
+
         removeWindy();
     }
     else{
         $('.select_logo_detailyousok_off').css('display','none');
         $('.select_logo_detailyousok').css('display','');
-        L3_Windy();
+        layerType = "L3";
 
-        map.removeLayer(layerGroup); //중복방지 
-        layerclear ="clear";
+
         $('.select_logo_midyousok').css('display','none');
         $('.select_logo_midyousok_off').css('display','');
 
+        javascripr : CefCustomObject.func('yousok', layerType);
+        
+        removeWindy();
     }
 }
 
