@@ -643,10 +643,6 @@ section {
     margin-top: 20px;
 }
 
-.anw3 span{
-    margin-left: 193px;
-}
-
 .img_on3 {
     position: absolute;
     right: 2rem;
@@ -1130,6 +1126,14 @@ input[id="b"] {
     display: none;
 }
 
+#legend_text2{
+    float: right;
+    margin-right: 13px;
+}
+
+.clear{
+    clear: right;
+}
 
 .select_logo_midyousok, .select_logo_midsuon, 
 .select_logo_detailyousok, .select_logo_detailsuon, 

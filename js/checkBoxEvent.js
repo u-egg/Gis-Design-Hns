@@ -90,6 +90,9 @@ function layerChecked(obj,val){
             layerType = "L2";
             $('.legend_yousok_frame').css('display','block');
 
+            document.querySelector('#legend_text1').innerHTML = "-1.87"
+            document.querySelector('#legend_text2').innerHTML = "22.07"
+
             $('#select_menu2').css('display','block');
             map.setView([
                 36.5, 126
@@ -115,6 +118,10 @@ function layerChecked(obj,val){
             layerType = "L3";
             $('#select_menu4').css('display','block');
             $('.legend_yousok_frame').css('display','block');
+
+            document.querySelector('#legend_text1').innerHTML = "0"
+            document.querySelector('#legend_text2').innerHTML = "9.15"
+
             map.setView([
                 34.7599, 127.7594
             ], 11);
@@ -2807,6 +2814,9 @@ function select_menu_change_midsuon(value){
         $('.select_logo_midsuon_off').css('display','none');
         $('.select_logo_midsuon').css('display','');
         $('.legend_yousok_frame').css('display','block');
+        
+        document.querySelector('#legend_text1').innerHTML = "-1.87"
+        document.querySelector('#legend_text2').innerHTML = "22.07"
 
         layerType = "L2";
         map.setView([
@@ -2831,6 +2841,7 @@ function select_menu_change_detailsuon(value){
         $('.select_logo_detailsuon').css('display','none');
         $('.legend_yousok_frame').css('display','none');
         $('.select_logo_detailsuon_off').css('display','');
+
         tifLayer.remove();
     }
     else{
@@ -2842,6 +2853,9 @@ function select_menu_change_detailsuon(value){
         map.setView([
             34.7599, 127.7594
         ], 11);
+        
+        document.querySelector('#legend_text1').innerHTML = "0"
+        document.querySelector('#legend_text2').innerHTML = "9.15"
 
         //중복 방지
         $('.select_logo_midsuon').css('display','none');
