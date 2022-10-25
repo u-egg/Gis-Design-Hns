@@ -628,12 +628,23 @@ section {
     margin: 0 auto;
     width: 31rem;
     padding: 1rem;
-    height: 105px;
+    height: 100px;
     font-size: 1.4rem;
     border: 1px solid #ddd;
     overflow-x: hidden;
+    overflow-y: hidden;
     position: relative;
     padding-left: 2rem;
+}
+
+.anw3 img{
+    width: 265px;
+    height: 20px;
+    margin-top: 20px;
+}
+
+.anw3 span{
+    margin-left: 193px;
 }
 
 .img_on3 {
@@ -1117,19 +1128,6 @@ input[id="b"] {
 
 .legend_yousok_frame{
     display: none;
-}
-
-.yousok_legend{
-    background: rgb(11,96,160);
-    background: linear-gradient(90deg, rgba(11,96,160,1) 0%, rgba(53,150,162,1) 15%, rgba(124,173,122,1) 30%, rgba(242,210,56,1) 45%, rgba(242,169,56,1) 60%, rgba(239,131,53,1) 75%, rgba(255,0,0,1) 90%);
-    width: 260px;
-    height: 15px;
-    margin-top: 10px;
-}
-
-.yousok_legend_text{
-    width: 260px;
-    margin-top: 5px;
 }
 
 

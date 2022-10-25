@@ -2806,6 +2806,8 @@ function select_menu_change_midsuon(value){
     else{
         $('.select_logo_midsuon_off').css('display','none');
         $('.select_logo_midsuon').css('display','');
+        $('.legend_yousok_frame').css('display','block');
+
         layerType = "L2";
         map.setView([
             36.5, 126
@@ -2834,6 +2836,8 @@ function select_menu_change_detailsuon(value){
     else{
         $('.select_logo_detailsuon_off').css('display','none');
         $('.select_logo_detailsuon').css('display','');
+        $('.legend_yousok_frame').css('display','block');
+
         layerType = "L3";
         map.setView([
             34.7599, 127.7594

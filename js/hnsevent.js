@@ -454,7 +454,9 @@ function drawTIF(
             renderer: L
                 .LeafletGeotiff
                 .plotty({
+                    
                     displayMin: minVal, displayMax: maxVal, colorScale: 'jet',
+
                     //colorScale: 'portland',
                     clampLow: false,
                     clampHigh: false,
@@ -1512,3 +1514,5 @@ function selectLayerIndexAdd(val){
 //     }
 
 // }
+
+

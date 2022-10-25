@@ -328,28 +328,19 @@
 								</div>
 							</div>
 
+
+
 							<!--main_que-3-->
 							<div class="legend_yousok_frame">
 							<div class="que3">
 								<span>범례(정확한 수치 수정 필요)</span>
 							</div>
 							<div class="anw3">
+								<img src="./img/jetcolormap.jpg">
 								<div>
-									<div style="margin-top:2rem; margin-bottom: 2rem;">
-										<div style="margin-bottom:2rem;">
-											<div class="yousok_legend"></div>
-											<div class="yousok_legend_text">
-												<span>
-													0
-												</span>
-												<span style="float: right;">
-													20
-												</span>
-											</div>
-											
-										</div>
+									<span style="margin-left: 0;">-1.87</span>
 
-									</div>
+									<span>22.07</span>
 								</div>
 							</div>
 							</div>
@@ -1374,7 +1365,6 @@
 		$(document).ready(function () {
 
 			// select_menu_setting();
-
 			map = L.map('map').setView([36.5, 126], 7);
 			//map = L.map('map').setView([34.76105018295595, 127.80174711434886], 12);
 			map.addLayer(hybridLayer1);
@@ -1543,6 +1533,20 @@
 			});
 		});
 	</script>
+
+	<!-- jet 범례 -->
+	<script>
+		d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function(figure) {
+			var data = [{
+				z: figure.z,
+				colorscale: 'Jet',
+				type: 'heatmap'
+				}
+			];
+			var layout = {title: 'Jet'};
+			Plotly.newPlot('myDiv', data, layout);
+			});
+		</script>
 
 	<script>
 		javascript: CefCustomObject.showDevTools(); //개발환경열기
