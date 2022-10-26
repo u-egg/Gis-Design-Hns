@@ -90,8 +90,8 @@ function layerChecked(obj,val){
             layerType = "L2";
             $('.legend_yousok_frame').css('display','block');
 
-            document.querySelector('#legend_text1').innerHTML = "-1.87"
-            document.querySelector('#legend_text2').innerHTML = "22.07"
+            document.querySelector('#legend_text1').innerHTML = "-1.87℃"
+            document.querySelector('#legend_text2').innerHTML = "22.07℃"
 
             $('#select_menu2').css('display','block');
             map.setView([
@@ -119,8 +119,8 @@ function layerChecked(obj,val){
             $('#select_menu4').css('display','block');
             $('.legend_yousok_frame').css('display','block');
 
-            document.querySelector('#legend_text1').innerHTML = "0"
-            document.querySelector('#legend_text2').innerHTML = "9.15"
+            document.querySelector('#legend_text1').innerHTML = "0℃"
+            document.querySelector('#legend_text2').innerHTML = "9.15℃"
 
             map.setView([
                 34.7599, 127.7594
@@ -284,6 +284,34 @@ function layerChecked(obj,val){
             
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
+
+            javascripr : CefCustomObject.func('database', dbLayerType);
+
+        }
+
+ 
+        else if(val == '17'){    
+
+            selectLayerIndexAdd('78');
+
+            $('.select_logo_db8').css('display','');
+
+            dbLayerType = "18_환경보전지역";
+
+            $('#select_menu17').css('display','block');
+            map.setView([
+                36.5, 126
+            ], 7);
+            
+            for(var i = 1; i<8; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
+
+            for(var i = 9; i<10; i++){
+                $('.select_logo_db' + i).css('display','none');
+                $('.select_logo_db_off' + i).css('display',''); 
+            }
             
             $('.select_logo_st1').css('display','none');
             $('.select_logo_st_off1').css('display',''); 
@@ -374,37 +402,6 @@ function layerChecked(obj,val){
             }
 
             for(var i = 8; i<10; i++){
-                $('.select_logo_db' + i).css('display','none');
-                $('.select_logo_db_off' + i).css('display',''); 
-            }
-            
-            $('.select_logo_st1').css('display','none');
-            $('.select_logo_st_off1').css('display',''); 
-
-            javascripr : CefCustomObject.func('database', dbLayerType);
-
-        }
-
-
-        else if(val == '17'){    
-
-            selectLayerIndexAdd('78');
-
-            $('.select_logo_db8').css('display','');
-
-            dbLayerType = "18_환경보전지역";
-
-            $('#select_menu17').css('display','block');
-            map.setView([
-                36.5, 126
-            ], 7);
-            
-            for(var i = 1; i<8; i++){
-                $('.select_logo_db' + i).css('display','none');
-                $('.select_logo_db_off' + i).css('display',''); 
-            }
-
-            for(var i = 9; i<10; i++){
                 $('.select_logo_db' + i).css('display','none');
                 $('.select_logo_db_off' + i).css('display',''); 
             }
@@ -2042,6 +2039,30 @@ function layerChecked(obj,val){
             $('#select_menu13').css('display','none');
             select_menu_change_db('1','4')
         }
+
+
+        else if(val == '14'){
+            $('#select_menu14').css('display','none');
+            select_menu_change_db('1','5')
+        }
+        else if(val == '15'){
+            $('#select_menu15').css('display','none');
+            select_menu_change_db('1','6')
+        }
+        else if(val == '16'){
+            $('#select_menu16').css('display','none');
+            select_menu_change_db('1','7')
+        }
+        else if(val == '17'){
+            $('#select_menu17').css('display','none');
+            select_menu_change_db('1','8')
+        }
+        else if(val == '18'){
+            $('#select_menu13').css('display','none');
+            select_menu_change_db('1','9')
+        }
+
+
         else if(val == '999'){
             $('#select_menu999').css('display','none');
             select_menu_change_info('1','1')
@@ -2414,6 +2435,9 @@ function select_menu_delete(value){
         if(i == value){
             $('#select_menu'+ value).css('display','none');
             $("input:checkbox[id='layer_"+i+"']").prop('checked',false); //체크박스 해제
+
+
+            $("input:checkbox[id='layer_all"+i+"']").prop('checked',false); //10-26 해양선택(전체)체크박스 해제
            
 
             //체크박스 해제 시 만약 그려져 있다면 레이어 제거 (수정필요성 ?)
@@ -2815,8 +2839,8 @@ function select_menu_change_midsuon(value){
         $('.select_logo_midsuon').css('display','');
         $('.legend_yousok_frame').css('display','block');
         
-        document.querySelector('#legend_text1').innerHTML = "-1.87"
-        document.querySelector('#legend_text2').innerHTML = "22.07"
+        document.querySelector('#legend_text1').innerHTML = "-1.87℃"
+        document.querySelector('#legend_text2').innerHTML = "22.07℃"
 
         layerType = "L2";
         map.setView([
@@ -2854,8 +2878,8 @@ function select_menu_change_detailsuon(value){
             34.7599, 127.7594
         ], 11);
         
-        document.querySelector('#legend_text1').innerHTML = "0"
-        document.querySelector('#legend_text2').innerHTML = "9.15"
+        document.querySelector('#legend_text1').innerHTML = "0℃"
+        document.querySelector('#legend_text2').innerHTML = "9.15℃"
 
         //중복 방지
         $('.select_logo_midsuon').css('display','none');

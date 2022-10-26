@@ -294,9 +294,9 @@
 										공간범위
 									</span><br>
 									<select class="area_select" id="area_select" onchange="layerChange(this.value)">
-										<option value="mid_layer" selected>중간역</option>
+										<option value="mid_layer">중간역</option>
 										<option value="detail_layer">세부역</option>
-										<option value="all_layer">전체</option>
+										<option value="all_layer" selected>전체</option>
 									</select>
 
 									<select class="area_select_sub" id="area_select_1">
@@ -321,6 +321,91 @@
 										<div style="height:19rem; overflow-y:auto; border:1px solid #eaeaea;">
 
 											<div id="yousok_layer" style="display:block;">
+
+												<div class="mid_box">
+													<div class='icheck-greensea'>
+														<input type='checkbox' id='layer_1' value='yousok_L2'
+															name='yousok_chkbox' onclick='layerChecked(this,1)' /><label
+															for='layer_1'><span class='label_table'>중간역 유속
+																레이어</span></label>
+													</div>
+													<div class='icheck-greensea'>
+														<input type='checkbox' id='layer_2' value='suon_L2'
+															name='yousok_chkbox' onclick='layerChecked(this,3)' /><label
+															for='layer_2'><span class='label_table'>중간역 수온
+																레이어</span></label>
+													</div>
+												</div>
+												<div class="select_detail_box">
+													<div class='icheck-greensea'><input type='checkbox' id='layer_3'
+															value='yousok_L3' name='yousok_chkbox'
+															onclick='layerChecked(this,2)' /><label for='layer_3'><span class='label_table'>세부역 유속 레이어</span></label></div>
+													<div class='icheck-greensea'><input type='checkbox' id='layer_4' value='suon_L3' name='yousok_chkbox'
+															onclick='layerChecked(this,4)' /><label for='layer_4'><span
+																class='label_table'>세부역 수온 레이어</span></label></div>
+												</div>
+												<div class="all_box">
+
+													<div class="select_menu_1">
+														<span>유속 레이어</span>
+														<img class="sub_img_on_select1" src="./assets/sub_open.png">
+														<img class="sub_img_off_select1" src="./assets/sub_close.png">
+													</div>
+
+													<div style=" display:none; position: relative;"
+														class="select_anw_1">
+
+														<div class="icheck-greensea icheck-greensea_test">
+															<input type="checkbox" id="layer_all1" value="yousok_L2"
+																name="yousok_chkbox" onclick="layerChecked(this,1)" />
+															<label for="layer_all1">
+																<span class="select_label_table">중간역 유속 레이어</span>
+															</label>
+														</div>
+
+
+														<div class="icheck-greensea">
+															<input type='checkbox' id='layer_all3' value='yousok_L3'
+																name='yousok_chkbox' onclick='layerChecked(this,2)' />
+															<label for="layer_all3">
+																<span class="select_label_table">세부역 유속 레이어</span>
+															</label>
+														</div>
+
+													</div>
+
+													<div class="select_menu_2">
+														<span>수온 레이어</span>
+														<img class="sub_img_on_select2" src="./assets/sub_open.png">
+														<img class="sub_img_off_select2" src="./assets/sub_close.png">
+													</div>
+
+													<div style=" display:none; position: relative;"
+														class="select_anw_2">
+
+														<div class="icheck-greensea icheck-greensea_test">
+															<input type='checkbox' id='layer_all2' value='suon_L2'
+																name='yousok_chkbox' onclick='layerChecked(this,3)' />
+															<label for="layer_all2">
+																<span class="select_label_table">중간역 수온 레이어</span>
+															</label>
+														</div>
+
+
+														<div class="icheck-greensea">
+															<input type='checkbox' id='layer_all4' value='suon_L3'
+																name='yousok_chkbox' onclick='layerChecked(this,4)' />
+															<label for="layer_all4">
+																<span class="select_label_table">세부역 수온 레이어</span>
+															</label>
+														</div>
+
+													</div>
+
+												</div>
+
+
+
 												<!--js로 구현 (메뉴선택에 따른 다른메뉴 표출)-->
 											</div>
 										</div>
@@ -332,17 +417,17 @@
 
 							<!--main_que-3-->
 							<div class="legend_yousok_frame">
-							<div class="que3">
-								<span>범례</span>
-							</div>
-							<div class="anw3">
-								<img src="./img/jetcolormap.jpg">
-								<div>
-									<span id = "legend_text1"></span>
-									<span id = "legend_text2"></span>
-									<div class="clear"></div>
+								<div class="que3">
+									<span>범례(℃)</span>
 								</div>
-							</div>
+								<div class="anw3">
+									<img src="./img/jetcolormap.jpg">
+									<div>
+										<span id="legend_text1"></span>
+										<span id="legend_text2"></span>
+										<div class="clear"></div>
+									</div>
+								</div>
 							</div>
 							<!--현재 줌 레벨-->
 							<div class="nowZoomLevel">
@@ -1111,13 +1196,14 @@
 													</label>
 												</div>
 												<div class="icheck-greensea">
-													<input type="checkbox" id="layer_17" value="18_환경보전지역" onclick='layerChecked(this,17)' name="rdoDatabase" />
+													<input type="checkbox" id="layer_17" value="18_환경보전지역"
+														onclick='layerChecked(this,17)' name="rdoDatabase" />
 													<label for="layer_17">
 														<span class="label_table">환경보전지역</span>
 													</label>
 												</div>
-												
-												<hr>
+
+												<!-- <hr>
 												<div class="icheck-greensea">
 													<input type="checkbox" id="layer_14" value="03_국립공원" onclick='layerChecked(this,14)' name="rdoDatabase" />
 													<label for="layer_14">
@@ -1142,7 +1228,7 @@
 													<label for="layer_18">
 														<span class="label_table">어장정보도</span>
 													</label>
-												</div>
+												</div> -->
 
 											</div>
 										</div>
@@ -1275,7 +1361,7 @@
 						<span><i class="fa-solid fa-x" onclick="layer_select_frame_off()"></i></span>
 					</div>
 					<div class="layer_text">
-						
+
 						<!-- js 로 처리-->
 
 					</div>
@@ -1536,17 +1622,17 @@
 
 	<!-- jet 범례 -->
 	<script>
-		d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function(figure) {
+		d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function (figure) {
 			var data = [{
 				z: figure.z,
 				colorscale: 'Jet',
 				type: 'heatmap'
-				}
+			}
 			];
-			var layout = {title: 'Jet'};
+			var layout = { title: 'Jet' };
 			Plotly.newPlot('myDiv', data, layout);
-			});
-		</script>
+		});
+	</script>
 
 	<script>
 		javascript: CefCustomObject.showDevTools(); //개발환경열기

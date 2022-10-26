@@ -198,6 +198,27 @@ section {
 
 }
 
+.sub_que_select{
+
+    display: inline-block;
+    position: relative;
+    border: 1px solid #ccc;
+    width: 220px;
+    height: 34px;
+    background-color: #e1e2e3;
+    padding: 0 0 0 9px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.sub_anw_select {
+    width: 265px;
+    padding: 0 0 0 9px;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
 .sub_que {
     border: 1px solid #ccc;
     width: 265px;
@@ -247,6 +268,15 @@ section {
     font-size: 1.3rem;
 }
 
+.icheck-greensea_test{
+    width: 220px;
+    padding-top: 5px;
+}
+
+.select_label_table{
+    margin-top: 1px;
+}
+
 .icheck-greensea button{
     width: 200px;
     height: 30px;
@@ -269,11 +299,13 @@ section {
     margin-top: -20px;
     height: 30px;
 }
+
 .label_table{
     padding-left: 5px;
     position: relative;
     top: 3px;
 }
+
 .area_select{
     width: 160px;
     border: 1px solid #b7b3b3;
@@ -328,6 +360,42 @@ section {
     line-height: 4rem;
     cursor: pointer;
     background-color: #fff;
+}
+
+.select_menu_1{
+    border: 1px solid #ccc;
+    width: 220px;
+    height: 34px;
+    background-color: #e1e2e3;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+}
+
+.select_menu_1 span{
+    height: 34px;
+    margin-top: -3px;
+    margin-left: -20px;
+}
+
+.select_menu_2{
+    border: 1px solid #ccc;
+    width: 220px;
+    height: 34px;
+    background-color: #e1e2e3;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+}
+
+.select_menu_2 span{
+    height: 34px;
+    margin-top: -3px;
+    margin-left: -20px;
+}
+
+.all_box, .mid_box, .select_detail_box{
+    display: none;
 }
 
 #yousok_layer {
@@ -552,6 +620,34 @@ section {
     line-height: 4rem;
     cursor: pointer;
     background-color: #fff;
+}
+
+.sub_img_on_select1{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    display: block;
+}
+
+.sub_img_on_select2{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    display: block;
+}
+
+.sub_img_off_select1{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: none;
+}
+
+.sub_img_off_select2{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: none;
 }
 
 #sub_img_on0 {

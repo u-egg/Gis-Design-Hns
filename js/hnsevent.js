@@ -114,38 +114,20 @@ function layerChange(value) { // 공간범위 이벤트
 }
 
 function layer_select() {
-
-    var mid = "<div class='icheck-greensea'>"+
-    "<input type='checkbox'id='layer_1' value='yousok_L2' name='yousok_chkbox' onclick='layerChecked(this,1)'/><label for='layer_1'><span class='label_table'>중간역 유속 레이어</span></label></div>"
-    +"<div class='icheck-greensea'>"
-    +"<input type='checkbox'id='layer_2'value='suon_L2'name='yousok_chkbox' onclick='layerChecked(this,3)'/><label for='layer_2'><span class='label_table'>중간역 수온 레이어</span></label></div>";
-
-    var detail = "<div class='icheck-greensea'><input type='checkbox'id='layer_3' value='yousok_L3'na" +
-            "me='yousok_chkbox' onclick='layerChecked(this,2)'/><label for='layer_3'><span class='label_table'>세부역 유속 레이어</" +
-            "span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_4'va" +
-            "lue='suon_L3'name='yousok_chkbox' onclick='layerChecked(this,4)'/><label for='layer_4'><span class='label_table'" +
-            ">세부역 수온 레이어</span></label></div>";
-
-    var all = "<div class='icheck-greensea'>"+
-    "<input type='checkbox'id='layer_1' value='yousok_L2' name='yousok_chkbox' onclick='layerChecked(this,1)'/><label for='layer_1'><span class='label_table'>중간역 유속 레이어</span></label></div>"
-    +"<div class='icheck-greensea'><input type='checkbox'id='layer_2'value='suon_L2'name='yousok_chkbox' onclick='layerChecked(this,3)'/><label for='layer_2'><span class='label_table'>중간역 수온 레이어</span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_3' value='yousok_L3'na" +
-    "me='yousok_chkbox' onclick='layerChecked(this,2)'/><label for='layer_3'><span class='label_table'>세부역 유속 레이어</" +
-    "span></label></div><div class='icheck-greensea'><input type='checkbox'id='layer_4'va" +
-    "lue='suon_L3'name='yousok_chkbox' onclick='layerChecked(this,4)'/><label for='layer_4'><span class='label_table'" +
-    ">세부역 수온 레이어</span></label></div>";
     
-    if (L_layerType == "" | L_layerType == "mid_layer") {
-        document
-            .querySelector("#yousok_layer")
-            .innerHTML = mid;
+    if (L_layerType == "mid_layer") {
+        $('.mid_box').css('display','block');
+        $('.select_detail_box').css('display','none');
+        $('.all_box').css('display','none');
+
     } else if(L_layerType == "detail_layer") {
-        document
-            .querySelector("#yousok_layer")
-            .innerHTML = detail;
-    } else {
-        document
-            .querySelector("#yousok_layer")
-            .innerHTML = all;
+        $('.select_detail_box').css('display','block');
+        $('.mid_box').css('display','none');
+        $('.all_box').css('display','none');
+    } else if(L_layerType == "" | L_layerType == "all_layer") {
+        $('.all_box').css('display','block');
+        $('.mid_box').css('display','none');
+        $('.select_detail_box').css('display','none');
     }
 }
 
@@ -1469,6 +1451,35 @@ function selectLayerIndexAdd(val){
     }
 
 }
+
+
+$(".select_menu_1").click(function() {
+    $(this).next(".select_anw_1").stop().slideToggle(300);
+    $(this).toggleClass('on').siblings().removeClass('on');
+    if ($('.sub_img_on_select1').css('display') == 'block') {
+        $(".sub_img_on_select1").css("display", "none")
+        $(".sub_img_off_select1").css("display", "block")
+    } 
+    else {
+        $(".sub_img_on_select1").css("display", "block")
+        $(".sub_img_off_select1").css("display", "none")
+    }
+});
+
+
+$(".select_menu_2").click(function() {
+    $(this).next(".select_anw_2").stop().slideToggle(300);
+    $(this).toggleClass('on').siblings().removeClass('on');
+    if ($('.sub_img_on_select2').css('display') == 'block') {
+        $(".sub_img_on_select2").css("display", "none")
+        $(".sub_img_off_select2").css("display", "block")
+    } 
+    else {
+        $(".sub_img_on_select2").css("display", "block")
+        $(".sub_img_off_select2").css("display", "none")
+    }
+});
+
 
 // function siltaeInfo(val) {
 //     //var sss = array(val);
