@@ -1,7 +1,7 @@
 
 // 레이어 선택 이벤트 구현 및 함수 2022-10-13
 
-// 레이어 선택 보기 창 움직임
+// 레이어 선택 보기 창 움직임 (변경필요할듯)
 dragElement(document.getElementById("layer_select_absolute"));
 
 function dragElement(elmnt) {
@@ -90,8 +90,8 @@ function layerChecked(obj,val){
             layerType = "L2";
             $('.legend_yousok_frame').css('display','block');
 
-            document.querySelector('#legend_text1').innerHTML = "-1.87℃"
-            document.querySelector('#legend_text2').innerHTML = "22.07℃"
+            document.querySelector('#legend_text1').innerHTML = "-1℃"
+            document.querySelector('#legend_text2').innerHTML = "22℃"
 
             $('#select_menu2').css('display','block');
             map.setView([
@@ -120,7 +120,7 @@ function layerChecked(obj,val){
             $('.legend_yousok_frame').css('display','block');
 
             document.querySelector('#legend_text1').innerHTML = "0℃"
-            document.querySelector('#legend_text2').innerHTML = "9.15℃"
+            document.querySelector('#legend_text2').innerHTML = "9℃"
 
             map.setView([
                 34.7599, 127.7594
@@ -2839,8 +2839,8 @@ function select_menu_change_midsuon(value){
         $('.select_logo_midsuon').css('display','');
         $('.legend_yousok_frame').css('display','block');
         
-        document.querySelector('#legend_text1').innerHTML = "-1.87℃"
-        document.querySelector('#legend_text2').innerHTML = "22.07℃"
+        document.querySelector('#legend_text1').innerHTML = "-1℃"
+        document.querySelector('#legend_text2').innerHTML = "22℃"
 
         layerType = "L2";
         map.setView([
@@ -2879,7 +2879,7 @@ function select_menu_change_detailsuon(value){
         ], 11);
         
         document.querySelector('#legend_text1').innerHTML = "0℃"
-        document.querySelector('#legend_text2').innerHTML = "9.15℃"
+        document.querySelector('#legend_text2').innerHTML = "9℃"
 
         //중복 방지
         $('.select_logo_midsuon').css('display','none');

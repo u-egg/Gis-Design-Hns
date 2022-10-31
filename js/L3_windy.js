@@ -95,16 +95,47 @@ function L3_Windy(view) {
             
 
     velocityLayer = L.velocityLayer({
-
         displayValues: true,
         displayOptions: {
-            velocityType: "GBR Wind",
-            displayPosition: "bottomleft",
-            displayEmptyString: "No wind data"
+          // 라벨 접두사
+          velocityType: "Global Wind",
+      
+          // leaflet 제어 위치
+          position: "bottomleft",
+      
+          // 커서 데이터 없음
+          emptyString: "No velocity data", 
+      
+          // see explanation below
+          angleConvention: "bearingCW",
+      
+          // display cardinal direction alongside degrees
+          showCardinal: false,
+      
+          // one of: ['ms', 'k/h', 'mph', 'kt']
+          speedUnit: "ms",
+      
+          // direction label prefix
+          directionString: "Direction",
+      
+          // speed label prefix
+          speedString: "Speed",
         },
+
         data: data,
-        maxVelocity: 10
-        
+
+
+        minVelocity: 0, // used to align color scale
+        maxVelocity: 10, // used to align color scale
+        velocityScale: 0.005, // modifier for particle animations, arbitrarily defaults to 0.005
+        colorScale: [], // define your own array of hex/rgb colors
+        onAdd: null, // callback function
+        onRemove: null, // callback function
+        opacity: 0.97, // layer opacity, default 0.97
+
+        // optional pane to add the layer, will be created if doesn't exist
+        // leaflet v1+ only (falls back to overlayPane for < v1)
+        paneName: "overlayPane",
     });
 
     map.addLayer(velocityLayer);
