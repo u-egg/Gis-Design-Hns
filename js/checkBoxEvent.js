@@ -169,7 +169,7 @@ function layerChecked(obj,val){
                 deleteLayer_social(i);
             }
 
-            javascripr : CefCustomObject.func('suon', layerType);
+            javascripr : CefCustomObject.func('maximum', layerType);
 
             tifLayer.remove();
         }
@@ -2932,7 +2932,7 @@ function select_menu_change_range(value){
             deleteLayer_social(i);
         }
 
-        javascripr : CefCustomObject.func('suon', suonLayerType);
+        javascripr : CefCustomObject.func('maximum', suonLayerType);
 
     }
 }

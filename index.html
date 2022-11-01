@@ -510,9 +510,13 @@
 											</div>
 
 										</div>
+
 										<div style="background:#fff;  text-align:center; margin-top:2rem; color:#fff; background-color:#e05c5c; border:1px solid #e05c5c; border-radius:5px; cursor:pointer;"
-											onclick=""><i class="fa-solid fa-play" style="padding-right: 10px;"></i>확산
-											시뮬레이션</div>
+											onclick="simulationInfo()">
+											<i class="fa-solid fa-play" style="padding-right: 10px;"></i>
+											확산 시뮬레이션
+										</div>
+
 									</div>
 								</div>
 							</div>
@@ -1315,7 +1319,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="que3">
+							<div class="que3_info">
 								<span>정보</span>
 							</div>
 							<div class="anw3_info">
@@ -1329,6 +1333,7 @@
 										<span>해양산업시설 - 배출수</span>
 									</div>
 								</div>
+								<div class="remove_btn" onclick="removeMarker(); infoClose();">마커 제거</div>
 							</div>
 
 							<!--현재 줌 레벨-->
@@ -1458,129 +1463,6 @@
 			map.options.maxZoom = 18;
 			map.options.minZoom = 6;
 
-			var arr1 = new Array('충청남도', '충청북도', '경기도', '강원도');
-			var arr2 = new Array('100', '200', '300', '50');
-
-			function initVector() {
-				vector = L.geoJson([], {
-					style: function (feature) {
-						return feature.properties.style;
-					},
-					onEachFeature: function (feature, layer) {
-
-						layer.on({
-							click: function (e) {
-
-								/*if(arr1[0] == e.target.feature.properties.SIG_KOR_NM) {
-									alert(arr2[0]);
-								}*/
-
-								vector.eachLayer(function (l) {
-									/*if(e.target.feature.properties.SIG_KOR_NM != "충청남도"){
-										vector.resetStyle(l);
-									}*/
-									vector.resetStyle(l);
-								});
-
-								$('.tbodyContent').remove();
-								var tbody = '<tbody class="tbodyContent">';
-								for (var key in e.target.feature.properties) {
-									tbody +=
-										('<tr class="center aligned"><td>' + key + '</td><td>' + e.target.feature.properties[key] + '</td></tr>');
-								}
-								$('#attribute').append(tbody + '</tbody>');
-
-								$('#attr').fadeIn(300);
-								//map.panTo(e.latlng);
-								//alert(e.target.feature.properties.SIG_KOR_NM);
-
-								if ('setStyle' in e.target) e.target.setStyle({
-									fillColor: '#FF0000',
-									fillOpacity: 0.6
-								});
-							}
-						});
-					}
-				}).addTo(map);
-			}
-
-			function loadShpZip() {
-				var epsg = ($('#epsg').val() == '') ? 4326 : $('#epsg').val(),
-					encoding = ($('#encoding').val() == '') ? 'UTF-8' : $('#encoding').val();
-				if (file.name.split('.')[1] == 'zip') {
-					if (file) $('.dimmer').addClass('active');
-					loadshp({
-						url: file,
-						encoding: encoding,
-						EPSG: epsg
-					}, function (data) {
-						var URL = window.URL || window.webkitURL || window.mozURL || window.msURL,
-							url = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
-
-						$('.shp-modal').toggleClass('effect');
-						$('.overlay').toggleClass('effect');
-						$('#wrap').toggleClass('blur');
-
-						vector.addData(data);
-						map.fitBounds([
-							[data.bbox[1], data.bbox[0]], [data.bbox[3], data.bbox[2]]
-						]);
-						$('.dimmer').removeClass('active');
-						$('#preview').addClass('disabled');
-						$('#epsg').val('');
-						$('#encoding').val('');
-						$('#info').addClass('picInfo');
-						$('#option').slideUp(500);
-					});
-				} else {
-					alert("ZIP 포맷으로 사용해주십시오.")
-					return;
-				}
-			}
-
-			initVector();
-
-			$("#file").change(function (evt) {
-				file = evt.target.files[0];
-				var fileSize = Math.round(file.size);
-				console.log(fileSize);
-				//if(file.size > 600000) {
-				//    alert("600KB 이햐의 데이터를 이용하여 주십시오.")
-				//    return;
-				//}else{
-				$('#dataInfo').text(' ').append(file.name + ' , ' + file.size + ' kb');
-				$('#option').slideDown(500);
-				$('#preview').removeClass('disabled');
-				// }
-			});
-
-			$('#preview').click(function () {
-				loadShpZip();
-			});
-
-			$('#addZipfile').click(function () {
-				$('.shp-modal').toggleClass('effect');
-				$('.overlay').toggleClass('effect');
-				$('#wrap').toggleClass('blur');
-			});
-			$('#cancel').click(function () {
-				$('.shp-modal').toggleClass('effect');
-				$('.overlay').toggleClass('effect');
-				$('#wrap').toggleClass('blur');
-			});
-			$('#removeLayer').click(function () {
-				$('#attr').fadeOut(300);
-				window.location.reload();
-			});
-
-			$("#attr").draggable({ containment: $(this).parent().parent(), scroll: false, cursor: "move" });
-
-			$('#cancelAttr').click(function () { $('#attr').slideUp(300); });
-
-
-			$("#attrLine").draggable({ containment: $(this).parent().parent(), scroll: false, cursor: "move" });
-			$('#cancelAttrLine').click(function () { $('#attrLine').slideUp(300); });
-
 			//컨트롤 위치 변경
 			$(".leaflet-control-attribution").css("display", "none");
 			$(".leaflet-control-container").css("position", "absolute");
@@ -1589,14 +1471,6 @@
 			//컨트롤 위치 변경 끝
 
 			classSetTime();//setTime selectBox에 0시~23시 옵션 추가
-
-			//document.getElementById("loading").style.display = "none";
-
-			map.on("zoomstart", function (e) {
-
-				map.removeLayer(layerGroup); // 레이어 표기된 화살표 및 그림 지우기
-
-			});
 
 			map.on("zoomend", function (e) {
 				if (layerclear != 'clear') {
@@ -1609,28 +1483,6 @@
 				document.getElementById("thisZoomLevel4").innerHTML = map.getZoom();
 			});
 
-			map.on("movestart", function (e) {
-				map.removeLayer(layerGroup);
-			});
-			map.on("moveend", function (e) {
-				if (layerclear != 'clear') {
-					drawArrow(setLon, setLat, set_wind_direction);
-				}
-			});
-		});
-	</script>
-
-	<!-- jet 범례 -->
-	<script>
-		d3.json('https://raw.githubusercontent.com/plotly/datasets/master/custom_heatmap_colorscale.json', function (figure) {
-			var data = [{
-				z: figure.z,
-				colorscale: 'Jet',
-				type: 'heatmap'
-			}
-			];
-			var layout = { title: 'Jet' };
-			Plotly.newPlot('myDiv', data, layout);
 		});
 	</script>
 

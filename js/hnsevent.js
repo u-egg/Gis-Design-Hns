@@ -330,6 +330,19 @@ var setImgType = "";
 
 var imgOverlay = null;
 
+let simulWindow;
+
+function simulationInfo(){
+    simulWindow =  window.open("./maximum.html","Child","width=1200, height=1100, top=160, left=1350");
+}
+
+function simulationinfoClose(){
+    simulWindow.close();
+}
+
+
+
+
 function addImagePng(imgPath, minX, minY, maxX, maxY) {
     if (imgOverlay != null) {
         imgOverlay.remove();
@@ -760,12 +773,18 @@ function settingVector() {
 var areaName = "";
 var stName = "";
 
+let infoWindow;
+
 function layerInfo() {
-    window.open(
-        "./layerinfo.html",
-        "Child",
-        "width=820, height=1100, top=160, left=1480"
-    );
+    
+    infoWindow =  window.open("./layerinfo.html","Child","width=820, height=1100, top=160, left=1480");
+
+}
+
+function infoClose(){
+    
+    infoWindow.close();
+
 }
 
 var area = "";
@@ -801,6 +820,9 @@ function mapsetting() { // 좌표이동
     if (area == "") {
         area = "busan";
     }
+
+    $(".que3_info").css('display','block');
+    $(".anw3_info").css('display','block');
 
     nameMattiong();
 
@@ -1082,6 +1104,9 @@ function removeMarker() {
     map.removeLayer(st_marker8);
     map.removeLayer(st_marker9);
     map.removeLayer(st_marker10);
+
+    $(".que3_info").css('display','none');
+    $(".anw3_info").css('display','none');
 }
 
 function nameMattiong() {
@@ -1525,5 +1550,4 @@ $(".select_menu_2").click(function() {
 //     }
 
 // }
-
 
