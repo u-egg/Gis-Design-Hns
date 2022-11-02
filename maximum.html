@@ -63,11 +63,14 @@
 </head>
 
 <body>
+
   <!--지도-->
   <div id="mapbox">
     <div id="wrap" class="wrap">
 
       <div id="maxmap"></div>
+
+      <div class="testFrame" onclick="testOpen(1)">시뮬레이션시작</div>
 
     </div>
     <div style="z-index:9999; position:absolute; right:12px; top:15px;">
@@ -92,6 +95,7 @@
   <!--외부 스크립트 파일-->
   <script type="text/javascript" src="./js/hnsevent.js"></script>
 
+
   <script type="text/javascript" charset="utf-8">
 
     var maxmap;
@@ -100,7 +104,9 @@
 
     function mapChange(type) {
       if (type == "base") {
+
         maxbase = 0;
+
         maxmap.removeLayer(maxhybridLayer1);
         maxmap.removeLayer(maxhybridLayer2);
 
@@ -126,14 +132,7 @@
 
     $(document).ready(function () {
 
-      // 2022-11-01 시뮬레이션 테스트
-
-      var num = 3;
-      var layerType = (num < 10) ? "0" + num : num;
-
-      //javascripr : CefCustomObject.func('test', layerType);
-
-      maxmap = L.map('maxmap').setView([34.7599, 127.7594], 11);
+      maxmap = L.map('maxmap').setView([34.8599, 127.7294], 12);
 
       maxmap.addLayer(maxhybridLayer1);
       maxmap.addLayer(maxhybridLayer2);
@@ -151,7 +150,9 @@
 
   </script>
 
-
+  <script>
+    javascript: CefCustomObject.showDevTools2(); //개발환경열기
+  </script>
 
 </body>
 

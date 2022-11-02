@@ -1455,9 +1455,7 @@
 
 		$(document).ready(function () {
 
-			// select_menu_setting();
 			map = L.map('map').setView([36.5, 126], 7);
-			//map = L.map('map').setView([34.76105018295595, 127.80174711434886], 12);
 			map.addLayer(hybridLayer1);
 			map.addLayer(hybridLayer2);
 			map.options.maxZoom = 18;
@@ -1474,7 +1472,6 @@
 
 			map.on("zoomend", function (e) {
 				if (layerclear != 'clear') {
-					//drawArrow(setLon, setLat, set_wind_direction);
 				}
 				document.getElementById("thisZoomLevel").innerHTML = map.getZoom();
 				document.getElementById("thisZoomLevel1").innerHTML = map.getZoom();
