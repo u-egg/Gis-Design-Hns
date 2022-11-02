@@ -88,6 +88,7 @@ function layerChecked(obj,val){
             $('.select_logo_midsuon').css('display','');
 
             layerType = "L2";
+
             $('.legend_yousok_frame').css('display','block');
 
             document.querySelector('#legend_text1').innerHTML = "-1℃"
@@ -144,13 +145,19 @@ function layerChecked(obj,val){
 
             tifLayer.remove();
         }
-        else if(val == '5'){ // HNS 확산영역 최대확산범위 (현재 세부역 수온과 동일)
+        else if(val == '5'){ // HNS 확산영역 최대확산범위
 
             selectLayerIndexAdd(5);
 
             $('.select_logo_range').css('display','');
             layerType = "L3";
             $('#select_menu5').css('display','block');
+
+            $('.legend_max_frame').css('display','block');
+
+            document.querySelector('#legend_text_max1').innerHTML = "0"
+            document.querySelector('#legend_text_max2').innerHTML = "0.27"
+
             map.setView([
                 34.7599, 127.7594
             ], 11);
@@ -2020,6 +2027,8 @@ function layerChecked(obj,val){
         }
         else if(val == '5'){
             $('#select_menu5').css('display','none');
+            $('.legend_max_frame').css('display','none');
+
             select_menu_change_range('1'); 
         }
 
@@ -2906,11 +2915,17 @@ function select_menu_change_range(value){
     if(value == '1'){
         $('.select_logo_range').css('display','none');
         $('.select_logo_range_off').css('display','');
+        $('.legend_max_frame').css('display','none');
         tifLayer.remove();
     }
     else{
         $('.select_logo_range_off').css('display','none');
         $('.select_logo_range').css('display','');
+
+        $('.legend_max_frame').css('display','block');
+
+        document.querySelector('#legend_text_max1').innerHTML = "0"
+        document.querySelector('#legend_text_max2').innerHTML = "0.27"
 
         map.setView([
             34.7599, 127.7594

@@ -337,20 +337,149 @@ var setImgType = "";
 // 2022 - 11 - 01
 
 var imgOverlay = null;
+var timer = null; // 인터벌 정지용 변수
+
+var maxLayerNum = 0;
 
 function simulationInfo(){
     javascripr : CefCustomObject.func('maximumFormOpen', layerType);
 }
+  
+function timerStart(){ // 인터벌 시작
+    
+    document.getElementById("play_range").value= maxLayerNum;
 
-function testOpen(num) {
+    $('.play_btn').css('display','none');
+    $('.stop_btn').css('display','block');
 
-    // 2022-11-02 시뮬레이션 테스트
+	timer = setInterval(function(){ 	
+		layerSimul();
+	}, 1000); 
+}
 
-    var layerType = (num < 10) ? "0" + num : num;
+function timerStop(){ // 인터벌 정지
 
+	if(timer != null){
+		clearInterval(timer)
+
+        $('.play_btn').css('display','block');
+        $('.stop_btn').css('display','none');
+
+        //alert("시뮬레이션 종료");
+    }
+
+}
+
+// function rangeVal(num){
+//     maxLayerNum = num;
+//     simulTest();
+// }
+
+function range_reset(){
+
+    timerStop();
+
+    maxLayerNum = 0;
+    document.getElementById("play_range").value= maxLayerNum;
+
+    layerType = "01";
     javascripr: CefCustomObject.func('test', layerType);
 
-  }
+}
+
+function layerSimul(){
+
+    maxmap.setView([
+        34.8599, 127.7294
+    ], 12);
+
+
+    maxLayerNum = maxLayerNum + 1;
+
+    // if(maxLayerNum == 13){
+    //     maxLayerNum = 1;
+    // }
+
+    var layerType = (maxLayerNum < 10) ? "0" + maxLayerNum : maxLayerNum;
+
+    if(layerType == "13"){
+        timerStop();
+    }
+    else{
+        document.getElementById("play_range").value= maxLayerNum;
+        javascripr: CefCustomObject.func('test', layerType);
+    }
+
+}
+
+function simulTest(){
+
+    maxmap.setView([
+        34.8599, 127.7294
+    ], 12);
+
+    //maxLayerNum = maxLayerNum + 1;
+
+    var layerType = (maxLayerNum < 10) ? "0" + maxLayerNum : maxLayerNum;
+
+    if(layerType == "13"){
+        timerStop();
+        maxLayerNum = 0;
+    }
+    else{
+
+        document.getElementById("play_range").value= maxLayerNum;
+        javascripr: CefCustomObject.func('test', layerType);
+    }
+
+    
+}
+
+function range_down(){
+
+    timerStop();
+
+    if(maxLayerNum > 0){
+        maxLayerNum = maxLayerNum - 1;
+        if(maxLayerNum == 0){
+            maxLayerNum = 1;
+        }
+        document.getElementById("play_range").value= maxLayerNum;
+    }
+    else{
+        maxLayerNum = 1;
+        document.getElementById("play_range").value= maxLayerNum;
+    }
+    simulTest();
+}
+
+function range_up(){
+
+    timerStop();
+
+    if(maxLayerNum < 13){
+        maxLayerNum = maxLayerNum + 1;
+        document.getElementById("play_range").value= maxLayerNum;
+    }
+    else{
+        maxLayerNum = 12;
+        document.getElementById("play_range").value= maxLayerNum;
+    }
+    simulTest();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function drawFileTIF_max(binaryDATA, bufferSize, maxVal, minVal) {
 
