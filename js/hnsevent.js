@@ -328,19 +328,62 @@ var setImgType = "";
 // tifLayer.setOpacity(val / 10); 	}else{ 		imgOverlay.setOpacity(val / 10); 	}
 // }
 
+
+
+
+
+
+
+// 2022 - 11 - 01
+
 var imgOverlay = null;
 
-let simulWindow;
-
 function simulationInfo(){
-    simulWindow =  window.open("./maximum.html","Child","width=1200, height=1100, top=160, left=1350");
+    javascripr : CefCustomObject.func('maximumFormOpen', layerType);
 }
 
-function simulationinfoClose(){
-    simulWindow.close();
-}
+function testOpen(num) {
 
+    // 2022-11-02 시뮬레이션 테스트
 
+    var layerType = (num < 10) ? "0" + num : num;
+
+    javascripr: CefCustomObject.func('test', layerType);
+
+  }
+
+function drawFileTIF_max(binaryDATA, bufferSize, maxVal, minVal) {
+
+    if (tifLayer != null) {
+      tifLayer.remove();
+    }
+
+    dt = binaryDATA.split(',');
+
+    dt.pop();
+
+    var byteArray = new Array();
+
+    ab = new ArrayBuffer(bufferSize);
+    var int8arr = new Int8Array(ab);
+    int8arr.set(dt);
+    tifLayer = L
+      .leafletGeotiff('', {
+        band: 0,
+        name: 'typhoon',
+        renderer: L
+          .LeafletGeotiff
+          .plotty({
+
+            displayMin: minVal, displayMax: maxVal, colorScale: 'jet',
+            clampLow: false,
+            clampHigh: false
+
+          })
+      })
+
+      .addTo(maxmap);
+  }
 
 
 function addImagePng(imgPath, minX, minY, maxX, maxY) {
@@ -439,6 +482,7 @@ function drawTIF(
     dt.pop();
 
     var byteArray = new Array();
+
     ab = new ArrayBuffer(bufferSize);
     var int8arr = new Int8Array(ab);
     int8arr.set(dt);
@@ -543,6 +587,7 @@ function drawFileTIF(binaryDATA, bufferSize, maxVal, minVal) {
     if (tifLayer != null) {
         tifLayer.remove();
     }
+
     /*
 	document.getElementById("dan").innerHTML = dan;
 
@@ -633,13 +678,16 @@ function viewDatabaseLayer(type) {
 }
 
 var shpLayer = null;
+
 function csharpSHP(
+
     shpByteString,
     dbfByteString,
     prjTxt,
     shpBufferSize,
     dbfBufferSize
-) {
+
+    ) {
     if (shpLayer != null) {
 
         shpLayer.clearLayers();
@@ -1550,4 +1598,8 @@ $(".select_menu_2").click(function() {
 //     }
 
 // }
+
+
+
+
 
