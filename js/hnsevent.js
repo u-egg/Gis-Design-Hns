@@ -93,7 +93,7 @@ function layerChange(value) { // 공간범위 이벤트
 
     var mid = "<option value='null'>-</option>"
     var detail = "<option value='YS_layer'>여수산단</option>"
-    var all = "<option value='YS_layer'>여수산단</option>"
+    var all = "<option value='YS_layer'>-</option>"
 
     if (L_layerType == "mid_layer") {
         document
